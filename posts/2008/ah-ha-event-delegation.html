@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ah-ha Event Delegation</title>
+  <meta name="keywords" content="nathan borror, san francisco, ios, swift, django, objective-c, palo alto, design, product design, interaction, engineer, technology">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/stylesheets/screen.css">
+</head>
+<body class="inner">
+
+<header>   <h1><a href="/">Nathan Borror</a></h1> </header>
+
+<article>
+# Ah-ha Event Delegation
+
+Wrapping my head around things like OOP took months. It's not because I'm an idiot (I don't think) - it's just because I needed all the explanations to marinate before having an ah-ha! moment.
+
+I had an ah-ha today, with regards to Event Delegation. I've never seemed to completely understand events, yet I use them all the time. They're an essential aspect of Actionscript and Javascript and there are two basic ways of capturing events, Event Handling and Event Delegation.
+
+Most of us, whether we realize it or not, are familiar with Event Handling. Imagine we have an unordered list with a class name <code>.nav</code> and each item has a link. For this example, I'm going to use jQuery, so if you wanted to call a javascript function when the user clicks a link in the list, you'd do the following:
+
+```js
+$('.nav a').each(function() {
+    $(this).click(handleClick);
+});
+
+function handleClick(event) {
+    // fun stuff goes here
+}
+```
+
+If you're jQuery savvy, the above code should be familiar. We're looping over all the anchor tags within the unordered list and assigning the function "handleClick" to the click event. Each time someone clicks a link, "handleClick" is called and the anchor tag is in the function scope. This is Event Handling.
+
+Event Delegation makes things a little simpler by eliminating the need to loop over every anchor tag. We simply apply the click event to the unordered list like so:
+
+```js
+$('.nav').click(handleClick);
+```
+
+Since the click event is registered with the unordered list, it gets fired off when anything inside the list is clicked. The scope of the handleClick function is set to the <code><ul></code> but if you want to target the anchor tag below the mouse click, you use <a href="http://docs.jquery.com/Events_%28Guide%29#event.target">event.target</a>. This is Event Delegation.
+
+Both are very powerful but in most instances Event Delegation is going to require less code while boosting performance. Many thanks to [Jacob](http://www.jacobian.org) for making this ah-ha moment possible.
+
+<footer><p>March 5, 2008 around 12am</p></footer>
+</article>
+
+</body>
+</html>

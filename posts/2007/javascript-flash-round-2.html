@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Javascript Flash round 2</title>
+  <meta name="keywords" content="nathan borror, san francisco, ios, swift, django, objective-c, palo alto, design, product design, interaction, engineer, technology">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/stylesheets/screen.css">
+</head>
+<body class="inner">
+
+<header>   <h1><a href="/">Nathan Borror</a></h1> </header>
+
+<article>
+  # Javascript Flash round 2
+
+  FIguring out the Javascript/Flash integration kit has lead to a much simpler solution. Looks like Macromedia has slipped in another nugget of usefulness in the Flash 8 release which, I might add,  has penetrated the market remarkably fast. It's called External Interface. I gotta thank [Bobby](http://bobbykellogg.com/) for finding this one.
+
+  So forget the last post if you're a progressive designer like myself, marching to the Flash 8 bugle. Using the same example as [before](/posts/2007/mar/18/make-flash-and-javascript-sing/) replace your Actionscript with the following.
+
+  ```js
+  import flash.external.ExternalInterface;
+
+  ExternalInterface.addCallback("moveBall", this, moveBall);
+
+  function moveBall (p_x:Number, p_y:Number):Void {
+      ball_mc._x = p_x;
+      ball_mc._y = p_y;
+  }
+  ```
+
+  And then replace your javascript with the following.
+
+  ```js
+  function move_ball () {
+      x = document.moveball.x.value;
+      y = document.moveball.y.value;
+
+      if (navigator.appName.indexOf("Microsoft") != -1) {
+        window['ball'].moveBall(x, y);
+      } else {
+        document['ball'].moveBall(x, y);
+      }
+  }
+  ```
+
+  Thats it! Just make sure you name your flash file "ball" and you've set allowScriptAccess to all or sameDomain. Get rid of all the extraneous files from before too, you don't need them! [View example](http://www.playgroundblues.com/media/source/JavaScript_Flash_Tutorial2/) or [download](http://www.playgroundblues.com/media/source/JavaScript_Flash_Tutorial2.zip).
+
+  _March 20, 2007 around 12am_
+</article>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+# The Third Degree
+
+I've recently been building a basic shopping cart system using the [Cake Framework](http://cakephp.org/). I've been relying heavily on [Prototype](http://prototype.conio.net/) and all the beautiful effects from [script.aculo.us](http://script.aculo.us/) During this process (with the help from [Travis](http://www.squidfingers.com)) I've had a few epiphanies regarding the javascript landscape.
+
+The last couple years have been occupied with a popular movement towards separation of presentation and structure with CSS/XHTML. I think most of us applaud this movement but now it's time to push for a third degree of separation, Functionality. Since Prototype is effortless to implement we can begin to sprinkle it everywhere and before long our documents become difficult to read.
+
+This has lead me to re-think how Structure, Presentation, and now Functionality coexist. My current method is getting everything functioning without javascript. This assures that if a person has javascript disabled the site will continue to function properly. I then go back using a single .js file and create appropriate classes around the needed functionality points and execute them using a window.onload event. The trick is meticulous naming of id's in the XHTML.
+
+I highly recommend this method for those of you getting your kicks with Ajax. Ajax is great but if you don't have a backup plan your screwed and having this third degree ensures a graceful degrade.
+
+_July 20, 2005 around 10pm_

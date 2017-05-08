@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Make Flash and Javascript Sing</title>
+  <meta name="keywords" content="nathan borror, san francisco, ios, swift, django, objective-c, palo alto, design, product design, interaction, engineer, technology">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/stylesheets/screen.css">
+</head>
+<body class="inner">
+
+<header>   <h1><a href="/">Nathan Borror</a></h1> </header>
+
+<article>
+  # Make Flash and Javascript Sing
+
+  Yes its true. You can make Javascript and Flash play together! Way back in 2005 the company formerly known as Macromedia threw together a nice [little kit](http://weblogs.macromedia.com/flashjavascript/) to make these two languages play nicely. Here's how.
+
+  First we need to secure some crutial files. The first is a SWF called JavaScriptFlashGateway.swf which allows us to setup a "proxy" between our Flash and Javascript. Second, make sure you link up JavaScriptFlashGateway.js. Third, put JavaScriptSerializer.as and JavaScriptProxy.as in your Actionscript class path so you can import them into your Flash movies.
+
+  Once all that is in place it's time to write some code. For this example I'm going to make a ball move across the screen using two input fields in an HTML form which will allow a person to enter X and Y values to move the ball across the screen. Before we can get any further we need establish an ID so things are nice a secure between our Flash and Javascript. We're going to use the current time as our ID like so:
+
+  ```js
+  var uid = new Date().getTime();
+  var flashproxy = new FlashProxy(uid, 'JavaScriptFlashGateway.swf');
+  ```
+
+  Now lets add some code to our flash movie. In the first frame add:
+
+  ```js
+  import JavaScriptProxy;
+
+  var Ball = {}
+  Ball.moveBall = function (p_x:Number, p_y:Number) {
+      ball_mc._x = p_x;
+      ball_mc._y = p_y;
+  }
+
+  var proxy:JavaScriptProxy = new JavaScriptProxy(_root.lcId, Ball);
+  ```
+
+  We're simply importing the JavaScriptProxy class and creating a Ball class. The Ball class gets a method called moveBall which is what we'll call via javascript. Notice the JavaScriptProxy is passed our ID that we created earlier and a reference to the Ball class. Lets turn back to our HTML file and add some more Javascript to complete the deal.
+
+  ```js
+  var tag = new FlashTag('flash/ball.swf', 400, 350);
+  tag.setFlashvars('lcId='+uid);
+  tag.write(document);
+
+  function move_ball () {
+      var x = document.moveball.x.value;
+      var y = document.moveball.y.value;
+      flashproxy.call("moveBall", x, y)
+  }
+  ```
+
+  Here we're using the handy FlashTag class to embed our ball.swf into our page. We're also passing the ID we created earlier, very important. The move_ball function is what we'll call upon submission of the HTML form. It uses the flashproxy instance to call our Actionscript method "moveBall" passing it the x and y coordinates into the SWF thus moving the ball.
+
+  Hope this makes a little sense. The code can be [downloaded here](http://www.playgroundblues.com/media/source/JavaScript_Flash_Tutorial.zip) or you can just look at it [here](http://www.playgroundblues.com/media/source/JavaScript_Flash_Tutorial/). I've also created [another example](http://www.playgroundblues.com/laboratory/) that utilizes a Flash video player and playlist. You can also call Javascript functions from within your Flash movie. There is one gotcha that I've come across in order to do this. Be sure to set the Flash parameter allowScriptAccess to "always". Otherwise communication from Flash to Javascript won't work.
+
+  _March 18, 2007 around 12am_
+</article>
+
+</body>
+</html>

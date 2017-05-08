@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Django Basic Apps</title>
+  <meta name="keywords" content="nathan borror, san francisco, ios, swift, django, objective-c, palo alto, design, product design, interaction, engineer, technology">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/stylesheets/screen.css">
+</head>
+<body class="inner">
+
+<header>   <h1><a href="/">Nathan Borror</a></h1> </header>
+
+<article>
+  # Django Basic Apps
+
+  I've been working on abstracting some Django applications from past projects so they can effortlessly be plugged into future projects. I hate writing the same blog application repeatedly, so this is an attempt to make life easier. I think this will be a fun, little suite of plug-n-play Django apps that everyone can benefit from.
+
+  I'm calling this suite Basic Apps with the hopes they'll live up to their name. They're freely distributed under the [New BSD License](http://www.opensource.org/licenses/bsd-license.php) and hosted at Google Code. The goal is to use the month of December to get feedback from everyone and finalize the models, so **beware of model changes.**
+  The apps I'll be introducing today include Basic Blog, Basic Places, Basic People, Basic Library, and Basic Profiles. Before you run off keep in mind these are _basic_ apps. You won't see anything earth shattering. The idea is to be simple and pluggable so when it comes time to add a blog or user profiles to your project you've got a jumping off point. That said, I'd like to provide a brief description of each app:
+
+  ## [Basic Blog](http://code.google.com/p/django-basic-blog/)
+
+  This is a blog, nothing more nothing less. There is a Post model and a Category model. The dependancies include Django Comments and [Django Tagging](http://code.google.com/p/django-tagging/).
+
+  ## [Basic Places](http://code.google.com/p/django-basic-places/)
+
+  This app stores place information, (gasp!) The models include Place Type, City, Point, and Place. Django Tagging is the only dependancy.
+
+  ## [Basic People](http://code.google.com/p/django-basic-people/)
+
+  This app stores people information. (you're kidding!) This app has nothing to do with Users. The people that go here are individuals that will never have access to your project. It is used heavily with the library app. The models include Person Type and Person.
+
+  ## [Basic Library](http://code.google.com/p/django-basic-library/)
+
+  This actually contains three apps: Music, Movies, and Books. All three are independent and should be placed independently in your PYTHONPATH. Movies has one model, Movie. Books has two, Book and Publisher. Music has Label, Band, Album, and Song. All three depend on the Basic People app. They all have a Genre model to boot!
+
+  ## [Basic Profiles](http://code.google.com/p/django-basic-profiles/)
+
+  This app extends the Django User app, providing added user information. The models include Profile, Mobile Service, Link, Service, and Service Type.
+  All of these apps need Python 2.4 or higher and Django 0.97 or higher. If you have any feature requests or notice any issues please create a ticket on the corresponding Google Code site using the Issues tab. I've also started a [Django Basic Apps](http://groups.google.com/group/django-basic-apps) discussion over at Google Groups. Now, let's build some shit.
+
+  _December 2, 2007 around 9pm_
+</article>
+
+</body>
+</html>

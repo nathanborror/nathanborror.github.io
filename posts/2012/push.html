@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Setting up Apple Push Notifications</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/stylesheets/screen.css">
+</head>
+<body class="inner">
+
+<header>   <h1><a href="/">Nathan Borror</a></h1> </header>
+
+<article>
+
+<p><strong>Setting up Apple Push Notifications</strong> — While trying to figure this out I came across a <a href="http://www.raywenderlich.com/3443/apple-push-notification-services-tutorial-part-12">great article</a> by Matthijs Hollemans. I suggest following it if you're interested in an in-depth tutorial. What follows is a more concise version of that article and instead of using PHP I'm using a variant of <a href="http://www.cktsoi.com/2012/02/sending-apple-push-notification-in-python/">Jacky Tsoi's Python script</a>. This is pretty tedious and there are a lot of steps you have to get right in order for this to work properly so hang in there.</p>
+<p>You're going to need an iOS device, testing pushes cannot be done in the simulator. You'll also need an iOS Developer Program membership and eventually a server but for our purposes we'll just be using your local machine.</p>
+
+<p><strong>Payload</strong> — Pushes are just JSON sent from a server, a simple example looks like this:</p>
+
+<script src="https://gist.github.com/nathanborror/08d619666d6e7256c237b0f1d21645b6.js"></script>
+
+<p>The max size of a push is 256 bytes so don't get carried away—it's good to remove all whitespace if you can.</p>
+
+<h3>Generate a Certificate Signing Request</h3>
+
+<ol>
+<li>Open Keychain and navigate to Keychain Access > Certificate Assistant > Request a Certificate From a Certificate Authority</li>
+<li>Enter your Email, a Common Name "PushNotifs" (this can be anything you want), and check Saved to disk</li>
+<li>Click Continue and name the file "PushNotifs.certSigningRequest"</li>
+<li>Find "PushNotifs" in the Keys section of Keychain, right click on the private key and choose Export</li>
+<li>Save the private key as PushNotifsKey.p12 and choose a good passphrase</li>
+</ol>
+
+<h3>App ID and SSL Certificate</h3>
+<p>We need an App ID and SSL certificate from Apple's <a href="https://developer.apple.com/ios/manage/overview/index.action">iOS Provisioning Portal</a>. Each push app needs its own App ID, you cannot use a wildcard ID.</p>
+
+<ol>
+<li>Click App IDs in the iOS Provisioning Portal sidebar and click the New App ID button</li>
+<li>Enter "PushNotifs" as the description and "com.nathanborror.PushNotifs" as the Bundle Identifier (replace 'nathanborro' with something more appropriate for yourself)</li>
+<li>After clicking Submit click configure next to the App ID we just made on the resulting screen</li>
+<li>Check "Enable for Apple Push Notification service" and click configure for "Development Push SSL Certificate"</li>
+<li>This first screen walks you through how to generate a Certificate Signing Request which we already did so you can click Continue</li>
+<li>On the next screen add the certificate we made earlier, "PushLook.certSigningRequest" and click Generate</li>
+<li>Wait for Apple to generate the SSL certificate then click Continue.</li>
+<li>Download the certificate and click Done</li>
+</ol>
+
+<p>Keep these three files in a safe place. Development certificates are ephemeral so you'll need to renew them every three months. Production certs last a year.</p>
+
+<h3>SSL .pem Creation</h3>
+<p>We need to create a .pem file to be used on our server. Using Terminal navigate to the folder with these three files in it and convert the .cer file to a .pem file:</p>
+
+<script src="https://gist.github.com/nathanborror/1fdbeed9726029aa5afe0e2f1455bd3d.js"></script>
+
+<p>You should see some output and be able to type a few characters, press enter and the server should disconnect. Openssl will let you know if there was a problem connecting.<a href="#01">1</a></p>
+
+<h3>Provisioning Profile</h3>
+
+<p>Head back to Apple's Provisioning Portal, click Provisioning in the sidebar then click New Profile. I chose "PushNotifs Development" as my Profile Name, check your certificate, choose the App ID we just created, then choose the devices you plan to develop with. Refresh the page until you see a Download button next to the profile we just made and click it. Open the downloaded file so it gets added to Xcode.</p>
+
+<h3>Basic Push App</h3>
+
+<p>Start a new project in Xcode, pick the Empty Application template and name it PushNotifs (or whatever you named your App ID earlier, they should match up). in AppDelegate.m add the following:</p>
+
+<script src="https://gist.github.com/nathanborror/9d2ac00f5de51a78db35ddf884d5a0cf.js"></script>
+
+<p>Now try building and running. It won't work in the simulator because it doesn't support push so you'll need to run this on a device. You should get an alert asking you to allow push notifications. Before we move on add the following to AppDelegate.m:</p>
+
+<script src="https://gist.github.com/nathanborror/b18350419021a5d4a07e3889f717b311.js"></script>
+
+<p>Now when you run this you should see a device token in the debug output. Keep this handy for the next portion.</p>
+
+<h3>Server Side</h3>
+
+<p>Now we need a simple script we can use on our server that connects to APN and sends push notifications for us. I'm going to use Python for this but you can use whatever you want. Create a new file called push.py in the same directory you put the ck.pem file we created earlier and write the following:</p>
+
+<script src="https://gist.github.com/nathanborror/12b1ef88afeb15a22b527cc943c6b24c.js"></script>
+
+<p>Now you should be able to run: <code>$ python push.py</code></p>
+
+<p>Enter your pass phrase and you should receive a push notification on your device.</p>
+<p>If you would like to remove the pass-phrase you can do so by running: <code>openssl rsa -in PushNotifsKey.pem -out PushNotifsKey.pem</code></p>
+
+<footer><p><small>September 15, 2012 around 11am</small></p></footer>
+
+</article>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Capistrano rules</title>
+  <meta name="keywords" content="nathan borror, san francisco, ios, swift, django, objective-c, palo alto, design, product design, interaction, engineer, technology">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/stylesheets/screen.css">
+</head>
+<body class="inner">
+
+<header>   <h1><a href="/">Nathan Borror</a></h1> </header>
+
+<article>
+# Capistrano rules
+
+I've grown tired of committing changes to my subversion repository, logging into my server, updating my live checkout, and restarting python processes. I finally decided to implement [Capistrano](http://www.capify.org/) and eliminate this repetition.
+
+Here are my repetitive set of commands:
+
+```bash
+$ ssh playgroundblues.com
+$ cd ~/projects/playgroundblues
+$ svn up
+$ cd ~/www/playgroundblues.com/www
+$ touch django.fcgi
+```
+
+Now, with the help of Capistrano, I just type:
+
+```bash
+$ cap deploy
+```
+
+You'll first need to [install Capistrano](http://www.capify.org/install) which is as simple as `gem install -y capistrano`. Once that's complete you need to create a "capfile" which is where you'll define your tasks:
+
+```ruby
+task :deploy, :hosts => "username@playgroundblues.com" do
+  run "cd ~/projects/playgroundblues; svn up; cd ~/www/playgroundblues.com/www/; touch django.fcgi"
+end
+```
+
+The above will vary depending on your host and directory setup. After you save the above file and as long as you're in the directory where the capfile resides you can, in the terminal, type `cap deploy` and Capistrano does the rest. Bliss.
+
+<footer><p>March 17, 2008 around 11pm</p></footer>
+</article>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Capturing content in Django templates</title>
+  <meta name="keywords" content="nathan borror, san francisco, ios, swift, django, objective-c, palo alto, design, product design, interaction, engineer, technology">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/stylesheets/screen.css">
+</head>
+<body class="inner">
+
+<header>   <h1><a href="/">Nathan Borror</a></h1> </header>
+
+<article>
+# Capturing content in Django templates
+
+As a template designer there are times when you have structural code surrounding a block which is waiting on content from a child template. It may look something like:
+
+```html
+<div class="content_title">
+  {% block content_title %}{% endblock %}
+</div>
+```
+
+Sometimes this block is never filled so ideally I want the <code>DIV</code> element in this case gone. This isn't easy because there's no way to know whether content is headed towards the block so one solution that I've used is:
+
+```html
+{% block content_title_wrapper %}
+  <div class="content_title">
+    {% block content_title %}{% endblock %}
+  </div>
+{% endblock %}
+```
+
+This requires me to make an empty call to a wrapper block in a child template to clear out the div element. It's obviously gross because I end up with empty block calls all over child templates. Yuk!
+
+Django community to the rescue! After asking around and some help from [Alex](http://lazypython.blogspot.com/), [Eric](http://ericholscher.com/), and [Travis](http://traviscline.com/blog/) we stumbled upon [Django Capture](http://www.djangosnippets.org/snippets/545/), a django snippet created by kcarnold (Kenneth Arnold). Capture essentially takes a blob of content and makes it into a variable for you like so:
+
+```html
+{% capture as content_title %}
+  {% block content_title %}{% endblock %}
+{% endcapture %}
+
+{% if content_title %}
+  <div class="content_title">{{ content_title }}</div>
+{% endif %}
+```
+
+This eliminates the need for all those crufty wrappers in child templates. I'm sure there are other uses for this too, one being the ability to print content multiple times on the page like pagination before and after lists. Kenneth originally used the example of capturing content for translations.
+
+There's a [ticket open](http://code.djangoproject.com/ticket/6378) with some thoughts on adding this functionality to the existing <code>with</code> tag which makes perfect sense. It'd be great if we could hash this out and get it into Django proper because I'm sure others would find it useful.
+
+<footer><p>February 28, 2009 around 9am</p></footer>
+</article>
+
+</body>
+</html>

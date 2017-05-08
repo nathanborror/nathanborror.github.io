@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>InspectDB to the rescue</title>
+  <meta name="keywords" content="nathan borror, san francisco, ios, swift, django, objective-c, palo alto, design, product design, interaction, engineer, technology">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/stylesheets/screen.css">
+</head>
+<body class="inner">
+
+<header>   <h1><a href="/">Nathan Borror</a></h1> </header>
+
+<article>
+  # InspectDB to the rescue
+
+  In a past life I used to build admin tools using [Ruby on Rails](http://www.rubyonrails.com). I thoroughly enjoyed spending weekends improving my little tools and libraries but I eventually realized I was spending more time on back-end stuff than front-end. Enter Django. For the past nine months I've touched nothing but Django so you can imagine how easy it was for me to hop on the Rails bicycle when Dreamhost decided to upgrade Rails.
+
+  You see, I failed to Freeze my Rails releases so they would be impervious to backwards incompatible changes. This presented a problem and I needed a solution like Don Imus needs a job.
+  I decided it wasn't worth investigating why my code broke between Rails version 1.2 to 1.2.3. My solution was to just rewrite the damn things in Django. While ranting at work about my situation my good friend [James](http://www.b-list.org) pointed out a nice little tool called [inspectdb](http://www.djangoproject.com/documentation/django-admin/#inspectdb) part of django-admin.py. All I had to do was create a new Django project, point it to my old Rails database and inspectdb spits out all the necessary model code so Django can start using that database.
+
+  I simplified my overly complex Rails admin tool (my fault again) and migrated the new data by setting up a template to print out SQL inserts to match the new simplified database schema. I literally did this in less than two hours on a tool that previously took over two days to build. Not to mention I got better authentication, caching, and peace of mind.
+  I must point out this is not a failure of Rails, merely a lack of time and commitment on my part. It would, however, be nice if Rails would be more mindful of backwards compatibility :)
+
+  _April 19, 2007 around 11pm_
+</article>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Manually Compressing PNGs</title>
+  <meta name="keywords" content="nathan borror, san francisco, ios, swift, django, objective-c, palo alto, design, product design, interaction, engineer, technology">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/stylesheets/screen.css">
+</head>
+<body class="inner">
+
+<header>   <h1><a href="/">Nathan Borror</a></h1> </header>
+
+<article>
+  # Manually Compressing PNGs
+
+  With the advent of some very clean hacks to make PNGs work in IE I've found myself working them into my designs more. Using them has allowed me to achieve some effects that were next to impossible with JPEGs and GIFs. The biggest hurdle in using PNGs is their file size. The export tools in Photoshop tie your hands behind your back, not allowing you to tweak anything that may lead to a more compact file. Until Photoshop adds some functionality I think I may have a handy solution.
+
+  To understand the solution we need to understand the composition of a PNG. The most popular use case for PNG is it's levels of transparency (or alpha channel), 256 to be exact. Along with this it has a 24bit color palate. In photoshop there are two settings in Save for Web, 8bit PNG and 24bit PNG. The 24bit is most desirable because it enables the alpha channel. The PNG format has many many other features but I'm only going to focus on these few to move this post along.
+
+  So we can deduce from the above that we have an image with two qualities, 24bit color and 256 alpha channel. Both are being compressed somewhat independently. The only problem is, Photoshop doesn't let us change the compression on the 24bit part or on the alpha channel part. If we focus on compressing the 24bit part we can potentially shave off a lot of the fat.
+
+  For this example I'm going to use a box that has a lot of texture and a drop shadow. To compress the inside part that doesn't have a drop shadow I'm simply going to select it, copy it, create a new document and paste it in. Then I'm going to use Save for Web to export it as a JPEG and use the photoshop compression tools to make it an acceptable file size. Then I'm going to open my compressed JPEG that I just saved and copy it into my original document. After lining things up with the compressed JPEG on top I'm now ready to Save for Web and use the PNG 24bit compression. The results are pretty dramatic. What normally would be a 68k image is now a 48k. In some cases I've cut files size in half!
+
+  ![Image][http://playgroundblues.com/media/source/png_compress_tutorial.jpg]
+
+  I'd love to hear other techniques.
+
+  _September 18, 2007 around 12pm_
+</article>
+
+</body>
+</html>

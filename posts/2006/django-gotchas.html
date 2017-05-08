@@ -1,0 +1,14 @@
+# Django Gotchas
+
+One of the biggest hurdles in learning any new framework or programming language is learning its quirks. By quirks I don't mean bugs, I'm referring to the personality and flow. Here are a few that might help your troubleshooting process:
+
+I get an error when I run syncdb. This could be a number of things. If its an error in the model you should be able to tell. Most of the time for me was forgetting to add the project to the `settings.py` [INSTALLED_APPS](http://www.djangoproject.com/documentation/settings/#installed-apps) list.
+
+I created a templatetag but Django is saying the file doesn't exist. First make sure you have loaded the <a href="http://www.djangoproject.com/documentation/templates_python/#extending-the-template-system" title="Django: Extending Templates">template tag,</a> (i.e. `{% load latestposts %}`). Second, and this one gets me every time, make sure you added the `__init__.py` file to the newly created directory. This file must be present in directories that contain python scripts.
+
+How do I access the children of a many-to-one or many-to-many relationship within the template? This puzzled me for a while. I'm accustomed to saying `post.categories` but in Django you must say `post.categories_set.all`. Referenced [here](http://www.djangoproject.com/documentation/db_api/#related-objects).
+
+I just added my database from my model but I keep getting a 404 error when I try to view the template. This drove me crazy and people will probably laugh. If you forget to enter data into the newly formed table Django will throw a Page Not Found error until you enter your first record of data. It's always the small things.
+I hope these are somewhat helpful. If you have any to add to the list feel free to post a comment.
+
+_June 30, 2006 around 12am_

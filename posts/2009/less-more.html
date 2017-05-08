@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Less is more</title>
+  <meta name="keywords" content="nathan borror, san francisco, ios, swift, django, objective-c, palo alto, design, product design, interaction, engineer, technology">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/stylesheets/screen.css">
+</head>
+<body class="inner">
+
+<header>   <h1><a href="/">Nathan Borror</a></h1> </header>
+
+<article>
+
+# Less is more
+
+Hopefully you read my [previous post](/posts/2009/nov/30/sass-isnt-me/) about Sass and CSS preprocessors and felt my angst toward learning a new syntax. I've been using [LessCSS](http://lesscss.org/) for about a week and I'm really impressed. For starters, no new syntax to learn. This is simply an augmentation of existing CSS syntax. You get mixins, nested rules, and most importantly, variables. You also get operations but I've yet to find them that useful. Here's my critique:
+
+Nested rules are so natural. CSS should have worked like this all along:
+
+```css
+a {
+  color: #ddd;
+  :hover {
+    color: #999;
+  }
+}
+```
+
+Compile time is pretty slow compared to Sass. This kinda sucks when you're in a flow, needing to see a change and having to wait 4-5 seconds for the new file. If you install the TextMate bundle it'll automatically compile on save which is handy.
+
+Variables are worth every penny:
+
+```css
+@borders: #ddd;
+
+div {
+  border: 1px solid @borders;
+}
+```
+
+That said, I wish they had taken into consideration David Hyatt and Daniel Glazman's [CSS Variable proposal](http://disruptive-innovations.com/zoo/cssvariables/) since it's probably the closest thing to future reality.
+
+There doesn't seem to be a way to access variables across imported stylesheets. I ended up importing a variables file on every page and my compressor removes the redundant generated styles but this is a temporary hack that I hope gets fixed.
+
+Less really needs a decent TextMate syntax highlighter. I'm hoping to set aside some time this weekend to see if I can contribute to this.
+
+While I would love to say <code>border-radius: 4px;</code> and have it compile with the <code>-webkit</code>, and <code>-moz</code> equivalent, the syntax enables enough abstraction so you can create the following mixin:
+
+```css
+.border-radius (@radius=4px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+div {
+  .border-radius(8px);
+}
+```
+
+## Conclusion
+
+This is the most intuitive preprocessor I've found. The syntax additions fit right in with native language and teaching it is a breeze. If you get the itch to contribute head on over to the [Github](http://github.com/cloudhead/less)
+
+<footer><p>December 1, 2009 around 6pm</p></footer>
+</article>
+
+</body>
+</html>

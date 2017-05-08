@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Creating a basic API with Django</title>
+  <meta name="keywords" content="nathan borror, san francisco, ios, swift, django, objective-c, palo alto, design, product design, interaction, engineer, technology">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/stylesheets/screen.css">
+</head>
+<body class="inner">
+
+<header>   <h1><a href="/">Nathan Borror</a></h1> </header>
+
+<article>
+# Creating a basic API with Django
+
+Creating a simple public API for your site is a lot easier than you may think with Django. You're basically just creating another view and serving it as XML or JSON instead of HTML.
+
+## Step 1) What's public?
+
+Decide what you want to be public. The best answer is the stuff you're already displaying in your HTML templates. Then you need to create an entry in your url conf.
+
+```python
+url(r'^api/v1/(?P<username>[-\w]+)/notes/?$', 'readernaut.api.views.user_notes'),
+```
+
+## Step 2) Create the view
+
+In the case for [Readernaut](http://readernaut.com) I wanted to provide an XML feed for users notes. Here is what the view looks like:
+
+```python
+def user_notes(request, username):
+  reader = get_object_or_404(User, username__iexact=username)
+  note_list = Note.objects.filter(user=reader)
+  context = { 'reader': reader, 'note_list': note_list }
+  return render_to_response('api/note_list.html', context, context_instance=RequestContext(request), mimetype='application/xml')
+```
+
+This is a simplified version of the view but, as you can see, you could easily add pagination and other hooks to handle ordering and such.
+
+## Step 3) Create the template
+
+The view is pointing to the template <code>api/note_list.html</code> so all we need to do is create that file and build out our XML schema.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<notes version="1.0">
+  {% for note in note_list %}
+  <note>
+    <note_id>{{ note.id }}</note_id>
+    <user>
+      <username>{{ note.user }}</username>
+    </user>
+    <book_edtion>
+      <title>{{ note.book_edition }}</title>
+      <isbn>{{ note.book_edition.isbn }}</isbn>
+    </book_edtion>
+    <body class="inner">
+
+<header>   <h1><a href="/">Nathan Borror</a></h1> </header><![CDATA[{{ note.note }}]]></body>
+    <page_reference>{{ note.page_reference }}</page_reference>
+    <created>{{ note.created|date:"Y-m-d G:i T" }}</created>
+    <modified>{{ note.modified|date:"Y-m-d G:i T" }}</modified>
+  </note>
+  {% endfor %}
+</notes>
+```
+
+How you define your XML templates is up to you. I name my templates with the <code>.html</code> extention  simply because my text editor highlights the syntax better than if it were XML. It doesn't matter because the mimetype dictates how the file is served up. Good luck!
+
+<footer><p>August 11, 2008 around 11pm</p></footer>
+</article>
+
+</body>
+</html>
