@@ -1,0 +1,50 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Nathan Borror: Working with Python and RabbitMQ</title>
+<meta property="og:title" content="Working with Python and RabbitMQ">
+<meta property="og:description" content="I recently installed RabbitMQ to handle some message queuing needs at Readernaut and thought I&rsquo;d share how everything came together. If you&rsquo;d like to learn more about RabbitMQ please read this.
+To use RabbitMQ with python you need py-amqplib because Rabbit uses the AMQP standard. To make amqplib a little easier to use I needed a simple script that did three things:
+ Easy way to connect to RabbitMQ. Easy way to pull stuff out of the queue.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nathan.run/posts/2009/working-django-and-rabbitmq/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2009-05-20T00:00:00-08:00">
+<meta property="article:modified_time" content="2009-05-20T00:00:00-08:00">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=theme-color content="#FFF" media="(prefers-color-scheme: light)">
+<meta name=theme-color content="#FFF" media="(prefers-color-scheme: dark)">
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/screen.css>
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/responsive.css>
+<link rel=alternate type=application/atom+xml href=https://nathan.run/posts/index.xml>
+<link rel=alternate type=application/json href=https://nathan.run/posts/index.json>
+</head>
+<body>
+<main>
+<header>
+<h1><a href=../>../</a> Working with Python and RabbitMQ</h1>
+</header>
+<article>
+<h2>
+Wednesday, May 20, 2009
+</h2>
+<p>I recently installed RabbitMQ to handle some message queuing needs at Readernaut
+and thought I&rsquo;d share how everything came together. If you&rsquo;d like to learn more about RabbitMQ please <a href=http://blogs.digitar.com/jjww/2009/01/rabbits-and-warrens/>read this.</a></p>
+<p>To use RabbitMQ with python you need <a href=http://barryp.org/software/py-amqplib/>py-amqplib</a> because Rabbit uses the AMQP standard. To make amqplib a little easier to use I needed a simple script that did three things:</p>
+<ul>
+<li>Easy way to connect to RabbitMQ.</li>
+<li>Easy way to pull stuff out of the queue.</li>
+<li>Easy way to throw stuff into the queue.</li>
+</ul>
+<p><a href=http://github.com/ask/carrot>This project</a> which handles all this and much more but it&rsquo;s a little too complex for what I&rsquo;m doing. All I needed was something very small, straightforward, and EASY.</p>
+<p>After staring at Carrot for a few days I decided to distill down what I needed
+into a single script I&rsquo;m calling Flopsy. So here we go:</p>
+<h2 id=step-1-set-global-variables>Step 1: Set global variables:</h2>
+<p>And there we go! Flopsy weighs in at under 80 lines of code and it can be found on <a href=http://github.com/nathanborror/flopsy>Github.</a> Most of the above will make a lot more sense after reading <a href=http://blogs.digitar.com/jjww/2009/01/rabbits-and-warrens/>Rabbits and Warrens</a> and investigating RabbitMQ.</p>
+<h2 id=update>Update</h2>
+<p>I just realized, this isn&rsquo;t at all Django specific so my title is a little misleading (changing). That said, you could most certainly use Flopsy with straight up Python :)</p>
+</article>
+<footer>
+</footer>
+</main>
+</body>
+</html>

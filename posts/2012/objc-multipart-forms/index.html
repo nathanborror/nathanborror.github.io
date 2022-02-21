@@ -1,0 +1,111 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Nathan Borror: Sending Multipart Forms with Objective-C</title>
+<meta property="og:title" content="Sending Multipart Forms with Objective-C">
+<meta property="og:description" content="It took me a few evenings to figure this out so I&rsquo;m writing a quick explanation based on what I&rsquo;ve found to work. My use-case is pretty simple, I want to POST some data to a form on a server from an iOS app I&rsquo;m building. I&rsquo;ll be using NSURLRequest to build the request object and NSURLConnection to make the actual connection to the server.
+The first thing we need to understand is how Multipart Form requests should be structured.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nathan.run/posts/2012/objc-multipart-forms/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2012-09-12T00:00:00-08:00">
+<meta property="article:modified_time" content="2012-09-12T00:00:00-08:00">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=theme-color content="#FFF" media="(prefers-color-scheme: light)">
+<meta name=theme-color content="#FFF" media="(prefers-color-scheme: dark)">
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/screen.css>
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/responsive.css>
+<link rel=alternate type=application/atom+xml href=https://nathan.run/posts/index.xml>
+<link rel=alternate type=application/json href=https://nathan.run/posts/index.json>
+</head>
+<body>
+<main>
+<header>
+<h1><a href=../>../</a> Sending Multipart Forms with Objective-C</h1>
+</header>
+<article>
+<h2>
+Wednesday, September 12, 2012
+</h2>
+<p>It took me a few evenings to figure this out so I&rsquo;m writing a quick explanation
+based on what I&rsquo;ve found to work. My use-case is pretty simple, I want to POST
+some data to a form on a server from an iOS app I&rsquo;m building. I&rsquo;ll be using
+NSURLRequest to build the request object and NSURLConnection to make the actual
+connection to the server.</p>
+<p>The first thing we need to understand is how Multipart Form requests should be
+structured. The <a href=http://www.w3.org/Protocols/rfc1341/7_2_Multipart.html>spec document</a>
+explains these in detail so I&rsquo;m just going to show at a high level how this is
+structured. To get started lets create an NSMutableURLRequest:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-objc data-lang=objc>NSURL <span style=color:#f92672>*</span>url <span style=color:#f92672>=</span> [NSURL URLWithString:<span style=color:#e6db74>@&#34;http://example.com/form/&#34;</span>];
+NSMutableURLRequest <span style=color:#f92672>*</span>request <span style=color:#f92672>=</span> [NSMutableURLRequest requestWithURL:url];
+[request setHTTPMethod:<span style=color:#e6db74>@&#34;POST&#34;</span>];
+</code></pre></div><p>Now we need to define the content-type and a boundary string. I&rsquo;m not really
+sure what a boundary string is, it just needs to be consistently represented
+throughout the request.</p>
+<pre tabindex=0><code>Content-Type: multipart/form-data; boundary=YOUR_BOUNDARY_STRING
+</code></pre><p>To do this in objective-c we need to write the following:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-objc data-lang=objc>NSURL <span style=color:#f92672>*</span>url <span style=color:#f92672>=</span> [NSURL URLWithString:<span style=color:#e6db74>@&#34;http://example.com/form/&#34;</span>];
+NSMutableURLRequest <span style=color:#f92672>*</span>request <span style=color:#f92672>=</span> [NSMutableURLRequest requestWithURL:url];
+[request setHTTPMethod:<span style=color:#e6db74>@&#34;POST&#34;</span>];
+
+NSString <span style=color:#f92672>*</span>boundary <span style=color:#f92672>=</span> <span style=color:#e6db74>@&#34;YOUR_BOUNDARY_STRING&#34;</span>;
+NSString <span style=color:#f92672>*</span>contentType <span style=color:#f92672>=</span> [NSString stringWithFormat:<span style=color:#e6db74>@&#34;multipart/form-data; boundary=%@&#34;</span>, boundary];
+[request addValue:contentType forHTTPHeaderField:<span style=color:#e6db74>@&#34;Content-Type&#34;</span>];
+</code></pre></div><p>Now let&rsquo;s get look at the request body. Here&rsquo;s a simple example of how it needs
+to look to the server:</p>
+<pre tabindex=0><code>--YOUR_BOUNDARY_STRING
+Content-Disposition: form-data; name=&quot;photo&quot;; filename=&quot;calm.jpg&quot;
+Content-Type: image/jpeg
+
+YOUR_IMAGE_DATA_GOES_HERE
+--YOUR_BOUNDARY_STRING
+Content-Disposition: form-data; name=&quot;message&quot;
+
+My first message
+--YOUR_BOUNDARY_STRING
+Content-Disposition: form-data; name=&quot;user&quot;
+
+1
+--YOUR_BOUNDARY_STRING
+</code></pre><p>I&rsquo;m sending over three variables: an image named photo, a string named message,
+and an integer named user. It&rsquo;s important to note the linebreaks and the dashes
+before the boundary string. These must be included in order to build a good
+request. Now lets write some objective-c:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-objc data-lang=objc>NSString <span style=color:#f92672>*</span>boundary <span style=color:#f92672>=</span> <span style=color:#e6db74>@&#34;YOUR_BOUNDARY_STRING&#34;</span>;
+NSString <span style=color:#f92672>*</span>contentType <span style=color:#f92672>=</span> [NSString stringWithFormat:<span style=color:#e6db74>@&#34;multipart/form-data; boundary=%@&#34;</span>, boundary];
+[request addValue:contentType forHTTPHeaderField:<span style=color:#e6db74>@&#34;Content-Type&#34;</span>];
+
+NSMutableData <span style=color:#f92672>*</span>body <span style=color:#f92672>=</span> [NSMutableData data];
+
+[body appendData:[[NSString stringWithFormat:<span style=color:#e6db74>@&#34;</span><span style=color:#ae81ff>\r\n</span><span style=color:#e6db74>--%@</span><span style=color:#ae81ff>\r\n</span><span style=color:#e6db74>&#34;</span>, boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+[body appendData:[[NSString stringWithFormat:<span style=color:#e6db74>@&#34;Content-Disposition: form-data; name=</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>photo</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>; filename=</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>%@.jpg</span><span style=color:#ae81ff>\&#34;\r\n</span><span style=color:#e6db74>&#34;</span>, self.message.photoKey] dataUsingEncoding:NSUTF8StringEncoding]];
+[body appendData:[<span style=color:#e6db74>@&#34;Content-Type: application/octet-stream</span><span style=color:#ae81ff>\r\n\r\n</span><span style=color:#e6db74>&#34;</span> dataUsingEncoding:NSUTF8StringEncoding]];
+[body appendData:[NSData dataWithData:imageData]];
+
+[body appendData:[[NSString stringWithFormat:<span style=color:#e6db74>@&#34;</span><span style=color:#ae81ff>\r\n</span><span style=color:#e6db74>--%@</span><span style=color:#ae81ff>\r\n</span><span style=color:#e6db74>&#34;</span>, boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+[body appendData:[[NSString stringWithFormat:<span style=color:#e6db74>@&#34;Content-Disposition: form-data; name=</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>message</span><span style=color:#ae81ff>\&#34;\r\n\r\n</span><span style=color:#e6db74>%@&#34;</span>, self.message.message] dataUsingEncoding:NSUTF8StringEncoding]];
+
+[body appendData:[[NSString stringWithFormat:<span style=color:#e6db74>@&#34;</span><span style=color:#ae81ff>\r\n</span><span style=color:#e6db74>--%@</span><span style=color:#ae81ff>\r\n</span><span style=color:#e6db74>&#34;</span>, boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+[body appendData:[[NSString stringWithFormat:<span style=color:#e6db74>@&#34;Content-Disposition: form-data; name=</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>user</span><span style=color:#ae81ff>\&#34;\r\n\r\n</span><span style=color:#e6db74>%d&#34;</span>, <span style=color:#ae81ff>1</span>] dataUsingEncoding:NSUTF8StringEncoding]];
+
+[body appendData:[[NSString stringWithFormat:<span style=color:#e6db74>@&#34;</span><span style=color:#ae81ff>\r\n</span><span style=color:#e6db74>--%@</span><span style=color:#ae81ff>\r\n</span><span style=color:#e6db74>&#34;</span>, boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+
+[request setHTTPBody:body];
+</code></pre></div><p>Now all we need to do is make a connection to the server and send the request:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-objc data-lang=objc>[request setHTTPBody:body];
+
+NSURLResponse <span style=color:#f92672>*</span>response;
+NSError <span style=color:#f92672>*</span>error;
+
+[NSURLConnection sendSynchronousRequest:request returningResponse:<span style=color:#f92672>&amp;</span>response error:<span style=color:#f92672>&amp;</span>error];
+</code></pre></div><p>That&rsquo;s it. A more detailed explanation of the request formatting can be found
+<a href=http://www.w3.org/Protocols/rfc1341/7_2_Multipart.html>here</a>.</p>
+<p>If you&rsquo;re curious, I&rsquo;m posting to a Django app I was running locally so I could
+use <a href=http://pypi.python.org/pypi/ipdb>ipdb</a> and <a href=http://ipython.org>iPython</a> to inspect the process and see what my app was
+posting. Then I compared that to a post request generated by a testcase I knew
+worked.</p>
+</article>
+<footer>
+</footer>
+</main>
+</body>
+</html>

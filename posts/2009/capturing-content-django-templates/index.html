@@ -1,0 +1,55 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Nathan Borror: Capturing content in Django templates</title>
+<meta property="og:title" content="Capturing content in Django templates">
+<meta property="og:description" content="As a template designer there are times when you have structural code surrounding a block which is waiting on content from a child template. It may look something like:
+<div class=&#34;content_title&#34;> {% block content_title %}{% endblock %} </div> Sometimes this block is never filled so ideally I want the DIV element in this case gone. This isn&rsquo;t easy because there&rsquo;s no way to know whether content is headed towards the block so one solution that I&rsquo;ve used is:">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nathan.run/posts/2009/capturing-content-django-templates/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2009-02-28T00:00:00-08:00">
+<meta property="article:modified_time" content="2009-02-28T00:00:00-08:00">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=theme-color content="#FFF" media="(prefers-color-scheme: light)">
+<meta name=theme-color content="#FFF" media="(prefers-color-scheme: dark)">
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/screen.css>
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/responsive.css>
+<link rel=alternate type=application/atom+xml href=https://nathan.run/posts/index.xml>
+<link rel=alternate type=application/json href=https://nathan.run/posts/index.json>
+</head>
+<body>
+<main>
+<header>
+<h1><a href=../>../</a> Capturing content in Django templates</h1>
+</header>
+<article>
+<h2>
+Saturday, February 28, 2009
+</h2>
+<p>As a template designer there are times when you have structural code surrounding a block which is waiting on content from a child template. It may look something like:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;content_title&#34;</span>&gt;
+  {% block content_title %}{% endblock %}
+&lt;/<span style=color:#f92672>div</span>&gt;
+</code></pre></div><p>Sometimes this block is never filled so ideally I want the <code>DIV</code> element in this case gone. This isn&rsquo;t easy because there&rsquo;s no way to know whether content is headed towards the block so one solution that I&rsquo;ve used is:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>{% block content_title_wrapper %}
+  &lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;content_title&#34;</span>&gt;
+    {% block content_title %}{% endblock %}
+  &lt;/<span style=color:#f92672>div</span>&gt;
+{% endblock %}
+</code></pre></div><p>This requires me to make an empty call to a wrapper block in a child template to clear out the div element. It&rsquo;s obviously gross because I end up with empty block calls all over child templates. Yuk!</p>
+<p>Django community to the rescue! After asking around and some help from <a href=http://lazypython.blogspot.com/>Alex</a>, <a href=http://ericholscher.com/>Eric</a>, and <a href=http://traviscline.com/blog/>Travis</a> we stumbled upon <a href=http://www.djangosnippets.org/snippets/545/>Django Capture</a>, a django snippet created by kcarnold (Kenneth Arnold). Capture essentially takes a blob of content and makes it into a variable for you like so:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>{% capture as content_title %}
+  {% block content_title %}{% endblock %}
+{% endcapture %}
+
+{% if content_title %}
+  &lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;content_title&#34;</span>&gt;{{ content_title }}&lt;/<span style=color:#f92672>div</span>&gt;
+{% endif %}
+</code></pre></div><p>This eliminates the need for all those crufty wrappers in child templates. I&rsquo;m sure there are other uses for this too, one being the ability to print content multiple times on the page like pagination before and after lists. Kenneth originally used the example of capturing content for translations.</p>
+<p>There&rsquo;s a <a href=http://code.djangoproject.com/ticket/6378>ticket open</a> with some thoughts on adding this functionality to the existing <code>with</code> tag which makes perfect sense. It&rsquo;d be great if we could hash this out and get it into Django proper because I&rsquo;m sure others would find it useful.</p>
+</article>
+<footer>
+</footer>
+</main>
+</body>
+</html>

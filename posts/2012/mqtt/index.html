@@ -1,0 +1,68 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Nathan Borror: Getting Started with MQTT</title>
+<meta property="og:title" content="Getting Started with MQTT">
+<meta property="og:description" content="I wanted to play around with MQTT this evening so I put together a little tutorial on how to get started using Ubuntu and Mosquitto (http://mosquitto.org).
+Installing Mosquitto Enter the following into your terminal. Remember to replace YOUR_UBUNTU_VERSION_HERE with the version of ubuntu you&rsquo;re using, I was using Maverick Meerkat at the time so I replaced it with just maverick. First add the following two lines to /etc/apt/sources.list
+deb http://ppa.launchpad.net/mosquitto-dev/mosquitto-ppa/ubuntu YOUR_UBUNTU_VERSION_HERE main deb-src http://ppa.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nathan.run/posts/2012/mqtt/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2012-07-22T00:00:00-08:00">
+<meta property="article:modified_time" content="2012-07-22T00:00:00-08:00">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=theme-color content="#FFF" media="(prefers-color-scheme: light)">
+<meta name=theme-color content="#FFF" media="(prefers-color-scheme: dark)">
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/screen.css>
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/responsive.css>
+<link rel=alternate type=application/atom+xml href=https://nathan.run/posts/index.xml>
+<link rel=alternate type=application/json href=https://nathan.run/posts/index.json>
+</head>
+<body>
+<main>
+<header>
+<h1><a href=../>../</a> Getting Started with MQTT</h1>
+</header>
+<article>
+<h2>
+Sunday, July 22, 2012
+</h2>
+<p>I wanted to play around with MQTT this evening so I put together a little
+tutorial on how to get started using Ubuntu and Mosquitto (<a href=http://mosquitto.org>http://mosquitto.org</a>).</p>
+<h2 id=installing-mosquitto>Installing Mosquitto</h2>
+<p>Enter the following into your terminal. Remember to replace
+<code>YOUR_UBUNTU_VERSION_HERE</code> with the version of ubuntu you&rsquo;re using, I was using
+Maverick Meerkat at the time so I replaced it with just maverick. First add the
+following two lines to <code>/etc/apt/sources.list</code></p>
+<pre tabindex=0><code>deb http://ppa.launchpad.net/mosquitto-dev/mosquitto-ppa/ubuntu YOUR_UBUNTU_VERSION_HERE main
+deb-src http://ppa.launchpad.net/mosquitto-dev/mosquitto-ppa/ubuntu YOUR_UBUNTU_VERSION_HERE main
+</code></pre><p>Then we need to verify the newly added packages
+(<a href=https://help.launchpad.net/Packaging/PPA/InstallingSoftware#On_older_.28pre_9.10.29_Ubuntu_systems)>https://help.launchpad.net/Packaging/PPA/InstallingSoftware#On_older_.28pre_9.10.29_Ubuntu_systems)</a>:</p>
+<pre tabindex=0><code>$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 262C4500
+</code></pre><p>Lets update Aptitude so we have the latest packages to choose from:</p>
+<pre tabindex=0><code>$ sudo aptitude update
+</code></pre><p>And now lets install the Mosquitto server and clients:</p>
+<pre tabindex=0><code>$ sudo aptitude install mosquitto
+$ sudo aptitude install mosquitto-clients
+</code></pre><h2 id=subscribing-to-a-topic>Subscribing to a Topic</h2>
+<pre tabindex=0><code>$ mosquitto_sub -d -t hello/world
+</code></pre><p>Mosquitto uses slashes as a way to organize topics. It also provides ways to
+subscribe to groups of topics if you dig around their documentation.</p>
+<h2 id=publishing-to-a-topic>Publishing to a Topic</h2>
+<p>In another terminal window execute:</p>
+<pre tabindex=0><code>$ mosquitto_pub -d -t hello/world -m &quot;Hello World&quot;
+</code></pre><p>You should see the text &ldquo;Hello World&rdquo; in the other window.</p>
+<p>To get the full effect you can install Mosquitto on your Mac using Homebrew
+(<a href=https://github.com/mxcl/homebrew>https://github.com/mxcl/homebrew</a>) and then connect to your Ubuntu machine&mldr;</p>
+<pre tabindex=0><code>$ mosquitto_sub -h YOUR_HOST_IP_ADDRESS -d -t hello/world
+</code></pre><p>You should now see messages from your host sent to your local machine. You&rsquo;ll
+probably need to open up port 1883 on your Ubuntu machine to make this actually
+work. I just used iptables to do so:</p>
+<pre tabindex=0><code>sudo iptables -A INPUT -p tcp -m tcp --dport 1883 -j ACCEPT
+</code></pre>
+</article>
+<footer>
+</footer>
+</main>
+</body>
+</html>

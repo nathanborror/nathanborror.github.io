@@ -1,0 +1,75 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Nathan Borror: Del.icio.us API Interface</title>
+<meta property="og:title" content="Del.icio.us API Interface">
+<meta property="og:description" content="I finally figured out how to parse the Del.icio.us API (http://del.icio.us/help/api/) using Python and Django. The solution is quite flexible aside from the fact that the Del.icio.us API is still under development.
+I started by studying FlickrClient (http://micampe.it/things/flickrclient) which is a great interface for Python. The Flickr API is very verbose and this is a simple approach that scales to future Flickr upgrades. The power behind this script is the following method:">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nathan.run/posts/2006/delicious-api-interface/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2006-07-17T00:00:00-08:00">
+<meta property="article:modified_time" content="2006-07-17T00:00:00-08:00">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=theme-color content="#FFF" media="(prefers-color-scheme: light)">
+<meta name=theme-color content="#FFF" media="(prefers-color-scheme: dark)">
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/screen.css>
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/responsive.css>
+<link rel=alternate type=application/atom+xml href=https://nathan.run/posts/index.xml>
+<link rel=alternate type=application/json href=https://nathan.run/posts/index.json>
+</head>
+<body>
+<main>
+<header>
+<h1><a href=../>../</a> Del.icio.us API Interface</h1>
+</header>
+<article>
+<h2>
+Monday, July 17, 2006
+</h2>
+<p>I finally figured out how to parse the Del.icio.us API (<a href=http://del.icio.us/help/api/>http://del.icio.us/help/api/</a>)
+using Python and Django. The solution is quite flexible aside from the fact that
+the Del.icio.us API is still under development.</p>
+<p>I started by studying FlickrClient (<a href=http://micampe.it/things/flickrclient>http://micampe.it/things/flickrclient</a>) which
+is a great interface for Python. The Flickr API is very verbose and this is a
+simple approach that scales to future Flickr upgrades. The power behind this
+script is the following method:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> __getattr__(self, method):
+  <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>method</span>(_self<span style=color:#f92672>=</span>self, _method<span style=color:#f92672>=</span>method, <span style=color:#f92672>**</span>params):
+    _method <span style=color:#f92672>=</span> _method<span style=color:#f92672>.</span>replace(<span style=color:#e6db74>&#34;_&#34;</span>, <span style=color:#e6db74>&#34;.&#34;</span>)
+    url <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;http://flickr.com/services/rest/&#34;</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;?method=</span><span style=color:#e6db74>%s</span><span style=color:#e6db74>&amp;amp;</span><span style=color:#e6db74>%s</span><span style=color:#e6db74>&amp;amp;api_key=</span><span style=color:#e6db74>%s</span><span style=color:#e6db74>&#34;</span> <span style=color:#f92672>%</span> (_method, urlencode(params), YOUR_API_KEY)
+    <span style=color:#f92672>...</span>
+</code></pre></div><p>This basically generates the proper URL string to be passed to Flickr. With this
+bit of simplicity you can literally call any API method. All thats left is
+parsing the return XML value which is done by XMLTramp (<a href=http://www.aaronsw.com/2002/xmltramp/)>http://www.aaronsw.com/2002/xmltramp/)</a>.
+This will parse any XML data into a useful object that you can iterate through
+in a Django template.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>rsp <span style=color:#f92672>=</span> xmltramp<span style=color:#f92672>.</span>load(url)
+</code></pre></div><p>I&rsquo;ve retooled this approach a bit to work with Del.ici.ous. The biggest
+difference is instead of using an API Key you have to validate with Https. I
+created a method to handle this using urllib2:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>_secureConnect</span>(self, url):
+  auth_handler <span style=color:#f92672>=</span> urllib2<span style=color:#f92672>.</span>HTTPBasicAuthHandler()
+  auth_handler<span style=color:#f92672>.</span>add_password(<span style=color:#e6db74>&#39;del.icio.us API&#39;</span>, <span style=color:#e6db74>&#39;https://api.del.icio.us&#39;</span>, USERNAME, PASSWORD)
+  opener <span style=color:#f92672>=</span> urllib2<span style=color:#f92672>.</span>build_opener(auth_handler)
+  urllib2<span style=color:#f92672>.</span>install_opener(opener)
+  <span style=color:#66d9ef>return</span> urllib2<span style=color:#f92672>.</span>urlopen(url)<span style=color:#f92672>.</span>read()
+</code></pre></div><p>The other big difference is all the data in the return XML resides in attributes
+of a single node. (In my opinion this is crap but such is life.) We must create
+a new object because Django templates don&rsquo;t seem to like how XMLTramp accesses
+node attributes.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>for</span> child <span style=color:#f92672>in</span> rsp:
+  posts<span style=color:#f92672>.</span>append({<span style=color:#e6db74>&#39;description&#39;</span>:child(<span style=color:#e6db74>&#39;description&#39;</span>), <span style=color:#e6db74>&#39;href&#39;</span>:child(<span style=color:#e6db74>&#39;href&#39;</span>), <span style=color:#e6db74>&#39;extended&#39;</span>:child(<span style=color:#e6db74>&#39;extended&#39;</span>), <span style=color:#e6db74>&#39;hash&#39;</span>:child(<span style=color:#e6db74>&#39;hash&#39;</span>), <span style=color:#e6db74>&#39;time&#39;</span>:child(<span style=color:#e6db74>&#39;time&#39;</span>), <span style=color:#e6db74>&#39;tag&#39;</span>:child(<span style=color:#e6db74>&#39;tag&#39;</span>)})
+  <span style=color:#66d9ef>return</span> posts
+</code></pre></div><p>I&rsquo;m sure if I become better versed with urllib2 and Python I could make this
+simpler. For now it works which was the intended goal. Here is the code
+(<a href=http://media.youknowwhereyouare.com/code/DeliciousClient.zip)>http://media.youknowwhereyouare.com/code/DeliciousClient.zip)</a>. <em>Word of
+caution!</em> It&rsquo;s good practice to save these results to a local database thereby
+minimizing the API requests. Del.icio.us in particular will throttle back your
+requests when it notices an increase in API traffic. My next post will address
+this.</p>
+</article>
+<footer>
+</footer>
+</main>
+</body>
+</html>

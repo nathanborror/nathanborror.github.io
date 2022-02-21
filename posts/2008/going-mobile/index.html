@@ -1,0 +1,47 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Nathan Borror: Going mobile</title>
+<meta property="og:title" content="Going mobile">
+<meta property="og:description" content="Over the weekend, I decided to whip up a mobile (iPhone) version of Playground Blues. I walked into Broadway Cafe around 3pm on Saturday, and by 5:30, I had m.playgroundblues.com. Here&rsquo;s how it went down.
+Step 1 Since I&rsquo;m still using Dreamhost and FastCGI, I created my .htaccess file along with my dispatch.fcgi file for my new sub-domain as usual. Made one little change to my dispatch file: instead of having DJANGO_SETTINGS_MODULE pointing to playgroundblues.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nathan.run/posts/2008/going-mobile/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2008-02-18T00:00:00-08:00">
+<meta property="article:modified_time" content="2008-02-18T00:00:00-08:00">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=theme-color content="#FFF" media="(prefers-color-scheme: light)">
+<meta name=theme-color content="#FFF" media="(prefers-color-scheme: dark)">
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/screen.css>
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/responsive.css>
+<link rel=alternate type=application/atom+xml href=https://nathan.run/posts/index.xml>
+<link rel=alternate type=application/json href=https://nathan.run/posts/index.json>
+</head>
+<body>
+<main>
+<header>
+<h1><a href=../>../</a> Going mobile</h1>
+</header>
+<article>
+<h2>
+Monday, February 18, 2008
+</h2>
+<p>Over the weekend, I decided to whip up a mobile (iPhone) version of Playground Blues. I walked into Broadway Cafe around 3pm on Saturday, and by 5:30, I had m.playgroundblues.com. Here&rsquo;s how it went down.</p>
+<h2 id=step-1>Step 1</h2>
+<p>Since I&rsquo;m still using Dreamhost and FastCGI, I created my .htaccess file along with my dispatch.fcgi file for my new sub-domain as usual. Made one little change to my dispatch file: instead of having <code>DJANGO_SETTINGS_MODULE</code> pointing to playgroundblues.settings, I pointed it to playgroundblues.settings_mobile.</p>
+<p>Then, in my project folder, I made a duplicate of my settings file and renamed it to <code>settings_mobile.py.</code> Let me emphasize again, this is a duplicate.</p>
+<h2 id=step-2>Step 2</h2>
+<p>Created a new templates folder and named it &ldquo;templates_mobile.&rdquo; Opened up my <code>settings_mobile.py</code> file and added a new line to the top of my <code>TEMPLATE_DIRS</code> tuple. This tells Django to first look in mobile templates, and if the template doesn&rsquo;t exist, fall back on regular site templates. (Remember, this is only for my mobile site.)</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>TEMPLATE_DIRS <span style=color:#f92672>=</span> (
+  <span style=color:#e6db74>&#34;/home/playgroundblues/templates_mobile/&#34;</span>,
+  <span style=color:#e6db74>&#34;/home/playgroundblues/templates/&#34;</span>,
+)
+</code></pre></div><h2 id=step-3>Step 3</h2>
+<p>In my new templates_mobile folder, I created a new base template called <code>base_mobile.html</code> which I&rsquo;ll use to extend in all my child templates instead of the main sites base.html. Then I went through the sites pages and recreated mirrored templates in the mobile folder. So <code>/templates/blog/post_detail.html</code> was overwritten by <code>/templates_mobile/blog/post_detail.html.</code> I stripped out extraneous content that was unnecessary for someone on the go, leaving core content and functionality.</p>
+<p>The nice thing is if someone happens to creep into a section that you haven&rsquo;t gotten to (as long as you didn&rsquo;t override base.html), your site will display as it would on a computer proper. If there&rsquo;s a more succinct way of doing this, please let me know.</p>
+</article>
+<footer>
+</footer>
+</main>
+</body>
+</html>

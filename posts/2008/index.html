@@ -1,0 +1,121 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Nathan Borror: 2008</title>
+<meta property="og:title" content="2008">
+<meta property="og:description" content>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nathan.run/posts/2008/">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=theme-color content="#FFF" media="(prefers-color-scheme: light)">
+<meta name=theme-color content="#FFF" media="(prefers-color-scheme: dark)">
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/screen.css>
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/responsive.css>
+<link rel=alternate type=application/atom+xml href=https://nathan.run/posts/index.xml>
+<link rel=alternate type=application/json href=https://nathan.run/posts/index.json>
+</head>
+<body>
+<main>
+<header>
+<h1><a href=../>../</a> 2008</h1>
+</header>
+<hr>
+<article>
+<h2><a href=https://nathan.run/posts/2008/save-ram-mobile-middleware/>Save RAM with mobile middleware</a></h2>
+<h3>Wednesday, October 7, 2009</h3>
+<div class=summary>
+<p>A while back I wrote an article on how to set up a mobile site with Django ../going-mobile. Currently I have a Slicehost account which includes 256MB of RAM. My resources are tight and I really dislike having another set of unnecessary Apache processes for a mobile site that, aside from different templates, is using the same code base. The solution is quite simple, write a middleware.
+The following code checks the incoming request for &rsquo;m' or &lsquo;mobile&rsquo; in the domain name.</p>
+<p class=continue><a href=https://nathan.run/posts/2008/save-ram-mobile-middleware/>Continue reading</a></p>
+</div>
+</article>
+<article>
+<h2><a href=https://nathan.run/posts/2008/whats-next/>What's next</a></h2>
+<h3>Friday, December 12, 2008</h3>
+<div class=summary>
+<p>Does it make sense to reinvent the wheel every time we start a new project? No. My work echoes my past and I stand by it. Some say, &ldquo;that looks like Readernaut&rdquo; or &ldquo;that looks like Playground Blues&rdquo; and I say yes, they are me.
+If it worked there it will work here. When a problem is solved I move on because each project has its fair amount of new problems and I&rsquo;d rather spend time on new, more interesting problems.</p>
+<p class=continue><a href=https://nathan.run/posts/2008/whats-next/>Continue reading</a></p>
+</div>
+</article>
+<article>
+<h2><a href=https://nathan.run/posts/2008/message-queuing-imports/>Message Queuing imports</a></h2>
+<h3>Friday, September 5, 2008</h3>
+<div class=summary>
+<p>Last week I ran into some problems dealing with large book imports on Readernaut. I tested the system for around 50-100 books but had no idea people would upload lists of 900+ books. This begged the question, how do you handle importing very large sets of data before the browser times out?
+Brief example User uploads a list of 1000 ISBNs to be imported into their library. Each book, if not already in the system, needs to be imported via another service like Amazon.</p>
+<p class=continue><a href=https://nathan.run/posts/2008/message-queuing-imports/>Continue reading</a></p>
+</div>
+</article>
+<article>
+<h2><a href=https://nathan.run/posts/2008/creating-basic-api-django/>Creating a basic API with Django</a></h2>
+<h3>Monday, August 11, 2008</h3>
+<div class=summary>
+<p>Creating a simple public API for your site is a lot easier than you may think with Django. You&rsquo;re basically just creating another view and serving it as XML or JSON instead of HTML.
+What&rsquo;s public? Decide what you want to be public. The best answer is the stuff you&rsquo;re already displaying in your HTML templates. Then you need to create an entry in your url conf.
+url(r'^api/v1/(?P&lt;username>[-\w]+)/notes/?$', 'readernaut.api.views.user_notes'), Create the view In the case for Readernaut I wanted to provide an XML feed for users notes.</p>
+<p class=continue><a href=https://nathan.run/posts/2008/creating-basic-api-django/>Continue reading</a></p>
+</div>
+</article>
+<article>
+<h2><a href=https://nathan.run/posts/2008/capistrano-rules/>Capistrano rules</a></h2>
+<h3>Saturday, May 17, 2008</h3>
+<div class=summary>
+<p>I&rsquo;ve grown tired of committing changes to my subversion repository, logging into my server, updating my live checkout, and restarting python processes. I finally decided to implement Capistrano and eliminate this repetition.
+Here are my repetitive set of commands:
+$ ssh playgroundblues.com $ cd ~/projects/playgroundblues $ svn up $ cd ~/www/playgroundblues.com/www $ touch django.fcgi Now, with the help of Capistrano, I just type:
+$ cap deploy You&rsquo;ll first need to install Capistrano which is as simple as gem install -y capistrano.</p>
+<p class=continue><a href=https://nathan.run/posts/2008/capistrano-rules/>Continue reading</a></p>
+</div>
+</article>
+<article>
+<h2><a href=https://nathan.run/posts/2008/aspen-simulator/>Aspen Simulator</a></h2>
+<h3>Tuesday, May 13, 2008</h3>
+<div class=summary>
+<p>As much as I&rsquo;d like to blog about my trip to Austin and SXSW last week I&rsquo;m just too excited over the iPhone SDK goodies that dropped last Thursday.
+You may be asking yourself, &ldquo;he&rsquo;s a web guy, why does he care?&rdquo; Well, there happens to be a beautiful gem tucked away called the Aspen Simulator.
+This is a complete pixel and functionally perfect replica of the iPhone and it&rsquo;s fantastic for testing web apps.</p>
+<p class=continue><a href=https://nathan.run/posts/2008/aspen-simulator/>Continue reading</a></p>
+</div>
+</article>
+<article>
+<h2><a href=https://nathan.run/posts/2008/ah-ha-event-delegation/>Ah-ha Event Delegation</a></h2>
+<h3>Monday, May 5, 2008</h3>
+<div class=summary>
+<p>Wrapping my head around things like OOP took months. It&rsquo;s not because I&rsquo;m an idiot (I don&rsquo;t think) - it&rsquo;s just because I needed all the explanations to marinate before having an ah-ha! moment.
+I had an ah-ha today, with regards to Event Delegation. I&rsquo;ve never seemed to completely understand events, yet I use them all the time. They&rsquo;re an essential aspect of Actionscript and Javascript and there are two basic ways of capturing events, Event Handling and Event Delegation.</p>
+<p class=continue><a href=https://nathan.run/posts/2008/ah-ha-event-delegation/>Continue reading</a></p>
+</div>
+</article>
+<article>
+<h2><a href=https://nathan.run/posts/2008/gadget-fast/>Gadget fast</a></h2>
+<h3>Friday, April 18, 2008</h3>
+<div class=summary>
+<p>My iPhone and laptop will be unplugged starting Friday evening for two days. I&rsquo;ve let the fog of distractions generated by these two devices grow too thick so for the next few days they&rsquo;ll be turned off.
+It doesn&rsquo;t stop there. The following week Twitter, Flickr, an my feed reader will be muted. I have nothing against these services, but it&rsquo;s time to step back and take the pulse of things around me and see if I&rsquo;m missing something.</p>
+<p class=continue><a href=https://nathan.run/posts/2008/gadget-fast/>Continue reading</a></p>
+</div>
+</article>
+<article>
+<h2><a href=https://nathan.run/posts/2008/going-mobile/>Going mobile</a></h2>
+<h3>Monday, February 18, 2008</h3>
+<div class=summary>
+<p>Over the weekend, I decided to whip up a mobile (iPhone) version of Playground Blues. I walked into Broadway Cafe around 3pm on Saturday, and by 5:30, I had m.playgroundblues.com. Here&rsquo;s how it went down.
+Step 1 Since I&rsquo;m still using Dreamhost and FastCGI, I created my .htaccess file along with my dispatch.fcgi file for my new sub-domain as usual. Made one little change to my dispatch file: instead of having DJANGO_SETTINGS_MODULE pointing to playgroundblues.</p>
+<p class=continue><a href=https://nathan.run/posts/2008/going-mobile/>Continue reading</a></p>
+</div>
+</article>
+<article>
+<h2><a href=https://nathan.run/posts/2008/iphone-bookmark-iconage/>iPhone bookmark iconage</a></h2>
+<h3>Tuesday, January 15, 2008</h3>
+<div class=summary>
+<p>If you&rsquo;re wondering how to control the icon that gets generated for your webpage with the new 1.1.3 iPhone release, look no further than Apple&rsquo;s iPhone Dev Center.
+Apple has added a section called &ldquo;Create a WebClip Bookmark Icon&rdquo; and it calls for a 57x57 pixel icon. After some testing today I&rsquo;ve concluded this recommended sizing results in a fuzzy icon, largely due to the iPhone being a 163 ppi display.</p>
+<p class=continue><a href=https://nathan.run/posts/2008/iphone-bookmark-iconage/>Continue reading</a></p>
+</div>
+</article>
+<footer>
+</footer>
+</main>
+</body>
+</html>
