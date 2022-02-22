@@ -26,53 +26,53 @@
 <h3 id=how-i-built-a-sonos-replacement-app-in-2014>How I built a Sonos replacement app in 2014</h3>
 <p>Back in 2014 in my spare time I built an app to replace the default Sonos app used to control multiple speakers in a home. It was a little challenging so I thought I’d share the process. You can check out most of the code on <a href=https://github.com/nathanborror/Play>Github</a>.</p>
 <figure class="small center">
-<a href=https://storage.googleapis.com/nathan.run/2014-01-01-play-icon.png><img src=https://storage.googleapis.com/nathan.run/2014-01-01-play-icon.png></a>
+<a href=https://nathan.run/screenshots/2014-01-01-play-icon.png><img src=https://nathan.run/screenshots/2014-01-01-play-icon.png></a>
 </figure>
 <h4 id=finding-the-api>Finding the API</h4>
 <p>First off I needed to understand how the existing app was communicating with speakers on the local network. Sonos doesn’t really have an official API so I had to do some digging with Wireshark.</p>
 <figure>
-<a href=https://storage.googleapis.com/nathan.run/2014-01-01-play-wireshark.png><img src=https://storage.googleapis.com/nathan.run/2014-01-01-play-wireshark.png></a>
+<a href=https://nathan.run/screenshots/2014-01-01-play-wireshark.png><img src=https://nathan.run/screenshots/2014-01-01-play-wireshark.png></a>
 </figure>
 <p>Wireshark reveals all the network traffic, which allowed me to see what requests were being passed between the speakers and the app. Sonos uses <a href=https://en.wikipedia.org/wiki/Universal_Plug_and_Play>UPnP</a> and this established a base understanding of what was needed to build a new app.</p>
 <hr>
 <h4 id=making-a-better-experience>Making a better experience</h4>
 <p>What bothered me most about the current app was it didn’t give me the controls I needed quickly. Most of the time all I wanted to do was change the volume and pair speakers (I also really wanted to make my living room play out of the Line-In input quickly without any fuss). Here were a couple solutions:</p>
 <figure>
-<a href=https://storage.googleapis.com/nathan.run/2014-01-01-play-sketches.jpg><img src=https://storage.googleapis.com/nathan.run/2014-01-01-play-sketches.jpg></a>
+<a href=https://nathan.run/screenshots/2014-01-01-play-sketches.jpg><img src=https://nathan.run/screenshots/2014-01-01-play-sketches.jpg></a>
 </figure>
 <p>I went through a bunch of iterations, mostly because it was fun. iOS 7 shipped in the middle of it all which forced me to simplify things and learn a new emerging visual language.</p>
 <figure>
-<a href=https://storage.googleapis.com/nathan.run/2014-01-01-play-001.png><img src=https://storage.googleapis.com/nathan.run/2014-01-01-play-001.png></a>
+<a href=https://nathan.run/screenshots/2014-01-01-play-001.png><img src=https://nathan.run/screenshots/2014-01-01-play-001.png></a>
 <figcaption>
 Here you could drag speakers to the right column which would make them play music together. First speaker in was considered the “coordinator” and every subsequent one would play it’s music.
 </figcaption>
 </figure>
 <figure>
-<a href=https://storage.googleapis.com/nathan.run/2014-01-01-play-002.png><img src=https://storage.googleapis.com/nathan.run/2014-01-01-play-002.png></a>
+<a href=https://nathan.run/screenshots/2014-01-01-play-002.png><img src=https://nathan.run/screenshots/2014-01-01-play-002.png></a>
 <figcaption>
 iOS 7 came out so I had some fun re-skinning things.
 </figcaption>
 </figure>
 <figure>
-<a href=https://storage.googleapis.com/nathan.run/2014-01-01-play-003.png><img src=https://storage.googleapis.com/nathan.run/2014-01-01-play-003.png></a>
+<a href=https://nathan.run/screenshots/2014-01-01-play-003.png><img src=https://nathan.run/screenshots/2014-01-01-play-003.png></a>
 <figcaption>
 Tried to simplify things further and put more emphasis on volume control which turns out to be more important than speaker arrangement.
 </figcaption>
 </figure>
 <figure>
-<a href=https://storage.googleapis.com/nathan.run/2014-01-01-play-004.png><img src=https://storage.googleapis.com/nathan.run/2014-01-01-play-004.png></a>
+<a href=https://nathan.run/screenshots/2014-01-01-play-004.png><img src=https://nathan.run/screenshots/2014-01-01-play-004.png></a>
 <figcaption>
 Couldn&rsquo;t leave iPad out 😉
 </figcaption>
 </figure>
 <figure>
-<a href=https://storage.googleapis.com/nathan.run/2014-01-01-play-005.png><img src=https://storage.googleapis.com/nathan.run/2014-01-01-play-005.png></a>
+<a href=https://nathan.run/screenshots/2014-01-01-play-005.png><img src=https://nathan.run/screenshots/2014-01-01-play-005.png></a>
 <figcaption>
 Playing around with color to help distinguish speakers better.
 </figcaption>
 </figure>
 <figure>
-<a href=https://storage.googleapis.com/nathan.run/2014-01-01-play-006.png><img src=https://storage.googleapis.com/nathan.run/2014-01-01-play-006.png></a>
+<a href=https://nathan.run/screenshots/2014-01-01-play-006.png><img src=https://nathan.run/screenshots/2014-01-01-play-006.png></a>
 <figcaption>
 Crazy idea to incorporate some other home automation controls. I realized I just wanted one interface to control my lights and music.
 </figcaption>
@@ -82,7 +82,7 @@ Crazy idea to incorporate some other home automation controls. I realized I just
 <h4 id=what-about-desktop>What about desktop?</h4>
 <p>Then I realized I wanted more than just an app on my phone, sometimes I’d be on my laptop and want to quickly adjust volume. So I decided to build a menu bar app. Volume is all I really needed here so I didn’t implement anything else.</p>
 <figure class="medium center">
-<a href=https://storage.googleapis.com/nathan.run/2014-01-01-play-desktop.png><img src=https://storage.googleapis.com/nathan.run/2014-01-01-play-desktop.png></a>
+<a href=https://nathan.run/screenshots/2014-01-01-play-desktop.png><img src=https://nathan.run/screenshots/2014-01-01-play-desktop.png></a>
 <figcaption>
 Controlling Sonos from the Mac OS menu bar. Only real necessity here is volume and play/pause. At some point I’ll add search so you can find things to play.
 </figcaption>
@@ -92,7 +92,7 @@ Controlling Sonos from the Mac OS menu bar. Only real necessity here is volume a
 <p>The above was all nice but I began to notice another annoyance—I didn’t like having to turn my speakers off when I left my apartment. I had already figured out how to turn all my lights off with IFTTT so why not make this work with Sonos. Using a Raspberry Pi and a Sonos command-line interface I hooked up a very basic home REST API where I could detect my phone leaving a location using a geofence.</p>
 <p>Now when I leave it makes a request to my home and the music turns off.</p>
 <figure>
-<a href=https://storage.googleapis.com/nathan.run/2014-01-01-play-arduino.jpg><img src=https://storage.googleapis.com/nathan.run/2014-01-01-play-arduino.jpg></a>
+<a href=https://nathan.run/screenshots/2014-01-01-play-arduino.jpg><img src=https://nathan.run/screenshots/2014-01-01-play-arduino.jpg></a>
 <figcaption>
 Raspberry Pi model B plugged into an Airport router via Eithernet. This puppy is always on and has a port mapped to the outside world for external access.
 </figcaption>
