@@ -1,0 +1,807 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2004 on Nathan Borror</title><link>https://nathan.run/posts/2004/</link><description>Recent content in 2004 on Nathan Borror</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 31 Dec 2004 09:31:04 -0800</lastBuildDate><atom:link href="https://nathan.run/posts/2004/index.xml" rel="self" type="application/rss+xml"/><item><title>Making old content new</title><link>https://nathan.run/posts/2007/making-old-content-new-black/</link><pubDate>Tue, 27 Mar 2007 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2007/making-old-content-new-black/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Why does old content have to fade so quickly? Blogs, zines, news articles all
+suffer from &ldquo;out with the old, in with the new&rdquo; mentality. There is a lot of
+old content that retains relevancy far beyond its publish date. The problem is,
+how do we resurrect it?</p><p>Simple, stats tracking. Amazon solved this problem a long time ago. They
+meticulously track peoples browsing and buying habits and offer up
+recommendations based on trends. Chris Anderson&rsquo;s article from 2004, The Long
+Tail (<a href="http://www.wired.com/wired/archive/12.10/tail.html">http://www.wired.com/wired/archive/12.10/tail.html</a>) will really blow your
+skirt up. Anderson starts off by explaining how Joe Simpson&rsquo;s book, Touching the
+Void (<a href="http://www.amazon.com/dp/0060730552/)">http://www.amazon.com/dp/0060730552/)</a>, brought little fan fair in 1988
+until ten years latter when Amazon noticed the buying trends of a new title,
+Into Thin Air (<a href="http://www.amazon.com/dp/0385494785/">http://www.amazon.com/dp/0385494785/</a>) by Jon Krakauer. Amazon&rsquo;s
+recommendation algorithm began serving up<em>Touching the Void</em> as a &ldquo;buy this
+book with&hellip;&rdquo; recommendation. Touching the Void ultimately out-sold Into Thin Air.</p><p>Why couldn&rsquo;t the same approach be taken for time insensitive content on sites
+like A List Apart, NYTimes, CNN, even this blog? How much relevancy should we
+give old content? Stats have always been fun to look at with tools like Mint
+(<a href="http://www.haveamint.com">http://www.haveamint.com</a>) and Google Analytics, but when do we start
+capitalizing on them and using them in clever ways to help direct our readers
+to the content they so desire? How do we make old content the new black?</p>
+]]></content></item><item><title>Make Flash and Javascript Sing</title><link>https://nathan.run/posts/2007/make-flash-and-javascript-sing/</link><pubDate>Sun, 18 Mar 2007 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2007/make-flash-and-javascript-sing/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Yes its true. You can make Javascript and Flash play together! Way back in 2005 the company formerly known as Macromedia threw together a nice<a href="http://weblogs.macromedia.com/flashjavascript/">little kit</a> to make these two languages play nicely. Here&rsquo;s how.</p><p>First we need to secure some crutial files. The first is a SWF called JavaScriptFlashGateway.swf which allows us to setup a &ldquo;proxy&rdquo; between our Flash and Javascript. Second, make sure you link up JavaScriptFlashGateway.js. Third, put JavaScriptSerializer.as and JavaScriptProxy.as in your Actionscript class path so you can import them into your Flash movies.</p><p>Once all that is in place it&rsquo;s time to write some code. For this example I&rsquo;m going to make a ball move across the screen using two input fields in an HTML form which will allow a person to enter X and Y values to move the ball across the screen. Before we can get any further we need establish an ID so things are nice a secure between our Flash and Javascript. We&rsquo;re going to use the current time as our ID like so:</p><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span><span style="color:#a6e22e">uid</span><span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> Date().<span style="color:#a6e22e">getTime</span>();<span style="color:#66d9ef">var</span><span style="color:#a6e22e">flashproxy</span><span style="color:#f92672">=</span><span style="color:#66d9ef">new</span><span style="color:#a6e22e">FlashProxy</span>(<span style="color:#a6e22e">uid</span>,<span style="color:#e6db74">'JavaScriptFlashGateway.swf'</span>);</code></pre></div><p>Now lets add some code to our flash movie. In the first frame add:</p><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span><span style="color:#a6e22e">JavaScriptProxy</span>;<span style="color:#66d9ef">var</span><span style="color:#a6e22e">Ball</span><span style="color:#f92672">=</span> {}<span style="color:#a6e22e">Ball</span>.<span style="color:#a6e22e">moveBall</span><span style="color:#f92672">=</span><span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">p_x</span><span style="color:#f92672">:</span>Number,<span style="color:#a6e22e">p_y</span><span style="color:#f92672">:</span>Number) {<span style="color:#a6e22e">ball_mc</span>.<span style="color:#a6e22e">_x</span><span style="color:#f92672">=</span><span style="color:#a6e22e">p_x</span>;<span style="color:#a6e22e">ball_mc</span>.<span style="color:#a6e22e">_y</span><span style="color:#f92672">=</span><span style="color:#a6e22e">p_y</span>;
+}<span style="color:#66d9ef">var</span><span style="color:#a6e22e">proxy</span><span style="color:#f92672">:</span><span style="color:#a6e22e">JavaScriptProxy</span><span style="color:#f92672">=</span><span style="color:#66d9ef">new</span><span style="color:#a6e22e">JavaScriptProxy</span>(<span style="color:#a6e22e">_root</span>.<span style="color:#a6e22e">lcId</span>,<span style="color:#a6e22e">Ball</span>);</code></pre></div><p>We&rsquo;re simply importing the JavaScriptProxy class and creating a Ball class. The Ball class gets a method called moveBall which is what we&rsquo;ll call via javascript. Notice the JavaScriptProxy is passed our ID that we created earlier and a reference to the Ball class. Lets turn back to our HTML file and add some more Javascript to complete the deal.</p><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span><span style="color:#a6e22e">tag</span><span style="color:#f92672">=</span><span style="color:#66d9ef">new</span><span style="color:#a6e22e">FlashTag</span>(<span style="color:#e6db74">'flash/ball.swf'</span>,<span style="color:#ae81ff">400</span>,<span style="color:#ae81ff">350</span>);<span style="color:#a6e22e">tag</span>.<span style="color:#a6e22e">setFlashvars</span>(<span style="color:#e6db74">'lcId='</span><span style="color:#f92672">+</span><span style="color:#a6e22e">uid</span>);<span style="color:#a6e22e">tag</span>.<span style="color:#a6e22e">write</span>(document);<span style="color:#66d9ef">function</span><span style="color:#a6e22e">move_ball</span> () {<span style="color:#66d9ef">var</span><span style="color:#a6e22e">x</span><span style="color:#f92672">=</span> document.<span style="color:#a6e22e">moveball</span>.<span style="color:#a6e22e">x</span>.<span style="color:#a6e22e">value</span>;<span style="color:#66d9ef">var</span><span style="color:#a6e22e">y</span><span style="color:#f92672">=</span> document.<span style="color:#a6e22e">moveball</span>.<span style="color:#a6e22e">y</span>.<span style="color:#a6e22e">value</span>;<span style="color:#a6e22e">flashproxy</span>.<span style="color:#a6e22e">call</span>(<span style="color:#e6db74">"moveBall"</span>,<span style="color:#a6e22e">x</span>,<span style="color:#a6e22e">y</span>)
+}</code></pre></div><p>Here we&rsquo;re using the handy FlashTag class to embed our ball.swf into our page. We&rsquo;re also passing the ID we created earlier, very important. The move_ball function is what we&rsquo;ll call upon submission of the HTML form. It uses the flashproxy instance to call our Actionscript method &ldquo;moveBall&rdquo; passing it the x and y coordinates into the SWF thus moving the ball.</p><p>Hope this makes a little sense. The code can be<a href="http://www.playgroundblues.com/media/source/JavaScript_Flash_Tutorial.zip">downloaded here</a> or you can just look at it<a href="http://www.playgroundblues.com/media/source/JavaScript_Flash_Tutorial/">here</a>. I&rsquo;ve also created<a href="http://www.playgroundblues.com/laboratory/">another example</a> that utilizes a Flash video player and playlist. You can also call Javascript functions from within your Flash movie. There is one gotcha that I&rsquo;ve come across in order to do this. Be sure to set the Flash parameter allowScriptAccess to &ldquo;always&rdquo;. Otherwise communication from Flash to Javascript won&rsquo;t work.</p>
+]]></content></item><item><title>Not so convergent</title><link>https://nathan.run/posts/2007/not-so-convergant/</link><pubDate>Wed, 14 Mar 2007 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2007/not-so-convergant/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Talking about &ldquo;convergence&rdquo; is like talking about &ldquo;the war on terror.&rdquo; They&rsquo;re
+two incredibly broad terms with unforeseeable outcomes. Convergence has been
+vogue for a while and I&rsquo;m a little skeptical about its usage to describe media
+convergence. At this years SXSW, for the first time, someone summed up what
+I&rsquo;ve been trying to understand.</p><p>When I think of convergence I do so in terms of the classic media outlets
+converging with the Internet. There is a lot of convergence rhetoric at my job
+and in the field of news. Advertising is also experiencing the pains of
+understanding what the web is and how to leverage it. Convergence seems more
+like a trojan horse to me, creeping into peoples minds making them think it will
+deliver harmony between old and new. It&rsquo;s just not true.</p><p>While old media tries to &ldquo;converge&rdquo; over the next few years we&rsquo;re going to see
+more Salon&rsquo;s, Newsvine&rsquo;s, and Digg&rsquo;s take over. They&rsquo;ll do so because they don&rsquo;t
+have to change old minds. The Google / Viacom battle
+(<a href="http://www.hollywoodreporter.com/hr/content_display/features/columns/e3if463a30783104b1095bfd087a35ac0f5">http://www.hollywoodreporter.com/hr/content_display/features/columns/e3if463a30783104b1095bfd087a35ac0f5</a>)
+will be nothing short of entertaining. This is how the old always dies off,
+clinging to what they know and understand.</p>
+]]></content></item><item><title>Austin bound</title><link>https://nathan.run/posts/2007/austin-bound/</link><pubDate>Thu, 08 Mar 2007 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2007/austin-bound/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I&rsquo;m headed to Austin, Texas today to partake in the South by Southwest
+festivities. The panel linup this year looks scrumptious. Unlike my pal Jeff
+(<a href="http://www2.jeffcroft.com/blog/2007/mar/01/where-find-me-sxsw/)">http://www2.jeffcroft.com/blog/2007/mar/01/where-find-me-sxsw/)</a>, I have no idea
+what I&rsquo;ll be attending. I will, however, be attending as many evening parties as
+I can possibly stumble into. I&rsquo;ll definitely be attending the AMODA
+(<a href="http://www.amoda.org/">http://www.amoda.org/</a>) Digital Showcase, which was fantastic last year, and the
+Austin On Rails Happy Hour sporting my Django (<a href="http://www.djangoproject.com">http://www.djangoproject.com</a>)
+shirt no less. I also highly recommend Drinks with Lifehacker, those dudes know
+how to party.</p><p>Hope to see some of you there. If we&rsquo;ve never met don&rsquo;t hesitate to introduce
+yourself. My SXSW Flickr stream (<a href="http://flickr.com/photos/sketch22/sets/72157594576670321/">http://flickr.com/photos/sketch22/sets/72157594576670321/</a>)
+should be dripping with nightly photos or join the Flickr pool (<a href="http://www.flickr.com/groups/sxswi2007/)">http://www.flickr.com/groups/sxswi2007/)</a>.</p><p>Oh yeah, if I see any of you at the Happy Hour Sponsored by Microsoft Expression
+Studio, I may have to hurt you.</p>
+]]></content></item><item><title>Rating system breakdown</title><link>https://nathan.run/posts/2007/rating-system-breakdown/</link><pubDate>Mon, 05 Mar 2007 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2007/rating-system-breakdown/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I wanna discuss rating systems for a bit. From what I gather there are three
+flavors: a simple &ldquo;one vote&rdquo; method, a thumbs up or down, and the scale. Each
+solutions goal is to find out what people think of your content. This is helpful
+when trying to understand your audience.</p><h1 id="the-one-vote-method">The &ldquo;one vote&rdquo; method</h1><p>As simple as it gets. If someone likes a piece of content they simply click a
+button saying so. Nothing more nothing less. This is a visceral response, a
+&ldquo;blink&rdquo; reaction which requires minimal thought. The downside is you can&rsquo;t infer
+that a non-vote means people dislike content. A non-vote most likely means they
+didn&rsquo;t read the content enough to care which could suggest weak content but it&rsquo;s
+a little grey.</p><h1 id="thumbs-up-thumbs-down">Thumbs up, thumbs down</h1><p>This one makes me think of Siskel and Ebert and their black and white critiques
+of film. Probably the most widely used style because of its simplicity. Like
+the &ldquo;one vote&rdquo; method, it relies on gut reactions but allows people to express
+their dislike for a piece of content. The style sometimes borrows the
+visualization side of the scale system below.</p><h1 id="scale">Scale</h1><p>Frequently represented as stars, we commonly see this method used along with
+reviews and entertainment ratings. This system requires the most amount of
+thought from a person which often leads to poor return. It&rsquo;s best used in
+situations where a person is investing time into writing a review.</p><h1 id="conclusion">Conclusion</h1><p>Implementing a rating system isn&rsquo;t for the faint of heart. You need to be
+comfortable with powers of online democracy. Oddly enough rating systems are
+why Google works. They&rsquo;re Page Rank system is based almost entirely on the
+&ldquo;one vote&rdquo; method where a link from one site to another stands as a &ldquo;vote.&rdquo;
+&ldquo;Democracy on the web works."](<a href="http://www.google.com/corporate/tenthings.html">http://www.google.com/corporate/tenthings.html</a>)
+This can be seen on Newsvine, Digg, Delicious, Flickr, and more.</p>
+]]></content></item><item><title>Playground is back</title><link>https://nathan.run/posts/2007/playground-back/</link><pubDate>Wed, 28 Feb 2007 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2007/playground-back/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>With every rendition of my person site I must emphasize that this is a work in
+progress. With that said, welcome to my new playground. Sorry about the neurotic
+name changes. I can assure you they are over and I&rsquo;m pretty darn happy with the
+new digs.</p><h2 id="why-redesign">Why redesign?</h2><p>I wanted to return to my roots. I started out as Playground Blues and this is
+where I belong. I also wanted something with room to grow. Something that had
+lots of drawers and cubby holes for me to put random bits. As much as I love
+structure and organization, taxonomies and folksonomies; I wanted to be able to
+throw things out there, like little easter eggs. This design lets me do just
+that.</p><h2 id="to-be-expected">To be expected.</h2><p>Don&rsquo;t expect anything from me. It&rsquo;s better that way. I can only surprise you from
+here on out. My hopes are that you&rsquo;ll begin to see more of those ?&rsquo;s disappear.</p><p>I&rsquo;m really excited about this new direction. I hope too see some of you in
+Austin at this years South by Southwest!</p><p>Update: Here&rsquo;s the Photoshop (<a href="http://playgroundblues.com/media/source/playground-blues.zip">http://playgroundblues.com/media/source/playground-blues.zip</a>)
+for this design. Feel free to remix and play.</p>
+]]></content></item><item><title>Easing into Leopard</title><link>https://nathan.run/posts/2007/easing-leopard/</link><pubDate>Thu, 11 Jan 2007 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2007/easing-leopard/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I&rsquo;m a UI geek and the first thing I noticed during the iPhone demo was how fun scrolling seems. With small devices and even regular sized computers a majority of our time is spent scrolling various collections of content. Only a company like Apple can step back, recognize this, and make it fun. This will no doubt engage users, bringing them closer to<a href="http://en.wikipedia.org/wiki/Flow_(psychology)">flow</a>.</p><p>Easing has been around a long time. I remember learning how to do it in Flash with the aid of<a href="http://www.joshuadavis.com/">Joshua Davis</a>. You could fling that scroll bar right across the screen and have to bounce right back. Then<a href="http://www.robertpenner.com/">Robert Penner</a> made everyones life easier with his ubiquitous easing equations.</p><p>I can&rsquo;t help but imagine this new iPhone UI hinted at a lot of what we&rsquo;ll be seeing in Leopard. I don&rsquo;t know if everyone would want easing in Leopard but, if done right, it could bring to life a hella fun interface. It might also help some of us that design huge content sites :)</p>
+]]></content></item><item><title>A look back</title><link>https://nathan.run/posts/2006/look-back/</link><pubDate>Sun, 31 Dec 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/look-back/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Two thousand six was full of spontaneous moments with great friends and
+coworkers. It also had some noteworthy, personal milestones that I thought I&rsquo;d
+highlight before the clock strikes twelve.</p><p>January / February saw the launch of Authentic Films (<a href="http://www.authenticfilms.net">http://www.authenticfilms.net</a>).
+It was my first official jump into the world of Actionscript and thanks to
+Travis (<a href="http://www.podlob.com">http://www.podlob.com</a>) the water wasn&rsquo;t that cold.</p><p>March / April involved traveling to Austin, Texas where I attended my first SXSW
+conference (<a href="http://flickr.com/photos/sketch22/tags/sxswi/)">http://flickr.com/photos/sketch22/tags/sxswi/)</a>. It was great to meet
+more geeks like myself. I got my ears blown out by Alkaline Trio
+(<a href="http://flickr.com/photos/sketch22/136194688/in/dateposted/">http://flickr.com/photos/sketch22/136194688/in/dateposted/</a>) for the second time
+and got a lot of use out of the Jazz bar below my loft.</p><p>May / June was spent reading (<a href="http://flickr.com/photos/sketch22/164032564/in/dateposted/">http://flickr.com/photos/sketch22/164032564/in/dateposted/</a>)
+a lot (<a href="http://flickr.com/photos/sketch22/164032185/in/dateposted/)">http://flickr.com/photos/sketch22/164032185/in/dateposted/)</a>.</p><p>July / August got me thinking which lead to my decision to leave advertising and
+enter the world of journalism. I saw some fireworks (<a href="http://flickr.com/photos/sketch22/182667304/in/dateposted/">http://flickr.com/photos/sketch22/182667304/in/dateposted/</a>)
+and became very close with a great coffee house (<a href="http://flickr.com/photos/sketch22/201018003/in/dateposted/">http://flickr.com/photos/sketch22/201018003/in/dateposted/</a>)
+in my new neighborhood. I also launched a new site for Take Two (<a href="http://www.t2.tv">http://www.t2.tv</a>)
+and Firehouse (<a href="http://www.fhdallas.com">http://www.fhdallas.com</a>).</p><p>September / October showed me how hard it is to be a teacher. For the first time
+I taught a course in web design at the Kansas City Art Institute. At the same
+time I enrolled in a letterpress class (<a href="http://flickr.com/photos/sketch22/archives/date-posted/2006/09/12/">http://flickr.com/photos/sketch22/archives/date-posted/2006/09/12/</a>)
+at the arts center in my neighborhood where I did a lino carving (<a href="http://flickr.com/photos/jcroft/272761102/">http://flickr.com/photos/jcroft/272761102/</a>)
+for the first time since high school.</p><p>November / December allowed me to flex some info design muscle for the election
+coverage. Matt (<a href="http://postneo.com/">http://postneo.com/</a>) pulled off some amazing information
+gathering to make my silly (<a href="http://www2.ljworld.com/elections/2006/nov/07/races/secretary_state/">http://www2.ljworld.com/elections/2006/nov/07/races/secretary_state/</a>)
+little graphics bloom.</p><p>What&rsquo;s in store for 2007? Well, a lot. I can&rsquo;t wait to share some of the things
+I&rsquo;ve been working on. There is a redesign (<a href="http://www.ljworld.com">http://www.ljworld.com</a>) in the works
+and a lot of loose (<a href="http://www.podjogger.com">http://www.podjogger.com</a>) ends (<a href="http://jupiter.playgroundblues.com">http://jupiter.playgroundblues.com</a>)
+that I&rsquo;m determined to wrap up. I hope everyone who reads this blog is enjoying
+life as much as I am. Happy New Year!</p>
+]]></content></item><item><title>RIP Print</title><link>https://nathan.run/posts/2006/rip-print/</link><pubDate>Mon, 11 Dec 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/rip-print/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Print is about to die and we better prepare ourselves. I was doing some
+christmas shopping last week and stumbled into a Sony Style story. I&rsquo;m not a fan
+of the Sony brand but they do seem to come out with some daring devices. The
+first thing that struck me was the Sony Reader (<a href="http://www.learningcenter.sony.us/assets/itpd/reader/)">http://www.learningcenter.sony.us/assets/itpd/reader/)</a>.</p><p>The Sony Reader is basically a very thin screen that uses E-Ink technology
+(<a href="http://eink.com/">http://eink.com/</a>) to display text and basic graphics. The resolution is
+shocking, it&rsquo;s like staring at a piece of paper. The device has a lot of
+problems and the operating system is pretty clunky and locked down but you can
+tell this is the beginning of something.</p><p>One thing is for certain, this dawn of reader devices will kill print. They will
+get vibrant colors, more responsive interfaces, and durability. You can bet other
+companies are developing their own devices and this is the end of the road for
+print and it&rsquo;s so exciting.</p>
+]]></content></item><item><title>I don't like</title><link>https://nathan.run/posts/2006/i-dont/</link><pubDate>Sat, 02 Dec 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/i-dont/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>For as long as I can remember I&rsquo;ve consistently heard various permutations of
+two phrases, &ldquo;I like&rdquo; and &ldquo;I don&rsquo;t like.&rdquo; Throw away, easy phrases. I&rsquo;ve never
+valued the first and I&rsquo;ve had nothing but contempt for the second.</p><p>My professor in college would dock our grades when someone uttered one of these
+phrases. He believed they were lame and comfortable. If that&rsquo;s all you&rsquo;ve got to
+say, you didn&rsquo;t really have anything to say.</p><p>I realize I&rsquo;m still very young but these phrases seem to get older and older
+each time I hear them. Design is agonizing. It&rsquo;s a complex battle of process
+that consists of manipulation and experimentation, success and failure. These
+phrases equate to flipping a coin with little value and do nothing but distract
+by casting a false sense of success or failure.</p><p>If all you have is &ldquo;I like&rdquo; or &ldquo;I don&rsquo;t like,&rdquo; then you haven&rsquo;t looked hard
+enough. You haven&rsquo;t taken the time to objectively understand what you&rsquo;re seeing
+or experiencing. Then, and only then, will you be able to articulate what you
+are feeling or what you are not feeling.</p>
+]]></content></item><item><title>The Future Role of Libraries</title><link>https://nathan.run/posts/2006/future-role-libraries/</link><pubDate>Mon, 20 Nov 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/future-role-libraries/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>If Libraries want to stay relevant they have to redefine their role in
+communities. The common perception is they have books, lots of books. This is
+obvious. Over the last decade the perception has grown to include internet
+access. However, this isn&rsquo;t enough to survive. If you live in a progressive town
+like myself, WiFi is ubiquitous. When the Library is competing with Henry&rsquo;s
+Coffeehouse, well, I don&rsquo;t need to tell you who wins.</p><p>In the next half decade we&rsquo;ll most likely have access to any book imaginable
+through the use of a single device. Whether we like this idea or not it will at
+some point replace the role of the book. Books have lived a long life when
+compared to the Music medium. Music has been on a steady pace of evolution from
+vinyl to eight track to cassette to CD and now digital. Digital seems to be the
+evolutionary end because it&rsquo;s intangible. Google is hard at work scanning the
+Worlds books which are longing for a digital resting place.</p><p>Do Libraries become insignificant when digital books reach a tipping point? Not
+unless they transform their role as repositories of knowledge to places of
+gathering. Nothing can replace face to face interactions. When we gain knowledge
+we ultimately seek understanding.</p><p>When Open Source infected the programming world it became one of the most
+significant movements in history. The speed with which we&rsquo;ve created the
+Information Age would not have been possible without this movement. If Libraries
+applied the Open Source philosophy to Education they could usher in the dawn of
+a new age, The Age of Education. This could rival some of the best Universities.
+This wouldn&rsquo;t be a normal teacher/class education. The books would be our
+teachers. People would roam the halls seeking other people. Understanding would
+be gained through discussion and debate. Some of us would travel long distances
+to Libraries famous for their people and discussions.</p><p>For centuries Libraries have been entrusted with housing knowledge. That trust
+is quickly being handed over to the Internet. Libraries now have the opportunity
+to be handed the trust of understanding.</p><p>The preceding was sparked by some plans I saw for a new Library to be built in
+my town of Lawrence, Kansas. The design feels so open and welcoming with its
+huge windows and roof top gardens. It has a sense of curiosity with it&rsquo;s
+inconsistent fourth floor appearing to look in a different direction than the
+other floors. It feels like a place I would go to have conversations and seek
+understanding.</p>
+]]></content></item><item><title>An Open answer</title><link>https://nathan.run/posts/2006/open-answer/</link><pubDate>Tue, 07 Nov 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/open-answer/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>It&rsquo;s my prediction that over the next few years we&rsquo;re going to see a rise of
+localized social networks/directories. Localized social networks can augment and
+enhance real world local communities, if the recipe is just right. The first
+ingredient is key for any up-and-comming project summoning user authentication.</p><p>The key to localized networks and other new applications that fill particular
+niches is OpenID (<a href="http://openid.net/)">http://openid.net/)</a>. Consistency among user profiles is
+non-existant. OpenID brings with it a pure, centralized repository for profile
+management where you&rsquo;re empowered to adjust the strings of privacy based on
+sites you&rsquo;ve opened the doors too. It looks like PIP by VeriSign (<a href="http://pip.verisignlabs.com/">http://pip.verisignlabs.com/</a>)
+is already laying the ground work.</p><p>Not only does this create consistent profiles, it keeps track of what we belong
+to without the hassle of remembering passwords and usernames. Imagine changing
+your email address in a single location and having it propagate to every social
+network, online application, bank account and various admin tools. Bliss, and
+hopefully a reality.</p>
+]]></content></item><item><title>Elections by the seat of our chads</title><link>https://nathan.run/posts/2006/elections-seat-our-chads/</link><pubDate>Tue, 07 Nov 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/elections-seat-our-chads/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I&rsquo;ve launched a lot of web projects in my career, but none of them have come
+close to the excitement of this evenings whirlwind. For the 2006 elections our
+little group called World Online at the Lawrence Journal-World launched a live
+view of the local and state citizens fulfilling their democratic roles as citizens.</p><p>At 7pm CST we flipped the switch, waiting patiently while live data feeds poured
+in from Associated Press, Kansas Secretary of State and Douglas County. I&rsquo;ve done
+Flash projects before and normally you working with static of semi-dynamic data
+but I&rsquo;ve never semi-blindly uploaded files that would soon be feed information
+from places I&rsquo;d never seen before and viewed by literally thousands of people
+instantaneously. As soon as data poured in changes had to be made, graphics
+added, inconsistencies spotted. The rush was amazing.</p><p>!http://media.domaki.com/www/election_map.jpg</p><p>This map (<a href="http://www2.ljworld.com/elections/2006/nov/07/races/state_treasurer/">http://www2.ljworld.com/elections/2006/nov/07/races/state_treasurer/</a>)
+shows voter turn out and candidate totals across Douglas County in Kansas.
+What&rsquo;s amazing is the story data can tell just by being represented in a simple
+fashion using basic design principles.</p><p>Tonight was a thrill and it wouldn&rsquo;t have been possible if it wasn&rsquo;t for the
+hard work and dedication that our team has towards delivering data to its
+audience. I&rsquo;m already excited for 2008!</p>
+]]></content></item><item><title>In with the Em's and Percentages</title><link>https://nathan.run/posts/2006/ems-and-percentages/</link><pubDate>Wed, 01 Nov 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/ems-and-percentages/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>For the past few projects I&rsquo;ve thrown out all use of pixels and relied heavily
+on an em&rsquo;s and percentages for layout and font sizing. Why would someone take
+such drastic measures? Two simple reasons: usability and flexibility.</p><p>The current Domaki, circa Fall 2006, uses this practice which makes the liquid
+layout possible with ease. A non-liquid example would be the Ellington
+(<a href="http://www.ellingtoncms.com">http://www.ellingtoncms.com</a>) site which uses a container set in EM&rsquo;s with all
+inner layers set to percentages. When you increase the font size the layout
+scales appropriately, thus demonstrating good usability (or accessibility &ndash; I
+think they are one in the same).</p><p>Have you ever stood back and wondered, &ldquo;should this site be wider?&rdquo; Well with
+one miniscule change it can. Simply alter the container layer and everything
+follows suite as long as your inner layers have all been assigned percentages.
+The biggest caveat to this is dealing with IE not behaving well with 100% in
+certain situations. I&rsquo;ve gotten around this by trying not to be so pixel perfect
+and looking at things more loosely. Upon doing more and more complex column
+layouts I&rsquo;ve come to love this method of styling.</p><p>It&rsquo;s time to see more liquid layouts or at least taking into consideration that
+the canvas we have is not fixed. Most of the software applications on our
+computer are liquid why not web sites?</p><p>Tip: Set the font-style property of the body tag to 62.5%. This makes 1em look
+like 10px, and so on.</p>
+]]></content></item><item><title>A Gestalt point of view</title><link>https://nathan.run/posts/2006/gestalt-point-view/</link><pubDate>Tue, 24 Oct 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/gestalt-point-view/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>During my junior year of college I was required to enroll in a cinematography
+course as part of the Electronic Arts program. The first day of class we
+received a typical syllabus and course schedule. Then we immediately dove into a
+topic that I still remember to this day, Gestalt psychology.</p><p>In its basic form, Gestalt tries to explain how we perceive more than the
+collected sum. Musical tunes can be recognized in different keys or with added
+notes. Instead of seeing individual leafs on a tree we see branches, birds, sky,
+and grass. Foreground and background blend together to create a complete picture.
+&ldquo;&hellip; although a wheel is made of 30 spokes, it is the space between the spokes
+that determines the overall form.&rdquo; &ndash; Tao Te Ching</p><p>Designers juggle their time between foreground and background elements with the
+hopes of ensuring a harmony between the two. If one is neglected the design can
+easily fail; becoming more aware of this can help produce a more desirable
+composition.</p><p>One of the last remaining original Gestalt psychologists, Rudolf Arnheim,
+recently referred to the decline of modern design as, &ldquo;unbrilled extravagance, a
+vulgarity of taste, and triviality of thought.&rdquo; I see a lot of evidence
+supporting this statement on a daily basis. My conscious tells me design should
+be timeless. Instead of spending hours trying to determine the new fad we should
+be researching the psychological effects of design and closely study the masters.
+This is the path I&rsquo;ve decided to try for now.</p><p>More on Gestalt:</p><ul><li>Gestalt psychology (<a href="http://en.wikipedia.org/wiki/Gestalt_psychology">http://en.wikipedia.org/wiki/Gestalt_psychology</a>) (wikipedia)</li><li>Society for Gestalt theory (<a href="http://gestalttheory.net/archive/index.html">http://gestalttheory.net/archive/index.html</a>)</li><li>Gestalt principles (<a href="http://graphicdesign.spokanefalls.edu/tutorials/process/gestaltprinciples/gestaltprinc.htm">http://graphicdesign.spokanefalls.edu/tutorials/process/gestaltprinciples/gestaltprinc.htm</a>)</li></ul>
+]]></content></item><item><title>FTP bad, versioning good</title><link>https://nathan.run/posts/2006/ftp-bad-versioning-good/</link><pubDate>Wed, 04 Oct 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/ftp-bad-versioning-good/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>You may have noticed a little downtime Sunday evening. I was able to get the
+Domaki code under version control (<a href="http://en.wikipedia.org/wiki/Revision_control">http://en.wikipedia.org/wiki/Revision_control</a>)
+which I highly recommend. It allows you to kick FTP to the curb and do
+everything with &ldquo;svn commit&rdquo; and &ldquo;update&rdquo; commands.</p><p>The main reason for doing this was my extreme inability to remember which files
+I&rsquo;ve changed. Subversion (<a href="http://subversion.tigris.org/">http://subversion.tigris.org/</a>) takes the worry out of
+my day by committing the necessary files from my local machine to my repository.
+I can then update my live site copy with a simple update command. My setup is
+pretty simple. My repository is on Dreamhost. I have have a local copy checked
+out on my laptop where I make my changes. I have another copy checked out on
+Dreamhost thats served up fresh to you. I commit changes via my local terminal
+and ssh to my live directory on Dreamhost to update the code to the latest
+version. Pretty simple!</p><p>Trac (<a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a>) is also handy for navigating the repository
+online but acts more as a project management tool. Anytime I come across a bug
+or a UI enhancement I can open a ticket to Trac which can be closed upon
+completion. It can also review and compare changes of any file if you ever have
+to roll a file back to an older version.</p><p>Textmate (<a href="http://macromates.com/">http://macromates.com/</a>) has some handy Subversion key commands but I
+haven&rsquo;t had a chance to fully explore them.</p><p>If you&rsquo;re using Django or Python make sure you edit your config file under your
+hidden .subversion directory to exclude .pyc files. Otherwise you&rsquo;ll be making a
+ton of unnecessary file updates.</p>
+]]></content></item><item><title>Journalists and public discourse</title><link>https://nathan.run/posts/2006/journalists-and-public-discourse/</link><pubDate>Fri, 29 Sep 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/journalists-and-public-discourse/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I was involved in a discussion recently about whether journalists should be
+allowed to comment on news stories. My employer, the Lawrence Journal-World,
+allows the public to comment on online stories. Quick note: while I may work for
+the newspaper my experience with journalism at the time of this post is very
+informal. I am a member of the public, which in my opinion makes this opinion
+just as valid as any.</p><p>Journalists have an obligation to participate in the public discourse so long as
+they adhere to the principles of journalistic (<a href="http://www.journalism.org/resources/principles">http://www.journalism.org/resources/principles</a>)
+integrity. The delivery of news over an interactive medium allows for a closer
+relationship between a journalist and their audience. Why should a journalist
+end a story at the last sentence? Journalists sort through a variety of data to
+form their story which makes their participation essential in discussing or
+correcting the presented, edited data.</p><p>Journalism&rsquo;s purpose is to strengthen communities. Journalist forum
+participation not only enhances a story, it bridges the perceived gap between
+journalist and reader. I would even bet that over time it would increase
+participation and readership.</p>
+]]></content></item><item><title>Damn you Starbucks</title><link>https://nathan.run/posts/2006/damn-you-starbucks/</link><pubDate>Fri, 22 Sep 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/damn-you-starbucks/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I despise you and your cranberry oatmeal mountain bars and tall house coffees
+with room for cream. Your sirens (<a href="http://en.wikipedia.org/wiki/Starbucks#Name_and_logo">http://en.wikipedia.org/wiki/Starbucks#Name_and_logo</a>)
+whispering sweet nothings into innocent passerby&rsquo;s. You mock my town by cloaking
+yourself in local establishments and yet you still survive. You&rsquo;re like a light
+brown german cockroach impervious to insecticide. My town successfully squashed
+Wal-mart&rsquo;s ambitions but not you. You somehow slipped through the carpet cracks
+and built your roach hotel right across from my work.</p><p><em>DAMN YOU!</em></p><p>I love you.</p>
+]]></content></item><item><title>Piercing my tongue</title><link>https://nathan.run/posts/2006/piercing-my-tongue/</link><pubDate>Fri, 15 Sep 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/piercing-my-tongue/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I just bought a new nano and Nike+ kit but I didn&rsquo;t want the Nike shoes nor did
+I care for the recent &lsquo;velcro&rsquo; hack. Instead of looking like a huge geek with a
+transmitter in my laces (<a href="http://podophile.com/2006/07/14/shoe-hacker-nikeipod-sport-kit-shoe-mod/)">http://podophile.com/2006/07/14/shoe-hacker-nikeipod-sport-kit-shoe-mod/)</a>,
+I decided to surgically insert the transmitter into my shoe tongue.</p><h2 id="step-1">Step 1</h2><p>Gather up your favorite running shoe. Find an exacto knife or razor blade of
+sorts and buy a Nike+ kit.</p><p>!http://www.domaki.com/media/posts/2006-sep-15/01.jpg</p><h1 id="step-2">Step 2</h1><p>Loosen up your strings and stick out your tongue.</p><p>!http://www.domaki.com/media/posts/2006-sep-15/02.jpg</p><h1 id="step-3">Step 3</h1><p>Cut a slit about an inch in length into the backside of the shoe tongue. Try not
+to cut all the way through to the other side.</p><p>!http://www.domaki.com/media/posts/2006-sep-15/03.jpg</p><h1 id="step-4">Step 4</h1><p>Slip in the Nike+ transmitter and push it down into the tongue.</p><p>!http://www.domaki.com/media/posts/2006-sep-15/04.jpg</p><p>Congratulations! Your ready to run in your favorite pair of shoes.</p>
+]]></content></item><item><title>Nostalgic four years</title><link>https://nathan.run/posts/2006/nostalgic-four-years/</link><pubDate>Thu, 14 Sep 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/nostalgic-four-years/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Last night I was doing a little house cleaning and drifted off to reminiscing
+mode. I didn&rsquo;t realize how many redesigns I&rsquo;ve gone through and the ones that
+never made the cut. In some cases I kinda wish they did. So as a follow up to
+&ldquo;Slightly neurotic on change&rdquo; (/posts/2006/sep/04/slightly-neurotic-change/)
+I&rsquo;ll prove this neurosis with the following dusty relics from the past:</p><p>!http://www.domaki.com/media/posts/2006-sep-14/big/01.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/02.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/03.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/04.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/05.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/06.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/07.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/08.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/09.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/10.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/11.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/12.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/13.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/14.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/15.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/16.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/17.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/18.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/19.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/20.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/21.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/22.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/23.jpg
+!http://www.domaki.com/media/posts/2006-sep-14/big/24.jpg</p>
+]]></content></item><item><title>Switching from Rails to Django</title><link>https://nathan.run/posts/2006/switching-rails-django/</link><pubDate>Mon, 11 Sep 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/switching-rails-django/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>So back in the Fall of 2005 I launched (/posts/2005/aug/15/bejeweled/) my foray
+into the world of Rails like every other designer wannabe programmer. I&rsquo;ll be
+honest, I did it because everyone else was. Looking back I don&rsquo;t really know
+why, I just followed the &ldquo;if it feels good, do it&rdquo; principle.</p><p>Out of that decision grew a love/hate relationship. I&rsquo;m primarily a designer but
+I like sticking my hands in the programming cookie jar. I appreciate things that
+just work, offering few opportunities for me to unknowingly screw something up.
+Looking back, most of my time was spent developing admin tools, troubleshooting
+500 errors, and deployment. For some reason I accepted this as the norm, and to
+some degree, enjoyed it. It was like tinkering with a train set (no pun intended).
+Until I saw a job posting (<a href="http://www2.jeffcroft.com/2006/may/26/designer-wanted/)">http://www2.jeffcroft.com/2006/may/26/designer-wanted/)</a>.</p><p>World Online was seeking a senior designer to lead its commercial projects. I
+was interested but it meant no more Rails and I&rsquo;d have to gain a fundamental
+understanding of Django, a Python web development framework. This intrigued me.
+I remember hearing whispers of Django at SXSW in March. I knew there was no way
+I could seriously apply for the job if I didn&rsquo;t believe in Django as I did Rails.</p><p>After two weeks and with the aid of some great online documentation, I released
+(/posts/2006/jun/26/80x80/) a new personal site. I was sold, and not just
+because there was a carrot dangling in-front of me. Realizing I would never have
+to make another admin tool allowed me the exhale and start dreaming up better
+designs, info-graphics, API usages, and relationships between content. Django
+was an instrument that, with little instruction, I could enjoy playing.</p><p>It&rsquo;s been little over a month and I&rsquo;m still playing. So far, Django has kept a
+steady beat. No more 500 errors, no more building admin tools, and it&rsquo;s freakin
+fast. It should be noted that I have no ill feelings towards Rails. It&rsquo;s a great
+framework but the benefits Django offer me, as a designer, are just too great.
+Plus I took the job so I have to use it :)</p><p>For those of you wanting to make a similar switch, I encourage it. Here are some
+resources that may help:</p><ul><li>Django overview (<a href="http://www.djangoproject.com/documentation/overview/">http://www.djangoproject.com/documentation/overview/</a>)</li><li>Writing your first Django app (<a href="http://www.djangoproject.com/documentation/tutorial1/">http://www.djangoproject.com/documentation/tutorial1/</a>)</li><li>Django for non-programmers (<a href="http://www2.jeffcroft.com/2006/may/02/django-non-programmers/">http://www2.jeffcroft.com/2006/may/02/django-non-programmers/</a>)</li><li>Are you generic? (<a href="http://www.wilsonminer.com/posts/2006/may/10/are-you-generic/">http://www.wilsonminer.com/posts/2006/may/10/are-you-generic/</a>)</li><li>Setting up Django on Dreamhost (<a href="http://www2.jeffcroft.com/2006/may/11/django-dreamhost/">http://www2.jeffcroft.com/2006/may/11/django-dreamhost/</a>)</li></ul><p>The Django community is very welcoming. The online documentation is well written
+and oddly fun to read. I gained a lot from looking at the actual Django website
+code (<a href="http://code.djangoproject.com/browser/djangoproject.com/django_website">http://code.djangoproject.com/browser/djangoproject.com/django_website</a>)
+and listening in the irc channel (#django). It&rsquo;s also worth reading the philosophy
+(<a href="http://www.djangoproject.com/documentation/design_philosophies/">http://www.djangoproject.com/documentation/design_philosophies/</a>) behind Django.</p><p>The popular decision isn&rsquo;t always the right one. This is pretty obvious to most.
+I think Django Reinhardt said it best, &ldquo;Jazz attracted me because in it I found
+a formal perfection and instrumental precision that I admire in classical music,
+but which popular music doesn&rsquo;t have.&rdquo; I believe Django (framework) lives up to
+this perfection and precision Mr. Reinhardt speaks of.</p>
+]]></content></item><item><title>Fun with Beautiful Soup</title><link>https://nathan.run/posts/2006/fun-beautiful-soup/</link><pubDate>Sat, 09 Sep 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/fun-beautiful-soup/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>So how easy is it to yank out all links in a post and display them as a list on
+their own? Well with a little Python love and some Django filters it&rsquo;s easy as
+microwave burritos. Before we get started you&rsquo;ll need a fresh copy of
+ElementTree and BeautifulSoup.</p><p>ElementTree (<a href="http://effbot.org/zone/element-index.htm">http://effbot.org/zone/element-index.htm</a>) and BeautifulSoup
+(<a href="http://www.crummy.com/software/BeautifulSoup/">http://www.crummy.com/software/BeautifulSoup/</a>) together form a very handy
+toolbox for parsing structured data. ElementTree is used a lot for parsing XML
+and BeautifulSoup is tailored more towards parsing XHTML. Download both of these
+guys and drop them in your python path so they can be accessed within your
+Django app.</p><p>Once those guys are seated you can then write a very simple templatetag filter.</p><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a6e22e">@register</span><span style="color:#f92672">.</span>filter<span style="color:#66d9ef">def</span><span style="color:#a6e22e">get_links</span>(value):<span style="color:#66d9ef">try</span>:<span style="color:#66d9ef">try</span>:<span style="color:#f92672">from</span> BeautifulSoup<span style="color:#f92672">import</span> BeautifulSoup<span style="color:#66d9ef">except</span><span style="color:#a6e22e">ImportError</span>:<span style="color:#f92672">from</span> beautifulsoup<span style="color:#f92672">import</span> BeautifulSoup
+soup<span style="color:#f92672">=</span> BeautifulSoup(value)<span style="color:#66d9ef">return</span> soup<span style="color:#f92672">.</span>findAll(<span style="color:#e6db74">'a'</span>)<span style="color:#66d9ef">except</span><span style="color:#a6e22e">ImportError</span>:<span style="color:#66d9ef">if</span> settings<span style="color:#f92672">.</span>DEBUG:<span style="color:#66d9ef">raise</span> template<span style="color:#f92672">.</span>TemplateSyntaxError,<span style="color:#e6db74">"Error in 'get_links' filter: BeautifulSoup isn't installed."</span><span style="color:#66d9ef">return</span> value</code></pre></div><p>Save that into your templattags directory and use it like so in a template:</p><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">ul</span>>
+{% for link in object.body|getlinks %}
+&lt;<span style="color:#f92672">li</span>>&lt;<span style="color:#f92672">a</span><span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">"{{ link.href }}"</span>>{{ link.title }}&lt;/<span style="color:#f92672">a</span>>&lt;/<span style="color:#f92672">li</span>>
+{% endfor %}
+&lt;/<span style="color:#f92672">ul</span>></code></pre></div><p>The above example assumes you&rsquo;re working with an object that has a field called
+body which contains simple HTML structured data. The next assumption is that
+each anchor has a title attribute. If you didn&rsquo;t want to mess with titles, just
+say {{ link }} instead. For more on templatetags consume some tasty Django
+Documentation (<a href="http://www.djangoproject.com/documentation/templates_python/#extending-the-template-system)">http://www.djangoproject.com/documentation/templates_python/#extending-the-template-system)</a>.
+Enjoy!</p><p>UPDATE: I may have inadvertently implied that you needed ElementTree to use
+BeautifulSoup. This is in fact wrong. BeautifulSoup can play by itself.</p>
+]]></content></item><item><title>Warming up to context</title><link>https://nathan.run/posts/2006/warming-context/</link><pubDate>Fri, 08 Sep 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/warming-context/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Context can be described as, &ldquo;the circumstances that form the setting for an
+event, statement, or idea, and in terms of which it can be fully understood and
+assessed.&rdquo; Context plays an important role in communication and I&rsquo;d like start
+by providing better context to posts.</p><p>You may have noticed a left column on my blog post pages. It now contains geo
+location information regarding where the post was written, categories it belongs
+to, links that exist within the post and photos that were taken on the day the
+it was published.</p><h1 id="what-does-all-this-mean">What does all this mean?</h1><p>The goal is to give posts an added level of meaning. In some instances I&rsquo;ve
+noticed a correlation between photos
+(<a href="http://www.domaki.com/posts/2006/jul/10/its-time-behave/">http://www.domaki.com/posts/2006/jul/10/its-time-behave/</a>) and what I decided to
+write or maybe a location (<a href="http://www.domaki.com/posts/2005/sep/24/innocent-bystander/">http://www.domaki.com/posts/2005/sep/24/innocent-bystander/</a>)
+inspired a post. Sometimes it may not be as apparent but, if anything, it brings
+a little more life to information.</p><p>I&rsquo;m planning on adding photos that correlate to the location pages once I have
+time to play with the new geo data (<a href="http://blog.flickr.com/flickrblog/2006/08/geotagging_one_.html">http://blog.flickr.com/flickrblog/2006/08/geotagging_one_.html</a>)
+in Flickr. I&rsquo;d love to see other examples of this practice. Suggestions are
+always welcome.</p>
+]]></content></item><item><title>Slightly neurotic on change</title><link>https://nathan.run/posts/2006/slightly-neurotic-change/</link><pubDate>Mon, 04 Sep 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/slightly-neurotic-change/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Always tweaking here and there. Today marks a big tweak including a name change,
+site realignment, and a fun little visualization project. Welcome to Domaki
+(pronounced Du·mock·eee), formerly &ldquo;You know where you are&rdquo; and
+formally &ldquo;Playground Blues.&rdquo; I am your host, Nathan Borror.</p><h1 id="whats-changed">Whats changed?</h1><p>All the markup has been overhauled. I&rsquo;ve been fine tuning a particular CSS
+framework that is a derivative of the YUI framework (<a href="http://developer.yahoo.com/yui/grids/">http://developer.yahoo.com/yui/grids/</a>)
+over at Yahoo. Dimensions are based on percentages and em&rsquo;s which allow the
+interface to scaled up, down, out or in. It also makes it very easy to achieve
+liquid layouts. The back end is still Django with very little changes. (Beware
+IE users, still flushing out some annoying bugs.)</p><h1 id="tumbling">Tumbling</h1><p>I added a &ldquo;tumblelog&rdquo; using some of Jacob&rsquo;s (<a href="http://www.jacobian.org/">http://www.jacobian.org/</a>) code.
+It&rsquo;s visible on the homepage. This basically gathers all my photos, bookmarks,
+comments and even webcam freezes and spits them out at once. Over the weekend I
+threw together a visualization using Flash which can be viewed (<a href="http://www.domaki.com/labs/)">http://www.domaki.com/labs/)</a>.
+It should be fun to see what other visualizations I can dream up.</p><h1 id="webcam-freeze">Webcam Freeze</h1><p>The webcam (<a href="http://www.domaki.com/webcam/">http://www.domaki.com/webcam/</a>) is back! I&rsquo;ve retooled the layout
+and it should be easy as pie to freeze a moment of my time and attach a comment
+to it. All the old freezes are back up too. I still think this is pretty unique.
+I&rsquo;d be interested to know if anyone else has spied something similar.</p><h1 id="so-why-the-name-change">So why the name change?</h1><p>I wanted something short and simple. I didn&rsquo;t like &lsquo;Playground Blues&rsquo; because it
+had a color in the name which seemed kind of cheesy. I liked &lsquo;You know where you
+are&rsquo; but got tired of typing it. While staring at my bulletin board one day I
+noticed this little character (<a href="http://flickr.com/photos/sketch22/223203462/">http://flickr.com/photos/sketch22/223203462/</a>)
+with the name &lsquo;dodo maki.&rsquo; It sounded goofy and interesting. I reduced it to six
+letters and bought the domain (btw: available six letter domains are becoming
+pretty rare these days). It doesn&rsquo;t have a lot of meaning now but thats the
+beauty of new brands, over time it&rsquo;s meaning will grow and some day, who knows,
+it might be added to Websters :)</p>
+]]></content></item><item><title>Privacy in context</title><link>https://nathan.run/posts/2006/privacy-context/</link><pubDate>Sat, 12 Aug 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/privacy-context/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>In the 20&rsquo;s we fought prohibition, 50&rsquo;s and 60&rsquo;s it was segregation. Today we
+face a new battle called privacy. I bring this up because in todays Lawrence
+Journal-World Sarah Benson wrote an interesting article titled Facebook
+indiscretions plague users (<a href="http://www2.ljworld.com/news/2006/aug/12/facebook_indiscretions_plague_users/)">http://www2.ljworld.com/news/2006/aug/12/facebook_indiscretions_plague_users/)</a>.</p><p>In her article she gives two examples of the unintended consequences of social
+networking. The first outlines how an employer can peer into prospective
+employees social pasts using current employee accounts. The second explains how
+a group of students, toasting to the university alcohol policy in the comforts
+of their dorm, got caught by university officials discovering photos in a users
+profile.</p><p>This is somewhat frightening in a Flickr, MySpace, Friendster, Facebook, Google,
+Del.icio.us world. With ease I can pick a person discover last nights party pics,
+a detailed description of what movies, music, and body type they are, what
+searches they performed last night and what websites they felt worthy of
+remembering. This may seem harmless but when aggregated, opinions form, and
+worse yet form out of context.</p><p>I don&rsquo;t have a problem sharing my photos (<a href="http://www.flickr.com/photos/sketch22/)">http://www.flickr.com/photos/sketch22/)</a>,
+bookmarks (<a href="http://del.icio.us/sketch22/)">http://del.icio.us/sketch22/)</a>, and even precious thoughts
+(<a href="http://www.youknowwhereyouare.com/posts/)">http://www.youknowwhereyouare.com/posts/)</a>. I do worry that those who don&rsquo;t know
+me well may take them out of context. While privacy is societies hurdle in the
+coming years I think we as individuals need to be reminded of the importance of
+context.</p>
+]]></content></item><item><title>Collective Soul</title><link>https://nathan.run/posts/2006/collective-soul/</link><pubDate>Tue, 08 Aug 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/collective-soul/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>The reviews (<a href="http://www.wired.com/news/columns/cultofmac/0,71557-0.html?tw=wn_technology_4">http://www.wired.com/news/columns/cultofmac/0,71557-0.html?tw=wn_technology_4</a>)
+are pouring (<a href="http://www.mcelhearn.com/article.php?story=20060808113448585">http://www.mcelhearn.com/article.php?story=20060808113448585</a>) in
+regarding this years WWDC keynote. Each critiquing the slightest moves Steve
+Jobs made or didn&rsquo;t make. This<em>shared</em> keynote in particular has raised the
+question, &ldquo;is Jobs preparing for departure?&rdquo; Just the notion spreads fear
+amongst even the most liberal mac fanatics.</p><p>This got me thinking about the importance of hiring the right people. Wikipedia
+defines company (<a href="http://en.wikipedia.org/wiki/Company">http://en.wikipedia.org/wiki/Company</a>) as a &ldquo;legal entity formed
+which has a separate legal identity from its members.&rdquo; This definition is
+bullshit. It&rsquo;s the reason why most companies are selfless and full of boring
+individuals with zero curiosity or ownership. If companies want to captivate our
+minds they have to do it through soul. Catchy logos and tag lines are important
+but if the people of a company lack class or style, the products will too.</p><p>When I know whose behind a great product, I appreciate it so much more. This can
+also carry many dangers as I&rsquo;m sure we all know. In particular, retirement or
+&ldquo;natures change agent.&rdquo;</p>
+]]></content></item><item><title>White Flight takes off</title><link>https://nathan.run/posts/2006/white-flight-takes/</link><pubDate>Tue, 08 Aug 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/white-flight-takes/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Holly fucking shit you have to listen to White Flight
+(<a href="http://rangeliferecords.com/listen/listen_WF_02.html">http://rangeliferecords.com/listen/listen_WF_02.html</a>) right now! Yesterday I
+stepped into my boss&rsquo;s very slick auto to pick up some pies for a late night
+work dinner and I expect some NPR, instead I get a feeling I got the first time
+I heard Postal Service.</p><p>Not since my Postal Service experience have I heard music of this caliber.
+Justin Roelofs (<a href="http://www.lawrence.com/blogs/street_level/2005/dec/09/hownow/)">http://www.lawrence.com/blogs/street_level/2005/dec/09/hownow/)</a>,
+from The Anniversary, has managed to enter a realm that has no explanation. It&rsquo;s
+actually original which is rare in a saturated world of<em>alternative</em> music. I&rsquo;m
+confident this will infect you well into the Fall.</p>
+]]></content></item><item><title>Nothing In Disguise</title><link>https://nathan.run/posts/2006/nothing-disguise/</link><pubDate>Wed, 19 Jul 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/nothing-disguise/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>A few Sunday&rsquo;s back I was in a coffee house determined to work. Instead, I
+quickly fell into a dream state which is the plague of many Sunday mornings. I
+felt guilty about being so unproductive, but, I had no pressing deadlines, no
+urgent emails, no clients knocking at my door. Later that night I felt a surge
+of creativity and began painting, which got me wondering. Lets see what Brenda
+Ueland (<a href="http://www.amazon.com/gp/product/1555972608/">http://www.amazon.com/gp/product/1555972608/</a>) says:</p><blockquote><p>Our idea that we must always be energetic and active is all wrong. Bernard
+Shaw says that it is not true that Napoleon was always snapping out decisions
+to a dozen secretaries and aides-de-camp, as we are told, but that he moodled
+around for months. Of course he did. And that is why these smart, energetic,
+do-it-now, pushing people so often say: &ldquo;I am not creative.&rdquo; They are, but
+they should be idle, limp and alone for much of the time, as lazy as men
+fishing on a levee, and quietly looking and thinking, not<em>willing</em> all the
+time.</p></blockquote><p>It&rsquo;s important to make time for nothing. It allows you to open your mind to
+thought you might not normally invite in. In a way, these moments cultivate our
+creative fields. When it&rsquo;s time to harvest, ideas should be ripe for the
+pickings. Basically, the answers we arrive at are a result of past thought.
+Neglect these moments and you limit the quality of creative outcomes.</p><p>&ldquo;Some 40 thousand (and counting) elementary schools have eliminated recess in
+favor of more time for academics,&rdquo; says David Elkind (<a href="http://www.amazon.com/gp/product/0738210536/)">http://www.amazon.com/gp/product/0738210536/)</a>.
+This is shocking. From what I recall, recess was the most rejuvenating part of
+my elementary day. &ldquo;Our schools are now contributing to the suppression of
+curiosity, imagination and fantasy.&rdquo;</p><p>As we get older we unknowingly loose touch with our creative side and our
+imagination. I remember looking at clouds and immediately spotting frogs, space
+ships or elephants. Now I have to concentrate to come up with anything. Making
+time for relaxing and dreaming is so important, if for no other reason than to
+look up and see a giraffe float by.</p>
+]]></content></item><item><title>Del.icio.us API Interface</title><link>https://nathan.run/posts/2006/delicious-api-interface/</link><pubDate>Mon, 17 Jul 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/delicious-api-interface/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I finally figured out how to parse the Del.icio.us API (<a href="http://del.icio.us/help/api/">http://del.icio.us/help/api/</a>)
+using Python and Django. The solution is quite flexible aside from the fact that
+the Del.icio.us API is still under development.</p><p>I started by studying FlickrClient (<a href="http://micampe.it/things/flickrclient">http://micampe.it/things/flickrclient</a>) which
+is a great interface for Python. The Flickr API is very verbose and this is a
+simple approach that scales to future Flickr upgrades. The power behind this
+script is the following method:</p><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> __getattr__(self, method):<span style="color:#66d9ef">def</span><span style="color:#a6e22e">method</span>(_self<span style="color:#f92672">=</span>self, _method<span style="color:#f92672">=</span>method,<span style="color:#f92672">**</span>params):
+_method<span style="color:#f92672">=</span> _method<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">"_"</span>,<span style="color:#e6db74">"."</span>)
+url<span style="color:#f92672">=</span><span style="color:#e6db74">"http://flickr.com/services/rest/"</span><span style="color:#f92672">+</span><span style="color:#e6db74">"?method=</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&amp;amp;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&amp;amp;api_key=</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">"</span><span style="color:#f92672">%</span> (_method, urlencode(params), YOUR_API_KEY)<span style="color:#f92672">...</span></code></pre></div><p>This basically generates the proper URL string to be passed to Flickr. With this
+bit of simplicity you can literally call any API method. All thats left is
+parsing the return XML value which is done by XMLTramp (<a href="http://www.aaronsw.com/2002/xmltramp/)">http://www.aaronsw.com/2002/xmltramp/)</a>.
+This will parse any XML data into a useful object that you can iterate through
+in a Django template.</p><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">rsp<span style="color:#f92672">=</span> xmltramp<span style="color:#f92672">.</span>load(url)</code></pre></div><p>I&rsquo;ve retooled this approach a bit to work with Del.ici.ous. The biggest
+difference is instead of using an API Key you have to validate with Https. I
+created a method to handle this using urllib2:</p><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span><span style="color:#a6e22e">_secureConnect</span>(self, url):
+auth_handler<span style="color:#f92672">=</span> urllib2<span style="color:#f92672">.</span>HTTPBasicAuthHandler()
+auth_handler<span style="color:#f92672">.</span>add_password(<span style="color:#e6db74">'del.icio.us API'</span>,<span style="color:#e6db74">'https://api.del.icio.us'</span>, USERNAME, PASSWORD)
+opener<span style="color:#f92672">=</span> urllib2<span style="color:#f92672">.</span>build_opener(auth_handler)
+urllib2<span style="color:#f92672">.</span>install_opener(opener)<span style="color:#66d9ef">return</span> urllib2<span style="color:#f92672">.</span>urlopen(url)<span style="color:#f92672">.</span>read()</code></pre></div><p>The other big difference is all the data in the return XML resides in attributes
+of a single node. (In my opinion this is crap but such is life.) We must create
+a new object because Django templates don&rsquo;t seem to like how XMLTramp accesses
+node attributes.</p><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> child<span style="color:#f92672">in</span> rsp:
+posts<span style="color:#f92672">.</span>append({<span style="color:#e6db74">'description'</span>:child(<span style="color:#e6db74">'description'</span>),<span style="color:#e6db74">'href'</span>:child(<span style="color:#e6db74">'href'</span>),<span style="color:#e6db74">'extended'</span>:child(<span style="color:#e6db74">'extended'</span>),<span style="color:#e6db74">'hash'</span>:child(<span style="color:#e6db74">'hash'</span>),<span style="color:#e6db74">'time'</span>:child(<span style="color:#e6db74">'time'</span>),<span style="color:#e6db74">'tag'</span>:child(<span style="color:#e6db74">'tag'</span>)})<span style="color:#66d9ef">return</span> posts</code></pre></div><p>I&rsquo;m sure if I become better versed with urllib2 and Python I could make this
+simpler. For now it works which was the intended goal. Here is the code
+(<a href="http://media.youknowwhereyouare.com/code/DeliciousClient.zip)">http://media.youknowwhereyouare.com/code/DeliciousClient.zip)</a>.<em>Word of
+caution!</em> It&rsquo;s good practice to save these results to a local database thereby
+minimizing the API requests. Del.icio.us in particular will throttle back your
+requests when it notices an increase in API traffic. My next post will address
+this.</p>
+]]></content></item><item><title>A Bittersweet Farewell</title><link>https://nathan.run/posts/2006/bittersweet-farewell/</link><pubDate>Thu, 13 Jul 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/bittersweet-farewell/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>You probably haven&rsquo;t noticed but the past month has been particularly
+challenging for me. If you&rsquo;re a close friend then it was probably apparent in
+the way I cheaply disguise my emotions. It&rsquo;s not easy to look back at two years
+of progress in advertising and realize all along you may have stumbled into the
+wrong cocktail party. Once this realization occurs it creeps into all your
+thoughts and emotions to the point where you can no longer function until a
+change is made.</p><p>I can finally say a change has been made. A weight has been lifted only to be
+replaced by reluctant excitement. August will mark my departure from advertising.
+I&rsquo;ve never felt comfortable in advertising and while I understand its purpose I
+struggle with its effects. So in the midst of my search for a new direction I
+discovered an opportunity to fill a void with an exciting group of individuals.</p><p>If your not familiar with the Kansas/Missouri area you may know them for their
+origination of an exciting Python (<a href="http://www.python.org/">http://www.python.org/</a>) framework called
+Django (<a href="http://www.djangoproject.com/)">http://www.djangoproject.com/)</a>. If your in the business of journalism
+you may recognize them as pioneers of an online publishing tool, Ellington
+(<a href="http://www.ellingtoncms.com/)">http://www.ellingtoncms.com/)</a>. Or if you&rsquo;re familiar with the area you can
+identify them by their care of Lawrence.com (<a href="http://www.lawrence.com/)">http://www.lawrence.com/)</a>,
+LJWorld.com (<a href="http://www.ljworld.com/)">http://www.ljworld.com/)</a>, and KUSports.com (<a href="http://www.kusports.com/)">http://www.kusports.com/)</a>.
+They call themselves World Online and what better place to be with a name like
+that than in the center of the country, Lawrence, Kansas.</p><p>I&rsquo;ll be doing the impossible task of filling the shoes of Wilson Miner
+(<a href="http://www.wilsonminer.com/">http://www.wilsonminer.com/</a>) who has moved on to some small company
+(<a href="http://www.apple.com/">http://www.apple.com/</a>) in California that makes a very ambitions music device :)
+This was a very difficult decision because I&rsquo;ll be leaving a group of individuals
+(<a href="http://www.brmethod.com/">http://www.brmethod.com/</a>) that I have an enormous amount of respect and
+admiration for.</p><p>This insainly fast pace industry that we casually call The Web is actually a
+very small community of extraordinary human beings. We&rsquo;re infected with
+curiosity and rely heavily on one another for direction and friendship. I will
+miss the Method team but I&rsquo;ll always be available to them as a friend and
+colleague.</p><p>A page has been turned. It&rsquo;s blank and ready to be filled with a new chapter.</p>
+]]></content></item><item><title>It's Time To Behave</title><link>https://nathan.run/posts/2006/its-time-behave/</link><pubDate>Mon, 10 Jul 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/its-time-behave/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>We are all hypocrites, every damn one of us. Well, actually, just those that are
+guilty of inline javascript. Now don&rsquo;t get all puffed up, I&rsquo;m just as guilty but
+it&rsquo;s time to change and I have some tips!</p><p>Over the past couple years we&rsquo;ve heard a lot about separation. Two types, in
+particular, have been evangelized, data from structure and structure from style.
+One we don&rsquo;t hear about nor see it practiced very often is separation between
+structure and behavior. Why do some of us work so hard at protecting data,
+structure and style while neglecting behavior?</p><p>For me it&rsquo;s laziness. After designing a site I spend a majority of my time
+creating a solid structure then styling. By the time debugging is over I&rsquo;m so
+beat, a little inline javascript never hurt anybody, right? Wrong! So how can
+I/we change?</p><p>I&rsquo;m a firm believer if your slacking in something, it&rsquo;s probably because it&rsquo;s
+not as fun as it could be. So in an effort to liven up javascript I&rsquo;ve decided
+to investigate a framework called JQuery (<a href="http://www.jquery.com">http://www.jquery.com</a>). It&rsquo;s similar
+to Prototype (<a href="http://prototype.conio.net/">http://prototype.conio.net/</a>) but not as bloated, it slides in at
+a polite 10k when compressed and has a handsome toolset. The best part about it
+is you find yourself unknowingly abstracting all your code. It&rsquo;s designed with
+separation in mind and makes it fun to boot! It also supports XPath
+(<a href="http://www.w3schools.com/xpath/">http://www.w3schools.com/xpath/</a>) which I haven&rsquo;t really dove into yet but I&rsquo;ve
+been assured is quite amazing. Aside from its core functionality its provides
+some simple effects, ajax, and basic events.</p><p>So there you have it. We/I have no reason to neglect this important separation
+of behavior.</p><p><em>UPDATE</em> Two great articles have surfaced on a similar topic:</p><ul><li>James Bennett: Django and AJAX (<a href="http://www.b-list.org/weblog/2006/07/02/django-and-ajax">http://www.b-list.org/weblog/2006/07/02/django-and-ajax</a>)</li><li>Jeremy Keith: Learning JavaScript (<a href="http://domscripting.com/blog/display/78">http://domscripting.com/blog/display/78</a>)</li></ul>
+]]></content></item><item><title>Seven Patriots</title><link>https://nathan.run/posts/2006/seven-patriots/</link><pubDate>Tue, 04 Jul 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/seven-patriots/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>What better way to celebrate our independence than roaring into space in one of
+the most complex machines ever built! You can watch this miraculous display of
+human engineering at NASA.gov (<a href="http://www.nasa.gov/)">http://www.nasa.gov/)</a>.</p><p>Space exploration gives me goose bumps. My heart skips a beat when, just for one
+second, I try to comprehend its limitless nature. To think we&rsquo;re able to
+catapult seven of our greatest minds into this vacuum of questions and answers
+makes me pause and wonder what we&rsquo;ll choose to achieve next. World peace,
+hydrogen power, healthcare for everyone, or the tallest of dreams are so
+attainable when we place them next to our accomplishments.</p><p>What I saw today was remarkable, there was no red or blue, no debate, just a
+group of dedicated patriots. Our achievements should show us nothing less than
+anything is possible if we clear our hearts, our minds and choose to step
+forward. 5, 4, 3, 2, 1, is all it takes.</p>
+]]></content></item><item><title>Django Gotchas</title><link>https://nathan.run/posts/2006/django-gotchas/</link><pubDate>Fri, 30 Jun 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/django-gotchas/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>One of the biggest hurdles in learning any new framework or programming language
+is learning its quirks. By quirks I don&rsquo;t mean bugs, I&rsquo;m referring to the
+personality and flow. Here are a few that might help your troubleshooting process:</p><p>I get an error when I run syncdb. This could be a number of things. If its an
+error in the model you should be able to tell. Most of the time for me was
+forgetting to add the project to the<code>settings.py</code> INSTALLED_APPS
+(<a href="http://www.djangoproject.com/documentation/settings/#installed-apps">http://www.djangoproject.com/documentation/settings/#installed-apps</a>) list.</p><p>I created a templatetag but Django is saying the file doesn&rsquo;t exist. First make
+sure you have loaded the template tag
+(<a href="http://www.djangoproject.com/documentation/templates_python/#extending-the-template-system)">http://www.djangoproject.com/documentation/templates_python/#extending-the-template-system)</a>,
+(i.e.<code>{% load latestposts %}</code>). Second, and this one gets me every time, make
+sure you added the<code>__init__.py</code> file to the newly created directory. This file
+must be present in directories that contain python scripts.</p><p>How do I access the children of a many-to-one or many-to-many relationship within
+the template? This puzzled me for a while. I&rsquo;m accustomed to saying<code>post.categories</code> but in Django you must say<code>post.categories_set.all</code>. Referenced
+here (<a href="http://www.djangoproject.com/documentation/db_api/#related-objects)">http://www.djangoproject.com/documentation/db_api/#related-objects)</a>.</p><p>I just added my database from my model but I keep getting a 404 error when I try
+to view the template. This drove me crazy and people will probably laugh. If you
+forget to enter data into the newly formed table Django will throw a Page Not
+Found error until you enter your first record of data. It&rsquo;s always the small
+things.</p><p>I hope these are somewhat helpful. If you have any to add to the list feel free
+to post a comment.</p>
+]]></content></item><item><title>80x80</title><link>https://nathan.run/posts/2006/80x80/</link><pubDate>Mon, 26 Jun 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/80x80/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I said Friday but I meant Monday. Sometimes things take longer but in my case I
+just wanted to compete for attention the same day Digg 3 (<a href="http://www.digg.com">http://www.digg.com</a>)
+launched. All amusement aside I&rsquo;d like to take the plastic wrap off my new site
+that I&rsquo;ve dubbed 80x80.</p><p>It&rsquo;s been a long time coming and I&rsquo;ve finally got something I&rsquo;m proud of. She&rsquo;s
+still stretching herself out so if you notice any kinks let me know and I&rsquo;ll
+call the masseuse. You&rsquo;ll see the<a href="/lab/">Lab</a> grow soon into a dumping ground
+for prototypes and ideas. To keep things lively the artwork above will change as
+frequently as possible. You may notice the death of my tags, sorry, I opted for
+a clear set of categories.<a href="/projects/">Portfolio</a> is simple and should provide
+a glimpse of my contributions.<a href="/resume/">Resume</a> is, well, a resume.</p><p>That said, I&rsquo;d like to say a few words on the nuts and bolts. I&rsquo;ve parted ways
+with Rails (<a href="http://www.rubyonrails.com">http://www.rubyonrails.com</a>). I enjoy Ruby immensely, it&rsquo;s a
+beautiful language and I highly recommend it for those of you building web apps.
+However, while I wear many hats, none of them include web app developer. My
+largest hat is information designer. I spoon feed content to people in a
+stimulating fashion in hopes of planting a brand seed in their brain, thats all.
+After a few weeks of tinkering around I realized Django (<a href="http://www.djangoproject.com">http://www.djangoproject.com</a>)
+was my new muse. In less than a weekend I had a prototype for this site which
+allowed me to focus directly on usability, design and content while eliminating
+time towards an admin tool. Ruby on Rails made programming fun again but Django
+liberated me from back-end development.</p><p>I would like to give a big thanks to Jeff Croft
+(<a href="http://www2.jeffcroft.com/2006/jun/06/lost-theories-with-source-code/)">http://www2.jeffcroft.com/2006/jun/06/lost-theories-with-source-code/)</a>, Wilson
+Miner (<a href="http://www.wilsonminer.com/posts/2006/may/10/are-you-generic/)">http://www.wilsonminer.com/posts/2006/may/10/are-you-generic/)</a>, and those
+that maintain Django (<a href="http://www.djangoproject.com/documentation/faq/#who-s-behind-this">http://www.djangoproject.com/documentation/faq/#who-s-behind-this</a>)
+for their glowing examples clear documentation. If you&rsquo;d like to learn more
+there are a couple great videos by Adrian
+(<a href="http://video.google.com/videoplay?docid=2939556954580527226&amp;amp;q=snakes+and+rubies">http://video.google.com/videoplay?docid=2939556954580527226&amp;amp;q=snakes+and+rubies</a>)
+and Jacob (<a href="http://video.google.com/videoplay?docid=-70449010942275062&amp;amp;q=django">http://video.google.com/videoplay?docid=-70449010942275062&amp;amp;q=django</a>)
+on Google. Thats all for now. I&rsquo;m excited and I hope everyone else is too.</p>
+]]></content></item><item><title>Victory Out of Context</title><link>https://nathan.run/posts/2006/victory-out-context/</link><pubDate>Sat, 27 May 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/victory-out-context/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<blockquote><p>President Bush says, just as the United States persevered and ultimately won
+the Cold War against communism, America will emerge victorious in the war on
+terror. &ndash;<a href="http://www.voanews.com/english/2006-05-27-voa17.cfm">http://www.voanews.com/english/2006-05-27-voa17.cfm</a></p></blockquote><p>It&rsquo;s misleading and irresponsible to imply the possibility of victory over
+terror. It is idealistically impossible to abolish a feeling. People will always
+fear and at times that fear will escalate to terror. From the time we are born
+we learn fear, it aids in our survival until the day we die. Our responsibility
+is to not let fear overshadow happiness. If we choose to be free we must accept
+the accompanying dangers.</p>
+]]></content></item><item><title>Highlights</title><link>https://nathan.run/posts/2006/highlights/</link><pubDate>Sat, 06 May 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/highlights/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I&rsquo;m notorious for highlighting. At home, I&rsquo;m surrounded by a rapidly growing
+library. Some books have been read cover to cover, some cover to creamy center,
+and some randomly picked through. But, I can confidently guarantee, each has
+felt the screeching of my fat yellow Avery HI-LITER.</p><p>Why? Maybe it&rsquo;s an incessant urge to mark my territory or a worry that I&rsquo;ll
+forget a phrase that made my grey matter jiggle. I&rsquo;m not exactly sure but when I
+revisit books and read this highlighted material memories flood my mind. The
+hard part is remembering what I&rsquo;ve highlighted and trying to make relations
+between highlights.</p><p>To aid in this I&rsquo;ve put together a little application called Highlights
+(<a href="http://highlights.youknowwhereyouare.com/)">http://highlights.youknowwhereyouare.com/)</a>. It&rsquo;s very basic and allows me to
+keep a journal of all my readings and thoughts. This also serves as my book list
+for those of you asking me what I&rsquo;ve been reading lately. Feel free to peruse
+(<a href="http://highlights.youknowwhereyouare.com/)">http://highlights.youknowwhereyouare.com/)</a>. I&rsquo;m thinking about adding some
+folksonomies (<a href="http://en.wikipedia.org/wiki/Folksonomy">http://en.wikipedia.org/wiki/Folksonomy</a>) to allow for better
+relationships to form between entires. Seaching will be available soon. Any
+suggestions are welcome with open arms.</p><p>Update: I&rsquo;ll be porting Highlights to Django very soon and adding some fun new
+features. If you have any suggestions feel free to comment.</p>
+]]></content></item><item><title>Subversion Love</title><link>https://nathan.run/posts/2006/subversion-love/</link><pubDate>Sun, 30 Apr 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/subversion-love/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I have a new love (<a href="http://subversion.tigris.org">http://subversion.tigris.org</a>). For the past year I&rsquo;ve been
+putting off this slightly important part of being a pragmatic programmer
+(<a href="http://pragmaticprogrammer.com/ppbook/index.shtml)">http://pragmaticprogrammer.com/ppbook/index.shtml)</a>.</p><p>I&rsquo;ve heard the horror stories of CVS so I steered clear of it for this new
+flavor of life saving loveliness. Gone are the days of, &ldquo;is this the newest
+copy?&rdquo; Goodbye to unsettling feelings of cautiously dragging and dropping files
+from one server to the next. From this day forth we&rsquo;ll use words like &ldquo;Commit&rdquo;
+and &ldquo;Revert&rdquo; and &ldquo;Diff&rdquo; to name a few.</p><p>Dreamhost (<a href="http://www.dreamhost.com/panel/features.html#svn">http://www.dreamhost.com/panel/features.html#svn</a>) is my repository
+of choice. They make it so simple. Set up a new project in the panel and away
+you go. Mike Zornek of<a href="http://clickablebliss.com/">Clickable Bliss</a> has a very
+straight forward screen-cast (<a href="http://clickablebliss.com/blog/2006/04/26/introduction_to_subversion_screencast/">http://clickablebliss.com/blog/2006/04/26/introduction_to_subversion_screencast/</a>)
+on the subject. Normal breathing may now commence.</p>
+]]></content></item><item><title>Making The Case</title><link>https://nathan.run/posts/2006/making-case/</link><pubDate>Tue, 25 Apr 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/making-case/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Why is it that certain days I opt for the Man&rsquo;s coffee and other days I champion
+the locals? I thought it had something to do with consistency but that&rsquo;s
+bullshit. While the Man&rsquo;s store is well designed and has a familiar atmosphere
+it reeks of fake smiles, stale business folk, and overly perfect pastries.
+Admittedly those dainty pastries are quite wonderful, but thats besides the
+point.</p><p>The locals aren&rsquo;t afraid to show attitude, they&rsquo;re real, they proudly bear the
+title, Barista. The customers are genuine, eclectic and unpredictable. Plus you
+feel honored to support local uniqueness and individuality.</p><p>So why do I still drink from the Man&rsquo;s hand? I don&rsquo;t know. Maybe it&rsquo;s because
+they have better parking.</p>
+]]></content></item><item><title>Don't Stress</title><link>https://nathan.run/posts/2006/dont-stress/</link><pubDate>Sat, 22 Apr 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/dont-stress/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Your heart starts pounding, blood pressure soars and you begin to take shorter
+faster breaths. Why do we put every cell in our body through such a traumatic
+experience?</p><p>Stress was hard wired into our bodies for those face to face moments with
+mountain lions. It&rsquo;s called fight or flight. Mountain lions don&rsquo;t seem to bother
+us anymore so we&rsquo;ve repurposed this reaction to things like client deadlines,
+idiots on the freeway, and that bar that plays horrible music on wednesday
+nights below my loft. I&rsquo;ve decided for myself this is unacceptable so here is
+what I&rsquo;m doing to combat this ridiculous instinct.</p><ul><li>Exercise: Clears my head and makes me a lot happier the following day.</li><li>Don&rsquo;t Pass the Buck: Some might think this causes more stress but in my
+experience it doesn&rsquo;t. Suck it up and move on.</li><li>Make Task Lists: This gets the stuff you try to remember off your mind so you
+can make room for other things.</li><li>Check Off Tasks: For every three tasks I write down I try to immediately
+complete one of them. This inevitably leads to checking off more.</li><li>Get It Done: When it&rsquo;s done it&rsquo;s off your plate and out of your mind.</li><li>Controlled Breathing: This may sound weird but if you control the speed at
+which you breath in and out it has enormous calming effects on the body.</li><li>Stretching: Certain stretches can make you feel more introverted or extroverted.</li></ul><p>Stress is very counter productive and we need to be more aware of how stupid it is.</p>
+]]></content></item><item><title>Don't Delete, Version</title><link>https://nathan.run/posts/2006/dont-delete-version/</link><pubDate>Wed, 19 Apr 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/dont-delete-version/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Lately I&rsquo;ve been toying with the idea of versioning. And I don&rsquo;t mean versioning
+in the programming sense, although I really need to figure out Subversion
+(<a href="http://subversion.tigris.org/">http://subversion.tigris.org/</a>) one of these days. I&rsquo;m referring to content
+management systems.</p><p>I don&rsquo;t know why but deletion just bugs me. Maybe its my pack rat mentality but
+to delete is to lose. I write blog entries all the time that don&rsquo;t get published
+and sometimes I completely rewrite them losing past versions. This seems more
+important in CMS&rsquo;s where content evolves and sometimes needs to be step back.
+From what I&rsquo;ve experienced this isn&rsquo;t easy, or even an option in most cases.</p><p>Is this a needed feature? Wiki&rsquo;s (<a href="http://www.wiki.org/">http://www.wiki.org/</a>) do a fantastic job of
+this. Writeboards (<a href="http://www.writeboard.com/">http://www.writeboard.com/</a>) by 37Signals (<a href="http://www.37signals.com">http://www.37signals.com</a>)
+are a great example (love the compare feature). But how often do you see a site
+managed by a Wiki or a Writeboard? I&rsquo;d like to know your thoughts.</p>
+]]></content></item><item><title>Rules Rule</title><link>https://nathan.run/posts/2006/rules-rule/</link><pubDate>Mon, 17 Apr 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/rules-rule/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>As children we grew up hating curfew, as adolescence we rebelled against the
+drinking age, and as adults we shake our fists at stop lights and speed limits.
+What we don&rsquo;t realize is rules set us free.</p><p>I came across this simple notion in Mihaly Csikszentmihalyi&rsquo;s book Flow
+(<a href="http://www.amazon.com/gp/product/0060920432/)">http://www.amazon.com/gp/product/0060920432/)</a>. By having laws and rules we free
+ourselves from contemplating things that have already been determined. This
+provides a framework for thought which is valuable when applied to design.</p><p>Have you ever noticed how hard it is to be original? Thinking up a completely
+new idea from scratch is extremely daunting. So don&rsquo;t. Stop trying to reinvent
+the wheel and start improving it. Don&rsquo;t be afraid to embrace the basic
+properties and laws of something with the determination of making it better.
+This at least gets you in gear and you&rsquo;ll be surprised what original ideas will
+sprout up once the wheels are moving. It&rsquo;s better to be producing than
+deadlocked on what to produce.</p>
+]]></content></item><item><title>My Easter</title><link>https://nathan.run/posts/2006/my-easter/</link><pubDate>Sun, 16 Apr 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/my-easter/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Woke up around 11:30 after a long night of coding (<a href="http://www.rubyonrails.com">http://www.rubyonrails.com</a>).
+Had a turkey sandwich and some pretzels while watching some television (<a href="http://www.historychannel.com">http://www.historychannel.com</a>).
+Packed up some essentials: laptop (<a href="http://www.apple.com/powerbook/)">http://www.apple.com/powerbook/)</a>, couple
+(<a href="http://www.amazon.com/gp/product/0060920432/">http://www.amazon.com/gp/product/0060920432/</a>) books (<a href="http://www.amazon.com/gp/product/0465024114/)">http://www.amazon.com/gp/product/0465024114/)</a>,
+and headphones (<a href="http://www.stanc.net/eggo/)">http://www.stanc.net/eggo/)</a>. Drove to the cafe
+(<a href="http://www.broadwaycafeandroastery.com">http://www.broadwaycafeandroastery.com</a>) that breaks for no resurrection. Had a
+soy latte while improving some Rails code and listening to some music
+(<a href="http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=2960659&amp;amp;s=143441)">http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=2960659&amp;amp;s=143441)</a>.
+Then I came home, worked out, read (<a href="http://www.amazon.com/gp/product/0596007655/)">http://www.amazon.com/gp/product/0596007655/)</a>,
+and listened to some piano. Now I&rsquo;m just finishing up rearranging my loft. Happy
+Easter everyone!</p>
+]]></content></item><item><title>Jason Collett</title><link>https://nathan.run/posts/2006/jason-collett/</link><pubDate>Thu, 06 Apr 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/jason-collett/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Just got back from a session with Jason Collett (<a href="http://www.arts-crafts.ca/jasoncollett/">http://www.arts-crafts.ca/jasoncollett/</a>)
+from Broken Social Scene (<a href="http://www.arts-crafts.ca/bss/)">http://www.arts-crafts.ca/bss/)</a>. I highly recommend
+checking this man out. Has sort of a modern day Bob Dylan appeal with fresh
+percussion. Their newest album, Idols of Exile, offers quaint morsels of
+Canadian goodness. If you&rsquo;re in need of something fresh and lighthearted, look
+no further. I only wish Mrs. Feist could have made an appearance.</p>
+]]></content></item><item><title>After SXSW</title><link>https://nathan.run/posts/2006/after-sxsw/</link><pubDate>Tue, 14 Mar 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/after-sxsw/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I already miss waking up in the morning and planning my day at the Hide Out over
+a cup of joe. I miss that walk from 7th and Congress to the convention center
+seeing fellow lanyards. More importantly I miss seeing those who contribute so
+much to the beautiful corners of our web.</p><p>There were some great panel lineups and as much as I love hearing about tech and
+code I felt like distancing myself from the technical aspects of our industry
+and focus on listening to what others had to say about the roles psychology and
+sociology play in what we do.</p><p>One of my favorites had to be Charles MacInerney&rsquo;s
+(<a href="http://2006.sxsw.com/interactive/programming/panels/?action=bio&amp;amp;id=111060">http://2006.sxsw.com/interactive/programming/panels/?action=bio&amp;amp;id=111060</a>)
+discussion on How To Increase Creativity At Work. His overview of brain wave
+frequencies, mind mapping, paradigm shifting and yoga techniques really opened
+my eyes. I&rsquo;ve been practicing his breathing and stretching techniques and they
+really do work!</p><p>Another panel that stuck with me was Kathy Sierra&rsquo;s
+(<a href="http://2006.sxsw.com/interactive/programming/panels/?action=bio&amp;amp;id=103421">http://2006.sxsw.com/interactive/programming/panels/?action=bio&amp;amp;id=103421</a>)
+presentation on Creating Passionate Users. Kathy summed it up best, &ldquo;it doesn&rsquo;t
+matter what people think about your brand, it&rsquo;s about how they think about
+themselves.&rdquo; I&rsquo;m so intrigued about the human brain and this panel was icing on
+the cake. I raced to the bookstore yesterday to buy Flow
+(<a href="http://www.amazon.com/gp/product/0060920432/">http://www.amazon.com/gp/product/0060920432/</a>) and I can&rsquo;t wait to start
+absorbing.</p><p>There were so many great panels, I could go on and on. I left SXSW enlightened
+and humble. It was so great met new people and experience Austin. My only regret
+is not shedding my introverted coat, however, this was my first and hopefully
+next year I&rsquo;ll be more daring and approachable. Until then, I have a lot of
+homework.</p>
+]]></content></item><item><title>Gooey Plastic</title><link>https://nathan.run/posts/2006/gooey-plastic/</link><pubDate>Sun, 05 Mar 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/gooey-plastic/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>At what point does interactive design become temporal art over plastic art? This
+question seems to be rare yet extremely important in our decision making process.
+This (<a href="http://www.amazon.com/gp/product/0060391685/">http://www.amazon.com/gp/product/0060391685/</a>) book prompted my pondering
+of this.</p><p>To clarify, temporal art includes poetry, writing, film and music. Plastic art
+takes the form of painting, drawing and sculpture. What sets the two apart is
+that fourth dimension, time. The success of temporal art is in its progressive
+events leading up to a fulfilling end, better known as climax. This all makes
+sense, right? So how do we classify interactive art?</p><p>My guess is it&rsquo;s both, however, I&rsquo;m leaning toward temporal. Unfortunately a lot
+of times we design with a plastic mindset when we should be thinking about a
+climactic ending. Should we be treating sites like small stories? Grab peoples
+attention, pull them in, building them up, then smack them with an unforgettable
+message. Very few do this. The non-linear aspect of this medium complicates the
+time quality of temporal art.</p><p>So what is interactive art? Still pondering this one.</p>
+]]></content></item><item><title>Visualize Then Talk</title><link>https://nathan.run/posts/2006/visualize-then-talk/</link><pubDate>Sat, 04 Mar 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/visualize-then-talk/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>One of my favorite quotes from the Godfather trillogy is when Michael Corleone
+wisly reminds Vinnie, &ldquo;never let anyone know what you are thinking.&rdquo;</p><p>The importance of this is astronomical in client meetings. Never bring new ideas
+to the table in a client meeting. Bring vetted ideas. Prepare yourself before
+the meeting. Have concept sessions with colleagues, visualize the ideas, make
+sure you have the resources and be sure the idea is possible. When it comes time
+to present save a few in your back pocket just in case you need some amo.</p><p>If the client latches on to a &ldquo;new idea&rdquo; then you take the risk of have to
+execute it. If you realize later that it&rsquo;s not possible or a weak idea, too
+late. Concepting is your job not the clients. If you transfer this power their
+understanding of their role will forever be jaded. This can cause a world of
+pain for you and them.</p>
+]]></content></item><item><title>Make It Better</title><link>https://nathan.run/posts/2006/make-it-better/</link><pubDate>Mon, 27 Feb 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/make-it-better/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Bored tonight so I thought I&rsquo;d impregnate some coders out there with some of my
+seed. My hopes are that this will cause you to give birth to better code. I am
+pro choice so if you choose to abort I understand whole heartedly. Before you do
+so please consider adoption, there are plenty of other good coders out there
+that may benefit.</p><p>Ok, enough metaphors. This is some actionscript I did over Christmas (download
+code (/code/flash_template.zip), see example (/code/flash_template/index.html)).
+It&rsquo;s a flash framework for throwing together websites quickly. My main focus was
+in and out transitions and the implementation of GDispatcher (<a href="http://www.gskinner.com/blog/archives/000027.html)">http://www.gskinner.com/blog/archives/000027.html)</a>.
+Keep in mind this was a first attempt at trying to shoehorn MVC into flash. You
+may notice a similar directory structure to Rails (<a href="http://www.rubyonrails.com">http://www.rubyonrails.com</a>),
+thats just for my own sanity. I&rsquo;m working on a more refined version with a
+clearer definition between Controllers and Views. I may post it for your
+scrutiny later on.</p><p>Feedback is the purpose of this exercise. If it proves beneficial to me I&rsquo;ll
+post more code. So SPEAK UP, I want to hear with you think, good or evil.</p><p><strong>UPDATE</strong> Looking back at this code, it&rsquo;s not as cool as I once thought. I&rsquo;ve
+since re-factored it a lot so keep that in mind when you begin to judge. This
+was my first attempt at using the Event Dispatch model so you might see some
+spaghetti. However, it should be helpful to see how things are organized.</p>
+]]></content></item><item><title>Waking The Right</title><link>https://nathan.run/posts/2006/waking-right/</link><pubDate>Thu, 23 Feb 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/waking-right/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Thank God it&rsquo;s Friday. I&rsquo;m planning another one of my &ldquo;introvert retreats.&rdquo;
+About two weeks ago at 5 o&rsquo;clock CST I turned off all forms of communication.
+The following day I drove to Lawrence, Kansas sans laptop. Doesn&rsquo;t sound like
+anything too special but the resulting clarity and relaxation was well worth it.</p><p>This weekend I&rsquo;ll be cutting it a little short so I can be somewhat social
+Saturday night. The trip to Lawrence is a go and I&rsquo;ll be invading an undisclosed
+dark coffee house chugging away on my laptop.</p><p>Waking up the right hemisphere of my brain will be challenging but I have faith.
+This week has been full of ActionScript and Rails left-ness. You may be asking
+yourself, how does one flip from programming to design with ease? Well, one
+doesn&rsquo;t. It&rsquo;s like luring a two year old away from a shinny piece of tin foil.
+My formula consists of waking up early, relocating to someplace inspiring that
+serves legally addictive stimulants, maybe reading some poetry or thumbing
+through art books and, of course, great music. Here&rsquo;s a taste of my upcoming
+brew:</p><ul><li>Come On Die Young (<a href="http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=2989789&amp;amp;s=143441">http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=2989789&amp;amp;s=143441</a>) - Mogwai</li><li>Feb/Mar 2006 Issue (<a href="http://www.tokion.com">http://www.tokion.com</a>) - Tokion Magazine</li><li>Allen Ginsberg (<a href="http://www.rooknet.com/beatpage/writers/ginsberg.html">http://www.rooknet.com/beatpage/writers/ginsberg.html</a>)</li><li>Vol. 9/No. 1 (<a href="http://www.res.com/index.res.html">http://www.res.com/index.res.html</a>) - Res Magazine</li><li>The Life Pursuit (<a href="http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=121961259&amp;amp;s=143441">http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=121961259&amp;amp;s=143441</a>) - Belle and Sebastian</li><li>Building Nothing Out Of Something (<a href="http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=41758331&amp;amp;s=143441">http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=41758331&amp;amp;s=143441</a>) - Modest Mouse</li><li>Hidden Track (<a href="http://www.amazon.com/exec/obidos/tg/detail/-/3899550846?v=glance">http://www.amazon.com/exec/obidos/tg/detail/-/3899550846?v=glance</a>) How Visual Culture Is Going Places</li><li>No Direction Home (<a href="http://www.amazon.com/exec/obidos/tg/detail/-/B000A0GP4K?v=glance">http://www.amazon.com/exec/obidos/tg/detail/-/B000A0GP4K?v=glance</a>) - Bob Dylan</li><li>Blood Money (<a href="http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=3246499&amp;amp;s=143441">http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=3246499&amp;amp;s=143441</a>) - Tom Waits</li><li>Bone Machine (<a href="http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=252111&amp;amp;s=143441">http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=252111&amp;amp;s=143441</a>) - Tom Waits</li></ul>
+]]></content></item><item><title>Did You Know</title><link>https://nathan.run/posts/2006/did-you-know/</link><pubDate>Tue, 21 Feb 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/did-you-know/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I work with a small team of designers inside a very large ad agency
+(<a href="http://www.bernstein-rein.com">http://www.bernstein-rein.com</a>). Like most ad agencies they focus primarily on
+print and broadcast. Having a small web division can sometimes cause confusion
+between the different mediums.</p><p>I never really realized how different web was from print and broadcast until my
+time at an agency. So I&rsquo;ve compiled a quick list of a few items that I think set
+web apart. I could go into more detail but for the sake of brevity I kept them
+general and to the point.</p><ol><li><strong>Font Families</strong> When setting copy we&rsquo;re limited to a handful of fonts that
+natively exist on peoples computers. This means your Hiragino Kaku Gothic Pro
+W6 is out of the question.</li><li><strong>Typography</strong> Unfortunately type sucks on the web but it&rsquo;s getting better.
+We use a programming language called Cascading Style Sheets (CSS) to define
+the properties of typography. CSS has its advantages and limitations. These
+limitations include no kerning and no word spacing. Sad but true.</li><li><strong>Programming</strong> To make that graphic fly across the screen requires an
+understanding of math, physics and logic. In one way or another this holds
+true for everything you see on the web. Code is the underlying support beams,
+rivets, and concrete. It&rsquo;s the dirty part of the job that no one wants to
+witness. More time goes into programming than any part of the job.</li><li><strong>Testing</strong> Imagine testing a new car design on 7 different types of roads.
+Some roads are too thin, some are comfortably wide, some with speed bumps and
+some that defy the laws of nature. This is similar to making sure a website
+works in different browsers. This can be the most frustrating phase.</li><li><strong>Usability</strong> Web is more similar to product design than any other type of
+design. If you&rsquo;re going to design a toaster you better be damn sure someone
+knows where to put the toast. Easier said than done. This is where a majority
+of web design fails. Art is for the wall, design provides solutions.</li><li><strong>Impermanent</strong> The web is a living thing. There is no such thing as a
+permanent website. If you&rsquo;re waiting for perfection, stop, you won&rsquo;t find it.
+If you go live with a design and you find a mistake, fix it. It&rsquo;s not like
+finding a mistake after printing 50,000 copies.</li><li><strong>Audience</strong> If your site doesn&rsquo;t change frequently people won&rsquo;t come back.</li><li><strong>Traffic</strong> If you build it, they will NOT come. It&rsquo;s like building a store
+in the middle of Kansas and expecting everyone to know about it. Bullshit!
+Banners, search engine placement, word of mouth, and a good product will
+bring you the audience you so desire.</li><li><strong>Copy</strong> People don&rsquo;t like reading while starring into a huge light bulb. The
+message should be short, clear, and memorable. Much like the broadcast medium.
+Only the die hards and those that don&rsquo;t suffer from ADD will read.</li><li><strong>72dpi</strong> No more no less. Deal with it.</li></ol><p>Sorry if this seems to be preaching to the choir but I felt the need to get this
+out in the open.</p>
+]]></content></item><item><title>An Explaination</title><link>https://nathan.run/posts/2006/explaination/</link><pubDate>Sat, 18 Feb 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/explaination/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>When the name Playground Blues was chosen I was a junior in college. It didn&rsquo;t
+carry much meaning other than playgrounds seemed like whimsical places where
+imagination wondered. I feel I&rsquo;ve grown out of the name.</p><p>Playground Blues has meant a lot to me. It&rsquo;s enjoyed roughly five official
+redesigns, god knows how many unofficial. It&rsquo;s been featured on many sites
+including The Daily Report (<a href="http://www.zeldman.com/daily/0504e.shtml#reboot">http://www.zeldman.com/daily/0504e.shtml#reboot</a>) by
+Jeffrey Zeldman, Moluv (<a href="http://www.moluv.com/fsa.asp?startingPoint=197)">http://www.moluv.com/fsa.asp?startingPoint=197)</a>, CSS
+Vault (<a href="http://cssvault.com/redesigned/playground_blues.php)">http://cssvault.com/redesigned/playground_blues.php)</a>, Stylegala
+(<a href="http://www.stylegala.com/archive/playground_blues.htm)">http://www.stylegala.com/archive/playground_blues.htm)</a>, and was honorably
+mentioned at the 2004 May 1st Reboot (<a href="http://www.may1reboot.com/2004)">http://www.may1reboot.com/2004)</a>.</p><p>I bid Playground Blues farewell as I introduce to you You Know Where You Are.
+YKWYA represents me, now. The idea is simple,<strong>Real Content</strong>, which means
+fresh links,<a href="http://www.flickr.com/photos/sketch22/">photos</a>, audio, camera
+feeds (/webcam) and experiments. My first experiment can literally be seen in
+the upper right corner of the home page. I hope you enjoy this new direction as
+it evolves. Always more to come!</p>
+]]></content></item></channel></rss>

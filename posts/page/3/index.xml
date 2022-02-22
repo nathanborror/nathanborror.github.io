@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Nathan Borror</title><link>https://nathan.run/posts/</link><description>Recent content in Posts on Nathan Borror</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 21 Feb 2022 09:31:04 -0800</lastBuildDate><atom:link href="https://nathan.run/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>On Air</title><link>https://nathan.run/posts/2006/air/</link><pubDate>Thu, 09 Feb 2006 00:00:00 -0800</pubDate><guid>https://nathan.run/posts/2006/air/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>The new and improved webcam (<a href="http://www.playgroundblues.com/webcam">http://www.playgroundblues.com/webcam</a>) is BACK! It
+now allows you to post messages. When you do it attaches the current image and
+keeps a running archive of past webcam moments. It&rsquo;s quite possible this is a
+first in web history. Could I be so lucky?</p><p>For those of you who were wondering&hellip; Evocam (<a href="http://www.evological.com/evocam.html">http://www.evological.com/evocam.html</a>)
+is being used to FTP images every 30 seconds. Some handy flash work is being
+used to serve the newest image to my people. Rails (<a href="http://www.playgroundblues.com">http://www.playgroundblues.com</a>)
+is being used to take comments and associate the current photo with the comment.
+Enough nerd speak, check it out, leave a comment.</p>
+]]></content></item><item><title>Worm Club</title><link>https://nathan.run/posts/2005/worm-club/</link><pubDate>Sun, 13 Nov 2005 18:09:00 -0800</pubDate><guid>https://nathan.run/posts/2005/worm-club/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Friends and cohorts keep asking me me to recommend books so in an effort to
+slightly curb this I&rsquo;ve manifested the list below. Warning: I cannot guarantee
+I&rsquo;ve finished these books. I have a tendency, possibly fear, of finishing books.
+I literally get to the last chapter and it sits on my coffee table for weeks.
+So far, these have been intriguing books to me:</p><p><strong>Blink and The Tipping Point</strong> by Malcom Gladwell. I group these two together
+because they go hand in hand. Blink is about snap judgement. It takes a very
+micro approach on how we make decisions in the blink of an eye. Tipping Point
+slaps on a macro lens and dives into how we as a society come to fall in love
+with products. Both are fascinating and suited well for anyone interested in the
+human psyche.</p><p><strong>A Whole New Mind</strong> by Daniel Pink. The Information Age is nearing it&rsquo;s slow
+death and we&rsquo;re beginning to witness the rise of the Conceptual Age. Think twice
+about getting that MBA. With the outsourcing of &ldquo;information jobs&rdquo; to Asia you
+may want to investigate the fruits of the MFA. This book is a portal to many
+resources and it&rsquo;s been keeping me very busy.</p><p><strong>Voices of a People&rsquo;s History of the United States</strong> by Howard Zinn. How did I
+end up believing Christopher Columbus was a &ldquo;great man&rdquo; and worthy of his own
+day. This was a man that &ldquo;kidnapped, maimed and killed the indigenous people of
+Hispanola in pursuit of gold.&rdquo; This book sheds much needed light on those who in
+the face of opposition and hardship spoke out. This undeniable view of history
+is shocking and raw.</p><p>Graphic Designers Guide to Clients by Ellen Shapiro. I used to be very defensive
+around clients. Mainly because I lacked the ability to put myself in their
+shoes. Shapiro provides numerous real world examples of successful client
+relationships.</p><p>Story, Substance, Structure, Style, and The Principles of Screenwriting by
+Robert McKee. Why should a web designer care about story? It happens to be the
+vehicle to our minds. A good story can elicit any number of emotions. Emotions
+are products of the right side of our brain which is the gateway to the left.
+In advertising or design we must be in tune with this so our message effectively
+captivates its audience. McKee intricately dissects the building blocks of good
+story.</p><p>Hopefully this will wet your appetite. Any number of these will make you think
+differently after setting them down. I&rsquo;ve been permanently altered by all of
+them.</p>
+]]></content></item><item><title>Ruby Text Search</title><link>https://nathan.run/posts/2005/ruby-text-search/</link><pubDate>Sat, 05 Nov 2005 18:10:00 -0800</pubDate><guid>https://nathan.run/posts/2005/ruby-text-search/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I found some great Ruby code to assist in<em>creating a simplistic search engine</em>
+for your Rails app. It can be found on the Rails Wiki under<a href="http://wiki.rubyonrails.com/rails/pages/TextSearch">TextSearch</a>. I recommend clicking on
+the &ldquo;edit&rdquo; button at the bottom to copy and paste the code out of the text field
+because some of the syntax gets lost on the page version. Just don&rsquo;t click save :)</p><p>You may want to add &lsquo;%" on either side of the search terms. This will increase
+results by returning words like &ldquo;redesign&rdquo; when the term &ldquo;design&rdquo; has been
+searched. There is also some code on the page to help search multiple keywords
+instead of phrases. This could be altered to act like Google where if you want
+to search by a phrase you encapsulate the phrase with quotes. You would then
+just do a check for quotes before breaking the words into an array.</p>
+]]></content></item><item><title>Four Horsemen</title><link>https://nathan.run/posts/2005/four-horsemen/</link><pubDate>Fri, 14 Oct 2005 18:11:00 -0800</pubDate><guid>https://nathan.run/posts/2005/four-horsemen/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>No the rumors are not true. I haven&rsquo;t been kidnapped by the government in
+suspicion of plotting the end of the world. Although some may suggest it is the
+dawn of the end. Jesus, yes I do mean you, what the hell is going on?<em>Earth is
+shakin, wind is blowin, water is getting everywhere, and birds are out of
+control!</em></p><p>Not too worry, it hasn&rsquo;t disrupted the good old midwest, yet.<a href="http://www.brmethod.com">We&rsquo;re</a> hard at work in these parts. I&rsquo;ve all but given up on
+PHP for a sexier gem called Ruby. The holy trinity of Ruby, ActionScript 3.0,
+and Javascript are upon us. If you throw in XML you could call them the Four
+Horsemen of the Apocalypse but I&rsquo;d like to refrain from the Armageddon
+references. A show of hands please, is everyone ready for Web 2.0? If not here
+are some great links that will help.</p><ul><li><a href="http://video.google.com/videoplay?docid=4762944544960468107">Kevin Lynch at Web 2.0 Conference</a></li><li><a href="http://www.veen.com/jeff/archives/000793.html">Jeffrey Veen at Web Essentials &lsquo;05</a></li><li><a href="http://www.oreillynet.com/pub/a/oreilly/tim/news/2005/09/30/what-is-web-20.html">What is Web 2.0?</a></li><li><a href="http://script.aculo.us/">Scriptaculous</a></li><li><a href="http://www.macromedia.com/software/flex/special/web2/">Flex 2</a></li><li><a href="http://we05.com/">Web Essentials &lsquo;05</a></li></ul><p>On another note. You may or may not have noticed some changes to this site. The
+RSS feed now features integrated bookmarks and photoblog entries. I&rsquo;ve also
+fixed all the IE6 bugs, sorry 95% of my audience :)</p>
+]]></content></item><item><title>Innocent Bystander</title><link>https://nathan.run/posts/2005/innocent-bystander/</link><pubDate>Sat, 24 Sep 2005 18:12:00 -0800</pubDate><guid>https://nathan.run/posts/2005/innocent-bystander/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Everyone should participate in a little people watching activities. It allows
+you to jump out of your inner chaotic life and realize that you&rsquo;re not alone.
+Now, there are a few keys to successful people watching. I&rsquo;ll share some of
+mine, then you can pass yours along if you wish.</p><ul><li><em>Avoid eye contact.</em> In order to remain a fly on the wall you must avoid eye
+contact at all costs. After a while you begin to anticipate when someone will
+look at you. This is a honed skill that comes with time and patients. A good
+pair of sunglasses can help beginners.</li><li><em>Daydreaming is a side effect, and its Okay.</em> This allows you to &ldquo;figure stuff
+out.&rdquo; In my opinion we don&rsquo;t daydream enough. We get so caught up in<em>doing</em>
+and we forget<em>why.</em> Those are perfect moments to gain understanding with
+the help of those around you.</li><li><em>Location is key.</em> I like coffee hang outs. Villages, Malls, Districts, or any
+high traffic parts of your metropolis where eclecticism is prevalent. I prefer
+a corner in midtown where coffee houses collide, a lonely clothing store
+awaits hipsters, and bars are armed with dollar draws and outdoor patios. The
+collage of people has the characteristics of a Rauschenberg
+(<a href="http://images.google.com/images?q=rauschenberg">http://images.google.com/images?q=rauschenberg</a>) exhibit.</li></ul><p>Now its your turn. How, where, and why do you people watch? What strange stories
+have you made up or overheard during your excursions? Do tell :)</p>
+]]></content></item><item><title>Full Steam Ahead</title><link>https://nathan.run/posts/2005/full-steam-ahead/</link><pubDate>Mon, 05 Sep 2005 18:12:00 -0800</pubDate><guid>https://nathan.run/posts/2005/full-steam-ahead/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Playground Blues is officially on<a href="http://www.rubyonrails.com">Rails</a>.
+Approximately<a href="http://playgroundblues.com/archive/bejeweled">two weeks</a> ago I
+started chugging along and with this new language. Surprisingly it&rsquo;s been quite
+welcoming and easy to learn. I only wish it were just as easy to ween clients
+over to this oasis.</p><p>Along with the change of language came some other needed changes. One of them
+being my move from Textile to<a href="http://daringfireball.net/projects/markdown/">Markdown</a>
+otherwise known as<a href="http://www.deveiate.org/projects/BlueCloth">BlueCloth</a> in
+Rails. Markdown just seemed more natural to the way I type. Another change
+included a new Flash Photoblog that is built using an<a href="http://www.actionscript.org/tutorials/intermediate/Flash_Broadcasters_and_Listeners/index.shtml">asynchronous event model</a>
+philosophy. I&rsquo;ve been trying to wrap my mind around this more and I think I&rsquo;m
+beginning to understand its major benefits.</p><p>Stay tuned. This is an exciting endeavor and I&rsquo;ve got a lot more tricks up my
+sleeve.</p>
+]]></content></item><item><title>Art Mobs</title><link>https://nathan.run/posts/2005/art-mobs/</link><pubDate>Sun, 28 Aug 2005 18:14:00 -0800</pubDate><guid>https://nathan.run/posts/2005/art-mobs/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I have a new PodCast to add to your library. It&rsquo;s by<a href="http://mod.blogs.com/">Art Mobs</a> and its called<a href="http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=74263942">Art Mobs MoMA Guides</a>.
+The descriptions is &ldquo;A &lsquo;Commons&rsquo; for audio guides to artworks at the<a href="http://www.moma.org">Museum of
+Modern Art</a>, NYC.&rdquo; Basically an entertaining discussion
+about modern art. I think this is by far the most creative use of PodCasting,
+no pun intended.</p>
+]]></content></item><item><title>Bejeweled</title><link>https://nathan.run/posts/2005/bejeweled/</link><pubDate>Mon, 15 Aug 2005 18:15:00 -0800</pubDate><guid>https://nathan.run/posts/2005/bejeweled/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I spent last weekend learning Ruby on Rails (<a href="http://www.rubyonrails.com">http://www.rubyonrails.com</a>) and now
+I can&rsquo;t help but wonder why the hell it took me so long. My work
+(<a href="http://www.bradv.com">http://www.bradv.com</a>) was kind enough to fetch me a copy of Agile Web
+Development with Rails (<a href="http://pragmaticprogrammer.com/titles/rails/index.html">http://pragmaticprogrammer.com/titles/rails/index.html</a>)
+and I&rsquo;ve had a hard time focusing on anything else.</p><p>I&rsquo;ve already started porting some of my apps (<a href="http://glide.playgroundblues.com">http://glide.playgroundblues.com</a>)
+to Rails and its surprisingly elegant and fun. After figuring out associations
+between database tables I feel well on my way. There is still a lot to get used
+to. Mainly Ruby&rsquo;s syntax. It&rsquo;s very different than any language I&rsquo;ve used. I&rsquo;m
+really diggin' the &ldquo;everything is an object&rdquo; mentality.</p><p>Some tips if your interested&hellip; Install FastCGI
+(<a href="http://wiki.rubyonrails.com/rails/show/FastCGI%20on%20OS%20X)">http://wiki.rubyonrails.com/rails/show/FastCGI%20on%20OS%20X)</a>. It will
+dramatically increase the responsiveness of Ruby. Dreamhost has this option in
+their panel. Be on the lookout for some MySQL issues
+(<a href="http://wiki.rubyonrails.com/rails/show/HowtoInstallOnOSXTiger">http://wiki.rubyonrails.com/rails/show/HowtoInstallOnOSXTiger</a>) if your using
+Tiger. Also make sure to point your VirtualHost entry to the /public folder in
+your rails app. You could also do this with a .htaccess file in the root.</p><p>Be on the look out for a Rubified Playground Blues in the near future :)</p>
+]]></content></item><item><title>Pre-Order Rant</title><link>https://nathan.run/posts/2005/pre-order-rant/</link><pubDate>Tue, 31 May 2005 18:16:00 -0800</pubDate><guid>https://nathan.run/posts/2005/pre-order-rant/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Why would anybody want to pre-order an album off of iTunes? The whole idea of
+the &ldquo;pre-order&rdquo; is that your John Hancock gets placed on a list of elite few who
+get first dibs on a product before it sells out. It is virtually impossible for
+iTunes to sell out of a song, which makes me wonder what yahoo in the war room
+decided it&rsquo;d be cool to have &ldquo;pre-orders&rdquo; in iTunes. Downloadable music is
+branded as instant satisfaction which makes this confusing.</p><p>I understand it sort of serves as a teaser but this is the web and thats just a
+lame use of it. Offer me an exclusive song and tell me it&rsquo;ll be followed up by
+an album (which they already do and seems to work). I pray for the server
+administrators that sweat their bandwidth skyrocket when the clock strikes
+twelve and um-teen-thousand albums are automatically dispersed. (End of rant)</p>
+]]></content></item><item><title>Background Becoming Foreground</title><link>https://nathan.run/posts/2005/background-becoming-foreground/</link><pubDate>Tue, 10 May 2005 18:17:00 -0800</pubDate><guid>https://nathan.run/posts/2005/background-becoming-foreground/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Since the release of Tiger and particularly Quicktime 7 sporting the new H.264
+codec I&rsquo;m beginning to wonder if we&rsquo;re glimpsing a bigger picture here. If you
+haven&rsquo;t checked out the unbelievable quality of H.264 go over to the<a href="http://www.apple.com/quicktime/hdgallery/">HD Gallery</a> and witness the days of pixilation
+disappear.</p><p>With this brings some interesting thoughts; does Apple have a roadmap for video
+on demand? Well, they&rsquo;ve already started doing it with iTunes 4.8. We now have
+the choice to buy music videos and video extras that would normally be found on
+CD&rsquo;s. This however doesn&rsquo;t seem to be using the H.264 codec at the moment but
+I&rsquo;m sure it will follow. Will the iPod soon have video functionality to echo
+iTunes?</p><blockquote><p>People love listening to music as a background activity when they&rsquo;re
+exercising, when they&rsquo;re commuting and when they&rsquo;re just hanging out. Music is
+a wonderful thing because A, it&rsquo;s music, and B, because it can be listened to
+as a background activity. And a lot of these other things that people are
+talking about building in, such as video and things like that, are foreground
+activities.
+&ndash; Steve Jobs</p></blockquote><p>It appears the iPod is slowly creeping into our foreground. Right behind it
+could be a video-on-demand Mac Mini. I only hope they choose to offer not-so
+mainstream content like Independent Films and Documentaries that you wouldn&rsquo;t
+normally find on television. Could this also pave the way for a new bread of
+video podcasts? Vidcasts?</p>
+]]></content></item><item><title>Farewell and Hello</title><link>https://nathan.run/posts/2005/farewell-and-hello/</link><pubDate>Mon, 02 May 2005 18:17:00 -0800</pubDate><guid>https://nathan.run/posts/2005/farewell-and-hello/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>This is my last week at my current employer,<a href="http://www.lookandfeel.com">Look and Feel</a> which would explain my lack of good posts. I can&rsquo;t
+express how fortunate I am to have spent time with the fine lads of LaF. I will
+miss them dearly, although, I&rsquo;ll still be living in the neighborhood so I&rsquo;m sure
+our paths will cross.</p><p>My near future rests at a place called<a href="http://www.brmethod.com">Method</a> within<a href="http://www.bernstein-rein.com">Bernstein-Rein</a>. A fortune teller has forcasted
+very long hours but many laughs and Belgium beer flowing from the hill tops. Ok,
+maybe not the last one so much. I&rsquo;ll be #7 of an extremely talented group
+scrambling to keep up.</p>
+]]></content></item><item><title>Hear Me Purr</title><link>https://nathan.run/posts/2005/hear-me-purr/</link><pubDate>Sat, 30 Apr 2005 18:18:00 -0800</pubDate><guid>https://nathan.run/posts/2005/hear-me-purr/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Time to chim in on Tiger. Dashboard, Spotlight, Automator, Oh My! I was worried
+at first, things were slow and hard drive was crankin'. Once Spotlight finished
+indexing my mess of over six years of files I breathed a sigh of relief.</p><p>Apple has posted a handy little<a href="http://developer.apple.com/documentation/AppleApplications/Conceptual/Dashboard_Tutorial/index.html">Dashboard Programming Guide</a>
+with all sorts of design guidlines and API info. They have done the same for<a href="http://developer.apple.com/documentation/AppleApplications/Conceptual/AutomatorConcepts/index.html">Automator</a>.
+This little app can save scary amounts of time. BBEdit has realsed some nice<a href="http://www.apple.com/downloads/macosx/automator/bbeditautomatoractions.html">Actions</a>
+in 8.2. Spotlight is the girl I never had. Once you program yourself to press
+&ldquo;command-spacebar&rdquo; you&rsquo;ll never need that pesky finder dock icon. Still not sure
+what to say about Safari RSS, its crashed about five times now. WebKit is
+apparently much better but I have a feeling 10.4.1 will be a major bug fixer so
+some may want to wait a week or two.</p><p>While there is some new eye candy, Tiger is all about saving time and becoming
+more efficiant. Hopefully some of the philosophies will spill into other areas
+of work.</p>
+]]></content></item><item><title>PHP on Rails</title><link>https://nathan.run/posts/2005/php-on-rails/</link><pubDate>Tue, 19 Apr 2005 18:22:00 -0800</pubDate><guid>https://nathan.run/posts/2005/php-on-rails/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p><a href="http://www.ruby-lang.org/en/">Ruby</a> buzz has been making its rounds these last
+few months. I&rsquo;m anxious to use<a href="http://www.rubyonrails.com">Rails</a> but my ISP
+nor my employer support it. So I&rsquo;ve been stuck staring at the colorful lollypop
+from a distance.</p><p><a href="http://www.cakephp.com/">Cake</a> may be the solution to my problems, at least
+until Ruby becomes more widely supported. Cake is a PHP framework based on the
+Rails design. It&rsquo;s still in its infancy but it looks pretty solid. The developer
+has shown his commitment by releasing four updates in a row this month.</p><p><strong>UPDATE</strong> As of April 18th Cake has been updated to<a href="https://trac.cakephp.org/wiki/Cake/Download">0.2.7</a> with some nice new enhancements.
+There is now a code generator, however, it only works in Windows. This update
+also includes Flay (Textile like formating class), form generators, Folder
+class, and the beginnings of data validation with the Model using regular
+expressions.</p>
+]]></content></item><item><title>The Bands</title><link>https://nathan.run/posts/2005/the-bands/</link><pubDate>Sun, 17 Apr 2005 18:23:00 -0800</pubDate><guid>https://nathan.run/posts/2005/the-bands/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>The Faint, The Ataris, The Features, The Futureheads, The Cure, The Hives, The
+Killers, The Music, The People, The Prodigy, The Roots, The Bravery, The Kills,
+The Samples, The Shins, The Doors, The Stills, The Streets, The Strokes, The
+Used, The Walkmen, The Darkness, The Who, The Ramones, The Sights, The National,
+The Wrights, The Republic, The Congos, The Zincs, The Stix, The Perishers, The
+Police, Rapture, The Unicorns, The Kinks, The Mollys, The Soviettes, The
+Winners, The Velons, The Smugglers, The Makers, The Upsidedown, The Donnas.</p><p>Did I forget anybody?</p>
+]]></content></item><item><title>Selling Your Soul</title><link>https://nathan.run/posts/2005/selling-your-soul/</link><pubDate>Wed, 13 Apr 2005 18:23:00 -0800</pubDate><guid>https://nathan.run/posts/2005/selling-your-soul/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Lately I&rsquo;ve been going back and forth with my colleagues regarding pre-built
+admin tools. My position has been the benefits of adopting a framework outweigh
+any off-the-shelf tool.</p><p>What is the difference between a framework and an off-the-shelf system? It&rsquo;s
+like buying fake plants instead of real ones. off-the-shelf products leave very
+little wiggle room for growth and are inevitably more than what you need. They
+also exhibit poor usability, with there shiny plastic leaves and all.</p><p>A framework is the opposite. It&rsquo;s like having the pot, soil, and seeds. All you
+do is water and provide sunshine. This allows your tools to grow into the
+environment they are intended rather than trying to fit a square peg into a
+round hole. This also establishes a standard way of coding so when new
+programers come on board all they need to do is learn the framework and they&rsquo;re
+ready to roll.</p><p><a href="http://www.rubyonrails.com">Ruby on Rails</a> is an example of a rising framework.<a href="http://www.phppatterns.com">PHP Patterns</a> also provide an enormous listing of
+design patterns that can be bundled together to create honest frameworks.</p>
+]]></content></item><item><title>Soft Launch</title><link>https://nathan.run/posts/2005/soft-launch/</link><pubDate>Tue, 12 Apr 2005 18:24:00 -0800</pubDate><guid>https://nathan.run/posts/2005/soft-launch/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>This launch is softer than a baby&rsquo;s bum. Please excuse the possible broken
+links, sparse content, grayed out links, and unusually shaped big toe.</p><p>Things should be up to speed by the end of this week so keep checking back from
+time to time. Also, if you don&rsquo;t mind, I&rsquo;ll throw you a me update:</p><p>I&rsquo;m done photo blogging. It was fun while it lasted but I&rsquo;m out of good photos
+so back to writing. I&rsquo;ll continue keeping my<a href="http://www.flickr.com/photos/sketch22/">Flicker account</a> stocked with shiny visuals. Still
+wondering the streets of Kansas City. Currently working on some cool projects
+that I can&rsquo;t wait to share<em>more on those later</em>. I&rsquo;ve been getting a lot of
+emails about Jupiter, my project management software. This has lead me to
+believe that I should finish that damn thing, soon. All is well for the most
+part.</p><p>The evolution of this site should be fun and interesting so stay tuned.</p>
+]]></content></item><item><title>Broken Window Theory</title><link>https://nathan.run/posts/2005/broken-window-theory/</link><pubDate>Fri, 08 Apr 2005 18:25:00 -0800</pubDate><guid>https://nathan.run/posts/2005/broken-window-theory/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Lately I&rsquo;ve become a little obsessed with the &ldquo;Broken Window Theory.&rdquo; I was
+introduced to this theory by<a href="http://www.squidfingers.com">Travis</a> and<a href="http://www.alwayscurious.com">Charlie</a>. Soon after, it began popping into my head at
+work, home, or while I was coding. Then I started noticing it in<a href="http://www.gladwell.com/tippingpoint/">books</a> and on the<a href="http://www.npr.org/templates/story/story.php?storyId=4520866">radio</a>.</p><p>The theory is normally applied to urban decay and crime, however, it can be
+applied to almost anything. How did your apartment get so dirty? How did your
+code get out of control? Well, it&rsquo;s all because of one sock, one poorly placed
+if statement, or one broken window.</p><blockquote><p>One broken window, left unrepaired for any substantial length of time, instills
+a sense of abandonment — a sense that the powers that be don&rsquo;t care. So another
+window gets broken. People start littering. Graffiti appears. Serious structural
+damage begins. In a relativly short space of time, the structure becomes damaged
+beyond the desire to fix it, and the sense of abandonment becomes reality.</p></blockquote><p>The preceding quote was taken from<a href="http://www.pragmaticprogrammer.com/ppbook/">The Pragmatic Programmer</a> by Andrew Hunt and David Thomas. It
+basically means watch out for the small stuff. If you can keep the tiny cracks
+out early they won&rsquo;t turn into gorges. The hope is that if your projects are
+pristine and another person is invited to change or update something they will
+take notice in its perfection and not want to be the first to break a window.</p>
+]]></content></item><item><title>Double the Pleasure</title><link>https://nathan.run/posts/2004/double-the-pleasure/</link><pubDate>Sun, 07 Nov 2004 19:19:00 -0800</pubDate><guid>https://nathan.run/posts/2004/double-the-pleasure/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Last night two new albums pitched a tent on my &ldquo;oh my god&rdquo; list of music.<a href="http://www.thefaint.com">The Faint</a> &ldquo;Wet From Birth&rdquo; and<a href="http://www.officialtomwaits.com">Tom Waits</a> &ldquo;Real Gone&rdquo; are so unbelievably necessary I don&rsquo;t even know why you&rsquo;re still reading. Go get them!</p><p>The Faint marches forward with its sexy themes and lucius lyrics. My
+uncertainties about how they would top<em>Blank-Wave Arcade</em> were shattered by the first track and continued to crumble through track two until they were disintegrated with &ldquo;Southern Belles in London Sing.&rdquo; Each track presents a unique personality ranging from violin accompaniment to a melodic choir of female vocals. Plus you can&rsquo;t beat an album that has a song entitled &ldquo;Erection.&rdquo; (no pun intended).</p><p>As for Mr. Waits&hellip; Waits challenges the human ear with his contorted vocals and crafted percussion.<em>Real Gone</em> takes you on an unforgettable journey of bizarre scenarios none of which are completely comprehendible. Light a cigar, pour some whisky, press play and put a note on the door, &ldquo;Real Gone.&rdquo;</p>
+]]></content></item><item><title>Kansas City Migration</title><link>https://nathan.run/posts/2004/kansas-city-migration/</link><pubDate>Sat, 06 Nov 2004 12:59:00 -0800</pubDate><guid>https://nathan.run/posts/2004/kansas-city-migration/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I&rsquo;ve successfully migrated to Downtown Kansas City from Springfield. It took about a week to get all my stuff in order and my mind is catching up.</p><p>Tried Middle Eastern food for the first time, go Gyros! If you haven&rsquo;t had Chile Relleno I suggest you dart to a good Mexican restaurant and give it a taste.</p><p>The First Friday Art Walk happened to be last friday.<a href="http://www.hammerpress.net">Hammerpress</a> unveiled their Christmas collection. The work is top notch. If you haven&rsquo;t flipped the newest<a href="http://www.printmag.com">Print Mag</a> I suggest you earmark Missouri, watch out<a href="http://gigposters.com/designers.php?designer">Art Chantry</a>.</p>
+]]></content></item><item><title>Yo La Weekend</title><link>https://nathan.run/posts/2004/yo-la-weekend/</link><pubDate>Mon, 04 Oct 2004 13:01:00 -0800</pubDate><guid>https://nathan.run/posts/2004/yo-la-weekend/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>This weekend I saw<a href="http://www.yolatengo.com">Yo La Tengo</a> for the first time in Kansas City. Definitely worth the bones if they&rsquo;re in your area. Amazing jams and a really hot drummer girl. If you&rsquo;re not familiar with them I recommend first getting &ldquo;I Can Hear the Heart Beating as One&rdquo; and then &ldquo;Summer Sun.&rdquo; If your hooked you&rsquo;ll also like &ldquo;And Then Nothing Turned Itself Inside-Out.&rdquo;</p><p>Also did a little apartment hunting before I begin playing/working with the<a href="http://www.alwayscurious.com">fine</a><a href="http://www.squidfingers.com">lads</a> at<a href="http://www.lookandfeel.com">Look and Feel</a>. I&rsquo;m very excited and I&rsquo;m sure I&rsquo;ll have many adventures to post in the coming months ;)</p>
+]]></content></item><item><title>Rip Alvin iPod</title><link>https://nathan.run/posts/2004/rip-alvin-ipod/</link><pubDate>Wed, 29 Sep 2004 19:23:00 -0800</pubDate><guid>https://nathan.run/posts/2004/rip-alvin-ipod/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Today is a sad day. I went for a bike ride downtown and in a moment of
+braveness, tragedy struck. After making a successful jump from a very large curb
+a sense of accomplishment ended when my pedal clipped the curb halting my bike
+and catapulting me through the air. The silence that followed seemed to be more
+painful than my bleeding arm.</p><p>Alvin was a good iPod. The first generation of his time. He provided me with listening pleasure and
+inspiration through many important moments during the past two and a half years.
+One of my favorite moments was when I got lost in East Village, Manhattan. Never
+once did I feel scared because Alvin always kept me in<a href="http://www.brokensocialscene.com/">good spirits</a>. I will miss you Alvin iPod. Rest in peace
+my good friend. Oh,<a href="http://www.griffintechnology.com/products/itrip/">iTrip</a>
+says goodbye too.</p>
+]]></content></item><item><title>More Adventurous</title><link>https://nathan.run/posts/2004/more-adventurous/</link><pubDate>Tue, 28 Sep 2004 19:23:00 -0800</pubDate><guid>https://nathan.run/posts/2004/more-adventurous/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>About a year ago a friend of mine introduced me to a little world called<a href="http://www.rilokiley.com">Rilo
+Kiley</a>. Her two albums, &ldquo;Execution of All Things&rdquo; and
+&ldquo;Takeoffs and Landings&rdquo;, bring sunshine to a rainy day and lift you up to a
+place not often visited through music. Jenny Lewis&rsquo;s voice never seems to grow
+old. They&rsquo;re songs are so diverse and colorful.</p><p>I honestly didn&rsquo;t believe they could top their last two releases. &ldquo;More
+Adventurous&rdquo; proves me wrong and lives up to its name. The only way to describe
+it is if you took a petal from each of your favorite flowers and pasted them all
+together creating a colleague of fragrance. You can hear a little bit of the
+past, present and get a gimps of the future. This band has a lot of potential
+and definitely worth experiencing.</p>
+]]></content></item><item><title>Jupiter</title><link>https://nathan.run/posts/2004/jupiter/</link><pubDate>Sun, 26 Sep 2004 19:22:00 -0800</pubDate><guid>https://nathan.run/posts/2004/jupiter/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I&rsquo;d like to introduce a new project of mine. It&rsquo;s called Jupiter. Jupiter is a
+project management solution that began August 1, 2004 after heavy research.
+Roughly two months of ironing out the database scheme and functionality I&rsquo;m
+ready to get feedback and suggestions. Keep in mind things are in the beginning
+stages and this is by no means a finished/polished product.</p><p>I was planning to provide a run down of all the bells and whistles but I think I
+would rather get everyones first impressions and go from there. So here we go:</p><ul><li><a href="http://jupiter.playgroundblues.com">jupiter.playgroundblues.com</a></li><li>Login: demo</li><li>Password: demo</li></ul><p>Feel free to add projects, notes, milestones, tasks or files. Mess around with
+it as much as you can. Let me know what you love, hate, or wish existed.</p><p><strong>UPDATE 10-7-2004:</strong> I&rsquo;ll be releasing 0.10b within the next week. Usability
+tweaks and a smoother interface. Thanks everyone for your comments and
+suggestions. Stay tuned.</p>
+]]></content></item><item><title>Textpattern Blues</title><link>https://nathan.run/posts/2004/textpattern-blues/</link><pubDate>Thu, 09 Sep 2004 19:21:00 -0800</pubDate><guid>https://nathan.run/posts/2004/textpattern-blues/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I&rsquo;ve slowly been warming up to Textpattern over the past few months. At the spur
+of the moment I purchased a nice little plot over at<a href="http://www.dreamhost.com">Dreamhost</a> and starting some planting. I&rsquo;m about finished
+tilling the land and beginning to plant some seeds, however, you might stumble
+across some rocky areas.</p><p>On another note, since when did IE6 not support min-width and max-width? Yet
+another disappointment handed down from the pearly white gates. If anyone knows
+a fix for this chime in please.</p>
+]]></content></item><item><title>A Revolution of Education</title><link>https://nathan.run/posts/2004/a-revolution-of-education/</link><pubDate>Sat, 04 Sep 2004 19:21:00 -0800</pubDate><guid>https://nathan.run/posts/2004/a-revolution-of-education/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I believe it&rsquo;s time for a Education Revolution. While I may not be an expert in
+learning science I did participate in the Education system for 17 years and
+continue to work for an University.</p><p>Currently a majority of institutions force students to subscribe to General
+Education pressuring them to learn History, Physical Education, Mathematics and
+so on. While these topics carry an extreme importance this method of delivery is
+wrong. Students shouldn&rsquo;t be pressured into learning anything. During my
+freshman year in college I despised going to my Physical Education class because
+it was so boring and a waste of my time and effort. However, I now realize the
+positive affects exercise can have in my life and work. This is where the
+problem lies. That course should have excited me about the affects that physical
+activity can bring to my desired goals in life.</p><blockquote><p>Students learn best when motivated, when they care. They need to be
+emotionally involved, to be drawn to the excitement of the topic. Learning<br>
+need not be a dull or dreary exercise, not even learning about what are
+normally considered dull and dreary topics: every topic can be made exciting,
+every topic excites the emotions of someone, so why not excite everyone?
+&ndash; Donald Norman, Emotional Design</p></blockquote><p>What if we broke down the barriers of Education. Instead of offering courses we
+enrolled in what I&rsquo;ll call Communities. Each Community would have a focus: Art,
+Science, Mathematics; within each community Groups, with related focuses, would
+form. For example the Art Community would have a Group which focuses on Design
+or Pottery. The students of these communities would not organize in classrooms
+nor would they participate in courses. Each Community would reside in its very
+own research library. I use the term library loosely because the environment
+would need to cater to a wide variety of situations: discussion, research,
+building, brainstorming, and so on. Each student would draft goals for
+themselves, for the Group, and for the Community. Within the Communities
+professors would apply general education discussions based on the goals of the
+Community. Students need to learn History so the Communities promote learning
+about the Middle Ages and how it relates to the students individual goals, there
+by validating its importance to the overall purpose of the Community. Students
+would then begin to realize how imperative it is to understand not just one
+subject, but all subjects in relation to their goals thereby creating a well
+rounded diverse society.</p><blockquote><p>It is time for lessons to become alive, for history to be seen as a human
+struggle, for students to understand and appreciate the structure of art,
+music, science, and mathematics. How can these topics be made exciting? By
+making them relevant to the lives of each individual student.
+&ndash; Donald Norman, Emotional Design</p></blockquote><p>Education is the cornerstone of society. Without Education society breaks down.
+As we grow and mature throughout our life we should never cease to learn. Our
+Education institutions must promote life long learning rather than handing out
+diplomas and saying next. While this idea may or may not succeed I feel it&rsquo;s
+important to continually evolve our methods of teaching and learning in order to
+evolve as a society. With that in mind I invite your thoughts and criticism.</p>
+]]></content></item><item><title>Heads or Tails</title><link>https://nathan.run/posts/2004/heads-or-tails/</link><pubDate>Thu, 02 Sep 2004 19:19:00 -0800</pubDate><guid>https://nathan.run/posts/2004/heads-or-tails/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I&rsquo;ve been somewhat silent lately with a few whispers here and there. The past
+couple weeks have been very interesting, stressful to say the least. Job, home
+and personal changes.</p><p>After much thought and pondering I accepted a position at Southwest Missouri
+State University as Multimedia Producer. I bid a humble farewell to<a href="http://www.neubix.com/">Neubix
+Studios</a>. The gamut of knowledge and wisdom<a href="http://www.justwatchthesky.com/">Ryan</a> and I provided each other was priceless. I&rsquo;m
+grateful to have been apart of their transformation and growth. For now I&rsquo;ll be
+overseeing the production of interactive and film projects, as well as
+advocating standards support and adoption of Open technologies.</p><p>I&rsquo;ve also moved to a very old apartment next to a very busy street. Outside my
+window rests an Art supplies store and many restaurants. I can walk to work,
+grocery store, and downtown which makes me oh so happy. Pictures are on the way.</p><p>On a personal level I&rsquo;m looking forward to creating more Fine Art. The past year
+hasn&rsquo;t provided much time for this, my goal is to pursue painting and mixed
+media. I&rsquo;ll also be brushing up on my programming skills to satisfy the left
+side of my brain.</p><p>As with every coin there is a flip side that I unfortunately can&rsquo;t reveal at
+this time. Stay tuned for more articles and updates.</p>
+]]></content></item><item><title>Inspirational Journeys</title><link>https://nathan.run/posts/2004/inspirational-journeys/</link><pubDate>Sun, 18 Jul 2004 13:12:00 -0800</pubDate><guid>https://nathan.run/posts/2004/inspirational-journeys/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>In 1947 sculptor, Korczak Ziolkowski, moved too Thunder Mountain. He constructed a 741 foot staircase to the peak of the Mountain to begin, with his lone jackhammer, possibly the worlds largest sculpture,<a href="http://www.crazyhorse.org/carving/face/index.shtml">Crazy Horse</a>. For the next 33 years he chipped away at the mammoth mountain side until his death.</p><blockquote><p>His eye is 12 feet wide, his outstretched arm the length of a subway train. And by the time his horse is finished, we&rsquo;ll all be dead. Ready Made</p></blockquote><p>The recent issue of<a href="http://readymademag.com/currentissue.php">Ready Made</a> has its top inspirational ESCape&rsquo;s. They include:<a href="http://www.crazyhorse.org/">Crazy Horse Memorial</a>,<a href="http://www.pricetower.org">Price Tower</a>,<a href="http://www.roadtripamerica.com/places/forest.htm">Underground Gardens</a>,<a href="http://www.chinati.org">Marfa</a>,<a href="http://www.bestfriends.org">Animal Sanctuary</a>, and<a href="http://www.monks.org">Gethesmani</a>. I&rsquo;m seriously thinking about spending a couple nights in &ldquo;the tree that escaped the crowded forest,&rdquo; then hopping over too &ldquo;The mounted man of South Dakota,&rdquo; and finishing the trip off with a visit too &ldquo;A solitary man&rsquo;s subterranean legacy.&rdquo; This is definitely an issue worth checking out.</p>
+]]></content></item><item><title>Wireless Lack</title><link>https://nathan.run/posts/2004/wireless-lack/</link><pubDate>Sun, 04 Jul 2004 13:11:00 -0800</pubDate><guid>https://nathan.run/posts/2004/wireless-lack/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Today my coffee house was closed for the holiday. If you could only see the look on my face. It seems to be the only downside to holidays. This didn&rsquo;t detour me from finding a hotspot that provided legally addictive &ldquo;stimulants.&rdquo;</p><p>After much driving my choices were narrowed down to Starbucks and Panera. Starbucks uses T-mobile for wifi which costs money so I chose Panera with its free wifi provided by<a href="http://www.goqgo.com/">QGO</a>.</p><p>After realizing this isn&rsquo;t the crowd I&rsquo;m used too I found a nice little spot in the corner to get down to business. I was first presented with a Panera screen in my browser asking me to agree with its Wi-Fi Terms. After reading over the four page document and knowing that all rights to privacy will be infringed upon I clicked Agree and went on my way. I must note, this is the first time I&rsquo;ve had to do this ever, anywhere. I hear its the same way at Starbucks but I&rsquo;ve grown accustom to independent shops that don&rsquo;t care what you do while respecting your privacy.</p><p>Needless to say Panera&rsquo;s wifi is very slow and, privacy aside, not worth it due to their lack of coffee making abilities. I hope more free hotspots open up. I&rsquo;ve never understood why places charge for wifi, it&rsquo;s very cheep for the store to provide and attracts customers.</p>
+]]></content></item><item><title>Far from Modest</title><link>https://nathan.run/posts/2004/far-from-modest/</link><pubDate>Sat, 03 Jul 2004 19:21:00 -0800</pubDate><guid>https://nathan.run/posts/2004/far-from-modest/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Has anyone else really listened to the lyrics on the new Modest Mouse album? For lack of better words, they&rsquo;re amazing.</p><blockquote><p>The moths beat themselves to death against the lights.
+Adding their breeze to the summer nights.
+Outside water like air was great.
+I didn&rsquo;t know what I had that day.
+Walk a little farther to another plan.
+You said that you did, but you didn&rsquo;t understand.
+— The World At Large</p></blockquote><p>Many of them take on religious themes and provoke thought regarding life and death.</p><blockquote><p>If God controls the land and disease,
+keeps a watchful eye on me,
+If he&rsquo;s really so damn mighty,
+my problem is I can&rsquo;t see,
+well who would wanna be?
+Who would wanna be such a control freak?
+— Bukowski</p></blockquote><blockquote><p>Well that is that and this is this.
+Will you tell me what you saw and I&rsquo;ll tell you what you missed,
+when the ocean met the sky.
+You missed when time on life shook hands and said goodbye.
+When the earth folded in on itself.
+And said &ldquo;Good luck, for your sake I hope heaven and hell
+are really there, but I wouldn&rsquo;t hold my breath.&rdquo;
+You wasted life, why wouldn&rsquo;t you waste death?
+— Ocean Breathes Salty</p></blockquote><p>Some are just ironically uplifting.</p><blockquote><p>Well, a fake Jamaican took every last dime with a scam
+It was worth it just to learn from sleight-of-hand
+Bad news comes don&rsquo;t you worry even when it lands
+Good news will work its way to all them plans
+We both got fired on exactly the same day
+Well we&rsquo;ll float on good news is on the way.
+— Float On</p></blockquote><p>And some are just eerily true.</p><blockquote><p>For every invention made how much time did we save?
+We&rsquo;re not much farther that we were in the cave.
+— The View</p></blockquote><p>It&rsquo;s one thing to have an album with great beats and rhythms but it&rsquo;s another to have rich, thought provoking lyrics. This is just the tip of the iceberg. [Modest Mouse]((<a href="http://www.modestmouse.com/">http://www.modestmouse.com/</a>) put something really powerful out there. Good News For People Who Love Bad News will instigate pondering and keep your foot tapping.</p>
+]]></content></item><item><title>Kottke Critique</title><link>https://nathan.run/posts/2004/kottke-critique/</link><pubDate>Tue, 29 Jun 2004 19:05:00 -0800</pubDate><guid>https://nathan.run/posts/2004/kottke-critique/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p><a href="http://www.kottke.org/about">Jason Kottke</a> recently released the next
+incarnation of<a href="http://www.kottke.org">Kottke.org</a>. I must say, even though
+visually things are very similar to the previous version, Jason has done an
+excellent job of perfecting his structure and usability.</p><p>Jason&rsquo;s text dominant design reminds us of the power of typography. His subtle
+choices of font sizes, weights, leading and link color are methodically chosen
+along with simple dividers to create a harmonious feel. From the looks of things
+the famous green header has been on the Atkins diet. It may have slimmed up a
+bit but it&rsquo;s just enough to remind you, This Is Kottke.</p><p>Kottke tweaked the two column layout, widening the left column a bit. I&rsquo;ve
+always enjoyed the way Jason nestles his daily links into his blog column. This
+works exceptionally well from a usability standpoint and gives the links more
+attention in the hierarchy.</p><p>From the comments form (<a href="http://www.kottke.org/remainder/04/06/5909.html">http://www.kottke.org/remainder/04/06/5909.html</a>) to the
+photo gallery (<a href="http://www.kottke.org/photos/highline0204/index.html">http://www.kottke.org/photos/highline0204/index.html</a>) and beyond
+you can tell that a lot of care and thought went into every element of this
+redesign. Well done Jason, take a bow.</p>
+]]></content></item><item><title>Fragile Sunday</title><link>https://nathan.run/posts/2004/fragile-sunday/</link><pubDate>Sun, 27 Jun 2004 19:35:00 -0800</pubDate><guid>https://nathan.run/posts/2004/fragile-sunday/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Sunday&rsquo;s are supposed to invite rest and relaxation, however, this was like no other Sunday I anticipated. Saturday evening was great. I stumbled upon a public showing of Waking Life in an old art studio downtown. We enjoyed tea and sat on a variety of vintage chairs watching one of my favorite films. Afterwards I was feeling very reflective and philosophical so I read some and went to bed early.</p><p>Around 4:22am my ears caught the sound of rain. I lay there enjoying the drops hitting my window hoping it would only add to my already adventurous dream. Something wasn&rsquo;t quite right, the rain was very sporadic. My eyes opened to a bright orange filled room. I glanced at my clock, 4:23am. Sun doesn&rsquo;t rise this early, nor does it shine through my north window. Decided to peak through my blinds only to be presented with hellish flames swallowing the building thirty feet away from me. Fear, only to be overcome by panic. What do I grab? Where are my pants, shoes, glasses? Grab film negatives, laptop and the first camera you see. Bolting for the door I said a quick goodbye to my apartment just in case. Seven fire engines, dozens of Springfield&rsquo;s finest firefighters, and gallons of water later the fire subsided. By the graces of god all twenty one residents were safe with no injuries. My building, amazingly unscathed. The same couldn&rsquo;t be said for my neighbors.</p><p>As they salvage their charred homes with boxes from the Red Cross, hoping to find those few untouched items I can&rsquo;t help but think how fragile we are. Lives weren&rsquo;t lost but they are changed.</p><p>The cause was attributed to a single cigarette. Astonishing how such a small item of bad habit can disrupt and endanger the lives of innocent people. I&rsquo;m moving to a new apartment soon and I plan to purchase a fire extinguisher, renters insurance, learn more about gas stoves and equip every room with a smoke/carbon monoxide detector. Thank you Firefighters, Red Cross and Police. We are indebted to the extraordinary service and care you provide.</p>
+]]></content></item><item><title>Someone Find The Cat</title><link>https://nathan.run/posts/2004/someone-find-the-cat/</link><pubDate>Sat, 26 Jun 2004 19:04:00 -0800</pubDate><guid>https://nathan.run/posts/2004/someone-find-the-cat/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Why do we still have mice? Seriously, haven&rsquo;t we reached the point in computer
+evolution where we can discard the mouse completely?<a href="http://www.apple.com/macosx/">Modern operating systems</a> have the ability to solely rely on voice
+commands, pen devices and touch screens. Why is it taking us so long to rid
+ourselves of a device that is responsible for such a<a href="http://familydoctor.org/023.xml">painful syndrome</a>.</p><p>Mice are a thing of the past, much like CRT monitors, parallel ports, walkmans
+and even the compact disc. It&rsquo;s time to let go, look to the future of usability
+and functionality. For regular users (i.e. email, word processing, chatting,
+etc.) the absence of the mouse would be an easier transition, however, the
+utilization of a pen device would have to be retained for web browsing and other
+tasks that utilize buttons or links too small for fingers to press.</p><p>I believe that direct interaction with a surface that provides feedback can be a
+very positive experience for the user. You become more involved in the activity
+at hand rather than indirectly moving a mouse around and arbitrarily clicking. I
+long for the day when my sketchbook uploads to my laptop, logging my daily ideas
+where I can call them up based on day, keywords, project or mood.</p>
+]]></content></item><item><title>Textpattern Flow</title><link>https://nathan.run/posts/2004/textpattern-flow/</link><pubDate>Wed, 23 Jun 2004 19:03:00 -0800</pubDate><guid>https://nathan.run/posts/2004/textpattern-flow/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I&rsquo;d like to pose a question to my readers that use Textpattern. Last week I
+noticed<a href="http://www.hicksdesign.co.uk">Jon Hicks</a> switched over which sparked my
+interest. I&rsquo;ve been meaning to switch over to a PHP based system for a while and
+from what I&rsquo;ve seen<a href="http://www.textpattern.com">Textpattern</a> is very nice. One
+of my issues is how to structure my content using the Section, Category, Page,
+etc. method that Textpattern uses. Can anyone out there provide an example or
+input on how they achieved a solid architecture?</p>
+]]></content></item><item><title>Rise of the Documentary</title><link>https://nathan.run/posts/2004/rise-of-the-documentary/</link><pubDate>Sun, 06 Jun 2004 21:39:00 -0800</pubDate><guid>https://nathan.run/posts/2004/rise-of-the-documentary/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I&rsquo;ve always been a connoisseur of documentary film and rarely do I read fiction opposed to non-fiction. Learning about the actions and habits of society, whether opinionated or not, has always intrigued me. It appears documentary film is rising in popularity. Not surprising due to the rise of Reality TV, they fit right in. Documentaries have allowed those with a story and small voice to speak
+aloud. Unfortunately, unless you live in a big city you may never get a chance to listen. Some documentaries on the horizon include:</p><ul><li><a href="http://www.apple.com/trailers/independent/mayorofthesunsetstrip.html">Mayor of the Sunset Strip</a></li><li><a href="http://www.apple.com/trailers/independent/the_agronomist.html">The Agronomist</a></li><li><a href="http://www.fahrenheit911.com/">Fahrenheit 9/11</a></li><li><a href="http://supersizeme.com/">Super Size Me</a></li><li><a href="http://www.thecorporation.tv/trailer/">The Corporation</a></li><li><a href="http://www.apple.com/trailers/sony/winged_migration.html">Winged Migration</a></li></ul><h3 id="some-past-favorites">Some past favorites:</h3><ul><li><a href="http://www.apple.com/trailers/sony/thefogofwar.html">Fog of War</a></li><li><a href="http://www.apple.com/trailers/mgm/bowling_for_columbine/">Bowling for Columbine</a></li><li><a href="http://www.apple.com/trailers/newline/american_splendor/">American Splendor</a></li><li><a href="http://www.apple.com/trailers/miramax/comedian.html">The Comedian</a></li><li><a href="http://www.rottentomatoes.com/m/JackieBehindtheMyth-1092283/preview.php">Jackie: Behind the Myth</a></li></ul>
+]]></content></item><item><title>Flipping Zines</title><link>https://nathan.run/posts/2004/flipping-zines/</link><pubDate>Sun, 06 Jun 2004 19:33:00 -0800</pubDate><guid>https://nathan.run/posts/2004/flipping-zines/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I&rsquo;ve got a bone to pick with design magazines. I used to buy them frequently based on issue topics. I never subscribe, mainly because I don&rsquo;t want to confine myself to one magazine; sounds weird, deal with it. I haven&rsquo;t purchased any new issues in about four months due to the overwhelming amount of advertisements. No-longer can you &ldquo;flip&rdquo; through these magazines without getting stuck on paper company ads or booklets on Adobe. The great importance of advertising is understood, however, I just find the current state of ads intrusive to my magazine reading experience. Also noticed is increased diluted content and for
+these reasons I have ceased my consumption of<a href="http://www.howdesign.com">HOW</a>,<a href="http://www.commarts.com">Communication Arts</a>,<a href="http://www.printmag.com/">Print</a>
+and<a href="http://www.stepinsidedesign.com">Step</a>.</p><p>Until they redeem themselves I&rsquo;m filling my &ldquo;flipping&rdquo; void with<a href="http://www.res.com/">Res</a>,<a href="http://www.thewire.co.uk/">Wire</a>,<a href="http://tokion.com/">Tokion</a>,<a href="http://www.wadmag.com/">Wad</a>,<a href="http://www.idnworld.com/">Idn</a>,<a href="http://www.colorsmagazine.com/">Colors</a> and<a href="http://www.metropolismag.com/">Metropolis</a>. These selections aren&rsquo;t solely devoted to design but I&rsquo;ve found reading about film, music, culture, fashion, art, and architecture to be much more inspiring.</p>
+]]></content></item><item><title>Stopdesign Critique</title><link>https://nathan.run/posts/2004/stopdesign-critique/</link><pubDate>Sun, 06 Jun 2004 19:03:00 -0800</pubDate><guid>https://nathan.run/posts/2004/stopdesign-critique/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I felt like revisiting Douglas Bowman&rsquo;s<a href="http://www.stopdesign.com/">Stopdesign</a>
+since my previous critique was premature. Douglas did a fine job on many fronts.
+The architecture is a three column joy. Strategic attention was given to the
+front page where a great deal of content is displayed without overloading your
+eye. The subtle use of color to distinguish a hierarchy makes this possible. As
+you dig deeper content expands to a two column layout. The right bar is like a
+companion at your side always informing you of relevant and/or alternate links.</p><p>I&rsquo;ve always been a fan of iconography. Douglas does a fine job at paying close
+attention to icons that not only add detail but inform. It&rsquo;s very important to
+have a method or reason behind everything and his icons express whether you&rsquo;re
+about to view a document, comment, click away or click into the site.</p><p>With each section there is a drastically different look utilizing blurred images
+and color, however the structure stays consistent. I&rsquo;ve heard some say this is
+too drastic and it&rsquo;s hard for me to decide. I enjoy the distinct difference
+between the<a href="http://www.stopdesign.com/portfolio/">portfolio</a> and the<a href="http://www.stopdesign.com/log/">log</a>. It bluntly informs you these are completely
+different sections and could act alone. This shows versatility and it&rsquo;s
+something you don&rsquo;t expect which can be startling but in the long run,
+effective.</p><p>Well done Mr. Bowman. Take a bow.</p>
+]]></content></item><item><title>Gmail Big Brother</title><link>https://nathan.run/posts/2004/gmail-big-brother/</link><pubDate>Tue, 01 Jun 2004 21:37:00 -0800</pubDate><guid>https://nathan.run/posts/2004/gmail-big-brother/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I&rsquo;ve been wondering what angle Google planned to take with its new Gmail service, currently in beta form. After<a href="http://news.com.com/Google%27s+Web+mail+no+joke/2100-1032_3-5184090.html?tag=st.rn">some</a><a href="http://democrats.sen.ca.gov/servlet/gov.ca.senate.democrats.pub.members.memDisplayPress?district=sd10&amp;amp;ID=2102">reading</a> it all makes perfect sense. Google will offer 1GB of email space in return for the ability to scan your messages and place<a href="http://fury.com/article/1990.php">ads</a> based on the content. After the excitement of 1GB wears, I&rsquo;m starting to wonder if the trade off is morally right?</p><p>Example: I receive an email regarding a relatives grave health problems; to the right ads are displayed regarding funeral homes. However, it could be helpful if your corresponding with a friend regarding your cars transmission and ads relating to car repair are provided.</p><p>From the personal privacy perspective it&rsquo;s a bit intrusive but if machines are performing the intrusion I feel somewhat at ease. Google is an amazing phenomenon and has an exciting future ahead. I&rsquo;m anxious to see how Gmail pans out.</p>
+]]></content></item><item><title>Stopdesign and Mezzoblue Critique</title><link>https://nathan.run/posts/2004/stopdesign-and-mezzoblue-critique/</link><pubDate>Wed, 26 May 2004 21:27:00 -0800</pubDate><guid>https://nathan.run/posts/2004/stopdesign-and-mezzoblue-critique/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>I hope the following designers don&rsquo;t mind my friendly critique (they shouldn&rsquo;t, design is meant to be critiqued).</p><p>Douglas Bowman of<a href="http://www.stopdesign.com/">Stopdesign</a> recently &ldquo;ditched&rdquo; his styles and &ldquo;start[ed] over with a blank slate.&rdquo; I immediately noticed the identity. Very well done. The new mark is reminiscent of the previous, however, this one is fresher and more bold. The type treatment on the logo is quite interesting as well. Playful but doesn&rsquo;t set itself apart from the mark. Balancing the logo and name can be very challenging but Douglas shows no hesitation. Next I was drawn too is the white space. I loooove whitespace. When it&rsquo;s used properly your eye floats through the design, appreciating subtleties rather than getting lost in eye candy. I miss the color palate Douglas used on the old site. Providing a distinguishing design element like color to set apart different sections can be very pleasing. Overall, well done. I&rsquo;m anxious to see Stopdesign&rsquo;s evolution.</p><p>On to Dave Shea&rsquo;s<a href="http://www.mezzoblue.com/">Mezzoblue</a> version 4. Lots of things going on in this redesign. I could tell from reading his post and exploring the navigation that a lot has gone into the programing side of things. However, on the front end I think too much is going on. The color scheme works well but the style is confusing. I can&rsquo;t tell if he&rsquo;s shooting for the &ldquo;pixel&rdquo; style or something I haven&rsquo;t seen before. The navigation is different and nice. Everything contained in three tabs expanding into additional tabs that give corresponding information. Efficient way of stacking content into a small space. I also enjoy the reply<a href="http://mezzoblue.com/archives/2004/05/25/reply_highli/">highlighting</a>. The overall structure of the site is well thought out and well executed, however, more time needs to be spent on the purpose and meaning of the design elements.</p><p><a href="http://www.hillmancurtis.com/">Hillman Curtis</a> quoted Hemingway in an interview saying:</p><blockquote><p>Write the story, take out all the good lines and see if the story still works. What he&rsquo;s saying is write your story. Take out all the fancy stuff. The stuff you think is so great. All the descriptions, all the adjectives, all the beautiful stuff; yank it all out of there. See if you have a story. The beauty of it for me, being a designer, is actually watching my design come to life as I pull stuff out, not add stuff in.</p></blockquote><p>I reflect on this quote frequently throughout my design process to help gauge when I&rsquo;ve done too much or to little. I hope this critique helps in some way. I miss formal critiques and I plan on doing more.</p>
+]]></content></item><item><title>Lapsang Souchong</title><link>https://nathan.run/posts/2004/lapsang-souchong/</link><pubDate>Mon, 17 May 2004 21:26:00 -0800</pubDate><guid>https://nathan.run/posts/2004/lapsang-souchong/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>This weekend was very rejuvenating. The weather was beautiful and the town was minus over 5,000 college students.<a href="http://www.missouristate.edu/">Campus</a> was a ghost town, perfect for a little amateur skateboarding.<a href="http://www.simplydowntown.com">Downtown</a> was pretty desolate as well. Sunny weather invited me to do some outdoor sketching at the square. I drove by my future apartment enough to give my soon-to-be neighbors the impression of a stalker. Added a new Black Tea to my collection called<a href="http://eat.epicurious.com/dictionary/food/index.ssf?DEF_ID=2468">Lapsang Souchong</a>, it smells like campfire.</p><p>That was my weeend, tell me about yours?</p>
+]]></content></item><item><title>Truth Beauty Power</title><link>https://nathan.run/posts/2004/truth-beauty-power/</link><pubDate>Thu, 13 May 2004 21:24:00 -0800</pubDate><guid>https://nathan.run/posts/2004/truth-beauty-power/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Recently I&rsquo;ve been reading<a href="http://tinyurl.com/ytgym">Studies In Design</a> by Christopher Dresser. The book was initially published in 1875 as an inspirational guide for designers. Dresser was most notable for his contributions to the Victorian era with his intricately designed textiles, furniture and ceramics. The following are passages I felt like sharing.</p><blockquote><p>Decorations, to be satisfying to the educated, must manifest knowledge&hellip; for unless the decoration is done wisely as well as with understanding , it may yet fail to please those who are best able to appreciate good ornament.</p></blockquote><blockquote><p>In all attempts at the production of what is new, there is a danger of being extreme, eccentric, or unrefined.</p></blockquote><p>Study, I say, whatever has gone before; not with the view of becoming a copyist, but with the object of gaining knowledge, and of seeking out general truths and broad principles, which will serve you as they have served the noble and good in times long past.</p><p>Dresser&rsquo;s inspiration can be seen in many<a href="http://www.squidfingers.com/patterns/">different</a><a href="http://www.24-7media.de/ingram/">forms</a> of current works. I spent some time in Greenwich Village studying iron fence decorations that reflect the same victorian style Dresser pioneered.</p>
+]]></content></item><item><title>Lukova Exhibition</title><link>https://nathan.run/posts/2004/lukova-exhibition/</link><pubDate>Mon, 10 May 2004 21:24:00 -0800</pubDate><guid>https://nathan.run/posts/2004/lukova-exhibition/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Recently<a href="http://lubalukova.home.att.net/LubaLukovaStudio.html">Luba Lukova</a> graced our local Art and Design Gallery with some of her current works and sketches. I&rsquo;ve always been a fan of her style and philosophy. She currently teaches at the<a href="http://www.schoolofvisualarts.edu/">School of Visual Arts</a> in Manhattan.</p><p>Her unique style focuses on metaphorical references, manipulation of the human form and she uses a very unique treatment of typography. I was able to snap some photos to share with you.</p>
+]]></content></item><item><title>Quicksilver Revolution</title><link>https://nathan.run/posts/2004/quicksilver-revolution/</link><pubDate>Sat, 08 May 2004 21:22:00 -0800</pubDate><guid>https://nathan.run/posts/2004/quicksilver-revolution/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>As soon as I realized something was flirting with perfection I discover it gets even better. Over the past three years I&rsquo;ve experienced Mac OS X evolve into, in my opinion, the most effective operating system on the planet. This revolution has spawned many enhancing third party applications. After reading the hype about Quicksilver I finally gave it some<a href="http://whatdoiknow.org/archives/001601.shtml">attention</a>. Seconds after installing my jaw dropped.</p><p>I take my laptop everywhere and its my sole computer. I find it easier just to stay on one machine due to the enormous amount of stuff I use (files, music, movies, photos, bookmarks, apps, contacts). I try to stay organized, but I still spend time digging for things. Quicksilver amazingly eliminates most digging and puts everything at your fingertips.</p><p>After installing I set the interface to Bezel and then started typing. It quickly provides you with excellent results and still allows you to dig deeper if need be. You can customize the catalogue of searchable items to taylor results to your needs. It also searches your address book, itunes library, iphoto library, finder, and more. This is truly a time saver and something that has greatly enhanced my OS X experience. Quick, go download it it&rsquo;s open source and [FREE] (<a href="http://blacktree.com/apps/quicksilver/)">http://blacktree.com/apps/quicksilver/)</a>!</p>
+]]></content></item><item><title>Gleaming the Cube</title><link>https://nathan.run/posts/2004/gleaming-the-cube/</link><pubDate>Thu, 06 May 2004 19:37:00 -0800</pubDate><guid>https://nathan.run/posts/2004/gleaming-the-cube/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Recently I&rsquo;ve been brushing up on my skills as a skateboarder behind a local Italian Restaurant. It began in my friends basement when we found a beat up skateboard during a regular weekend gathering. This sparked our interest further so we ended up buying some generic boards from a local skate shop. They were black underneath and screaming for artwork.</p><p>Last weekend we bought some spray paint (hot pink is unbelievably hard to find) and mylar. I used the mylar to cut out a stencil that I had printed off and then we tapped that onto the bottom of the board and sprayed a few coats and presto.</p><p>Anyone know of a good health insurance plan?</p>
+]]></content></item><item><title>A Modern Experience</title><link>https://nathan.run/posts/2004/a-modern-experience/</link><pubDate>Mon, 03 May 2004 21:17:00 -0800</pubDate><guid>https://nathan.run/posts/2004/a-modern-experience/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>The Guggenheim in Manhattan recently had an Exhibition entitled &ldquo;Singular Forms (Sometimes Repeated)&rdquo; Art from 1951 to the Present. Not your typical exhibition where you study lavish master works. The topic was Minimalism and, at first, I was somewhat timid; this being my virgin modernist exhibition. I began reading the blocks of text describing each piece while the people next too me stared hopelessly into blank canvases. I was fascinated.</p><blockquote><p>&hellip;unique economy of formal means to explore the aesthetic potential of pure shape, structure, and surface. To annul all sense of illusion, artist associated with minimalism often relied on mathematical systems; manifested in serial repetition or the use of a grid; as a guiding compositional grid.</p></blockquote><p>I briefly studied the Modernist movement in college, never giving it due attention. Many criticize this period as being meaningless or a waste of talent. I&rsquo;ve found it to be much more. The amount of thought and planning behind modern work is astonishing, inspiration stemming from obscure sources.</p><blockquote><p>Mangold would use the negative space of nature to create geometric forms.</p></blockquote><p>Their purpose wasn&rsquo;t to satisfy viewers, it was the deconstruction of Art. Taking all that was familiar to art and dismantling it. Exposing its underpinnings. This was something that had not been done publicly. Similar too opening the back of a watch to reveal the complexity and simplicity behind the movement of three spinning hands on a circular form.</p><blockquote><p>Minimalism&rsquo;s immediate impact upon development of contemporary art explored a range of concerns including process, the dematerialization of the object, the performative nature of art, and the structural properties of light.</p></blockquote><p>This deconstruction is merely a process to better understand Art. The more an Artist understands the underpinnings of their creations, the better they can serve their purpose.</p><p>The following are Minimalist Artists that are worth understanding:</p><ul><li><a href="http://www.guggenheimcollection.org/site/artist_bio_3.html">Carl Andre</a></li><li><a href="http://www.guggenheimcollection.org/site/artist_bio_46.html">Dan Flavin</a></li><li><a href="http://www.guggenheimcollection.org/site/artist_bio_97.html">Robert Mangold</a></li><li><a href="http://www.guggenheimcollection.org/site/artist_bio_70.html">Donald Judd</a></li><li><a href="http://www.guggenheimcollection.org/site/artist_bio_101.html">Brice Marden</a></li><li><a href="http://www.guggenheimcollection.org/site/artist_bio_87A.html">Sol LeWitt</a></li><li><a href="http://www.guggenheimcollection.org/site/artist_bio_103.html">Agnes Martin</a></li><li><a href="http://www.guggenheimcollection.org/site/artist_bio_115.html">Robert Morris</a></li><li><a href="http://www.guggenheimcollection.org/site/artist_bio_140.html">Robert Ryman</a></li></ul><p>All of the above quotes were taken from the &ldquo;Singular Forms&rdquo; Exhibition in the Solomon R. Guggenheim Museum.</p>
+]]></content></item><item><title>Back and Changed Forever</title><link>https://nathan.run/posts/2004/back-and-changed-forever/</link><pubDate>Sun, 28 Mar 2004 19:01:00 -0800</pubDate><guid>https://nathan.run/posts/2004/back-and-changed-forever/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Back from Manhattan and feeling refreshed. Later this week I plan to post some photos and audio from the trip. Pending on how much stuff awaits me at work.</p><p>Some highlights include a group chat with Milton Glaser and Mirko Ilic, an exhibition by Christopher Dresser, East Village, Greenwich Village, SoHo, Fashion District, Upright Citizens Brigade, indy galleries, cafes in the morning, comic book and vintage book stores, walking with no direction, pizza and subway entertainment.</p>
+]]></content></item><item><title>First Things First</title><link>https://nathan.run/posts/2004/first-things-first/</link><pubDate>Fri, 19 Mar 2004 19:30:00 -0800</pubDate><guid>https://nathan.run/posts/2004/first-things-first/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Lately I&rsquo;ve been pondering many questions regarding my place as a designer. I feel I may have lost sight of certain goals which have lead me to question my purpose. Design will always be my first love, however, I need to be true to that which I love.</p><p>I spent time last night rereading The<a href="http://www.adbusters.org/campaigns/first/toolbox/manifesto.pdf">First Things First Manifesto</a>. I recommend FTF to all designers, for it will stir up the same questions floating around in my head.</p><p>I&rsquo;m leaving for Manhattan tomorrow for a week. I need a break and I need to clear my head. We&rsquo;re planning to visit<a href="http://www.karlssonwilker.com/">Karlson Wilker</a>,<a href="http://www.rga.com/">R/GA</a>,<a href="http://www.pentagram.com/">Pentagram</a>,<a href="http://www.miltonglaser.com/">Milton Glaser</a>,<a href="http://www.mirkoilic.com/">Mirko Ilic</a>, and as many<a href="http://www.whitney.org/">galleries</a><a href="http://www.icp.org/">as</a><a href="http://www.metmuseum.org/">we</a><a href="http://www.moma.org/">have</a><a href="http://www.guggenheim.org/new_york_index.shtml">time</a><a href="http://ndm.si.edu/">for</a>.</p><p>Hopefully this experience will bring answers to my pondering, however, it might just bring more questions.</p>
+]]></content></item><item><title>Kinetic Art</title><link>https://nathan.run/posts/2004/kinetic-art/</link><pubDate>Sun, 14 Mar 2004 13:06:00 -0800</pubDate><guid>https://nathan.run/posts/2004/kinetic-art/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Over the weekend I&rsquo;ve been preparing for my trip to Manhattan that is taking place next week. I&rsquo;ve been reading up on some new artists and refreshing myself on Art History because it makes the gallery and museum experience much more enjoyable when you have some knowledge behind what your looking at.</p><p>I came across one of my favorite artists that always seems to capture my attention.<a href="http://www.calder.org/">Alexander Calder&rsquo;s</a> mobiles are so fascinating to me and I always seem to stumble upon them in museums. Some really<a href="http://www.whitney.org/american_voices/541/index.html">small</a>, some so big they take up the entire entry way like the one in<a href="http://www.nga.gov/cgi-bin/pimage?56253+0+0">Washington D.C.&rsquo;s Museum of Contemporary Art</a>. Each of them related with very different personalities. They are always moving ever so softly through the stagnate museum air. Always changing shape and balance prompting me to stop dead in my tracks, mesmerized. Photos in books do these works no justice; they must be witnessed in person in order to fully feel their presents and infinite tango with the shadows.</p><p>Calder was really on to something. You can tell the heavy influence of<a href="http://www.guggenheimcollection.org/site/artist_works_112_0.html">Piet Mondrian</a>, another of my favorites.</p>
+]]></content></item><item><title>Indy Support</title><link>https://nathan.run/posts/2004/indy-support/</link><pubDate>Thu, 04 Mar 2004 13:08:00 -0800</pubDate><guid>https://nathan.run/posts/2004/indy-support/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>Recently I&rsquo;ve been distancing myself from &ldquo;corporate america.&rdquo; It&rsquo;s impossible to completely do unless your<a href="http://www.crimelibrary.com/terrorists_spies/terrorists/kaczynski/1.html">Ted Kaczynski</a> but even he had to buy stamps. (Now I&rsquo;m going to get weird Google referrals on Ted Kaczynski). Anyway, I have good reason for choosing this direction.</p><p>My family has a history of entrepreneurs that range from a Grandfather that sold &ldquo;Nimrods&rdquo; to a mom that makes and sells women&rsquo;s clothing. This compels me to spend an extra dollar here and there in support of other entrepreneurs. I highly respect what they do and hope to be one myself someday.</p><p>I value the atmosphere and uniqueness of indy shops. More and more &ldquo;corporate&rdquo; businesses are turning to<a href="http://www.apple.com/retail/">cookie cutter</a> designs for their establishments. This is somewhat disheartening, however, I understand why they do it. Consistency helps them but also dulls them. Yesterday I walked into a local cafe to grab coffee before work; some great jazz was playing in the background that set the mood for the rest of my day. Today I bought a<a href="http://www.noisefactoryrecords.com/bss.htm">CD</a> at a local record store and got some info on new bands from the owner. I also visited a new clothing boutique with some really unique clothing that you wouldn&rsquo;t find anywhere else in this city. During all these experiences I&rsquo;m greeted by familiar, helpful people.</p><p>Independent businesses not only provides quality products, great people and unique atmospheres; they also have the ability enrich our lives.</p>
+]]></content></item><item><title>Not So Lucky</title><link>https://nathan.run/posts/2004/not-so-lucky/</link><pubDate>Wed, 25 Feb 2004 19:17:00 -0800</pubDate><guid>https://nathan.run/posts/2004/not-so-lucky/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>In response to my good friend<a href="http://www.justwatchthesky.com">Ryan&rsquo;s</a> entry on
+iTunes I&rsquo;d just like to say I haven&rsquo;t won a single song with that Pepsi promo.
+I guess it&rsquo;s just bad luck or I just don&rsquo;t drink enough Pepsi. I bought a Sierra
+Mist today and thought for sure I&rsquo;d win but instead I was presented with &ldquo;Please
+try again.&rdquo;</p><p>Anyone want a first generation iPod? I&rsquo;m selling it for 50 bucks, 75 with an
+iTrip. Works just fine, I just need a larger one.</p>
+]]></content></item><item><title>Lack of Words</title><link>https://nathan.run/posts/2004/lack-of-words/</link><pubDate>Sat, 14 Feb 2004 19:16:00 -0800</pubDate><guid>https://nathan.run/posts/2004/lack-of-words/</guid><content type="html" xml:base="https://nathan.run/" xml:lang="en">&lt;![CDATA[<p>If you&rsquo;ve noticed I&rsquo;ve been pretty lame with my entries lately. Mainly due to<a href="http://www.neubix.com/">work</a>,<a href="http://www.smsu.edu/">work</a> and freelance work.
+Good things are around the corner so bare with me. In the mean time I&rsquo;ve come
+across some good reads:</p><ul><li><a href="http://www.kottke.org/04/02/innovation">If it ain&rsquo;t broke, don&rsquo;t fix it?</a></li><li><a href="http://zeldman.com/daily/0204h.shtml">Drop Shadow League</a></li><li><a href="http://mezzoblue.com/archives/2004/02/23/understandin/">Understanding Design</a></li></ul>
+]]></content></item></channel></rss>
