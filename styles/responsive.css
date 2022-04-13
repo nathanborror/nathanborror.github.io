@@ -1,51 +1,82 @@
-@media screen and (max-width: 1000px) { /* Tablet */
-    main {
-        display: block;
-    }
-}
-
-@media screen and (max-width: 760px) { /* Phone */
+/* Tablet */
+@media screen and (max-width: 1024px) {
     body {
+        grid-template-columns: auto 200px;
         margin: 30px;
     }
 
+    aside {
+        padding-left: 100px;
+    }
+}
+
+/* Phone */
+@media screen and (max-width: 760px) {
+    body {
+        grid-template-columns: auto auto;
+        grid-template-areas:
+            "header header"
+            "main main"
+            "aside aside"
+            "footer footer";
+    }
+
     main {
         display: block;
+    }
+
+    header {
+        margin: 0;
+    }
+
+    aside {
+        padding-left: 0;
     }
 
     .uploader {
         display: block;
     }
+
     .file {
         display: block;
         margin: 0 -10px;
         padding: 10px;
     }
+
     .file p {
         margin: 0;
         text-align: left;
     }
+
     .file p:first-child {
         padding-left: 0;
     }
+
     .file p:last-child {
         padding-right: 0;
     }
 
-    .width50 { width: 100%; }
-    .width25 { width: 50%; }
-    .width20 { width: 40%; }
-    .width15 { width: 30%; }
+    .width50 {
+        width: 100%;
+    }
+
+    .width25 {
+        width: 50%;
+    }
+
+    .width20 {
+        width: 40%;
+    }
+
+    .width15 {
+        width: 30%;
+    }
 }
 
 @media screen and (prefers-color-scheme: dark) {
     :root {
-        --anchor-color: var(--system-blue);
-        --background-color: var(--system-black);
-        --foreground-color: var(--system-white);
-        --detail-foreground-color: var(--system-green);
-        --detail-background-color: var(--system-dark-green);
-        
         --system-light-gray: #333333;
+        --system-black: #FFF;
+        --system-white: #000;
     }
 }
