@@ -15,13 +15,14 @@ url(r'^api/v1/(?P<username>[-\w]+)/notes/?$', 'readernaut.api.views.user_notes')
 <meta name=theme-color content="#FFF" media="(prefers-color-scheme: dark)">
 <link rel=stylesheet type=text/css href=https://nathan.run/styles/screen.css>
 <link rel=stylesheet type=text/css href=https://nathan.run/styles/responsive.css>
-<link rel=alternate type=application/rss+xml href=https://nathan.run/posts/index.xml title="Nathan Borror">
+<link rel=alternate type=application/atom+xml href=https://nathan.run/posts/index.xml>
+<link rel=alternate type=application/json href=https://nathan.run/posts/index.json>
 </head>
 <body>
-<main>
 <header>
 <h1><a href=../>../</a> Creating a basic API with Django</h1>
 </header>
+<main>
 <article>
 <h2>
 Monday, August 11, 2008
@@ -63,8 +64,18 @@ Monday, August 11, 2008
 <span style=color:#f92672>&lt;/notes&gt;</span>
 </code></pre></div><p>How you define your XML templates is up to you. I name my templates with the <code>.html</code> extension simply because my text editor highlights the syntax better than if it were XML. It doesn&rsquo;t matter because the mime-type dictates how the file is served up. Good luck!</p>
 </article>
+</main>
+<aside>
+<ul>
+<li><a href=https://nathan.run/work>Work</a></li>
+<li><a href=https://nathan.run/tools>Tools</a></li>
+<li><a href=https://nathan.run/interests>Interests</a></li>
+<li><a href=https://nathan.run/posts>Posts</a></li>
+<li><a href=https://nathan.run/places>Places</a></li>
+<li><a href=https://nathan.run/dailies>Dailies</a></li>
+</ul>
+</aside>
 <footer>
 </footer>
-</main>
 </body>
 </html>

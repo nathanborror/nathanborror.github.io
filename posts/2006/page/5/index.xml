@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Nathan Borror</title><link rel="alternate" type="text/html" href="https://nathan.run/"/><link rel="self" type="application/atom+xml" href="https://nathan.run/posts/2006/index.xml"/><rights>Copyright © 2022, Nathan Borror</rights><updated>2006-12-31T09:31:04-0800</updated><entry><title>Waking The Right</title><link rel="related" type="text/html" href="https://nathan.run/posts/2006/waking-right/"/><published>2006-02-23T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2006/waking-right/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+        <p>Thank God it&rsquo;s Friday. I&rsquo;m planning another one of my &ldquo;introvert retreats.&rdquo;
+About two weeks ago at 5 o&rsquo;clock CST I turned off all forms of communication.
+The following day I drove to Lawrence, Kansas sans laptop. Doesn&rsquo;t sound like
+anything too special but the resulting clarity and relaxation was well worth it.</p>
+<p>This weekend I&rsquo;ll be cutting it a little short so I can be somewhat social
+Saturday night. The trip to Lawrence is a go and I&rsquo;ll be invading an undisclosed
+dark coffee house chugging away on my laptop.</p>
+<p>Waking up the right hemisphere of my brain will be challenging but I have faith.
+This week has been full of ActionScript and Rails left-ness. You may be asking
+yourself, how does one flip from programming to design with ease? Well, one
+doesn&rsquo;t. It&rsquo;s like luring a two year old away from a shinny piece of tin foil.
+My formula consists of waking up early, relocating to someplace inspiring that
+serves legally addictive stimulants, maybe reading some poetry or thumbing
+through art books and, of course, great music. Here&rsquo;s a taste of my upcoming
+brew:</p>
+<ul>
+<li>Come On Die Young (<a href="http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=2989789&amp;amp;s=143441">http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=2989789&amp;amp;s=143441</a>) - Mogwai</li>
+<li>Feb/Mar 2006 Issue (<a href="http://www.tokion.com">http://www.tokion.com</a>) - Tokion Magazine</li>
+<li>Allen Ginsberg (<a href="http://www.rooknet.com/beatpage/writers/ginsberg.html">http://www.rooknet.com/beatpage/writers/ginsberg.html</a>)</li>
+<li>Vol. 9/No. 1 (<a href="http://www.res.com/index.res.html">http://www.res.com/index.res.html</a>) - Res Magazine</li>
+<li>The Life Pursuit (<a href="http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=121961259&amp;amp;s=143441">http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=121961259&amp;amp;s=143441</a>) - Belle and Sebastian</li>
+<li>Building Nothing Out Of Something (<a href="http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=41758331&amp;amp;s=143441">http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=41758331&amp;amp;s=143441</a>) - Modest Mouse</li>
+<li>Hidden Track (<a href="http://www.amazon.com/exec/obidos/tg/detail/-/3899550846?v=glance">http://www.amazon.com/exec/obidos/tg/detail/-/3899550846?v=glance</a>) How Visual Culture Is Going Places</li>
+<li>No Direction Home (<a href="http://www.amazon.com/exec/obidos/tg/detail/-/B000A0GP4K?v=glance">http://www.amazon.com/exec/obidos/tg/detail/-/B000A0GP4K?v=glance</a>) - Bob Dylan</li>
+<li>Blood Money (<a href="http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=3246499&amp;amp;s=143441">http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=3246499&amp;amp;s=143441</a>) - Tom Waits</li>
+<li>Bone Machine (<a href="http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=252111&amp;amp;s=143441">http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=252111&amp;amp;s=143441</a>) - Tom Waits</li>
+</ul>
+]]></content></entry><entry><title>Did You Know</title><link rel="related" type="text/html" href="https://nathan.run/posts/2006/did-you-know/"/><published>2006-02-21T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2006/did-you-know/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+        <p>I work with a small team of designers inside a very large ad agency
+(<a href="http://www.bernstein-rein.com">http://www.bernstein-rein.com</a>). Like most ad agencies they focus primarily on
+print and broadcast. Having a small web division can sometimes cause confusion
+between the different mediums.</p>
+<p>I never really realized how different web was from print and broadcast until my
+time at an agency. So I&rsquo;ve compiled a quick list of a few items that I think set
+web apart. I could go into more detail but for the sake of brevity I kept them
+general and to the point.</p>
+<ol>
+<li><strong>Font Families</strong> When setting copy we&rsquo;re limited to a handful of fonts that
+natively exist on peoples computers. This means your Hiragino Kaku Gothic Pro
+W6 is out of the question.</li>
+<li><strong>Typography</strong> Unfortunately type sucks on the web but it&rsquo;s getting better.
+We use a programming language called Cascading Style Sheets (CSS) to define
+the properties of typography. CSS has its advantages and limitations. These
+limitations include no kerning and no word spacing. Sad but true.</li>
+<li><strong>Programming</strong> To make that graphic fly across the screen requires an
+understanding of math, physics and logic. In one way or another this holds
+true for everything you see on the web. Code is the underlying support beams,
+rivets, and concrete. It&rsquo;s the dirty part of the job that no one wants to
+witness. More time goes into programming than any part of the job.</li>
+<li><strong>Testing</strong> Imagine testing a new car design on 7 different types of roads.
+Some roads are too thin, some are comfortably wide, some with speed bumps and
+some that defy the laws of nature. This is similar to making sure a website
+works in different browsers. This can be the most frustrating phase.</li>
+<li><strong>Usability</strong> Web is more similar to product design than any other type of
+design. If you&rsquo;re going to design a toaster you better be damn sure someone
+knows where to put the toast. Easier said than done. This is where a majority
+of web design fails. Art is for the wall, design provides solutions.</li>
+<li><strong>Impermanent</strong> The web is a living thing. There is no such thing as a
+permanent website. If you&rsquo;re waiting for perfection, stop, you won&rsquo;t find it.
+If you go live with a design and you find a mistake, fix it. It&rsquo;s not like
+finding a mistake after printing 50,000 copies.</li>
+<li><strong>Audience</strong> If your site doesn&rsquo;t change frequently people won&rsquo;t come back.</li>
+<li><strong>Traffic</strong> If you build it, they will NOT come. It&rsquo;s like building a store
+in the middle of Kansas and expecting everyone to know about it. Bullshit!
+Banners, search engine placement, word of mouth, and a good product will
+bring you the audience you so desire.</li>
+<li><strong>Copy</strong> People don&rsquo;t like reading while starring into a huge light bulb. The
+message should be short, clear, and memorable. Much like the broadcast medium.
+Only the die hards and those that don&rsquo;t suffer from ADD will read.</li>
+<li><strong>72dpi</strong> No more no less. Deal with it.</li>
+</ol>
+<p>Sorry if this seems to be preaching to the choir but I felt the need to get this
+out in the open.</p>
+]]></content></entry><entry><title>An Explaination</title><link rel="related" type="text/html" href="https://nathan.run/posts/2006/explaination/"/><published>2006-02-18T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2006/explaination/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+        <p>When the name Playground Blues was chosen I was a junior in college. It didn&rsquo;t
+carry much meaning other than playgrounds seemed like whimsical places where
+imagination wondered. I feel I&rsquo;ve grown out of the name.</p>
+<p>Playground Blues has meant a lot to me. It&rsquo;s enjoyed roughly five official
+redesigns, god knows how many unofficial. It&rsquo;s been featured on many sites
+including The Daily Report (<a href="http://www.zeldman.com/daily/0504e.shtml#reboot">http://www.zeldman.com/daily/0504e.shtml#reboot</a>) by
+Jeffrey Zeldman, Moluv (<a href="http://www.moluv.com/fsa.asp?startingPoint=197)">http://www.moluv.com/fsa.asp?startingPoint=197)</a>, CSS
+Vault (<a href="http://cssvault.com/redesigned/playground_blues.php)">http://cssvault.com/redesigned/playground_blues.php)</a>, Stylegala
+(<a href="http://www.stylegala.com/archive/playground_blues.htm)">http://www.stylegala.com/archive/playground_blues.htm)</a>, and was honorably
+mentioned at the 2004 May 1st Reboot (<a href="http://www.may1reboot.com/2004)">http://www.may1reboot.com/2004)</a>.</p>
+<p>I bid Playground Blues farewell as I introduce to you You Know Where You Are.
+YKWYA represents me, now. The idea is simple, <strong>Real Content</strong>, which means
+fresh links, <a href="http://www.flickr.com/photos/sketch22/">photos</a>, audio, camera
+feeds (/webcam) and experiments. My first experiment can literally be seen in
+the upper right corner of the home page. I hope you enjoy this new direction as
+it evolves. Always more to come!</p>
+]]></content></entry><entry><title>On Air</title><link rel="related" type="text/html" href="https://nathan.run/posts/2006/air/"/><published>2006-02-09T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2006/air/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+        <p>The new and improved webcam (<a href="http://www.playgroundblues.com/webcam">http://www.playgroundblues.com/webcam</a>) is BACK! It
+now allows you to post messages. When you do it attaches the current image and
+keeps a running archive of past webcam moments. It&rsquo;s quite possible this is a
+first in web history.  Could I be so lucky?</p>
+<p>For those of you who were wondering&hellip; Evocam (<a href="http://www.evological.com/evocam.html">http://www.evological.com/evocam.html</a>)
+is being used to FTP images every 30 seconds. Some handy flash work is being
+used to serve the newest image to my people. Rails (<a href="http://www.playgroundblues.com">http://www.playgroundblues.com</a>)
+is being used to take comments and associate the current photo with the comment.
+Enough nerd speak, check it out, leave a comment.</p>
+]]></content></entry></feed>

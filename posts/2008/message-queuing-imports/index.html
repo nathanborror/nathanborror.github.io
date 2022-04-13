@@ -14,13 +14,14 @@ Brief example User uploads a list of 1000 ISBNs to be imported into their librar
 <meta name=theme-color content="#FFF" media="(prefers-color-scheme: dark)">
 <link rel=stylesheet type=text/css href=https://nathan.run/styles/screen.css>
 <link rel=stylesheet type=text/css href=https://nathan.run/styles/responsive.css>
-<link rel=alternate type=application/rss+xml href=https://nathan.run/posts/index.xml title="Nathan Borror">
+<link rel=alternate type=application/atom+xml href=https://nathan.run/posts/index.xml>
+<link rel=alternate type=application/json href=https://nathan.run/posts/index.json>
 </head>
 <body>
-<main>
 <header>
 <h1><a href=../>../</a> Message Queuing imports</h1>
 </header>
+<main>
 <article>
 <h2>
 Friday, September 5, 2008
@@ -49,8 +50,18 @@ Friday, September 5, 2008
 </code></pre></div><p>First we get a list of messages, then we process the first 20 books. If there are more messages to be processed we refresh the page otherwise we send the user to their books page.</p>
 <p>Additionally it&rsquo;s super simple to Ajaxify the progress page by using Django&rsquo;s handy <code>request.is_ajax()</code> and returning a JSON object with info on the progress of the import. Message Queuing is pretty handy for a lot of situations and Amazon even has a service for it called <a href="http://www.amazon.com/Simple-Queue-Service-home-page/b?ie=UTF8&node=13584001">Simple Queuing Service</a> (SQS).</p>
 </article>
+</main>
+<aside>
+<ul>
+<li><a href=https://nathan.run/work>Work</a></li>
+<li><a href=https://nathan.run/tools>Tools</a></li>
+<li><a href=https://nathan.run/interests>Interests</a></li>
+<li><a href=https://nathan.run/posts>Posts</a></li>
+<li><a href=https://nathan.run/places>Places</a></li>
+<li><a href=https://nathan.run/dailies>Dailies</a></li>
+</ul>
+</aside>
 <footer>
 </footer>
-</main>
 </body>
 </html>
