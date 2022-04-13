@@ -19,13 +19,13 @@ The following code checks the incoming request for &rsquo;m' or &lsquo;mobile&rs
 </head>
 <body>
 <header>
-<h1><a href=../>../</a> Save RAM with mobile middleware</h1>
-</header>
-<main>
-<article>
+<h1>Save RAM with mobile middleware</h1>
 <h2>
 Wednesday, October 7, 2009
 </h2>
+</header>
+<main>
+<article>
 <p>A while back I wrote an article on how to set up a mobile site with Django ../going-mobile. Currently I have a Slicehost account which includes 256MB of RAM. My resources are tight and I really dislike having another set of unnecessary Apache processes for a mobile site that, aside from different templates, is using the same code base. The solution is quite simple, write a middleware.</p>
 <p>The following code checks the incoming request for &rsquo;m' or &lsquo;mobile&rsquo; in the domain name. If it exists the TEMPLATE_DIRS is replaced by a MOBILE_TEMPLATE_DIRS setting:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MobileMiddleware</span>(object):
@@ -52,6 +52,7 @@ Wednesday, October 7, 2009
 </main>
 <aside>
 <ul>
+<li><a href=https://nathan.run/>Home</a></li>
 <li><a href=https://nathan.run/work>Work</a></li>
 <li><a href=https://nathan.run/tools>Tools</a></li>
 <li><a href=https://nathan.run/interests>Interests</a></li>

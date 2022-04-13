@@ -1,31 +1,35 @@
-@import url("/fonts/inter/inter.css") only screen;
+@import url('https://rsms.me/inter/inter.css');
 @import url("/styles/reset.css") only screen;
 
 :root {
-    --margin: 24px;
+    --margin: 34px;
     --max-width: 1024px;
 
     --body-margin: calc(var(--margin) * 4);
 
-    --font-text: -apple-system, sans-serif;
+    --font-text: 'Inter', -apple-system, sans-serif;
 
-    --title-size: 32px;
-    --title-line-height: calc(var(--margin) * 2);
+    --title-size: 40px;
+    --title-line-height: 56px;
     --title-weight: 700;
+    --title-letter-spacing: -0.022em;
 
-    --header-size: 16px;
-    --header-line-height: var(--margin);
-    --header-weight: 600;
+    --header-size: 40px;
+    --header-line-height: 56px;
+    --header-weight: 400;
+    --header-letter-spacing: -0.022em;
 
-    --body-size: 16px;
-    --body-line-height: var(--margin);
+    --body-size: 24px;
+    --body-line-height: 34px;
+    --body-letter-spacing: -0.019em;
     --body-weight: 400;
 
-    --caption-size: 14px;
-    --caption-line-height: var(--margin);
+    --caption-size: 18px;
+    --caption-line-height: 25px;
     --caption-weight: var(--body-weight);
+    --caption-letter-spacing: -0.014em;
 
-    --strong-weight: 500;
+    --strong-weight: 700;
 
     --mono: monospace;
     --mono-size: 13px;
@@ -33,7 +37,7 @@
 
     --border-radius: 6px;
 
-    --border-color: var(--system-light-gray);
+    --border-color: var(--system-black);
     --emphasis-color: var(--system-black);
     --anchor-color: var(--system-black);
     --accent-color: var(--system-red);
@@ -55,12 +59,19 @@
     --system-dark-yellow: #4D3B15;
 
     --system-light-gray: #E5E5E5;
+    --system-light-yellow: #FFee77;
 
     --system-gray-wash: #FAFAFA;
     --system-blue-wash: #EEEEFF;
     --system-yellow-wash: #FFFFCC;
 
     --hang: -80px;
+}
+
+@supports (font-variation-settings: normal) {
+    html {
+        font-family: 'Inter var', sans-serif;
+    }
 }
 
 body {
@@ -76,8 +87,10 @@ body {
     font-size: var(--body-size);
     line-height: var(--body-line-height);
     font-weight: var(--body-weight);
+    letter-spacing: var(--body-letter-spacing);
     background-color: var(--background-color);
     color: var(--foreground-color);
+    font-feature-settings: "ss01", "zero", "frac", "cv05", "cv11";
 }
 
 body::before {
@@ -91,7 +104,18 @@ body::before {
 
 header {
     grid-area: header;
-    margin: var(--margin) 0;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header h2 {
+    margin: 0 !important;
+    font-size: var(--body-size) line-height: var(--body-line-height);
+    font-weight: var(--body-weight);
+    letter-spacing: var(--body-letter-spacing);
+    opacity: 0.3;
 }
 
 main {
@@ -118,6 +142,10 @@ aside a {
 aside a:hover {
     text-decoration: none;
     opacity: 1;
+}
+
+article {
+    margin-bottom: calc(var(--margin) * 2);
 }
 
 footer {
@@ -169,18 +197,23 @@ h1 {
     font-size: var(--title-size);
     line-height: var(--title-line-height);
     font-weight: var(--title-weight);
+    letter-spacing: var(--title-letter-spacing);
     color: var(--foreground-color);
 }
 
-h2,
+h2 {
+    font-size: var(--header-size);
+    line-height: var(--header-line-height);
+    font-weight: var(--header-weight);
+    letter-spacing: var(--header-letter-spacing);
+    color: var(--foreground-color);
+}
+
 h3,
 h4,
 h5,
 h6 {
-    font-size: var(--header-size);
-    line-height: var(--header-line-height);
-    font-weight: var(--header-weight);
-    color: var(--foreground-color);
+    font-weight: var(--strong-weight);
 }
 
 h1+h2,
@@ -188,17 +221,20 @@ h2+h3,
 h3+h4 {
     margin-top: calc(var(--margin) * -1);
     font-weight: var(--body-weight);
-    opacity: 0.5;
 }
 
 h3+p,
+h3+table,
+h3+ul {
+    margin-top: calc(var(--margin) * -0.5);
+}
+
 h5+p,
 h6+p,
 h3+table,
 h4+table,
 h5+table,
 h6+table,
-h3+ul,
 h5+ul,
 h6+ul {
     margin-top: calc(var(--margin) * -1);
@@ -207,6 +243,20 @@ h6+ul {
 h3+.summary,
 p+.continue {
     margin-top: calc(var(--margin) * -0.5);
+}
+
+.continue {
+    display: inline-block;
+    margin: -15px;
+    padding: 2px 8px 2px 15px;
+    background-color: var(--system-black);
+    font-size: var(--caption-size);
+    border-radius: 20px;
+}
+
+.continue a {
+    text-decoration: none;
+    color: var(--system-white);
 }
 
 h1,
@@ -234,6 +284,8 @@ h3 a {
 a {
     color: var(--anchor-color);
     text-decoration: underline;
+    text-decoration-thickness: 4px;
+    text-decoration-color: var(--system-light-yellow);
 }
 
 a:hover {
@@ -265,9 +317,12 @@ img {
 
 blockquote {
     margin-left: calc(var(--margin) * -1);
-    padding-left: calc(var(--margin) - 2px);
-    border-left: 2px solid var(--border-color);
-    color: var(--system-gray);
+    margin-right: calc(var(--margin) * -1);
+    padding: var(--margin);
+    background-color: var(--system-black);
+    font-weight: 800;
+    color: var(--system-white);
+    border-radius: var(--border-radius);
 }
 
 blockquote *:first-child {
@@ -280,15 +335,17 @@ blockquote *:last-child {
 
 hr {
     display: block;
-    margin: var(--margin) 0;
-    border-bottom: 1px solid var(--border-color);
+    margin: calc(var(--margin) * 2) 0;
+    border: none;
+    height: 2px;
+    background-color: var(--system-black);
 }
 
 li::before {
-    content: "•";
+    content: "→";
     display: inline-block;
-    width: 15px;
-    margin-left: -15px;
+    width: 32px;
+    margin-left: -32px;
     opacity: 0.15;
 }
 
@@ -344,6 +401,7 @@ label {
     font-size: var(--caption-size);
     font-weight: var(--caption-weight);
     line-height: var(--caption-line-height);
+    letter-spacing: var(--caption-letter-spacing);
     text-transform: uppercase;
     color: var(--system-gray);
 }
@@ -472,6 +530,7 @@ ul.mono li::before {
     text-decoration: none;
     font-size: var(--caption-size);
     line-height: var(--caption-line-height);
+    letter-spacing: var(--caption-letter-spacing);
     border: 1px solid var(--system-black);
     border-radius: 4px;
 }
@@ -544,6 +603,7 @@ figcaption {
     font-size: var(--caption-size);
     font-weight: var(--caption-weight);
     line-height: var(--caption-line-height);
+    letter-spacing: var(--caption-letter-spacing);
     color: var(--system-gray);
 }
 

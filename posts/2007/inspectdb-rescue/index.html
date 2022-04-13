@@ -18,13 +18,13 @@
 </head>
 <body>
 <header>
-<h1><a href=../>../</a> InspectDB to the rescue</h1>
-</header>
-<main>
-<article>
+<h1>InspectDB to the rescue</h1>
 <h2>
 Thursday, April 19, 2007
 </h2>
+</header>
+<main>
+<article>
 <p>In a past life I used to build admin tools using <a href=http://www.rubyonrails.com>Ruby on Rails</a>. I thoroughly enjoyed spending weekends improving my little tools and libraries but I eventually realized I was spending more time on back-end stuff than front-end. Enter Django. For the past nine months I&rsquo;ve touched nothing but Django so you can imagine how easy it was for me to hop on the Rails bicycle when Dreamhost decided to upgrade Rails.</p>
 <p>You see, I failed to Freeze my Rails releases so they would be impervious to backwards incompatible changes. This presented a problem and I needed a solution like Don Imus needs a job.
 I decided it wasn&rsquo;t worth investigating why my code broke between Rails version 1.2 to 1.2.3. My solution was to just rewrite the damn things in Django. While ranting at work about my situation my good friend <a href=http://www.b-list.org>James</a> pointed out a nice little tool called <a href=http://www.djangoproject.com/documentation/django-admin/#inspectdb>inspectdb</a> part of django-admin.py. All I had to do was create a new Django project, point it to my old Rails database and inspectdb spits out all the necessary model code so Django can start using that database.</p>
@@ -34,6 +34,7 @@ I must point out this is not a failure of Rails, merely a lack of time and commi
 </main>
 <aside>
 <ul>
+<li><a href=https://nathan.run/>Home</a></li>
 <li><a href=https://nathan.run/work>Work</a></li>
 <li><a href=https://nathan.run/tools>Tools</a></li>
 <li><a href=https://nathan.run/interests>Interests</a></li>
