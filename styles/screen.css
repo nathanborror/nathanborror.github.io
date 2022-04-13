@@ -112,7 +112,8 @@ header h1 {
 
 header h2 {
     margin: 0 !important;
-    font-size: var(--body-size) line-height: var(--body-line-height);
+    font-size: var(--body-size);
+    line-height: var(--body-line-height);
     font-weight: var(--body-weight);
     letter-spacing: var(--body-letter-spacing);
     opacity: 0.3;
