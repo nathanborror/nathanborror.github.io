@@ -38,32 +38,27 @@
     --border-radius: 6px;
 
     --border-color: var(--system-black);
-    --emphasis-color: var(--system-black);
-    --anchor-color: var(--system-black);
+    --anchor-color: rgba(0, 0, 0, 0.15);
     --accent-color: var(--system-red);
     --background-color: var(--system-white);
     --foreground-color: var(--system-black);
-    --detail-foreground-color: var(--system-dark-green);
+    --detail-foreground-color: var(--system-black);
     --detail-background-color: var(--system-green);
 
-    --system-white: #FFFFFF;
-    --system-black: #000000;
+    --system-white: #F7F5F2;
+    --system-black: rgba(0, 0, 0, 0.85);
     --system-gray: #888888;
-    --system-red: #FF6847;
-    --system-blue: #57B1FF;
-    --system-green: #61CC6C;
-    --system-yellow: #FFC347;
-
-    --system-dark-blue: #0071BB;
-    --system-dark-green: #244D28;
-    --system-dark-yellow: #4D3B15;
+    --system-red: #F26F42;
+    --system-yellow: #F2C53D;
+    --system-green: #79BF56;
+    --system-blue: #50B4E6;
 
     --system-light-gray: #E5E5E5;
-    --system-light-yellow: #FFee77;
 
-    --system-gray-wash: #FAFAFA;
-    --system-blue-wash: #EEEEFF;
-    --system-yellow-wash: #FFFFCC;
+    --system-red-wash: #F9C5B3;
+    --system-yellow-wash: #F9E7B1;
+    --system-green-wash: #C9E5BB;
+    --system-blue-wash: #B8E0F5;
 
     --hang: -80px;
 }
@@ -82,6 +77,7 @@ body {
         "main aside"
         "footer footer";
     margin: 50px auto;
+    padding-top: 50px;
     max-width: var(--max-width);
     font-family: var(--font-text);
     font-size: var(--body-size);
@@ -181,7 +177,7 @@ details a {
 }
 
 details a:hover {
-    color: var(--anchor-color);
+    color: var(--system-black);
 }
 
 section {
@@ -283,10 +279,9 @@ h3 a {
 }
 
 a {
-    color: var(--anchor-color);
     text-decoration: underline;
-    text-decoration-thickness: 4px;
-    text-decoration-color: var(--system-light-yellow);
+    text-decoration-thickness: 3px;
+    text-decoration-color: var(--anchor-color);
 }
 
 a:hover {
@@ -299,7 +294,6 @@ strong {
 
 em {
     font-style: italic;
-    color: var(--emphasis-color);
 }
 
 em a {
@@ -338,8 +332,9 @@ hr {
     display: block;
     margin: calc(var(--margin) * 2) 0;
     border: none;
-    height: 2px;
+    height: 3px;
     background-color: var(--system-black);
+    opacity: 0.15;
 }
 
 li::before {
@@ -546,7 +541,6 @@ ul.mono li::before {
     padding: 18px;
     background-color: var(--system-yellow);
     border-radius: var(--border-radius);
-    color: var(--system-dark-yellow);
 }
 
 .nav li::before {
@@ -676,4 +670,36 @@ figcaption a {
 
 .pagination .page-item a[aria-label=Next]:after {
     content: "→";
+}
+
+/* Custom pages styles */
+body.work {
+    background: var(--system-red);
+}
+
+body.tools {
+    background: var(--system-green);
+}
+
+body.interests {
+    background: var(--system-blue);
+}
+
+body.posts {
+    background: var(--system-yellow);
+}
+
+body.work header h1,
+body.tools header h1,
+body.posts header h1,
+body.interests header h1 {
+    color: var(--system-white);
+}
+
+body.work li::before,
+body.tools li::before,
+body.posts li::before,
+body.interests li::before {
+    color: var(--system-white);
+    opacity: 0.5;
 }
