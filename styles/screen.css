@@ -9,20 +9,20 @@
 
     --font-text: 'Inter', -apple-system, sans-serif;
 
+    --body-size: 24px;
+    --body-line-height: 34px;
+    --body-letter-spacing: -0.019em;
+    --body-weight: 400;
+
     --title-size: 40px;
     --title-line-height: 56px;
     --title-weight: 700;
     --title-letter-spacing: -0.022em;
 
-    --header-size: 40px;
-    --header-line-height: 56px;
+    --header-size: var(--title-size);
+    --header-line-height: var(--title-line-height);
     --header-weight: 400;
-    --header-letter-spacing: -0.022em;
-
-    --body-size: 24px;
-    --body-line-height: 34px;
-    --body-letter-spacing: -0.019em;
-    --body-weight: 400;
+    --header-letter-spacing: var(--title-letter-spacing);
 
     --caption-size: 18px;
     --caption-line-height: 25px;
@@ -32,8 +32,8 @@
     --strong-weight: 700;
 
     --mono: monospace;
-    --mono-size: 13px;
-    --mono-line-height: var(--margin);
+    --mono-size: var(--caption-size);
+    --mono-line-height: var(--caption-line-height);
 
     --border-radius: 6px;
 
@@ -631,29 +631,30 @@ figcaption a {
 .pagination .page-item a {
     display: inline-block;
     padding: 5px 12px;
-    border: 1px solid var(--system-light-gray);
+    border: 1px solid var(--system-black);
     text-decoration: none;
     color: var(--system-black)
 }
 
 .pagination .page-item a:hover {
     background-color: var(--system-black);
-    border-color: var(--system-black);
     color: var(--system-white);
 }
 
 .pagination .disabled a,
 .pagination .disabled a:hover {
-    background-color: var(--system-white);
-    border-color: var(--system-light-gray);
-    color: var(--system-gray);
+    opacity: 0.2;
+}
+
+.pagination .disabled a:hover {
+    background: none;
+    color: var(--system-black);
 }
 
 .pagination .active a,
 .pagination .active a:hover {
-    background-color: var(--system-light-gray);
-    border-color: var(--system-light-gray);
-    color: var(--system-gray);
+    background-color: var(--system-black);
+    color: var(--system-white);
 }
 
 .pagination .page-item a[aria-label=Previous] span {

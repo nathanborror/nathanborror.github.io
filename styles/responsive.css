@@ -1,17 +1,39 @@
 /* Tablet */
 @media screen and (max-width: 1024px) {
     body {
-        grid-template-columns: auto 200px;
-        margin: 30px;
+        grid-template-columns: auto 180px;
+        margin: 50px;
     }
 
     aside {
-        padding-left: 100px;
+        padding-left: 60px;
     }
 }
 
 /* Phone */
 @media screen and (max-width: 760px) {
+    :root {
+        --body-size: 18px;
+        --body-line-height: 25px;
+        --body-letter-spacing: -0.014em;
+        --body-weight: 400;
+
+        --title-size: 24px;
+        --title-line-height: 34px;
+        --title-weight: 700;
+        --title-letter-spacing: -0.019em;
+
+        --header-size: var(--title-size);
+        --header-line-height: var(--title-line-height);
+        --header-weight: 400;
+        --header-letter-spacing: var(--title-letter-spacing);
+
+        --caption-size: 15px;
+        --caption-line-height: 21px;
+        --caption-weight: var(--body-weight);
+        --caption-letter-spacing: -0.009em;
+    }
+
     body {
         grid-template-columns: auto auto;
         grid-template-areas:
@@ -19,57 +41,11 @@
             "main main"
             "aside aside"
             "footer footer";
-    }
-
-    main {
-        display: block;
-    }
-
-    header {
-        margin: 0;
+        margin: 40px;
     }
 
     aside {
         padding-left: 0;
-    }
-
-    .uploader {
-        display: block;
-    }
-
-    .file {
-        display: block;
-        margin: 0 -10px;
-        padding: 10px;
-    }
-
-    .file p {
-        margin: 0;
-        text-align: left;
-    }
-
-    .file p:first-child {
-        padding-left: 0;
-    }
-
-    .file p:last-child {
-        padding-right: 0;
-    }
-
-    .width50 {
-        width: 100%;
-    }
-
-    .width25 {
-        width: 50%;
-    }
-
-    .width20 {
-        width: 40%;
-    }
-
-    .width15 {
-        width: 30%;
     }
 }
 
