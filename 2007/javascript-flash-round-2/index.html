@@ -25,7 +25,7 @@ Friday, April 20, 2007
 <main>
 <article>
 <p>FIguring out the Javascript/Flash integration kit has lead to a much simpler solution. Looks like Macromedia has slipped in another nugget of usefulness in the Flash 8 release which, I might add, has penetrated the market remarkably fast. It&rsquo;s called External Interface. I gotta thank <a href=http://bobbykellogg.com/>Bobby</a> for finding this one.</p>
-<p>So forget the last post if you&rsquo;re a progressive designer like myself, marching to the Flash 8 bugle. Using the same example as <a href=https://nathan.run/posts/2007/mar/18/make-flash-and-javascript-sing/>before</a> replace your Actionscript with the following.</p>
+<p>So forget the last post if you&rsquo;re a progressive designer like myself, marching to the Flash 8 bugle. Using the same example as <a href=https://nathan.run/2007/make-flash-and-javascript-sing>before</a> replace your Actionscript with the following.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>flash</span>.<span style=color:#a6e22e>external</span>.<span style=color:#a6e22e>ExternalInterface</span>;
 
 <span style=color:#a6e22e>ExternalInterface</span>.<span style=color:#a6e22e>addCallback</span>(<span style=color:#e6db74>&#34;moveBall&#34;</span>, <span style=color:#66d9ef>this</span>, <span style=color:#a6e22e>moveBall</span>);
@@ -45,7 +45,7 @@ Friday, April 20, 2007
       document[<span style=color:#e6db74>&#39;ball&#39;</span>].<span style=color:#a6e22e>moveBall</span>(<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>y</span>);
     }
 }
-</code></pre></div><p>Thats it! Just make sure you name your flash file &ldquo;ball&rdquo; and you&rsquo;ve set allowScriptAccess to all or sameDomain. Get rid of all the extraneous files from before too, you don&rsquo;t need them! <a href=http://www.playgroundblues.com/media/source/JavaScript_Flash_Tutorial2/>View example</a> or <a href=http://www.playgroundblues.com/media/source/JavaScript_Flash_Tutorial2.zip>download</a>.</p>
+</code></pre></div><p>Thats it! Just make sure you name your flash file &ldquo;ball&rdquo; and you&rsquo;ve set allowScriptAccess to all or sameDomain. Get rid of all the extraneous files from before too, you don&rsquo;t need them! <a href=http://www.playgroundblues.com/media/source/JavaScript_Flash_Tutorial2/>View example</a>.</p>
 </article>
 </main>
 <aside>

@@ -3,8 +3,8 @@
 <meta charset=utf-8>
 <title>Nathan Borror: FTP bad, versioning good</title>
 <meta property="og:title" content="FTP bad, versioning good">
-<meta property="og:description" content="You may have noticed a little downtime Sunday evening. I was able to get the Domaki code under version control (http://en.wikipedia.org/wiki/Revision_control) which I highly recommend. It allows you to kick FTP to the curb and do everything with &ldquo;svn commit&rdquo; and &ldquo;update&rdquo; commands.
-The main reason for doing this was my extreme inability to remember which files I&rsquo;ve changed. Subversion (http://subversion.tigris.org/) takes the worry out of my day by committing the necessary files from my local machine to my repository.">
+<meta property="og:description" content="You may have noticed a little downtime Sunday evening. I was able to get the code under version control which I highly recommend. It allows you to kick FTP to the curb and do everything with &ldquo;svn commit&rdquo; and &ldquo;update&rdquo; commands.
+The main reason for doing this was my extreme inability to remember which files I&rsquo;ve changed. Subversion takes the worry out of my day by committing the necessary files from my local machine to my repository.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://nathan.run/2006/ftp-bad-versioning-good/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2006-10-04T00:00:00-08:00">
@@ -24,29 +24,12 @@ Wednesday, October 4, 2006
 </header>
 <main>
 <article>
-<p>You may have noticed a little downtime Sunday evening. I was able to get the
-Domaki code under version control (<a href=http://en.wikipedia.org/wiki/Revision_control>http://en.wikipedia.org/wiki/Revision_control</a>)
-which I highly recommend. It allows you to kick FTP to the curb and do
-everything with &ldquo;svn commit&rdquo; and &ldquo;update&rdquo; commands.</p>
-<p>The main reason for doing this was my extreme inability to remember which files
-I&rsquo;ve changed. Subversion (<a href=http://subversion.tigris.org/>http://subversion.tigris.org/</a>) takes the worry out of
-my day by committing the necessary files from my local machine to my repository.
-I can then update my live site copy with a simple update command. My setup is
-pretty simple. My repository is on Dreamhost. I have have a local copy checked
-out on my laptop where I make my changes. I have another copy checked out on
-Dreamhost thats served up fresh to you. I commit changes via my local terminal
-and ssh to my live directory on Dreamhost to update the code to the latest
-version. Pretty simple!</p>
-<p>Trac (<a href=http://trac.edgewall.org/>http://trac.edgewall.org/</a>) is also handy for navigating the repository
-online but acts more as a project management tool. Anytime I come across a bug
-or a UI enhancement I can open a ticket to Trac which can be closed upon
-completion. It can also review and compare changes of any file if you ever have
-to roll a file back to an older version.</p>
-<p>Textmate (<a href=http://macromates.com/>http://macromates.com/</a>) has some handy Subversion key commands but I
-haven&rsquo;t had a chance to fully explore them.</p>
-<p>If you&rsquo;re using Django or Python make sure you edit your config file under your
-hidden .subversion directory to exclude .pyc files. Otherwise you&rsquo;ll be making a
-ton of unnecessary file updates.</p>
+<p>You may have noticed a little downtime Sunday evening. I was able to get the code under <a href=http://en.wikipedia.org/wiki/Revision_control>version control</a> which I highly recommend. It allows you to kick FTP to the curb and do everything with &ldquo;svn commit&rdquo; and &ldquo;update&rdquo; commands.</p>
+<p>The main reason for doing this was my extreme inability to remember which files I&rsquo;ve changed. <a href=http://subversion.tigris.org/>Subversion</a> takes the worry out of my day by committing the necessary files from my local machine to my repository. I can then update my live site copy with a simple update command. My setup is pretty simple. My repository is on Dreamhost. I have have a local copy checked out on my laptop where I make my changes. I have another copy checked out on Dreamhost thats served up fresh to you. I commit changes via my local terminal and ssh to my live directory on Dreamhost to update the code to the latest version. Pretty simple!</p>
+<p><a href=http://trac.edgewall.org/>Trac</a> is also handy for navigating the repository online but acts more as a project management tool. Anytime I come across a bug or a UI enhancement I can open a ticket to Trac which can be closed upon
+completion. It can also review and compare changes of any file if you ever have to roll a file back to an older version.</p>
+<p><a href=http://macromates.com/>Textmate</a> has some handy Subversion key commands but I haven&rsquo;t had a chance to fully explore them.</p>
+<p>If you&rsquo;re using Django or Python make sure you edit your config file under your hidden .subversion directory to exclude .pyc files. Otherwise you&rsquo;ll be making a ton of unnecessary file updates.</p>
 </article>
 </main>
 <aside>

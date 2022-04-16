@@ -8,9 +8,9 @@
     --font-family: 'Inter', -apple-system, sans-serif;
     --font-feature-settings: "ss01", "zero", "frac", "cv05", "cv11";
 
-    --body-size: 24px;
-    --body-line-height: 34px;
-    --body-letter-spacing: -0.019em;
+    --body-size: 20px;
+    --body-line-height: 28px;
+    --body-letter-spacing: -0.017em;
     --body-weight: 400;
 
     --title-size: 40px;

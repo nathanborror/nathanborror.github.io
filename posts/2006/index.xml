@@ -134,27 +134,12 @@ your email address in a single location and having it propagate to every social
 network, online application, bank account and various admin tools. Bliss, and
 hopefully a reality.</p>
 ]]></content></entry><entry><title>In with the Em's and Percentages</title><link rel="related" type="text/html" href="https://nathan.run/2006/in-with-the-ems-and-percentages/"/><published>2006-11-01T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2006/in-with-the-ems-and-percentages/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
-        <p>For the past few projects I&rsquo;ve thrown out all use of pixels and relied heavily
-on an em&rsquo;s and percentages for layout and font sizing. Why would someone take
-such drastic measures? Two simple reasons: usability and flexibility.</p>
-<p>The current Domaki, circa Fall 2006, uses this practice which makes the liquid
-layout possible with ease. A non-liquid example would be the Ellington
-(<a href="http://www.ellingtoncms.com">http://www.ellingtoncms.com</a>) site which uses a container set in EM&rsquo;s with all
-inner layers set to percentages. When you increase the font size the layout
-scales appropriately, thus demonstrating good usability (or accessibility &ndash; I
-think they are one in the same).</p>
-<p>Have you ever stood back and wondered, &ldquo;should this site be wider?&rdquo; Well with
-one miniscule change it can. Simply alter the container layer and everything
-follows suite as long as your inner layers have all been assigned percentages.
-The biggest caveat to this is dealing with IE not behaving well with 100% in
-certain situations. I&rsquo;ve gotten around this by trying not to be so pixel perfect
-and looking at things more loosely. Upon doing more and more complex column
-layouts I&rsquo;ve come to love this method of styling.</p>
-<p>It&rsquo;s time to see more liquid layouts or at least taking into consideration that
-the canvas we have is not fixed. Most of the software applications on our
-computer are liquid why not web sites?</p>
-<p>Tip: Set the font-style property of the body tag to 62.5%. This makes 1em look
-like 10px, and so on.</p>
+        <p>For the past few projects I&rsquo;ve thrown out all use of pixels and relied heavily on an em&rsquo;s and percentages for layout and font sizing. Why would someone take such drastic measures? Two simple reasons: usability and flexibility.</p>
+<p>The current site, circa Fall 2006, uses this practice which makes the liquid layout possible with ease. A non-liquid example would be the <a href="http://www.ellingtoncms.com">Ellington</a> site which uses a container set in EM&rsquo;s with all
+inner layers set to percentages. When you increase the font size the layout scales appropriately, thus demonstrating good usability (or accessibility &ndash; I think they are one in the same).</p>
+<p>Have you ever stood back and wondered, &ldquo;should this site be wider?&rdquo; Well with one miniscule change it can. Simply alter the container layer and everything follows suite as long as your inner layers have all been assigned percentages. The biggest caveat to this is dealing with IE not behaving well with 100% in certain situations. I&rsquo;ve gotten around this by trying not to be so pixel perfect and looking at things more loosely. Upon doing more and more complex column layouts I&rsquo;ve come to love this method of styling.</p>
+<p>It&rsquo;s time to see more liquid layouts or at least taking into consideration that the canvas we have is not fixed. Most of the software applications on our computer are liquid why not web sites?</p>
+<p>Tip: Set the font-style property of the body tag to 62.5%. This makes 1em look like 10px, and so on.</p>
 ]]></content></entry><entry><title>A Gestalt point of view</title><link rel="related" type="text/html" href="https://nathan.run/2006/a-gestalt-point-of-view/"/><published>2006-10-24T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2006/a-gestalt-point-of-view/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>During my junior year of college I was required to enroll in a cinematography
 course as part of the Electronic Arts program. The first day of class we
@@ -184,29 +169,12 @@ This is the path I&rsquo;ve decided to try for now.</p>
 <li>Gestalt principles (<a href="http://graphicdesign.spokanefalls.edu/tutorials/process/gestaltprinciples/gestaltprinc.htm">http://graphicdesign.spokanefalls.edu/tutorials/process/gestaltprinciples/gestaltprinc.htm</a>)</li>
 </ul>
 ]]></content></entry><entry><title>FTP bad, versioning good</title><link rel="related" type="text/html" href="https://nathan.run/2006/ftp-bad-versioning-good/"/><published>2006-10-04T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2006/ftp-bad-versioning-good/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
-        <p>You may have noticed a little downtime Sunday evening. I was able to get the
-Domaki code under version control (<a href="http://en.wikipedia.org/wiki/Revision_control">http://en.wikipedia.org/wiki/Revision_control</a>)
-which I highly recommend. It allows you to kick FTP to the curb and do
-everything with &ldquo;svn commit&rdquo; and &ldquo;update&rdquo; commands.</p>
-<p>The main reason for doing this was my extreme inability to remember which files
-I&rsquo;ve changed. Subversion (<a href="http://subversion.tigris.org/">http://subversion.tigris.org/</a>) takes the worry out of
-my day by committing the necessary files from my local machine to my repository.
-I can then update my live site copy with a simple update command. My setup is
-pretty simple. My repository is on Dreamhost. I have have a local copy checked
-out on my laptop where I make my changes. I have another copy checked out on
-Dreamhost thats served up fresh to you. I commit changes via my local terminal
-and ssh to my live directory on Dreamhost to update the code to the latest
-version. Pretty simple!</p>
-<p>Trac (<a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a>) is also handy for navigating the repository
-online but acts more as a project management tool. Anytime I come across a bug
-or a UI enhancement I can open a ticket to Trac which can be closed upon
-completion. It can also review and compare changes of any file if you ever have
-to roll a file back to an older version.</p>
-<p>Textmate (<a href="http://macromates.com/">http://macromates.com/</a>) has some handy Subversion key commands but I
-haven&rsquo;t had a chance to fully explore them.</p>
-<p>If you&rsquo;re using Django or Python make sure you edit your config file under your
-hidden .subversion directory to exclude .pyc files. Otherwise you&rsquo;ll be making a
-ton of unnecessary file updates.</p>
+        <p>You may have noticed a little downtime Sunday evening. I was able to get the code under <a href="http://en.wikipedia.org/wiki/Revision_control">version control</a> which I highly recommend. It allows you to kick FTP to the curb and do everything with &ldquo;svn commit&rdquo; and &ldquo;update&rdquo; commands.</p>
+<p>The main reason for doing this was my extreme inability to remember which files I&rsquo;ve changed. <a href="http://subversion.tigris.org/">Subversion</a> takes the worry out of my day by committing the necessary files from my local machine to my repository. I can then update my live site copy with a simple update command. My setup is pretty simple. My repository is on Dreamhost. I have have a local copy checked out on my laptop where I make my changes. I have another copy checked out on Dreamhost thats served up fresh to you. I commit changes via my local terminal and ssh to my live directory on Dreamhost to update the code to the latest version. Pretty simple!</p>
+<p><a href="http://trac.edgewall.org/">Trac</a> is also handy for navigating the repository online but acts more as a project management tool. Anytime I come across a bug or a UI enhancement I can open a ticket to Trac which can be closed upon
+completion. It can also review and compare changes of any file if you ever have to roll a file back to an older version.</p>
+<p><a href="http://macromates.com/">Textmate</a> has some handy Subversion key commands but I haven&rsquo;t had a chance to fully explore them.</p>
+<p>If you&rsquo;re using Django or Python make sure you edit your config file under your hidden .subversion directory to exclude .pyc files. Otherwise you&rsquo;ll be making a ton of unnecessary file updates.</p>
 ]]></content></entry><entry><title>Journalists and public discourse</title><link rel="related" type="text/html" href="https://nathan.run/2006/journalists-and-public-discourse/"/><published>2006-09-29T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2006/journalists-and-public-discourse/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>I was involved in a discussion recently about whether journalists should be
 allowed to comment on news stories. My employer, the Lawrence Journal-World,
