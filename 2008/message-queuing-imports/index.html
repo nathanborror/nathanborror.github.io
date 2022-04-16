@@ -1,0 +1,64 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Nathan Borror: Message Queuing imports</title>
+<meta property="og:title" content="Message Queuing imports">
+<meta property="og:description" content="Last week I ran into some problems dealing with large book imports on Readernaut. I tested the system for around 50-100 books but had no idea people would upload lists of 900+ books. This begged the question, how do you handle importing very large sets of data before the browser times out?
+Brief example User uploads a list of 1000 ISBNs to be imported into their library. Each book, if not already in the system, needs to be imported via another service like Amazon.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nathan.run/2008/message-queuing-imports/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2008-09-05T00:00:00-08:00">
+<meta property="article:modified_time" content="2008-09-05T00:00:00-08:00">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/screen.css>
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/responsive.css>
+<link rel=alternate type=application/atom+xml href=https://nathan.run/posts/index.xml>
+<link rel=alternate type=application/json href=https://nathan.run/posts/index.json>
+</head>
+<body>
+<header>
+<h1>Message Queuing imports</h1>
+<h2>
+Friday, September 5, 2008
+</h2>
+</header>
+<main>
+<article>
+<p>Last week I ran into some problems dealing with large book imports on Readernaut. I tested the system for around 50-100 books but had no idea people would upload lists of 900+ books. This begged the question, how do you handle importing very large sets of data before the browser times out?</p>
+<h2 id=brief-example>Brief example</h2>
+<p>User uploads a list of 1000 ISBNs to be imported into their library. Each book, if not already in the system, needs to be imported via another service like Amazon.</p>
+<h2 id=solution-1-threading>Solution 1: Threading</h2>
+<p>Use threading to push off the long running process to another thread while directing the browser to a status page. You could setup an Ajax request to periodically check on the status of the import and update a progress bar.</p>
+<p>This solution is generally a bad idea. It&rsquo;s super easy to do and tests well in a development environment, but has scary consequences down the road, especially if you don&rsquo;t have a lot of server resources.</p>
+<h2 id=solution-2-message-queuing>Solution 2: Message Queuing</h2>
+<p><a href=http://en.wikipedia.org/wiki/Message_queue>Message queuing</a> is a very basic asynchronous method of storing items in a queue to be processed later.</p>
+<p>So for this instance I created a model called Message that has three fields:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Message</span>(models<span style=color:#f92672>.</span>Model):
+    user <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>ForeignKey(User)
+    subject <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>CharField(max_length<span style=color:#f92672>=</span><span style=color:#ae81ff>100</span>)
+    message <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>TextField()
+</code></pre></div><p>This allowed me to slurp in the list of ISBNs and break them out into 20 book chunks. Each chunk gets related to a user and a subject of &ldquo;book_import.&rdquo; Once it&rsquo;s finished I can send the user to a progress page where each chunk is processed one by one until they&rsquo;re gone. Here&rsquo;s a simple example of a progress view:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>book_import_progress</span>(request):
+    message_list <span style=color:#f92672>=</span> Message<span style=color:#f92672>.</span>objects<span style=color:#f92672>.</span>filter(user<span style=color:#f92672>=</span>request<span style=color:#f92672>.</span>user, subject<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;book_import&#39;</span>)
+    handle_message(message_list[<span style=color:#ae81ff>0</span>])
+    <span style=color:#66d9ef>if</span> len(message_list) <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>:
+  <span style=color:#66d9ef>return</span> render_to_response(<span style=color:#e6db74>&#39;books/progress.html&#39;</span>, {}, context_instance<span style=color:#f92672>=</span>RequestContext(request))
+    <span style=color:#66d9ef>else</span>:
+  <span style=color:#66d9ef>return</span> HttpResponseRedirect(<span style=color:#e6db74>&#39;/user/books&#39;</span>)
+</code></pre></div><p>First we get a list of messages, then we process the first 20 books. If there are more messages to be processed we refresh the page otherwise we send the user to their books page.</p>
+<p>Additionally it&rsquo;s super simple to Ajaxify the progress page by using Django&rsquo;s handy <code>request.is_ajax()</code> and returning a JSON object with info on the progress of the import. Message Queuing is pretty handy for a lot of situations and Amazon even has a service for it called <a href="http://www.amazon.com/Simple-Queue-Service-home-page/b?ie=UTF8&node=13584001">Simple Queuing Service</a> (SQS).</p>
+</article>
+</main>
+<aside>
+<ul>
+<li><a href=https://nathan.run/>Home</a></li>
+<li><a href=https://nathan.run/work>Work</a></li>
+<li><a href=https://nathan.run/posts>Blog</a></li>
+<li><a href=https://nathan.run/tools>Tools</a></li>
+<li><a href=https://nathan.run/interests>Interests</a></li>
+</ul>
+</aside>
+<footer>
+</footer>
+</body>
+</html>

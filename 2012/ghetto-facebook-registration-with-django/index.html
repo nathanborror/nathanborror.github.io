@@ -1,0 +1,136 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Nathan Borror: Ghetto Facebook Registration with Django</title>
+<meta property="og:title" content="Ghetto Facebook Registration with Django">
+<meta property="og:description" content="I&rsquo;m going to quickly walk you through how to build a server-side Facebook registration flow with Django. This is really basic and doesn&rsquo;t rely on special libraries aside from httplib2 and urlib which are pretty standard.
+First you need to create an app. I set my App Domain to localhost and Site URL to http://localhost:8000 for development purposes. You&rsquo;ll probably need to do the same if you&rsquo;re using Django&rsquo;s built in development server.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nathan.run/2012/ghetto-facebook-registration-with-django/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2012-10-08T00:00:00-08:00">
+<meta property="article:modified_time" content="2012-10-08T00:00:00-08:00">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/screen.css>
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/responsive.css>
+<link rel=alternate type=application/atom+xml href=https://nathan.run/posts/index.xml>
+<link rel=alternate type=application/json href=https://nathan.run/posts/index.json>
+</head>
+<body>
+<header>
+<h1>Ghetto Facebook Registration with Django</h1>
+<h2>
+Monday, October 8, 2012
+</h2>
+</header>
+<main>
+<article>
+<p>I&rsquo;m going to quickly walk you through how to build a
+server-side Facebook registration flow with Django. This is really basic and
+doesn&rsquo;t rely on special libraries aside from httplib2 and urlib which are pretty
+standard.</p>
+<p>First you need to <a href=https://developers.facebook.com/apps>create an app.</a> I set my App Domain to <code>localhost</code> and
+Site URL to <code>http://localhost:8000</code> for development purposes. You&rsquo;ll probably
+need to do the same if you&rsquo;re using Django&rsquo;s built in development server. Copy
+over your App ID and App Secret into your <code>settings.py</code> file:</p>
+<pre tabindex=0><code>FACEBOOK_APP_ID = 'YOUR_FACEBOOK_APP_ID'
+FACEBOOK_SECRET_KEY = 'YOUR_FACEBOOK_APP_SECRET'
+</code></pre><p>Now lets add a login button to your site, you can put this anywhere:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>a</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;ui-button&#34;</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://www.facebook.com/dialog/oauth?
+</span><span style=color:#e6db74>  client_id=YOUR_FACEBOOK_APP_ID
+</span><span style=color:#e6db74>  &amp;amp;redirect_uri=http://localhost:8000/facebook/&#34;</span>&gt;Log In with Facebook&lt;/<span style=color:#f92672>a</span>&gt;
+</code></pre></div><p>Don&rsquo;t forget to replace YOUR_FACEBOOK_APP_ID with your App ID. It&rsquo;s
+okay if this is hardcoded. Just make sure you don&rsquo;t accidentally expose your App
+Secret, this should not be used publicly.</p>
+<p>You&rsquo;ll notice we put <code>http://localhost:8000/facebook/</code> as our redirect URI in
+the button above. Now we need to create a view to handle this request because
+Facebook will hand us a &ldquo;code&rdquo; at that location which is what we&rsquo;ll need to
+retrieve an access token for the user, thus completing the process. Add the
+following to your <code>urls.py</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>url(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;^facebook/$&#39;</span>, <span style=color:#e6db74>&#39;views.facebook&#39;</span>),
+</code></pre></div><p>Now add the following to your <code>views.py</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> httplib2
+<span style=color:#f92672>import</span> urllib
+
+<span style=color:#f92672>from</span> django.http <span style=color:#f92672>import</span> HttpResponseRedirect
+<span style=color:#f92672>from</span> django.conf <span style=color:#f92672>import</span> settings
+<span style=color:#f92672>from</span> django.contrib.auth.models <span style=color:#f92672>import</span> User
+<span style=color:#f92672>from</span> django.contrib.auth <span style=color:#f92672>import</span> authenticate, login
+<span style=color:#f92672>from</span> django.utils <span style=color:#f92672>import</span> simplejson <span style=color:#66d9ef>as</span> json
+
+<span style=color:#f92672>from</span> profiles.models <span style=color:#f92672>import</span> Profile
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>facebook</span>(request):
+  params <span style=color:#f92672>=</span> {
+    <span style=color:#e6db74>&#39;client_id&#39;</span>: settings<span style=color:#f92672>.</span>FACEBOOK_APP_ID,
+    <span style=color:#e6db74>&#39;redirect_uri&#39;</span>: <span style=color:#e6db74>&#39;http://localhost:8000/registration/facebook/&#39;</span>,
+    <span style=color:#e6db74>&#39;client_secret&#39;</span>: settings<span style=color:#f92672>.</span>FACEBOOK_SECRET_KEY,
+    <span style=color:#e6db74>&#39;code&#39;</span>: request<span style=color:#f92672>.</span>GET[<span style=color:#e6db74>&#39;code&#39;</span>]
+  }
+
+  http <span style=color:#f92672>=</span> httplib2<span style=color:#f92672>.</span>Http(timeout<span style=color:#f92672>=</span><span style=color:#ae81ff>15</span>)
+  response, content <span style=color:#f92672>=</span> http<span style=color:#f92672>.</span>request(<span style=color:#e6db74>&#39;https://graph.facebook.com/oauth/access_token?</span><span style=color:#e6db74>%s</span><span style=color:#e6db74>&#39;</span> <span style=color:#f92672>%</span> urllib<span style=color:#f92672>.</span>urlencode(params))
+
+  <span style=color:#75715e># Find access token and expire (this is really gross)</span>
+  params <span style=color:#f92672>=</span> content<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#39;&amp;&#39;</span>)
+  ACCESS_TOKEN <span style=color:#f92672>=</span> params[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#39;=&#39;</span>)[<span style=color:#ae81ff>1</span>]
+  EXPIRE <span style=color:#f92672>=</span> params[<span style=color:#ae81ff>1</span>]<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#39;=&#39;</span>)[<span style=color:#ae81ff>1</span>]
+
+  <span style=color:#75715e># Get basic information about the person</span>
+  response, content <span style=color:#f92672>=</span> http<span style=color:#f92672>.</span>request(<span style=color:#e6db74>&#39;https://graph.facebook.com/me?access_token=</span><span style=color:#e6db74>%s</span><span style=color:#e6db74>&#39;</span> <span style=color:#f92672>%</span> ACCESS_TOKEN)
+  data <span style=color:#f92672>=</span> json<span style=color:#f92672>.</span>loads(content)
+
+  <span style=color:#75715e># Try to find existing profile, create a new user if one doesn&#39;t exist</span>
+  <span style=color:#66d9ef>try</span>:
+    profile <span style=color:#f92672>=</span> Profile<span style=color:#f92672>.</span>objects<span style=color:#f92672>.</span>get(facebook_uid<span style=color:#f92672>=</span>data[<span style=color:#e6db74>&#39;id&#39;</span>])
+  <span style=color:#66d9ef>except</span> Profile<span style=color:#f92672>.</span>DoesNotExist:
+    user <span style=color:#f92672>=</span> User<span style=color:#f92672>.</span>objects<span style=color:#f92672>.</span>create_user(data[<span style=color:#e6db74>&#39;username&#39;</span>], data[<span style=color:#e6db74>&#39;email&#39;</span>], data[<span style=color:#e6db74>&#39;id&#39;</span>])
+    profile <span style=color:#f92672>=</span> user<span style=color:#f92672>.</span>get_profile()
+    profile<span style=color:#f92672>.</span>facebook_uid <span style=color:#f92672>=</span> data[<span style=color:#e6db74>&#39;id&#39;</span>]
+
+  <span style=color:#75715e># Update token and expire fields on profile</span>
+  profile<span style=color:#f92672>.</span>facebook_access_token <span style=color:#f92672>=</span> ACCESS_TOKEN
+  profile<span style=color:#f92672>.</span>facebook_access_token_expires <span style=color:#f92672>=</span> EXPIRE
+  profile<span style=color:#f92672>.</span>save()
+
+  <span style=color:#75715e># Authenticate and log user in</span>
+  user <span style=color:#f92672>=</span> authenticate(username<span style=color:#f92672>=</span>profile<span style=color:#f92672>.</span>user<span style=color:#f92672>.</span>username, password<span style=color:#f92672>=</span>profile<span style=color:#f92672>.</span>facebook_uid)
+  login(request, user)
+
+  <span style=color:#66d9ef>return</span> HttpResponseRedirect(<span style=color:#e6db74>&#39;/&#39;</span>)
+</code></pre></div><p>One thing you&rsquo;ll immediately notice is I&rsquo;m importing a Profile model. All you
+need to do here is create a profiles app that has a single model with a foreign
+key to a user and some fields to store our access token and when that token
+expires:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> django.db <span style=color:#f92672>import</span> models
+<span style=color:#f92672>from</span> django.contrib.auth.models <span style=color:#f92672>import</span> User
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Profile</span>(models<span style=color:#f92672>.</span>Model):
+  user <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>ForeignKey(User, unique<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
+
+  facebook_uid <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>PositiveIntegerField(blank<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, null<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
+  facebook_access_token <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>CharField(blank<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, max_length<span style=color:#f92672>=</span><span style=color:#ae81ff>255</span>)
+  facebook_access_token_expires <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>PositiveIntegerField(blank<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, null<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
+</code></pre></div><p>And then add the following to your settings.py so you can use the &ldquo;get_profile()&rdquo;
+convenience method on user objects:</p>
+<pre tabindex=0><code>AUTH_PROFILE_MODULE = 'profiles.profile'
+</code></pre><p>There you have it. A really hacky Facebook registration flow for Django.</p>
+<p><em>Some will probably notice I didn&rsquo;t use the word OAuth anywhere in this post.
+Every time I see that term my eyes gloss over and my buzzword bullshit detector
+flips on. OAuth is a very simple concept that&rsquo;s often over explained—hopefully
+people can run through this tutorial and grasp what&rsquo;s happening by just looking
+at the code.</em></p>
+</article>
+</main>
+<aside>
+<ul>
+<li><a href=https://nathan.run/>Home</a></li>
+<li><a href=https://nathan.run/work>Work</a></li>
+<li><a href=https://nathan.run/posts>Blog</a></li>
+<li><a href=https://nathan.run/tools>Tools</a></li>
+<li><a href=https://nathan.run/interests>Interests</a></li>
+</ul>
+</aside>
+<footer>
+</footer>
+</body>
+</html>

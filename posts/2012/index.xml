@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Nathan Borror</title><link rel="alternate" type="text/html" href="https://nathan.run/"/><link rel="self" type="application/atom+xml" href="https://nathan.run/posts/2012/index.xml"/><rights>Copyright © 2022, Nathan Borror</rights><updated>2012-12-31T09:31:04-0800</updated><entry><title>Ghetto Facebook Registration with Django</title><link rel="related" type="text/html" href="https://nathan.run/posts/2012/facebook-registration/"/><published>2012-10-08T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2012/facebook-registration/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Nathan Borror</title><link rel="alternate" type="text/html" href="https://nathan.run/"/><link rel="self" type="application/atom+xml" href="https://nathan.run/posts/2012/index.xml"/><rights>Copyright © 2022, Nathan Borror</rights><updated>2012-12-31T09:31:04-0800</updated><entry><title>Ghetto Facebook Registration with Django</title><link rel="related" type="text/html" href="https://nathan.run/2012/ghetto-facebook-registration-with-django/"/><published>2012-10-08T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2012/ghetto-facebook-registration-with-django/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>I&rsquo;m going to quickly walk you through how to build a
 server-side Facebook registration flow with Django. This is really basic and
 doesn&rsquo;t rely on special libraries aside from httplib2 and urlib which are pretty
@@ -94,7 +94,7 @@ Every time I see that term my eyes gloss over and my buzzword bullshit detector
 flips on. OAuth is a very simple concept that&rsquo;s often over explained—hopefully
 people can run through this tutorial and grasp what&rsquo;s happening by just looking
 at the code.</em></p>
-]]></content></entry><entry><title>Setting up Apple Push Notifications</title><link rel="related" type="text/html" href="https://nathan.run/posts/2012/push/"/><published>2012-09-15T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2012/push/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Setting up Apple Push Notifications</title><link rel="related" type="text/html" href="https://nathan.run/2012/setting-up-apple-push-notifications/"/><published>2012-09-15T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2012/setting-up-apple-push-notifications/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>While trying to figure this out I came across <a href="http://www.raywenderlich.com/3443/apple-push-notification-services-tutorial-part-12">a great article by Matthijs
 Hollemans</a>. I suggest following it if you&rsquo;re interested in an in-depth tutorial. What
 follows is a more concise version of that article and instead of using PHP I&rsquo;m
@@ -244,7 +244,7 @@ PAYLOAD <span style="color:#f92672">=</span> {
 </code></pre></div><p>Now you should be able to run: <code>$ python push.py</code></p>
 <p>Enter your pass phrase and you should receive a push notification on your device.
 If you would like to remove the pass-phrase you can do so by running: <code>openssl  rsa -in PushNotifsKey.pem -out PushNotifsKey.pem</code></p>
-]]></content></entry><entry><title>Sending Multipart Forms with Objective-C</title><link rel="related" type="text/html" href="https://nathan.run/posts/2012/objc-multipart-forms/"/><published>2012-09-12T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2012/objc-multipart-forms/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Sending Multipart Forms with Objective-C</title><link rel="related" type="text/html" href="https://nathan.run/2012/sending-multipart-forms-with-objective-c/"/><published>2012-09-12T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2012/sending-multipart-forms-with-objective-c/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>It took me a few evenings to figure this out so I&rsquo;m writing a quick explanation
 based on what I&rsquo;ve found to work. My use-case is pretty simple, I want to POST
 some data to a form on a server from an iOS app I&rsquo;m building. I&rsquo;ll be using
@@ -322,7 +322,7 @@ NSError <span style="color:#f92672">*</span>error;
 use <a href="http://pypi.python.org/pypi/ipdb">ipdb</a> and <a href="http://ipython.org">iPython</a> to inspect the process and see what my app was
 posting. Then I compared that to a post request generated by a testcase I knew
 worked.</p>
-]]></content></entry><entry><title>Simple Panic</title><link rel="related" type="text/html" href="https://nathan.run/posts/2012/simple-panic/"/><published>2012-07-22T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2012/simple-panic/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Simple Panic</title><link rel="related" type="text/html" href="https://nathan.run/2012/simple-panic/"/><published>2012-07-22T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2012/simple-panic/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>Today I posted a public photo of how nicely done a bank start-up&rsquo;s packaging was and didn&rsquo;t realize my card number was in plain view. Now, I&rsquo;m a pretty rational individual so I did what everyone else would have done which is call the customer service number on the back of the card. Apparently they have Sundays off so I had to leave two anxious messages on their answering machine.</p>
 <p>They promptly called and I was so agitated I messed up my birthdate during the identity verification process. Upon explaining what happened the support person said I wasn&rsquo;t the first, which didn&rsquo;t surprise me due to the very photogenic packaging.</p>
 <p>When I first opened it I thought, &ldquo;wow they&rsquo;re serious, I bet a lot of people are posting photos of this which could be a great awareness strategy.&rdquo; The packaging is square, which stands out among other mail, laser etched high quality cardboard with a big blue rubber band holding a clean white bank card. Move the rubber band just a half centimeter south and the card number would be completely covered, avoiding this whole situation. If this isn&rsquo;t a great case for Defensive Design&hellip;</p>
@@ -331,7 +331,7 @@ worked.</p>
 <li>Except when I&rsquo;m hungry. You should have seen this post before lunch.</li>
 <li>It&rsquo;s worth noting I still haven&rsquo;t deposited any money into this account, therefore my panic may have been a little preemptive (possibly due to  hunger). However, anytime I see the word Visa on a plastic card with my name on it I assume charges can be made.</li>
 </ol>
-]]></content></entry><entry><title>Getting Started with MQTT</title><link rel="related" type="text/html" href="https://nathan.run/posts/2012/mqtt/"/><published>2012-07-22T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2012/mqtt/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Getting Started with MQTT</title><link rel="related" type="text/html" href="https://nathan.run/2012/getting-started-with-mqtt/"/><published>2012-07-22T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2012/getting-started-with-mqtt/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>I wanted to play around with MQTT this evening so I put together a little
 tutorial on how to get started using Ubuntu and Mosquitto (<a href="http://mosquitto.org">http://mosquitto.org</a>).</p>
 <h2 id="installing-mosquitto">Installing Mosquitto</h2>
@@ -364,7 +364,7 @@ subscribe to groups of topics if you dig around their documentation.</p>
 probably need to open up port 1883 on your Ubuntu machine to make this actually
 work. I just used iptables to do so:</p>
 <pre tabindex="0"><code>sudo iptables -A INPUT -p tcp -m tcp --dport 1883 -j ACCEPT
-</code></pre>]]></content></entry><entry><title>Adams and Jefferson</title><link rel="related" type="text/html" href="https://nathan.run/posts/2012/adams-jefferson/"/><published>2012-07-04T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2012/adams-jefferson/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+</code></pre>]]></content></entry><entry><title>Adams and Jefferson</title><link rel="related" type="text/html" href="https://nathan.run/2012/adams-and-jefferson/"/><published>2012-07-04T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2012/adams-and-jefferson/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>One hundred and eighty six years ago both Thomas Jefferson and John Adams passed
 away on this day, exactly fifty years after the adoption of the Declaration of
 Independence.</p>
@@ -387,7 +387,7 @@ great advance, not only in American affairs, but in human affairs, was made on
 the 4th of July, 1776.</p>
 </blockquote>
 <p>&ndash; Shewmaker, <a href="http://www.dartmouth.edu/~dwebster/speeches/adams-jefferson.html">104-113</a></p>
-]]></content></entry><entry><title>A private afterlife</title><link rel="related" type="text/html" href="https://nathan.run/posts/2012/private-afterlife/"/><published>2012-03-14T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2012/private-afterlife/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>A private afterlife</title><link rel="related" type="text/html" href="https://nathan.run/2012/a-private-afterlife/"/><published>2012-03-14T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2012/a-private-afterlife/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>I spent a while last weekend thinking about death and privacy—for no particular
 reason aside from taking notice of a couple books I own:</p>
 <ul>

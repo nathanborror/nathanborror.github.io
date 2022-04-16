@@ -1,0 +1,63 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Nathan Borror: Javascript Flash round 2</title>
+<meta property="og:title" content="Javascript Flash round 2">
+<meta property="og:description" content="FIguring out the Javascript/Flash integration kit has lead to a much simpler solution. Looks like Macromedia has slipped in another nugget of usefulness in the Flash 8 release which, I might add, has penetrated the market remarkably fast. It&rsquo;s called External Interface. I gotta thank Bobby for finding this one.
+So forget the last post if you&rsquo;re a progressive designer like myself, marching to the Flash 8 bugle. Using the same example as before replace your Actionscript with the following.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nathan.run/2007/javascript-flash-round-2/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2007-04-20T00:00:00-08:00">
+<meta property="article:modified_time" content="2007-04-20T00:00:00-08:00">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/screen.css>
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/responsive.css>
+<link rel=alternate type=application/atom+xml href=https://nathan.run/posts/index.xml>
+<link rel=alternate type=application/json href=https://nathan.run/posts/index.json>
+</head>
+<body>
+<header>
+<h1>Javascript Flash round 2</h1>
+<h2>
+Friday, April 20, 2007
+</h2>
+</header>
+<main>
+<article>
+<p>FIguring out the Javascript/Flash integration kit has lead to a much simpler solution. Looks like Macromedia has slipped in another nugget of usefulness in the Flash 8 release which, I might add, has penetrated the market remarkably fast. It&rsquo;s called External Interface. I gotta thank <a href=http://bobbykellogg.com/>Bobby</a> for finding this one.</p>
+<p>So forget the last post if you&rsquo;re a progressive designer like myself, marching to the Flash 8 bugle. Using the same example as <a href=https://nathan.run/posts/2007/mar/18/make-flash-and-javascript-sing/>before</a> replace your Actionscript with the following.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>flash</span>.<span style=color:#a6e22e>external</span>.<span style=color:#a6e22e>ExternalInterface</span>;
+
+<span style=color:#a6e22e>ExternalInterface</span>.<span style=color:#a6e22e>addCallback</span>(<span style=color:#e6db74>&#34;moveBall&#34;</span>, <span style=color:#66d9ef>this</span>, <span style=color:#a6e22e>moveBall</span>);
+
+<span style=color:#66d9ef>function</span> <span style=color:#a6e22e>moveBall</span> (<span style=color:#a6e22e>p_x</span><span style=color:#f92672>:</span>Number, <span style=color:#a6e22e>p_y</span><span style=color:#f92672>:</span>Number)<span style=color:#f92672>:</span><span style=color:#a6e22e>Void</span> {
+    <span style=color:#a6e22e>ball_mc</span>.<span style=color:#a6e22e>_x</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>p_x</span>;
+    <span style=color:#a6e22e>ball_mc</span>.<span style=color:#a6e22e>_y</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>p_y</span>;
+}
+</code></pre></div><p>And then replace your javascript with the following.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>move_ball</span> () {
+    <span style=color:#a6e22e>x</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>moveball</span>.<span style=color:#a6e22e>x</span>.<span style=color:#a6e22e>value</span>;
+    <span style=color:#a6e22e>y</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>moveball</span>.<span style=color:#a6e22e>y</span>.<span style=color:#a6e22e>value</span>;
+
+    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>navigator</span>.<span style=color:#a6e22e>appName</span>.<span style=color:#a6e22e>indexOf</span>(<span style=color:#e6db74>&#34;Microsoft&#34;</span>) <span style=color:#f92672>!=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>) {
+      window[<span style=color:#e6db74>&#39;ball&#39;</span>].<span style=color:#a6e22e>moveBall</span>(<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>y</span>);
+    } <span style=color:#66d9ef>else</span> {
+      document[<span style=color:#e6db74>&#39;ball&#39;</span>].<span style=color:#a6e22e>moveBall</span>(<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>y</span>);
+    }
+}
+</code></pre></div><p>Thats it! Just make sure you name your flash file &ldquo;ball&rdquo; and you&rsquo;ve set allowScriptAccess to all or sameDomain. Get rid of all the extraneous files from before too, you don&rsquo;t need them! <a href=http://www.playgroundblues.com/media/source/JavaScript_Flash_Tutorial2/>View example</a> or <a href=http://www.playgroundblues.com/media/source/JavaScript_Flash_Tutorial2.zip>download</a>.</p>
+</article>
+</main>
+<aside>
+<ul>
+<li><a href=https://nathan.run/>Home</a></li>
+<li><a href=https://nathan.run/work>Work</a></li>
+<li><a href=https://nathan.run/posts>Blog</a></li>
+<li><a href=https://nathan.run/tools>Tools</a></li>
+<li><a href=https://nathan.run/interests>Interests</a></li>
+</ul>
+</aside>
+<footer>
+</footer>
+</body>
+</html>

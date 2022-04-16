@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Nathan Borror</title><link rel="alternate" type="text/html" href="https://nathan.run/"/><link rel="self" type="application/atom+xml" href="https://nathan.run/posts/2005/index.xml"/><rights>Copyright © 2022, Nathan Borror</rights><updated>2005-12-31T09:31:04-0800</updated><entry><title>Hear Me Purr</title><link rel="related" type="text/html" href="https://nathan.run/posts/2005/hear-me-purr/"/><published>2005-04-30T18:18:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2005/hear-me-purr/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Nathan Borror</title><link rel="alternate" type="text/html" href="https://nathan.run/"/><link rel="self" type="application/atom+xml" href="https://nathan.run/posts/2005/index.xml"/><rights>Copyright © 2022, Nathan Borror</rights><updated>2005-12-31T09:31:04-0800</updated><entry><title>Hear Me Purr</title><link rel="related" type="text/html" href="https://nathan.run/2005/hear-me-purr/"/><published>2005-04-30T18:18:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2005/hear-me-purr/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>Time to chim in on Tiger. Dashboard, Spotlight, Automator, Oh My! I was worried 
 at first, things were slow and hard drive was crankin'. Once Spotlight finished 
 indexing my mess of over six years of files I breathed a sigh of relief.</p>
@@ -15,7 +15,7 @@ some may want to wait a week or two.</p>
 <p>While there is some new eye candy, Tiger is all about saving time and becoming 
 more efficiant. Hopefully some of the philosophies will spill into other areas 
 of work.</p>
-]]></content></entry><entry><title>PHP on Rails</title><link rel="related" type="text/html" href="https://nathan.run/posts/2005/php-on-rails/"/><published>2005-04-19T18:22:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2005/php-on-rails/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>PHP on Rails</title><link rel="related" type="text/html" href="https://nathan.run/2005/php-on-rails/"/><published>2005-04-19T18:22:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2005/php-on-rails/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p><a href="http://www.ruby-lang.org/en/">Ruby</a> buzz has been making its rounds these last 
 few months. I&rsquo;m anxious to use <a href="http://www.rubyonrails.com">Rails</a> but my ISP 
 nor my employer support it. So I&rsquo;ve been stuck staring at the colorful lollypop 
@@ -29,7 +29,7 @@ There is now a code generator, however, it only works in Windows. This update
 also includes Flay (Textile like formating class), form generators, Folder 
 class, and the beginnings of data validation with the Model using regular 
 expressions.</p>
-]]></content></entry><entry><title>The Bands</title><link rel="related" type="text/html" href="https://nathan.run/posts/2005/the-bands/"/><published>2005-04-17T18:23:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2005/the-bands/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en">
+]]></content></entry><entry><title>The Bands</title><link rel="related" type="text/html" href="https://nathan.run/2005/the-bands/"/><published>2005-04-17T18:23:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2005/the-bands/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en">
 &lt;p>The Faint, The Ataris, The Features, The Futureheads, The Cure, The Hives, The
 Killers, The Music, The People, The Prodigy, The Roots, The Bravery, The Kills,
 The Samples, The Shins, The Doors, The Stills, The Streets, The Strokes, The
@@ -37,7 +37,7 @@ Used, The Walkmen, The Darkness, The Who, The Ramones, The Sights, The National,
 The Wrights, The Republic, The Congos, The Zincs, The Stix, The Perishers, The
 Police, Rapture, The Unicorns, The Kinks, The Mollys, The Soviettes, The
 Winners, The Velons, The Smugglers, The Makers, The Upsidedown, The Donnas.&lt;/p>
-&lt;p>Did I forget anybody?&lt;/p></content></entry><entry><title>Selling Your Soul</title><link rel="related" type="text/html" href="https://nathan.run/posts/2005/selling-your-soul/"/><published>2005-04-13T18:23:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2005/selling-your-soul/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+&lt;p>Did I forget anybody?&lt;/p></content></entry><entry><title>Selling Your Soul</title><link rel="related" type="text/html" href="https://nathan.run/2005/selling-your-soul/"/><published>2005-04-13T18:23:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2005/selling-your-soul/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>Lately I&rsquo;ve been going back and forth with my colleagues regarding pre-built 
 admin tools. My position has been the benefits of adopting a framework outweigh 
 any off-the-shelf tool.</p>
@@ -54,7 +54,7 @@ ready to roll.</p>
 <p><a href="http://www.rubyonrails.com">Ruby on Rails</a> is an example of a rising framework. 
 <a href="http://www.phppatterns.com">PHP Patterns</a> also provide an enormous listing of 
 design patterns that can be bundled together to create honest frameworks.</p>
-]]></content></entry><entry><title>Soft Launch</title><link rel="related" type="text/html" href="https://nathan.run/posts/2005/soft-launch/"/><published>2005-04-12T18:24:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2005/soft-launch/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Soft Launch</title><link rel="related" type="text/html" href="https://nathan.run/2005/soft-launch/"/><published>2005-04-12T18:24:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2005/soft-launch/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>This launch is softer than a baby&rsquo;s bum. Please excuse the possible broken 
 links, sparse content, grayed out links, and unusually shaped big toe.</p>
 <p>Things should be up to speed by the end of this week so keep checking back from 
@@ -67,7 +67,7 @@ emails about Jupiter, my project management software. This has lead me to
 believe that I should finish that damn thing, soon. All is well for the most 
 part.</p>
 <p>The evolution of this site should be fun and interesting so stay tuned.</p>
-]]></content></entry><entry><title>Broken Window Theory</title><link rel="related" type="text/html" href="https://nathan.run/posts/2005/broken-window-theory/"/><published>2005-04-08T18:25:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2005/broken-window-theory/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Broken Window Theory</title><link rel="related" type="text/html" href="https://nathan.run/2005/broken-window-theory/"/><published>2005-04-08T18:25:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2005/broken-window-theory/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>Lately I&rsquo;ve become a little obsessed with the &ldquo;Broken Window Theory.&rdquo; I was 
 introduced to this theory by <a href="http://www.squidfingers.com">Travis</a> and <a href="http://www.alwayscurious.com">Charlie</a>. Soon after, it began popping into my head at 
 work, home, or while I was coding. Then I started noticing it in <a href="http://www.gladwell.com/tippingpoint/">books</a> and on the <a href="http://www.npr.org/templates/story/story.php?storyId=4520866">radio</a>.</p>

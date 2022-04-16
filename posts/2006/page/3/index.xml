@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Nathan Borror</title><link rel="alternate" type="text/html" href="https://nathan.run/"/><link rel="self" type="application/atom+xml" href="https://nathan.run/posts/2006/index.xml"/><rights>Copyright © 2022, Nathan Borror</rights><updated>2006-12-31T09:31:04-0800</updated><entry><title>Nothing In Disguise</title><link rel="related" type="text/html" href="https://nathan.run/posts/2006/nothing-disguise/"/><published>2006-07-19T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2006/nothing-disguise/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Nathan Borror</title><link rel="alternate" type="text/html" href="https://nathan.run/"/><link rel="self" type="application/atom+xml" href="https://nathan.run/posts/2006/index.xml"/><rights>Copyright © 2022, Nathan Borror</rights><updated>2006-12-31T09:31:04-0800</updated><entry><title>Nothing In Disguise</title><link rel="related" type="text/html" href="https://nathan.run/2006/nothing-in-disguise/"/><published>2006-07-19T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2006/nothing-in-disguise/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>A few Sunday&rsquo;s back I was in a coffee house determined to work. Instead, I
 quickly fell into a dream state which is the plague of many Sunday mornings. I
 felt guilty about being so unproductive, but, I had no pressing deadlines, no
@@ -30,7 +30,7 @@ imagination. I remember looking at clouds and immediately spotting frogs, space
 ships or elephants. Now I have to concentrate to come up with anything. Making
 time for relaxing and dreaming is so important, if for no other reason than to
 look up and see a giraffe float by.</p>
-]]></content></entry><entry><title>Del.icio.us API Interface</title><link rel="related" type="text/html" href="https://nathan.run/posts/2006/delicious-api-interface/"/><published>2006-07-17T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2006/delicious-api-interface/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Del.icio.us API Interface</title><link rel="related" type="text/html" href="https://nathan.run/2006/del.icio.us-api-interface/"/><published>2006-07-17T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2006/del.icio.us-api-interface/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>I finally figured out how to parse the Del.icio.us API (<a href="http://del.icio.us/help/api/">http://del.icio.us/help/api/</a>)
 using Python and Django. The solution is quite flexible aside from the fact that
 the Del.icio.us API is still under development.</p>
@@ -72,7 +72,7 @@ caution!</em> It&rsquo;s good practice to save these results to a local database
 minimizing the API requests. Del.icio.us in particular will throttle back your
 requests when it notices an increase in API traffic. My next post will address
 this.</p>
-]]></content></entry><entry><title>A Bittersweet Farewell</title><link rel="related" type="text/html" href="https://nathan.run/posts/2006/bittersweet-farewell/"/><published>2006-07-13T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2006/bittersweet-farewell/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>A Bittersweet Farewell</title><link rel="related" type="text/html" href="https://nathan.run/2006/a-bittersweet-farewell/"/><published>2006-07-13T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2006/a-bittersweet-farewell/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>You probably haven&rsquo;t noticed but the past month has been particularly
 challenging for me. If you&rsquo;re a close friend then it was probably apparent in
 the way I cheaply disguise my emotions. It&rsquo;s not easy to look back at two years
@@ -106,7 +106,7 @@ curiosity and rely heavily on one another for direction and friendship. I will
 miss the Method team but I&rsquo;ll always be available to them as a friend and
 colleague.</p>
 <p>A page has been turned. It&rsquo;s blank and ready to be filled with a new chapter.</p>
-]]></content></entry><entry><title>It's Time To Behave</title><link rel="related" type="text/html" href="https://nathan.run/posts/2006/its-time-behave/"/><published>2006-07-10T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2006/its-time-behave/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>It's Time To Behave</title><link rel="related" type="text/html" href="https://nathan.run/2006/its-time-to-behave/"/><published>2006-07-10T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2006/its-time-to-behave/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>We are all hypocrites, every damn one of us. Well, actually, just those that are
 guilty of inline javascript. Now don&rsquo;t get all puffed up, I&rsquo;m just as guilty but
 it&rsquo;s time to change and I have some tips!</p>
@@ -136,7 +136,7 @@ of behavior.</p>
 <li>James Bennett: Django and AJAX (<a href="http://www.b-list.org/weblog/2006/07/02/django-and-ajax">http://www.b-list.org/weblog/2006/07/02/django-and-ajax</a>)</li>
 <li>Jeremy Keith: Learning JavaScript (<a href="http://domscripting.com/blog/display/78">http://domscripting.com/blog/display/78</a>)</li>
 </ul>
-]]></content></entry><entry><title>Seven Patriots</title><link rel="related" type="text/html" href="https://nathan.run/posts/2006/seven-patriots/"/><published>2006-07-04T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2006/seven-patriots/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Seven Patriots</title><link rel="related" type="text/html" href="https://nathan.run/2006/seven-patriots/"/><published>2006-07-04T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2006/seven-patriots/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>What better way to celebrate our independence than roaring into space in one of
 the most complex machines ever built! You can watch this miraculous display of
 human engineering at NASA.gov (<a href="http://www.nasa.gov/)">http://www.nasa.gov/)</a>.</p>
@@ -150,7 +150,7 @@ attainable when we place them next to our accomplishments.</p>
 group of dedicated patriots. Our achievements should show us nothing less than
 anything is possible if we clear our hearts, our minds and choose to step
 forward. 5, 4, 3, 2, 1, is all it takes.</p>
-]]></content></entry><entry><title>Django Gotchas</title><link rel="related" type="text/html" href="https://nathan.run/posts/2006/django-gotchas/"/><published>2006-06-30T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2006/django-gotchas/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Django Gotchas</title><link rel="related" type="text/html" href="https://nathan.run/2006/django-gotchas/"/><published>2006-06-30T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2006/django-gotchas/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>One of the biggest hurdles in learning any new framework or programming language
 is learning its quirks. By quirks I don&rsquo;t mean bugs, I&rsquo;m referring to the
 personality and flow. Here are a few that might help your troubleshooting process:</p>
@@ -175,7 +175,7 @@ Found error until you enter your first record of data. It&rsquo;s always the sma
 things.</p>
 <p>I hope these are somewhat helpful. If you have any to add to the list feel free
 to post a comment.</p>
-]]></content></entry><entry><title>80x80</title><link rel="related" type="text/html" href="https://nathan.run/posts/2006/80x80/"/><published>2006-06-26T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2006/80x80/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>80x80</title><link rel="related" type="text/html" href="https://nathan.run/2006/80x80/"/><published>2006-06-26T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2006/80x80/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>I said Friday but I meant Monday. Sometimes things take longer but in my case I
 just wanted to compete for attention the same day Digg 3 (<a href="http://www.digg.com">http://www.digg.com</a>)
 launched. All amusement aside I&rsquo;d like to take the plastic wrap off my new site
@@ -207,7 +207,7 @@ there are a couple great videos by Adrian
 (<a href="http://video.google.com/videoplay?docid=2939556954580527226&amp;amp;q=snakes+and+rubies">http://video.google.com/videoplay?docid=2939556954580527226&amp;amp;q=snakes+and+rubies</a>)
 and Jacob (<a href="http://video.google.com/videoplay?docid=-70449010942275062&amp;amp;q=django">http://video.google.com/videoplay?docid=-70449010942275062&amp;amp;q=django</a>)
 on Google. Thats all for now. I&rsquo;m excited and I hope everyone else is too.</p>
-]]></content></entry><entry><title>Victory Out of Context</title><link rel="related" type="text/html" href="https://nathan.run/posts/2006/victory-out-context/"/><published>2006-05-27T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2006/victory-out-context/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Victory Out of Context</title><link rel="related" type="text/html" href="https://nathan.run/2006/victory-out-of-context/"/><published>2006-05-27T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2006/victory-out-of-context/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <blockquote>
 <p>President Bush says, just as the United States persevered and ultimately won
 the Cold War against communism, America will emerge victorious in the war on
@@ -219,7 +219,7 @@ fear and at times that fear will escalate to terror. From the time we are born
 we learn fear, it aids in our survival until the day we die. Our responsibility
 is to not let fear overshadow happiness. If we choose to be free we must accept
 the accompanying dangers.</p>
-]]></content></entry><entry><title>Highlights</title><link rel="related" type="text/html" href="https://nathan.run/posts/2006/highlights/"/><published>2006-05-06T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2006/highlights/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Highlights</title><link rel="related" type="text/html" href="https://nathan.run/2006/highlights/"/><published>2006-05-06T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2006/highlights/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>I&rsquo;m notorious for highlighting. At home, I&rsquo;m surrounded by a rapidly growing
 library. Some books have been read cover to cover, some cover to creamy center,
 and some randomly picked through. But, I can confidently guarantee, each has
@@ -239,7 +239,7 @@ relationships to form between entires. Seaching will be available soon. Any
 suggestions are welcome with open arms.</p>
 <p>Update: I&rsquo;ll be porting Highlights to Django very soon and adding some fun new
 features. If you have any suggestions feel free to comment.</p>
-]]></content></entry><entry><title>Subversion Love</title><link rel="related" type="text/html" href="https://nathan.run/posts/2006/subversion-love/"/><published>2006-04-30T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2006/subversion-love/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Subversion Love</title><link rel="related" type="text/html" href="https://nathan.run/2006/subversion-love/"/><published>2006-04-30T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2006/subversion-love/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>I have a new love (<a href="http://subversion.tigris.org">http://subversion.tigris.org</a>). For the past year I&rsquo;ve been
 putting off this slightly important part of being a pragmatic programmer
 (<a href="http://pragmaticprogrammer.com/ppbook/index.shtml)">http://pragmaticprogrammer.com/ppbook/index.shtml)</a>.</p>

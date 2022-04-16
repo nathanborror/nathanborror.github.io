@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Nathan Borror</title><link rel="alternate" type="text/html" href="https://nathan.run/"/><link rel="self" type="application/atom+xml" href="https://nathan.run/posts/2005/index.xml"/><rights>Copyright © 2022, Nathan Borror</rights><updated>2005-12-31T09:31:04-0800</updated><entry><title>Worm Club</title><link rel="related" type="text/html" href="https://nathan.run/posts/2005/worm-club/"/><published>2005-11-13T18:09:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2005/worm-club/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Nathan Borror</title><link rel="alternate" type="text/html" href="https://nathan.run/"/><link rel="self" type="application/atom+xml" href="https://nathan.run/posts/2005/index.xml"/><rights>Copyright © 2022, Nathan Borror</rights><updated>2005-12-31T09:31:04-0800</updated><entry><title>Worm Club</title><link rel="related" type="text/html" href="https://nathan.run/2005/worm-club/"/><published>2005-11-13T18:09:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2005/worm-club/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>Friends and cohorts keep asking me me to recommend books so in an effort to 
 slightly curb this I&rsquo;ve manifested the list below. Warning: I cannot guarantee 
 I&rsquo;ve finished these books. I have a tendency, possibly fear, of finishing books. 
@@ -35,7 +35,7 @@ story.</p>
 <p>Hopefully this will wet your appetite. Any number of these will make you think 
 differently after setting them down. I&rsquo;ve been permanently altered by all of 
 them.</p>
-]]></content></entry><entry><title>Ruby Text Search</title><link rel="related" type="text/html" href="https://nathan.run/posts/2005/ruby-text-search/"/><published>2005-11-05T18:10:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2005/ruby-text-search/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Ruby Text Search</title><link rel="related" type="text/html" href="https://nathan.run/2005/ruby-text-search/"/><published>2005-11-05T18:10:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2005/ruby-text-search/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>I found some great Ruby code to assist in <em>creating a simplistic search engine</em> 
 for your Rails app. It can be found on the Rails Wiki under <a href="http://wiki.rubyonrails.com/rails/pages/TextSearch">TextSearch</a>. I recommend clicking on 
 the &ldquo;edit&rdquo; button at the bottom to copy and paste the code out of the text field 
@@ -46,7 +46,7 @@ searched. There is also some code on the page to help search multiple keywords
 instead of phrases. This could be altered to act like Google where if you want 
 to search by a phrase you encapsulate the phrase with quotes. You would then 
 just do a check for quotes before breaking the words into an array.</p>
-]]></content></entry><entry><title>Four Horsemen</title><link rel="related" type="text/html" href="https://nathan.run/posts/2005/four-horsemen/"/><published>2005-10-14T18:11:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2005/four-horsemen/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Four Horsemen</title><link rel="related" type="text/html" href="https://nathan.run/2005/four-horsemen/"/><published>2005-10-14T18:11:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2005/four-horsemen/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>No the rumors are not true. I haven&rsquo;t been kidnapped by the government in 
 suspicion of plotting the end of the world. Although some may suggest it is the 
 dawn of the end. Jesus, yes I do mean you, what the hell is going on? <em>Earth is 
@@ -69,7 +69,7 @@ are some great links that will help.</p>
 <p>On another note. You may or may not have noticed some changes to this site. The 
 RSS feed now features integrated bookmarks and photoblog entries. I&rsquo;ve also 
 fixed all the IE6 bugs, sorry 95% of my audience :)</p>
-]]></content></entry><entry><title>Innocent Bystander</title><link rel="related" type="text/html" href="https://nathan.run/posts/2005/innocent-bystander/"/><published>2005-09-24T18:12:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2005/innocent-bystander/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Innocent Bystander</title><link rel="related" type="text/html" href="https://nathan.run/2005/innocent-bystander/"/><published>2005-09-24T18:12:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2005/innocent-bystander/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>Everyone should participate in a little people watching activities. It allows 
 you to jump out of your inner chaotic life and realize that you&rsquo;re not alone. 
 Now, there are a few keys to successful people watching. I&rsquo;ll share some of 
@@ -92,7 +92,7 @@ collage of people has the characteristics of a Rauschenberg
 </ul>
 <p>Now its your turn. How, where, and why do you people watch? What strange stories 
 have you made up or overheard during your excursions? Do tell :)</p>
-]]></content></entry><entry><title>Full Steam Ahead</title><link rel="related" type="text/html" href="https://nathan.run/posts/2005/full-steam-ahead/"/><published>2005-09-05T18:12:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2005/full-steam-ahead/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Full Steam Ahead</title><link rel="related" type="text/html" href="https://nathan.run/2005/full-steam-ahead/"/><published>2005-09-05T18:12:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2005/full-steam-ahead/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>Playground Blues is officially on <a href="http://www.rubyonrails.com">Rails</a>. 
 Approximately <a href="http://playgroundblues.com/archive/bejeweled">two weeks</a> ago I 
 started chugging along and with this new language. Surprisingly it&rsquo;s been quite 
@@ -107,13 +107,13 @@ philosophy. I&rsquo;ve been trying to wrap my mind around this more and I think 
 beginning to understand its major benefits.</p>
 <p>Stay tuned. This is an exciting endeavor and I&rsquo;ve got a lot more tricks up my 
 sleeve.</p>
-]]></content></entry><entry><title>Art Mobs</title><link rel="related" type="text/html" href="https://nathan.run/posts/2005/art-mobs/"/><published>2005-08-28T18:14:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2005/art-mobs/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Art Mobs</title><link rel="related" type="text/html" href="https://nathan.run/2005/art-mobs/"/><published>2005-08-28T18:14:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2005/art-mobs/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>I have a new PodCast to add to your library. It&rsquo;s by <a href="http://mod.blogs.com/">Art Mobs</a> and its called <a href="http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=74263942">Art Mobs MoMA Guides</a>.
 The descriptions is &ldquo;A &lsquo;Commons&rsquo; for audio guides to artworks at the <a href="http://www.moma.org">Museum of
 Modern Art</a>, NYC.&rdquo; Basically an entertaining discussion
 about modern art. I think this is by far the most creative use of PodCasting,
 no pun intended.</p>
-]]></content></entry><entry><title>Bejeweled</title><link rel="related" type="text/html" href="https://nathan.run/posts/2005/bejeweled/"/><published>2005-08-15T18:15:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2005/bejeweled/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Bejeweled</title><link rel="related" type="text/html" href="https://nathan.run/2005/bejeweled/"/><published>2005-08-15T18:15:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2005/bejeweled/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>I spent last weekend learning Ruby on Rails (<a href="http://www.rubyonrails.com">http://www.rubyonrails.com</a>) and now 
 I can&rsquo;t help but wonder why the hell it took me so long. My work 
 (<a href="http://www.bradv.com">http://www.bradv.com</a>) was kind enough to fetch me a copy of Agile Web 
@@ -132,7 +132,7 @@ their panel. Be on the lookout for some MySQL issues
 Tiger. Also make sure to point your VirtualHost entry to the /public folder in 
 your rails app. You could also do this with a .htaccess file in the root.</p>
 <p>Be on the look out for a Rubified Playground Blues in the near future :)</p>
-]]></content></entry><entry><title>Pre-Order Rant</title><link rel="related" type="text/html" href="https://nathan.run/posts/2005/pre-order-rant/"/><published>2005-05-31T18:16:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2005/pre-order-rant/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Pre-Order Rant</title><link rel="related" type="text/html" href="https://nathan.run/2005/pre-order-rant/"/><published>2005-05-31T18:16:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2005/pre-order-rant/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>Why would anybody want to pre-order an album off of iTunes? The whole idea of 
 the &ldquo;pre-order&rdquo; is that your John Hancock gets placed on a list of elite few who 
 get first dibs on a product before it sells out. It is virtually impossible for 
@@ -144,7 +144,7 @@ lame use of it. Offer me an exclusive song and tell me it&rsquo;ll be followed u
 an album (which they already do and seems to work). I pray for the server 
 administrators that sweat their bandwidth skyrocket when the clock strikes 
 twelve and um-teen-thousand albums are automatically dispersed. (End of rant)</p>
-]]></content></entry><entry><title>Background Becoming Foreground</title><link rel="related" type="text/html" href="https://nathan.run/posts/2005/background-becoming-foreground/"/><published>2005-05-10T18:17:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2005/background-becoming-foreground/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Background Becoming Foreground</title><link rel="related" type="text/html" href="https://nathan.run/2005/background-becoming-foreground/"/><published>2005-05-10T18:17:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2005/background-becoming-foreground/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>Since the release of Tiger and particularly Quicktime 7 sporting the new H.264 
 codec I&rsquo;m beginning to wonder if we&rsquo;re glimpsing a bigger picture here. If you 
 haven&rsquo;t checked out the unbelievable quality of H.264 go over to the <a href="http://www.apple.com/quicktime/hdgallery/">HD Gallery</a> and witness the days of pixilation 
@@ -169,7 +169,7 @@ could be a video-on-demand Mac Mini. I only hope they choose to offer not-so
 mainstream content like Independent Films and Documentaries that you wouldn&rsquo;t 
 normally find on television. Could this also pave the way for a new bread of 
 video podcasts? Vidcasts?</p>
-]]></content></entry><entry><title>Farewell and Hello</title><link rel="related" type="text/html" href="https://nathan.run/posts/2005/farewell-and-hello/"/><published>2005-05-02T18:17:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2005/farewell-and-hello/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
+]]></content></entry><entry><title>Farewell and Hello</title><link rel="related" type="text/html" href="https://nathan.run/2005/farewell-and-hello/"/><published>2005-05-02T18:17:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2005/farewell-and-hello/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>This is my last week at my current employer, <a href="http://www.lookandfeel.com">Look and Feel</a> which would explain my lack of good posts. I can&rsquo;t 
 express how fortunate I am to have spent time with the fine lads of LaF. I will 
 miss them dearly, although, I&rsquo;ll still be living in the neighborhood so I&rsquo;m sure 
