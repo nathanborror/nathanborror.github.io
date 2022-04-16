@@ -5,9 +5,8 @@
     --margin: 34px;
     --max-width: 1024px;
 
-    --body-margin: calc(var(--margin) * 4);
-
-    --font-text: 'Inter', -apple-system, sans-serif;
+    --font-family: 'Inter', -apple-system, sans-serif;
+    --font-feature-settings: "ss01", "zero", "frac", "cv05", "cv11";
 
     --body-size: 24px;
     --body-line-height: 34px;
@@ -53,12 +52,12 @@
     --system-green: #79BF56;
     --system-blue: #50B4E6;
 
-    --system-light-gray: #E5E5E5;
-
     --system-red-wash: #F9C5B3;
     --system-yellow-wash: #F9E7B1;
     --system-green-wash: #C9E5BB;
     --system-blue-wash: #B8E0F5;
+
+    --system-light-gray: #E5E5E5;
 
     --hang: -80px;
 }
@@ -79,23 +78,14 @@ body {
     margin: 50px auto;
     padding-top: 50px;
     max-width: var(--max-width);
-    font-family: var(--font-text);
+    font-family: var(--font-family);
     font-size: var(--body-size);
     line-height: var(--body-line-height);
     font-weight: var(--body-weight);
     letter-spacing: var(--body-letter-spacing);
     background-color: var(--background-color);
     color: var(--foreground-color);
-    font-feature-settings: "ss01", "zero", "frac", "cv05", "cv11";
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
+    font-feature-settings: var(--font-feature-settings);
 }
 
 header {
@@ -112,7 +102,6 @@ header h2 {
     line-height: var(--body-line-height);
     font-weight: var(--body-weight);
     letter-spacing: var(--body-letter-spacing);
-    opacity: 0.3;
 }
 
 main {
@@ -203,7 +192,6 @@ h2 {
     line-height: var(--header-line-height);
     font-weight: var(--header-weight);
     letter-spacing: var(--header-letter-spacing);
-    color: var(--foreground-color);
 }
 
 h3,
@@ -244,8 +232,7 @@ p+.continue {
 
 .continue {
     display: inline-block;
-    margin: -15px;
-    padding: 2px 8px 2px 15px;
+    padding: 2px 15px;
     background-color: var(--system-black);
     font-size: var(--caption-size);
     border-radius: 20px;
@@ -314,9 +301,7 @@ blockquote {
     margin-left: calc(var(--margin) * -1);
     margin-right: calc(var(--margin) * -1);
     padding: var(--margin);
-    background-color: var(--system-black);
-    font-weight: 800;
-    color: var(--system-white);
+    background-color: var(--system-yellow);
     border-radius: var(--border-radius);
 }
 

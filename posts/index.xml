@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Nathan Borror</title><link rel="alternate" type="text/html" href="https://nathan.run/"/><link rel="self" type="application/atom+xml" href="https://nathan.run/posts/index.xml"/><rights>Copyright © 2022, Nathan Borror</rights><updated>2022-02-21T09:31:04-0800</updated><entry><title>2021</title><link rel="related" type="text/html" href="https://nathan.run/posts/2021/"/><published>2021-12-31T09:31:04-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2021/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"></content></entry><entry><title>2020</title><link rel="related" type="text/html" href="https://nathan.run/posts/2020/"/><published>2020-12-31T09:31:04-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2020/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
-        <h2 id="books-attempted">Books Attempted</h2>
+        <h3 id="books-attempted">Books Attempted</h3>
 <ul>
 <li>The Body</li>
 <li>Flight Behavior</li>
@@ -17,14 +17,14 @@
 <li>The Common Good</li>
 <li>North</li>
 </ul>
-<h2 id="projects">Projects</h2>
+<h3 id="projects">Projects</h3>
 <ul>
 <li>Building initial version of Steady</li>
 <li>Refactoring Logger</li>
 <li>Personal content manager</li>
 </ul>
 ]]></content></entry><entry><title>2019</title><link rel="related" type="text/html" href="https://nathan.run/posts/2019/"/><published>2019-12-31T09:31:04-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2019/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
-        <h2 id="non-fiction">Non-fiction</h2>
+        <h3 id="non-fiction">Non-fiction</h3>
 <ul>
 <li><a href="https://www.amazon.com/dp/0735222916">The Square and the Tower</a></li>
 <li><a href="https://www.amazon.com/dp/0393308790">The Fall of Public Man</a></li>
@@ -33,33 +33,33 @@
 <li>Draft No. 4</li>
 <li>The Innovator&rsquo;s Dilemma</li>
 </ul>
-<h2 id="fiction">Fiction</h2>
+<h3 id="fiction">Fiction</h3>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Consider_Phlebas">Consider Phlebas</a></li>
 </ul>
-<h2 id="articles">Articles</h2>
+<h3 id="articles">Articles</h3>
 <ul>
 <li><a href="https://www.eugenewei.com/blog/2019/2/19/status-as-a-service">Status as a Service</a></li>
 <li><a href="https://www.ribbonfarm.com/2010/10/27/warrens-plazas-and-the-edge-of-legibility/">Warrens, Plazas and the Edge of Legibility</a></li>
 </ul>
-<h2 id="conversations">Conversations</h2>
+<h3 id="conversations">Conversations</h3>
 <ul>
 <li><a href="https://medium.com/conversations-with-tyler/tyler-cowen-jordan-peterson-db9a718beebe">Jordan Peterson on Mythology, Fame, and Reading People</a></li>
 <li><a href="https://99percentinvisible.org/episode/palaces-for-the-people/">Palaces for the People</a></li>
 <li><a href="https://theforwardpodcast.libsyn.com/malcolm-gladwell">Lance Armstrong and Malcolm Gladwell</a></li>
 </ul>
-<h2 id="series">Series</h2>
+<h3 id="series">Series</h3>
 <ul>
 <li><a href="https://medium.com/conversations-with-tyler/tyler-cowen-jordan-peterson-db9a718beebe">Adam Grant — Work Life</a></li>
 <li><a href="http://abcradio.com/podcasts/the-dropout">The Dropout</a></li>
 </ul>
-<h2 id="presentations">Presentations</h2>
+<h3 id="presentations">Presentations</h3>
 <ul>
 <li><a href="http://longnow.org/seminars/02019/jan/14/prospects-humanity/">Martin Rees</a> — Prospects for Humanity</li>
 <li>Chip Conely — The Modern Elder and the Intergenerational Workplace</li>
 <li>Ian McEwan — Machines Like Me</li>
 </ul>
-<h2 id="movies--tv">Movies &amp; TV</h2>
+<h3 id="movies--tv">Movies &amp; TV</h3>
 <ul>
 <li>Free Solo</li>
 <li>The Dawn Wall</li>
@@ -67,7 +67,7 @@
 </ul>
 ]]></content></entry><entry><title>2018</title><link rel="related" type="text/html" href="https://nathan.run/posts/2018/"/><published>2018-12-31T09:31:04-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/posts/2018/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>My first complete year living in San Francisco felt much more eventful than the six in Palo Alto. The constant pull of the city meant less downtime for side-projects but I think the tradeoff was well worth it. The following is a bunch of stuff I read, watched, listened to or attended in 2018.</p>
-<h2 id="non-fiction">Non-fiction</h2>
+<h3 id="non-fiction">Non-fiction</h3>
 <p>Kinda jumped all over the place this year, my goal for 2019 is to form a discipline writing more notes and summaries.</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Systemantics">The Systems Bible</a></li>
@@ -83,7 +83,7 @@
 <li><a href="https://www.amazon.com/dp/1594488215">Farsighted: How We Make the Decisions That Matter the Most</a></li>
 <li><a href="https://www.amazon.com/dp/0385267320">The Art of the Long View</a></li>
 </ul>
-<h2 id="fiction">Fiction</h2>
+<h3 id="fiction">Fiction</h3>
 <p>Liu Cixin&rsquo;s trilogy blew my mind, I wish more people were talking about it in depth. Diamond Age was also an exciting thought experiment around the effects of nano-scale 3D printing.</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/The_Diamond_Age">Diamond Age</a></li>
@@ -91,7 +91,7 @@
 <li><a href="https://en.wikipedia.org/wiki/The_Dark_Forest">The Dark Forest</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Death%27s_End">Death&rsquo;s End</a></li>
 </ul>
-<h2 id="articles">Articles</h2>
+<h3 id="articles">Articles</h3>
 <p>Stewart Brand&rsquo;s concept of Pace Layering and Dan Wang&rsquo;s thoughts on process knowledge helped enlighten my generally optimistic view of the world. Dan&rsquo;s back catalog is full of insight and I&rsquo;ve finally just started digging into Farnam Street.</p>
 <ul>
 <li>Stewart Brand — <a href="https://jods.mitpress.mit.edu/pub/issue3-brand">Pace Layering: How Complex Systems Learn and Keep Learning</a></li>
@@ -99,7 +99,7 @@
 <li>Dan Wang — <a href="https://danwang.co/how-technology-grows/">How Technology Grows (a restatement of definite optimism)</a></li>
 <li>Shane Parrish — <a href="https://fs.blog/2018/11/entropy/">Battling Entropy</a></li>
 </ul>
-<h2 id="conversations">Conversations</h2>
+<h3 id="conversations">Conversations</h3>
 <p>Stumbled on Tyler Cowen for the first time and went pretty deep into his back catalog. Same for Joe Rogan who I had resisted listening to for a while for no particular reason. The rabbit holes here are deep, you have been warned.</p>
 <ul>
 <li><a href="https://art19.com/shows/the-ezra-klein-show/episodes/a7b96016-90fe-48e1-ad4b-4fc0b3e50738">Ezra Klein and Tyler Cowen</a></li>
@@ -114,7 +114,7 @@
 <li><a href="https://www.youtube.com/watch?v=vGc4mg5pul4">Joe Rogan and Neil deGrasse Tyson</a></li>
 <li><a href="https://www.youtube.com/watch?v=v8ZCX0eywXw">Joe Rogan and Chuck Palaniuk</a></li>
 </ul>
-<h2 id="presentations">Presentations</h2>
+<h3 id="presentations">Presentations</h3>
 <p>I&rsquo;ve been a <a href="http://longnow.org">Long Now</a> member for a couple years now and finally living in the city eliminated any excuses not to attend the monthly Seminars on Long-Term Thinking. Snagging a front row seat thirty minutes ahead of the event was so fun as the cast of characters who I really admire file into the SF Jazz auditorium.</p>
 <ul>
 <li>Charles C. Mann — <a href="http://longnow.org/seminars/02018/jan/22/wizard-and-prophet/">The Wizard and the Prophet</a></li>
@@ -133,12 +133,12 @@
 <li>Bruce Sterling — <a href="https://theinterval.org/salon-talks/02018/oct/16/how-be-futuristic-bruce-sterling">How to be Futuristic</a></li>
 <li>Kim Stanley Robinson — <a href="https://theinterval.org/salon-talks/02018/nov/13/learning-from-ursula-le-guin-robinson-ksr">Learning from Le Guin</a></li>
 </ul>
-<h2 id="events">Events</h2>
+<h3 id="events">Events</h3>
 <p>Quite possibly the highlight of my year. To prepare I found three Whole Earth catalogs and started <a href="https://twitter.com/getwholeearth">tweeting excerpts.</a></p>
 <ul>
 <li><a href="https://www.wholeearth50th.com">Whole Earth Catalog 50th Anniversary</a></li>
 </ul>
-<h2 id="movies--tv">Movies &amp; TV</h2>
+<h3 id="movies--tv">Movies &amp; TV</h3>
 <p>Didn&rsquo;t watch many movies or TV due to the lack of television but I did enjoy a few things on my phone.</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/My_Next_Guest_Needs_No_Introduction_with_David_Letterman">My Next Guest</a></li>
@@ -148,7 +148,7 @@
 <li><a href="https://en.wikipedia.org/wiki/Active_Measures_%28film%29">Active Measures</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Cloud_Atlas_%28film%29">Cloud Atlas</a></li>
 </ul>
-<h2 id="music">Music</h2>
+<h3 id="music">Music</h3>
 <p>Albums on repeat, some new to 2018 and some not.</p>
 <ul>
 <li>Mos Def — <a href="https://itunes.apple.com/us/album/the-ecstatic/1127435110">The Ecstatic</a></li>

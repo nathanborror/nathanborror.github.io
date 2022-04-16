@@ -51,8 +51,11 @@
 
 @media screen and (prefers-color-scheme: dark) {
     :root {
-        --system-light-gray: #333333;
-        --system-black: #FFF;
-        --system-white: #000;
+        --system-black: #F7F5F2;
+        --system-white: rgba(0, 0, 0, 0.9);
+        --system-red: #A64929;
+        --system-yellow: #B3912D;
+        --system-green: #598C3F;
+        --system-blue: #3A82A6;
     }
 }
