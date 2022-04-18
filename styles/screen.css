@@ -18,10 +18,10 @@
     --title-weight: 700;
     --title-letter-spacing: -0.022em;
 
-    --header-size: var(--title-size);
-    --header-line-height: var(--title-line-height);
+    --header-size: 30px;
+    --header-line-height: 42px;
     --header-weight: 400;
-    --header-letter-spacing: var(--title-letter-spacing);
+    --header-letter-spacing: -0.021em;
 
     --caption-size: 18px;
     --caption-line-height: 25px;
