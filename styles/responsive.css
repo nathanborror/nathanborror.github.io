@@ -1,4 +1,6 @@
 /* Tablet */
+/* ------------------------------------------------------------------ */
+
 @media screen and (max-width: 1024px) {
     body {
         grid-template-columns: auto 180px;
@@ -11,6 +13,8 @@
 }
 
 /* Phone */
+/* ------------------------------------------------------------------ */
+
 @media screen and (max-width: 760px) {
     :root {
         --body-size: 18px;
@@ -47,15 +51,30 @@
     aside {
         padding-left: 0;
     }
+
+    figure {
+        float: none !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    figure.small,
+    figure.medium,
+    figure.large {
+        width: 100%;
+    }
 }
+
+/* Dark Mode */
+/* ------------------------------------------------------------------ */
 
 @media screen and (prefers-color-scheme: dark) {
     :root {
         --system-black: #F7F5F2;
         --system-white: rgba(0, 0, 0, 0.9);
-        --system-red: #A64929;
-        --system-yellow: #B3912D;
-        --system-green: #598C3F;
-        --system-blue: #3A82A6;
+        --system-red: var(--system-dark-red);
+        --system-yellow: var(--system-dark-yellow);
+        --system-green: var(--system-dark-green);
+        --system-blue: var(--system-dark-blue);
     }
 }
