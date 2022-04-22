@@ -111,7 +111,7 @@ aside {
 }
 
 aside ul li::before {
-    content: "";
+    display: none;
 }
 
 aside a {

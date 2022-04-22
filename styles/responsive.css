@@ -18,7 +18,7 @@
 @media screen and (max-width: 760px) {
     :root {
         --body-size: 18px;
-        --body-line-height: 25px;
+        --body-line-height: 27px;
         --body-letter-spacing: -0.014em;
         --body-weight: 400;
 
@@ -50,6 +50,21 @@
 
     aside {
         padding-left: 0;
+    }
+
+    aside li {
+        margin: 0;
+        border-bottom: 1px solid var(--system-light-gray);
+    }
+
+    aside li:last-child {
+        border-bottom: none;
+    }
+
+    aside li a {
+        display: block;
+        margin: 0;
+        padding: 16px 0;
     }
 
     figure {
