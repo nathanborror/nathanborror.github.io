@@ -131,16 +131,16 @@ $ touch django.fcgi
 <p>See you all next week!</p>
 ]]></content></entry><entry><title>Going mobile</title><link rel="related" type="text/html" href="https://nathan.run/2008/going-mobile/"/><published>2008-02-18T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2008/going-mobile/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>Over the weekend, I decided to whip up a mobile (iPhone) version of Playground Blues. I walked into Broadway Cafe around 3pm on Saturday, and by 5:30, I had m.playgroundblues.com. Here&rsquo;s how it went down.</p>
-<h2 id="step-1">Step 1</h2>
+<h3 id="step-1">Step 1</h3>
 <p>Since I&rsquo;m still using Dreamhost and FastCGI, I created my .htaccess file along with my dispatch.fcgi file for my new sub-domain as usual. Made one little change to my dispatch file: instead of having <code>DJANGO_SETTINGS_MODULE</code> pointing to playgroundblues.settings, I pointed it to playgroundblues.settings_mobile.</p>
 <p>Then, in my project folder, I made a duplicate of my settings file and renamed it to <code>settings_mobile.py.</code> Let me emphasize again, this is a duplicate.</p>
-<h2 id="step-2">Step 2</h2>
+<h3 id="step-2">Step 2</h3>
 <p>Created a new templates folder and named it &ldquo;templates_mobile.&rdquo; Opened up my <code>settings_mobile.py</code> file and added a new line to the top of my <code>TEMPLATE_DIRS</code> tuple. This tells Django to first look in mobile templates, and if the template doesn&rsquo;t exist, fall back on regular site templates. (Remember, this is only for my mobile site.)</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">TEMPLATE_DIRS <span style="color:#f92672">=</span> (
   <span style="color:#e6db74">&#34;/home/playgroundblues/templates_mobile/&#34;</span>,
   <span style="color:#e6db74">&#34;/home/playgroundblues/templates/&#34;</span>,
 )
-</code></pre></div><h2 id="step-3">Step 3</h2>
+</code></pre></div><h3 id="step-3">Step 3</h3>
 <p>In my new templates_mobile folder, I created a new base template called <code>base_mobile.html</code> which I&rsquo;ll use to extend in all my child templates instead of the main sites base.html. Then I went through the sites pages and recreated mirrored templates in the mobile folder. So <code>/templates/blog/post_detail.html</code> was overwritten by <code>/templates_mobile/blog/post_detail.html.</code> I stripped out extraneous content that was unnecessary for someone on the go, leaving core content and functionality.</p>
 <p>The nice thing is if someone happens to creep into a section that you haven&rsquo;t gotten to (as long as you didn&rsquo;t override base.html), your site will display as it would on a computer proper. If there&rsquo;s a more succinct way of doing this, please let me know.</p>
 ]]></content></entry><entry><title>iPhone bookmark iconage</title><link rel="related" type="text/html" href="https://nathan.run/2008/iphone-bookmark-iconage/"/><published>2008-01-15T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2008/iphone-bookmark-iconage/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
