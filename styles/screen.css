@@ -82,6 +82,8 @@ body {
     background-color: var(--system-white);
     color: var(--system-black);
     font-feature-settings: var(--font-feature-settings);
+    overflow-wrap: anywhere;
+    hyphens: auto;
 }
 
 header {
@@ -305,12 +307,16 @@ li::before {
 pre {
     padding: 20px;
     background: var(--system-black);
-    font-family: var(--mono);
-    font-size: 12px;
-    line-height: 18px;
     color: var(--system-white);
     border-radius: var(--border-radius);
-    overflow: scroll;
+    overflow: auto;
+    white-space: pre-wrap;
+}
+
+code {
+    font-family: var(--mono);
+    font-size: var(--mono-size);
+    line-height: var(--mono-line-height);
 }
 
 /* Forms */
@@ -485,11 +491,6 @@ figcaption a {
     content: "";
 }
 
-.pagination .page-item:first-child,
-.pagination .page-item:last-child {
-    display: none;
-}
-
 .pagination .page-item {
     display: inline-block;
 }
@@ -523,10 +524,17 @@ figcaption a {
     color: var(--system-white);
 }
 
+.pagination .page-item a[aria-label=First] span,
+.pagination .page-item a[aria-label=Last] span,
 .pagination .page-item a[aria-label=Previous] span,
 .pagination .page-item a[aria-label=Next] span {
     display: none;
 }
+
+.pagination .page-item a[aria-label=First]:after {
+    content: "⇐";
+}
+
 
 .pagination .page-item a[aria-label=Previous]:after {
     content: "←";
@@ -536,30 +544,86 @@ figcaption a {
     content: "→";
 }
 
+.pagination .page-item a[aria-label=Last]:after {
+    content: "⇒";
+}
+
 /* Custom */
 /* ------------------------------------------------------------------ */
 
 body.work {
-    background: var(--system-red);
+    background: var(--system-light-red);
 }
 
-body.tools {
-    background: var(--system-green);
+body.work header h1 {
+    color: var(--system-red);
 }
 
-body.interests {
-    background: var(--system-blue);
+body.work a {
+    text-decoration-color: var(--system-red);
+}
+
+body.work aside a {
+    color: var(--system-red);
+    opacity: 1;
 }
 
 body.posts {
-    background: var(--system-yellow);
+    background: var(--system-light-yellow);
 }
 
-body.work header h1,
-body.tools header h1,
-body.posts header h1,
+body.posts header h1 {
+    color: var(--system-yellow);
+}
+
+body.posts a {
+    text-decoration-color: var(--system-yellow);
+}
+
+body.posts aside a {
+    color: var(--system-yellow);
+    opacity: 1;
+}
+
+body.tools {
+    background: var(--system-light-green);
+}
+
+body.tools header h1 {
+    color: var(--system-green);
+}
+
+body.tools a {
+    text-decoration-color: var(--system-green);
+}
+
+body.tools aside a {
+    color: var(--system-green);
+    opacity: 1;
+}
+
+body.interests {
+    background: var(--system-light-blue);
+}
+
 body.interests header h1 {
-    color: var(--system-white);
+    color: var(--system-blue);
+}
+
+body.interests a {
+    text-decoration-color: var(--system-blue);
+}
+
+body.interests aside a {
+    color: var(--system-blue);
+    opacity: 1;
+}
+
+body.work aside a:hover,
+body.posts aside a:hover,
+body.tools aside a:hover,
+body.interests aside a:hover {
+    color: var(--system-black);
 }
 
 body.work li::before,

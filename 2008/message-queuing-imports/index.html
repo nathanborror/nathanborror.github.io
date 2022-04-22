@@ -29,12 +29,12 @@ Friday, September 5, 2008
 <main>
 <article>
 <p>Last week I ran into some problems dealing with large book imports on Readernaut. I tested the system for around 50-100 books but had no idea people would upload lists of 900+ books. This begged the question, how do you handle importing very large sets of data before the browser times out?</p>
-<h2 id=brief-example>Brief example</h2>
+<h3 id=brief-example>Brief example</h3>
 <p>User uploads a list of 1000 ISBNs to be imported into their library. Each book, if not already in the system, needs to be imported via another service like Amazon.</p>
-<h2 id=solution-1-threading>Solution 1: Threading</h2>
+<h3 id=solution-1-threading>Solution 1: Threading</h3>
 <p>Use threading to push off the long running process to another thread while directing the browser to a status page. You could setup an Ajax request to periodically check on the status of the import and update a progress bar.</p>
 <p>This solution is generally a bad idea. It&rsquo;s super easy to do and tests well in a development environment, but has scary consequences down the road, especially if you don&rsquo;t have a lot of server resources.</p>
-<h2 id=solution-2-message-queuing>Solution 2: Message Queuing</h2>
+<h3 id=solution-2-message-queuing>Solution 2: Message Queuing</h3>
 <p><a href=http://en.wikipedia.org/wiki/Message_queue>Message queuing</a> is a very basic asynchronous method of storing items in a queue to be processed later.</p>
 <p>So for this instance I created a model called Message that has three fields:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Message</span>(models<span style=color:#f92672>.</span>Model):
@@ -63,6 +63,10 @@ Friday, September 5, 2008
 </ul>
 </aside>
 <footer>
+<ul class=pagination>
+<li class=page-item><a href=https://nathan.run/2008/creating-a-basic-api-with-django/>← Creating a basic API with Django</a></li>
+<li class=page-item><a href=https://nathan.run/2008/whats-next/>What's next →</a></li>
+</ul>
 </footer>
 </body>
 </html>

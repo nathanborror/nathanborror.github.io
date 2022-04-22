@@ -114,7 +114,7 @@ server but for our purposes we&rsquo;ll just be using your local machine.</p>
 }
 </code></pre></div><p>The max size of a push is 256 bytes so don&rsquo;t get carried away—it&rsquo;s good to
 remove all whitespace if you can.</p>
-<h2 id="generate-a-certificate-signing-request">Generate a Certificate Signing Request</h2>
+<h3 id="generate-a-certificate-signing-request">Generate a Certificate Signing Request</h3>
 <ol>
 <li>Open Keychain and navigate to Keychain Access &gt; Certificate Assistant &gt;
 Request a Certificate From a Certificate Authority<!-- raw HTML omitted --></li>
@@ -125,7 +125,7 @@ and check Saved to disk</li>
 key and choose Export</li>
 <li>Save the private key as PushNotifsKey.p12 and choose a good passphrase</li>
 </ol>
-<h2 id="app-id-and-ssl-certificate">App ID and SSL Certificate</h2>
+<h3 id="app-id-and-ssl-certificate">App ID and SSL Certificate</h3>
 <p>We need an App ID and SSL certificate from <a href="https://developer.apple.com/ios/manage/overview/index.action">Apple&rsquo;s iOS Provisioning Portal</a>.
 Each push app needs its own App ID, you cannot use a wildcard ID.</p>
 <ol>
@@ -147,7 +147,7 @@ Request which we already did so you can click Continue</li>
 </ol>
 <p>Keep these three files in a safe place. Development certificates are ephemeral
 so you&rsquo;ll need to renew them every three months. Production certs last a year.</p>
-<h2 id="ssl-pem-creation">SSL .pem Creation</h2>
+<h3 id="ssl-pem-creation">SSL .pem Creation</h3>
 <p>We need to create a .pem file to be used on our server. Using Terminal navigate
 to the folder with these three files in it and convert the .cer file to a .pem
 file:</p>
@@ -164,14 +164,14 @@ $ openssl s_client -connect gateway.sandbox.push.apple.com:2195 -cert PushNotifs
 </code></pre></div><p>You should see some output and be able to type a few characters, press enter and
 the server should disconnect. Openssl will let you know if there was a problem
 connecting.</p>
-<h2 id="provisioning-profile">Provisioning Profile</h2>
+<h3 id="provisioning-profile">Provisioning Profile</h3>
 <p>Head back to Apple&rsquo;s Provisioning Portal, click Provisioning in the sidebar then
 click New Profile. I chose &ldquo;PushNotifs Development&rdquo; as my Profile Name, check
 your certificate, choose the App ID we just created, then choose the devices you
 plan to develop with. Refresh the page until you see a Download button next to
 the profile we just made and click it. Open the downloaded file so it gets added
 to Xcode.</p>
-<h2 id="basic-push-app">Basic Push App</h2>
+<h3 id="basic-push-app">Basic Push App</h3>
 <p>Start a new project in Xcode, pick the Empty Application template and name it
 PushNotifs (or whatever you named your App ID earlier, they should match up). in
 AppDelegate.m add the following:</p>
@@ -199,7 +199,7 @@ AppDelegate.m:</p>
 }
 </code></pre></div><p>Now when you run this you should see a device token in the debug output. Keep
 this handy for the next portion.</p>
-<h2 id="server-side">Server Side</h2>
+<h3 id="server-side">Server Side</h3>
 <p>Now we need a simple script we can use on our server that connects to APN and
 sends push notifications for us. I&rsquo;m going to use Python for this but you can
 use whatever you want. Create a new file called push.py in the same directory
@@ -333,27 +333,26 @@ worked.</p>
 </ol>
 ]]></content></entry><entry><title>Getting Started with MQTT</title><link rel="related" type="text/html" href="https://nathan.run/2012/getting-started-with-mqtt/"/><published>2012-07-22T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2012/getting-started-with-mqtt/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>I wanted to play around with MQTT this evening so I put together a little
-tutorial on how to get started using Ubuntu and Mosquitto (<a href="http://mosquitto.org">http://mosquitto.org</a>).</p>
-<h2 id="installing-mosquitto">Installing Mosquitto</h2>
+tutorial on how to get started using Ubuntu and <a href="http://mosquitto.org">Mosquitto</a>.</p>
+<h3 id="installing-mosquitto">Installing Mosquitto</h3>
 <p>Enter the following into your terminal. Remember to replace
 <code>YOUR_UBUNTU_VERSION_HERE</code> with the version of ubuntu you&rsquo;re using, I was using
 Maverick Meerkat at the time so I replaced it with just maverick. First add the
 following two lines to <code>/etc/apt/sources.list</code></p>
 <pre tabindex="0"><code>deb http://ppa.launchpad.net/mosquitto-dev/mosquitto-ppa/ubuntu YOUR_UBUNTU_VERSION_HERE main
 deb-src http://ppa.launchpad.net/mosquitto-dev/mosquitto-ppa/ubuntu YOUR_UBUNTU_VERSION_HERE main
-</code></pre><p>Then we need to verify the newly added packages
-(<a href="https://help.launchpad.net/Packaging/PPA/InstallingSoftware#On_older_.28pre_9.10.29_Ubuntu_systems)">https://help.launchpad.net/Packaging/PPA/InstallingSoftware#On_older_.28pre_9.10.29_Ubuntu_systems)</a>:</p>
+</code></pre><p>Then we need to verify the newly added <a href="https://help.launchpad.net/Packaging/PPA/InstallingSoftware#On_older_.28pre_9.10.29_Ubuntu_systems">packages</a>:</p>
 <pre tabindex="0"><code>$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 262C4500
 </code></pre><p>Lets update Aptitude so we have the latest packages to choose from:</p>
 <pre tabindex="0"><code>$ sudo aptitude update
 </code></pre><p>And now lets install the Mosquitto server and clients:</p>
 <pre tabindex="0"><code>$ sudo aptitude install mosquitto
 $ sudo aptitude install mosquitto-clients
-</code></pre><h2 id="subscribing-to-a-topic">Subscribing to a Topic</h2>
+</code></pre><h3 id="subscribing-to-a-topic">Subscribing to a Topic</h3>
 <pre tabindex="0"><code>$ mosquitto_sub -d -t hello/world
 </code></pre><p>Mosquitto uses slashes as a way to organize topics. It also provides ways to
 subscribe to groups of topics if you dig around their documentation.</p>
-<h2 id="publishing-to-a-topic">Publishing to a Topic</h2>
+<h3 id="publishing-to-a-topic">Publishing to a Topic</h3>
 <p>In another terminal window execute:</p>
 <pre tabindex="0"><code>$ mosquitto_pub -d -t hello/world -m &quot;Hello World&quot;
 </code></pre><p>You should see the text &ldquo;Hello World&rdquo; in the other window.</p>

@@ -30,10 +30,10 @@ Monday, August 11, 2008
 <main>
 <article>
 <p>Creating a simple public API for your site is a lot easier than you may think with Django. You&rsquo;re basically just creating another view and serving it as XML or JSON instead of HTML.</p>
-<h2 id=whats-public>What&rsquo;s public?</h2>
+<h3 id=whats-public>What&rsquo;s public?</h3>
 <p>Decide what you want to be public. The best answer is the stuff you&rsquo;re already displaying in your HTML templates. Then you need to create an entry in your url conf.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>url(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;^api/v1/(?P&lt;username&gt;[-\w]+)/notes/?$&#39;</span>, <span style=color:#e6db74>&#39;readernaut.api.views.user_notes&#39;</span>),
-</code></pre></div><h2 id=create-the-view>Create the view</h2>
+</code></pre></div><h3 id=create-the-view>Create the view</h3>
 <p>In the case for Readernaut I wanted to provide an XML feed for users notes. Here is what the view looks like:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>user_notes</span>(request, username):
   reader <span style=color:#f92672>=</span> get_object_or_404(User, username__iexact<span style=color:#f92672>=</span>username)
@@ -41,7 +41,7 @@ Monday, August 11, 2008
   context <span style=color:#f92672>=</span> { <span style=color:#e6db74>&#39;reader&#39;</span>: reader, <span style=color:#e6db74>&#39;note_list&#39;</span>: note_list }
   <span style=color:#66d9ef>return</span> render_to_response(<span style=color:#e6db74>&#39;api/note_list.html&#39;</span>, context, context_instance<span style=color:#f92672>=</span>RequestContext(request), mimetype<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;application/xml&#39;</span>)
 </code></pre></div><p>This is a simplified version of the view but, as you can see, you could easily add pagination and other hooks to handle ordering and such.</p>
-<h2 id=create-the-template>Create the template</h2>
+<h3 id=create-the-template>Create the template</h3>
 <p>The view is pointing to the template <code>api/note_list.html</code> so all we need to do is create that file and build out our XML schema.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
 <span style=color:#f92672>&lt;notes</span> <span style=color:#a6e22e>version=</span><span style=color:#e6db74>&#34;1.0&#34;</span><span style=color:#f92672>&gt;</span>
@@ -77,6 +77,10 @@ Monday, August 11, 2008
 </ul>
 </aside>
 <footer>
+<ul class=pagination>
+<li class=page-item><a href=https://nathan.run/2008/capistrano-rules/>← Capistrano rules</a></li>
+<li class=page-item><a href=https://nathan.run/2008/message-queuing-imports/>Message Queuing imports →</a></li>
+</ul>
 </footer>
 </body>
 </html>

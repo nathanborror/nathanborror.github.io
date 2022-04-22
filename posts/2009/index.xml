@@ -57,10 +57,10 @@ and thought I&rsquo;d share how everything came together. If you&rsquo;d like to
 <p><a href="http://github.com/ask/carrot">This project</a> which handles all this and much more but it&rsquo;s a little too complex for what I&rsquo;m doing. All I needed was something very small, straightforward, and EASY.</p>
 <p>After staring at Carrot for a few days I decided to distill down what I needed
 into a single script I&rsquo;m calling Flopsy. So here we go:</p>
-<h2 id="step-1-set-global-variables">Step 1: Set global variables:</h2>
-<!-- raw HTML omitted -->
+<h3 id="step-1-set-global-variables">Step 1: Set global variables:</h3>
+<script src="https://gist.github.com/nathanborror/77e37b040d57f6cebdaa8b0d3b607201.js"></script>
 <p>And there we go! Flopsy weighs in at under 80 lines of code and it can be found on <a href="http://github.com/nathanborror/flopsy">Github.</a> Most of the above will make a lot more sense after reading <a href="http://blogs.digitar.com/jjww/2009/01/rabbits-and-warrens/">Rabbits and Warrens</a> and investigating RabbitMQ.</p>
-<h2 id="update">Update</h2>
+<h3 id="update">Update</h3>
 <p>I just realized, this isn&rsquo;t at all Django specific so my title is a little misleading (changing). That said, you could most certainly use Flopsy with straight up Python :)</p>
 ]]></content></entry><entry><title>Capturing content in Django templates</title><link rel="related" type="text/html" href="https://nathan.run/2009/capturing-content-in-django-templates/"/><published>2009-02-28T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2009/capturing-content-in-django-templates/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>As a template designer there are times when you have structural code surrounding a block which is waiting on content from a child template. It may look something like:</p>

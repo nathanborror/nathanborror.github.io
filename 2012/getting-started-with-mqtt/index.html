@@ -6,7 +6,7 @@
 <meta name=keywords content="nathan borror,product design,nathan,borror,graphic design,interaction design,django,swift,ios,mobile,facebook,golang,programming,software design,product design management">
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta property="og:title" content="Getting Started with MQTT">
-<meta property="og:description" content="I wanted to play around with MQTT this evening so I put together a little tutorial on how to get started using Ubuntu and Mosquitto (http://mosquitto.org).
+<meta property="og:description" content="I wanted to play around with MQTT this evening so I put together a little tutorial on how to get started using Ubuntu and Mosquitto.
 Installing Mosquitto Enter the following into your terminal. Remember to replace YOUR_UBUNTU_VERSION_HERE with the version of ubuntu you&rsquo;re using, I was using Maverick Meerkat at the time so I replaced it with just maverick. First add the following two lines to /etc/apt/sources.list
 deb http://ppa.launchpad.net/mosquitto-dev/mosquitto-ppa/ubuntu YOUR_UBUNTU_VERSION_HERE main deb-src http://ppa.">
 <meta property="og:type" content="article">
@@ -30,27 +30,26 @@ Sunday, July 22, 2012
 <main>
 <article>
 <p>I wanted to play around with MQTT this evening so I put together a little
-tutorial on how to get started using Ubuntu and Mosquitto (<a href=http://mosquitto.org>http://mosquitto.org</a>).</p>
-<h2 id=installing-mosquitto>Installing Mosquitto</h2>
+tutorial on how to get started using Ubuntu and <a href=http://mosquitto.org>Mosquitto</a>.</p>
+<h3 id=installing-mosquitto>Installing Mosquitto</h3>
 <p>Enter the following into your terminal. Remember to replace
 <code>YOUR_UBUNTU_VERSION_HERE</code> with the version of ubuntu you&rsquo;re using, I was using
 Maverick Meerkat at the time so I replaced it with just maverick. First add the
 following two lines to <code>/etc/apt/sources.list</code></p>
 <pre tabindex=0><code>deb http://ppa.launchpad.net/mosquitto-dev/mosquitto-ppa/ubuntu YOUR_UBUNTU_VERSION_HERE main
 deb-src http://ppa.launchpad.net/mosquitto-dev/mosquitto-ppa/ubuntu YOUR_UBUNTU_VERSION_HERE main
-</code></pre><p>Then we need to verify the newly added packages
-(<a href=https://help.launchpad.net/Packaging/PPA/InstallingSoftware#On_older_.28pre_9.10.29_Ubuntu_systems)>https://help.launchpad.net/Packaging/PPA/InstallingSoftware#On_older_.28pre_9.10.29_Ubuntu_systems)</a>:</p>
+</code></pre><p>Then we need to verify the newly added <a href=https://help.launchpad.net/Packaging/PPA/InstallingSoftware#On_older_.28pre_9.10.29_Ubuntu_systems>packages</a>:</p>
 <pre tabindex=0><code>$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 262C4500
 </code></pre><p>Lets update Aptitude so we have the latest packages to choose from:</p>
 <pre tabindex=0><code>$ sudo aptitude update
 </code></pre><p>And now lets install the Mosquitto server and clients:</p>
 <pre tabindex=0><code>$ sudo aptitude install mosquitto
 $ sudo aptitude install mosquitto-clients
-</code></pre><h2 id=subscribing-to-a-topic>Subscribing to a Topic</h2>
+</code></pre><h3 id=subscribing-to-a-topic>Subscribing to a Topic</h3>
 <pre tabindex=0><code>$ mosquitto_sub -d -t hello/world
 </code></pre><p>Mosquitto uses slashes as a way to organize topics. It also provides ways to
 subscribe to groups of topics if you dig around their documentation.</p>
-<h2 id=publishing-to-a-topic>Publishing to a Topic</h2>
+<h3 id=publishing-to-a-topic>Publishing to a Topic</h3>
 <p>In another terminal window execute:</p>
 <pre tabindex=0><code>$ mosquitto_pub -d -t hello/world -m &quot;Hello World&quot;
 </code></pre><p>You should see the text &ldquo;Hello World&rdquo; in the other window.</p>
@@ -74,6 +73,10 @@ work. I just used iptables to do so:</p>
 </ul>
 </aside>
 <footer>
+<ul class=pagination>
+<li class=page-item><a href=https://nathan.run/2012/simple-panic/>← Simple Panic</a></li>
+<li class=page-item><a href=https://nathan.run/2012/sending-multipart-forms-with-objective-c/>Sending Multipart Forms with Objective-C →</a></li>
+</ul>
 </footer>
 </body>
 </html>

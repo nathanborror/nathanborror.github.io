@@ -27,12 +27,12 @@
 <p>We all bring our individual design style and solutions to the table. Projects are a collection of problems and if you quickly eliminate the solved problems you can dig your heals into the unsolved.</p>
 ]]></content></entry><entry><title>Message Queuing imports</title><link rel="related" type="text/html" href="https://nathan.run/2008/message-queuing-imports/"/><published>2008-09-05T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2008/message-queuing-imports/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>Last week I ran into some problems dealing with large book imports on Readernaut. I tested the system for around 50-100 books but had no idea people would upload lists of 900+ books. This begged the question, how do you handle importing very large sets of data before the browser times out?</p>
-<h2 id="brief-example">Brief example</h2>
+<h3 id="brief-example">Brief example</h3>
 <p>User uploads a list of 1000 ISBNs to be imported into their library. Each book, if not already in the system, needs to be imported via another service like Amazon.</p>
-<h2 id="solution-1-threading">Solution 1: Threading</h2>
+<h3 id="solution-1-threading">Solution 1: Threading</h3>
 <p>Use threading to push off the long running process to another thread while directing the browser to a status page. You could setup an Ajax request to periodically check on the status of the import and update a progress bar.</p>
 <p>This solution is generally a bad idea. It&rsquo;s super easy to do and tests well in a development environment, but has scary consequences down the road, especially if you don&rsquo;t have a lot of server resources.</p>
-<h2 id="solution-2-message-queuing">Solution 2: Message Queuing</h2>
+<h3 id="solution-2-message-queuing">Solution 2: Message Queuing</h3>
 <p><a href="http://en.wikipedia.org/wiki/Message_queue">Message queuing</a> is a very basic asynchronous method of storing items in a queue to be processed later.</p>
 <p>So for this instance I created a model called Message that has three fields:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Message</span>(models<span style="color:#f92672">.</span>Model):
@@ -51,10 +51,10 @@
 <p>Additionally it&rsquo;s super simple to Ajaxify the progress page by using Django&rsquo;s handy <code>request.is_ajax()</code> and returning a JSON object with info on the progress of the import. Message Queuing is pretty handy for a lot of situations and Amazon even has a service for it called <a href="http://www.amazon.com/Simple-Queue-Service-home-page/b?ie=UTF8&amp;node=13584001">Simple Queuing Service</a> (SQS).</p>
 ]]></content></entry><entry><title>Creating a basic API with Django</title><link rel="related" type="text/html" href="https://nathan.run/2008/creating-a-basic-api-with-django/"/><published>2008-08-11T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2008/creating-a-basic-api-with-django/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>Creating a simple public API for your site is a lot easier than you may think with Django. You&rsquo;re basically just creating another view and serving it as XML or JSON instead of HTML.</p>
-<h2 id="whats-public">What&rsquo;s public?</h2>
+<h3 id="whats-public">What&rsquo;s public?</h3>
 <p>Decide what you want to be public. The best answer is the stuff you&rsquo;re already displaying in your HTML templates. Then you need to create an entry in your url conf.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">url(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;^api/v1/(?P&lt;username&gt;[-\w]+)/notes/?$&#39;</span>, <span style="color:#e6db74">&#39;readernaut.api.views.user_notes&#39;</span>),
-</code></pre></div><h2 id="create-the-view">Create the view</h2>
+</code></pre></div><h3 id="create-the-view">Create the view</h3>
 <p>In the case for Readernaut I wanted to provide an XML feed for users notes. Here is what the view looks like:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">user_notes</span>(request, username):
   reader <span style="color:#f92672">=</span> get_object_or_404(User, username__iexact<span style="color:#f92672">=</span>username)
@@ -62,7 +62,7 @@
   context <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;reader&#39;</span>: reader, <span style="color:#e6db74">&#39;note_list&#39;</span>: note_list }
   <span style="color:#66d9ef">return</span> render_to_response(<span style="color:#e6db74">&#39;api/note_list.html&#39;</span>, context, context_instance<span style="color:#f92672">=</span>RequestContext(request), mimetype<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;application/xml&#39;</span>)
 </code></pre></div><p>This is a simplified version of the view but, as you can see, you could easily add pagination and other hooks to handle ordering and such.</p>
-<h2 id="create-the-template">Create the template</h2>
+<h3 id="create-the-template">Create the template</h3>
 <p>The view is pointing to the template <code>api/note_list.html</code> so all we need to do is create that file and build out our XML schema.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
 <span style="color:#f92672">&lt;notes</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;1.0&#34;</span><span style="color:#f92672">&gt;</span>
@@ -106,7 +106,7 @@ $ touch django.fcgi
 <p>You may be asking yourself, &ldquo;he&rsquo;s a web guy, why does he care?&rdquo; Well, there happens to be a beautiful gem tucked away called the Aspen Simulator.</p>
 <p>This is a complete pixel and functionally perfect replica of the iPhone and it&rsquo;s fantastic for testing web apps. Before I was spending a lot of time back and forth between my iPhone and my desktop but since this thing is so identical I really don&rsquo;t have to own an iPhone (but I will anyway).</p>
 <p>It&rsquo;s a little hard to find, but after installing the <a href="http://developer.apple.com/iphone/devcenter/">developer tools</a> look under / Developer / Platforms / AspenSimulator.platform / Developer / Applications.</p>
-<h2 id="a-few-tricks">A few tricks</h2>
+<h3 id="a-few-tricks">A few tricks</h3>
 <p>If you want to do a two finger zoom just hold down the option key while click dragging. You can also rotate the the phone by using the command key and right left arrows. To lock the phone press command L. Still try to figure out how to do a two finger scroll.</p>
 ]]></content></entry><entry><title>Ah-ha Event Delegation</title><link rel="related" type="text/html" href="https://nathan.run/2008/ah-ha-event-delegation/"/><published>2008-05-05T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2008/ah-ha-event-delegation/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>Wrapping my head around things like OOP took months. It&rsquo;s not because I&rsquo;m an idiot (I don&rsquo;t think) - it&rsquo;s just because I needed all the explanations to marinate before having an ah-ha! moment.</p>
