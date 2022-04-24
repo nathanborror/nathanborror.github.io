@@ -87,9 +87,9 @@
     :root {
         --system-black: #F7F5F2;
         --system-white: rgba(0, 0, 0, 0.9);
-        --system-red: var(--system-dark-red);
-        --system-yellow: var(--system-dark-yellow);
-        --system-green: var(--system-dark-green);
-        --system-blue: var(--system-dark-blue);
+        --system-light-red: var(--system-dark-red);
+        --system-light-yellow: var(--system-dark-yellow);
+        --system-light-green: var(--system-dark-green);
+        --system-light-blue: var(--system-dark-blue);
     }
 }
