@@ -2,13 +2,29 @@
 /* ------------------------------------------------------------------ */
 
 @media screen and (max-width: 1024px) {
+    :root {
+        --hang: 0px;
+    }
+
     body {
-        grid-template-columns: auto 180px;
+        grid-template-columns: minmax(0, 1fr) 250px;
         margin: 50px;
     }
 
     aside {
         padding-left: 60px;
+    }
+
+    figure.small {
+        width: 200px;
+    }
+
+    figure.medium {
+        width: 400px;
+    }
+
+    .gallery img {
+        height: 320px;
     }
 }
 

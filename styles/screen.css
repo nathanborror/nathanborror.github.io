@@ -4,6 +4,7 @@
 :root {
     --margin: 34px;
     --max-width: 1024px;
+    --aside-width: 300px;
 
     --font-family: 'Inter', -apple-system, sans-serif;
     --font-feature-settings: "ss01", "zero", "frac", "cv05", "cv11";
@@ -66,7 +67,7 @@
 
 body {
     display: grid;
-    grid-template-columns: auto 300px;
+    grid-template-columns: minmax(0, 1fr) var(--aside-width);
     grid-template-areas:
         "header header"
         "main aside"
@@ -136,7 +137,6 @@ footer {
     grid-area: footer;
     margin: 100px 0;
     padding: 20px 0;
-    /* border-top: 1px solid var(--system-black); */
     font-size: var(--caption-size);
     font-weight: var(--caption-weight);
     letter-spacing: var(--caption-letter-spacing);
@@ -146,7 +146,6 @@ footer {
 section {
     margin-bottom: var(--margin);
     padding-bottom: var(--margin);
-    border-bottom: 1px solid var(--system-black);
 }
 
 section *:last-child {
@@ -272,11 +271,11 @@ img {
 }
 
 blockquote {
-    margin-left: calc(var(--margin) * -1);
-    margin-right: calc(var(--margin) * -1);
-    padding: var(--margin);
-    background-color: var(--system-yellow);
-    border-radius: var(--border-radius);
+    padding: 20px 0;
+    border-top: 1px solid var(--system-light-red);
+    border-bottom: 1px solid var(--system-light-red);
+    color: var(--system-dark-red);
+    font-style: italic;
 }
 
 blockquote *:first-child {
@@ -285,6 +284,10 @@ blockquote *:first-child {
 
 blockquote *:last-child {
     margin-bottom: 0;
+}
+
+blockquote+blockquote {
+    margin-top: calc(var(--margin) * -0.9);
 }
 
 hr {
@@ -310,7 +313,6 @@ pre {
     color: var(--system-white);
     border-radius: var(--border-radius);
     overflow: auto;
-    white-space: pre-wrap;
 }
 
 code {
@@ -459,10 +461,6 @@ figure.small {
 
 figure.medium {
     width: 450px;
-}
-
-figure.large {
-    width: 650px;
 }
 
 figcaption {
@@ -632,4 +630,25 @@ body.posts li::before,
 body.interests li::before {
     color: var(--system-white);
     opacity: 0.5;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    padding: 20px 0;
+    border-top: 1px solid var(--system-light-gray);
+    border-bottom: 1px solid var(--system-light-gray);
+    overflow: scroll;
+}
+
+.gallery a {
+    display: block;
+    padding: 0;
+}
+
+.gallery img {
+    display: block;
+    width: auto;
+    height: 450px;
 }

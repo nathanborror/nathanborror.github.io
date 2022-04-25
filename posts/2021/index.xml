@@ -4,24 +4,24 @@
 <p><em>Disclaimer: This is just a fun exercise and a way for me to play with someone else&rsquo;s building blocks. A lot goes in to how and why Facebook is the way it is today and teams of people are sweating the details.</em></p>
 <p>When you boil Facebook down it&rsquo;s not <em>that</em> complicated. There are <strong>A LOT</strong> of interactions, but everything can pretty easily be assigned a component that&rsquo;s super familiar to people. Below are basic replicas of News Feed, the Stories viewer and Messenger. The sidebar acts as a great home for most of the ever-growing navigation.</p>
 <figure>
-    <a href="/screenshots/2021-04-08-macos-facebook-mini.png"><img src="/screenshots/2021-04-08-macos-facebook-mini.png" alt="Screenshots that depict Facebook as a desktop app. The main app includes feed and a sidebar navigation, another window shows chat and another shows how Stories would look."></a>
-    
-</figure>
+        <a href="/screenshots/2021-04-08-macos-facebook-mini.png"  target="_blank"><img src="/screenshots/2021-04-08-macos-facebook-mini.png" alt="Screenshots that depict Facebook as a desktop app. The main app includes feed and a sidebar navigation, another window shows chat and another shows how Stories would look."></a>
+        
+    </figure>
 <p>The composer dropdown can show all the possible things a person can create, along with a clean interface for uploading photos and writing text posts. Sorta feels like sending an email 💌 Unseen notifications and messages could persist in the right collapsable sidebar.</p>
 <figure>
-    <a href="/screenshots/2021-04-08-macos-facebook-compose.png"><img src="/screenshots/2021-04-08-macos-facebook-compose.png" alt="Screenshot of Facebook as a desktop app with a right sidebar exposed showing notifications and a composer window on top of the main window."></a>
-    
-</figure>
+        <a href="/screenshots/2021-04-08-macos-facebook-compose.png"  target="_blank"><img src="/screenshots/2021-04-08-macos-facebook-compose.png" alt="Screenshot of Facebook as a desktop app with a right sidebar exposed showing notifications and a composer window on top of the main window."></a>
+        
+    </figure>
 <p>Things get super fun in Settings / Preferences. Facebook settings are notoriously complicated as the product has grown over the years. App settings have been an indicator for me how much a developer cares about their product and <code>[cmd+,]</code> is one of the first key commands I use after installing a new app. Most of Facebook&rsquo;s settings can be organized well using standard layouts and components. It&rsquo;s surprisingly clear how they all feel, probably because long-time Mac users are so familiar with these interactions.</p>
 <figure>
-    <a href="/screenshots/2021-04-08-macos-facebook-settings.png"><img src="/screenshots/2021-04-08-macos-facebook-settings.png" alt="Four screenshots showing different Facebook settings surfaces: general settings, security settings, privacy controls and notifications."></a>
-    
-</figure>
+        <a href="/screenshots/2021-04-08-macos-facebook-settings.png"  target="_blank"><img src="/screenshots/2021-04-08-macos-facebook-settings.png" alt="Four screenshots showing different Facebook settings surfaces: general settings, security settings, privacy controls and notifications."></a>
+        
+    </figure>
 <p>Finally, here&rsquo;s the basic interface, the thing we all end up scrolling most of the day. I like how boring it looks, how it puts more emphasis on content wile making it feel like it&rsquo;s easier to navigate.</p>
 <figure>
-    <a href="/screenshots/2021-04-08-macos-facebook.png"><img src="/screenshots/2021-04-08-macos-facebook.png" alt="Screenshot of what a typical Facebook desktop experience could look like with a big photo taking center stage."></a>
-    
-</figure>
+        <a href="/screenshots/2021-04-08-macos-facebook.png"  target="_blank"><img src="/screenshots/2021-04-08-macos-facebook.png" alt="Screenshot of what a typical Facebook desktop experience could look like with a big photo taking center stage."></a>
+        
+    </figure>
 <h3 id="takeaways">Takeaways</h3>
 <ol>
 <li>Multi-color iconography make an interface look too busy. The monochromatic and tint color strategy with macOS helps signify where interaction is possible while receding into background.</li>
