@@ -7,12 +7,12 @@
     }
 
     body {
-        grid-template-columns: minmax(0, 1fr) 250px;
+        grid-template-columns: minmax(0, 1fr) 150px;
         margin: 50px;
     }
 
     aside {
-        padding-left: 60px;
+        padding-left: 40px;
     }
 
     figure.small {
@@ -59,9 +59,9 @@
         grid-template-areas:
             "header header"
             "main main"
-            "aside aside"
-            "footer footer";
-        margin: 40px;
+            "footer footer"
+            "aside aside";
+        margin: 0 40px;
     }
 
     aside {
@@ -70,7 +70,6 @@
 
     aside li {
         margin: 0;
-        border-bottom: 1px solid var(--system-light-gray);
     }
 
     aside li:last-child {
@@ -80,7 +79,7 @@
     aside li a {
         display: block;
         margin: 0;
-        padding: 16px 0;
+        padding: 8px 0;
     }
 
     figure {
@@ -90,8 +89,7 @@
     }
 
     figure.small,
-    figure.medium,
-    figure.large {
+    figure.medium {
         width: 100%;
     }
 }
