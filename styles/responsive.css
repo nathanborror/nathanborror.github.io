@@ -55,7 +55,7 @@
     }
 
     body {
-        grid-template-columns: auto auto;
+        grid-template-columns: minmax(0, 1fr) auto;
         grid-template-areas:
             "header header"
             "main main"
@@ -84,13 +84,22 @@
 
     figure {
         float: none !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
+        margin-left: -40px !important;
+        margin-right: -40px !important;
     }
 
     figure.small,
     figure.medium {
-        width: 100%;
+        width: fit-content;
+    }
+
+    .gallery {
+        margin-left: -40px;
+        margin-right: -40px;
+    }
+
+    .gallery img {
+        height: 250px;
     }
 }
 
