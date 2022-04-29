@@ -419,7 +419,7 @@ td[align="right"] {
     text-align: right;
 }
 
-/* Figures */
+/* Shortcodes */
 /* ------------------------------------------------------------------ */
 
 figure {
@@ -474,6 +474,27 @@ figcaption {
 figcaption a {
     text-decoration: none;
     color: inherit;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    padding: 20px 0;
+    border-top: 1px solid var(--system-light-gray);
+    border-bottom: 1px solid var(--system-light-gray);
+    overflow: scroll;
+}
+
+.gallery a {
+    display: block;
+    padding: 0;
+}
+
+.gallery img {
+    display: block;
+    width: auto;
+    height: 450px;
 }
 
 /* Pagination */
@@ -630,25 +651,4 @@ body.posts li::before,
 body.interests li::before {
     color: var(--system-white);
     opacity: 0.5;
-}
-
-.gallery {
-    display: flex;
-    flex-direction: row;
-    gap: 4px;
-    padding: 20px 0;
-    border-top: 1px solid var(--system-light-gray);
-    border-bottom: 1px solid var(--system-light-gray);
-    overflow: scroll;
-}
-
-.gallery a {
-    display: block;
-    padding: 0;
-}
-
-.gallery img {
-    display: block;
-    width: auto;
-    height: 450px;
 }

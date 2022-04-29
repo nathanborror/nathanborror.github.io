@@ -114,5 +114,6 @@
         --system-light-yellow: var(--system-dark-yellow);
         --system-light-green: var(--system-dark-green);
         --system-light-blue: var(--system-dark-blue);
+        --system-light-gray: rgba(255, 255, 255, 0.15);
     }
 }
