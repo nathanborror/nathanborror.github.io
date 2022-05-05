@@ -26,30 +26,12 @@ I get an error when I run syncdb. This could be a number of things. If its an er
 </header>
 <main>
 <article>
-<p>One of the biggest hurdles in learning any new framework or programming language
-is learning its quirks. By quirks I don&rsquo;t mean bugs, I&rsquo;m referring to the
-personality and flow. Here are a few that might help your troubleshooting process:</p>
-<p>I get an error when I run syncdb. This could be a number of things. If its an
-error in the model you should be able to tell. Most of the time for me was
-forgetting to add the project to the <code>settings.py</code> INSTALLED_APPS
-(<a href=http://www.djangoproject.com/documentation/settings/#installed-apps>http://www.djangoproject.com/documentation/settings/#installed-apps</a>) list.</p>
-<p>I created a templatetag but Django is saying the file doesn&rsquo;t exist. First make
-sure you have loaded the template tag
-(<a href=http://www.djangoproject.com/documentation/templates_python/#extending-the-template-system)>http://www.djangoproject.com/documentation/templates_python/#extending-the-template-system)</a>,
-(i.e. <code>{% load latestposts %}</code>). Second, and this one gets me every time, make
-sure you added the <code>__init__.py</code> file to the newly created directory. This file
-must be present in directories that contain python scripts.</p>
-<p>How do I access the children of a many-to-one or many-to-many relationship within
-the template? This puzzled me for a while. I&rsquo;m accustomed to saying
-<code>post.categories</code> but in Django you must say <code>post.categories_set.all</code>. Referenced
-here (<a href=http://www.djangoproject.com/documentation/db_api/#related-objects)>http://www.djangoproject.com/documentation/db_api/#related-objects)</a>.</p>
-<p>I just added my database from my model but I keep getting a 404 error when I try
-to view the template. This drove me crazy and people will probably laugh. If you
-forget to enter data into the newly formed table Django will throw a Page Not
-Found error until you enter your first record of data. It&rsquo;s always the small
-things.</p>
-<p>I hope these are somewhat helpful. If you have any to add to the list feel free
-to post a comment.</p>
+<p>One of the biggest hurdles in learning any new framework or programming language is learning its quirks. By quirks I don&rsquo;t mean bugs, I&rsquo;m referring to the personality and flow. Here are a few that might help your troubleshooting process:</p>
+<p>I get an error when I run syncdb. This could be a number of things. If its an error in the model you should be able to tell. Most of the time for me was forgetting to add the project to the <code>settings.py</code> <a href=http://www.djangoproject.com/documentation/settings/#installed-apps>INSTALLED_APPS</a> list.</p>
+<p>I created a templatetag but Django is saying the file doesn&rsquo;t exist. First make sure you have loaded the <a href=http://www.djangoproject.com/documentation/templates_python/#extending-the-template-system>template tag</a>, (i.e. <code>{% load latestposts %}</code>). Second, and this one gets me every time, make sure you added the <code>__init__.py</code> file to the newly created directory. This file must be present in directories that contain python scripts.</p>
+<p>How do I access the children of a many-to-one or many-to-many relationship within the template? This puzzled me for a while. I&rsquo;m accustomed to saying <code>post.categories</code> but in Django you must say <code>post.categories_set.all</code>. Referenced <a href=http://www.djangoproject.com/documentation/db_api/#related-objects>here</a>.</p>
+<p>I just added my database from my model but I keep getting a 404 error when I try to view the template. This drove me crazy and people will probably laugh. If you forget to enter data into the newly formed table Django will throw a Page Not Found error until you enter your first record of data. It&rsquo;s always the small things.</p>
+<p>I hope these are somewhat helpful. If you have any to add to the list feel free to post a comment.</p>
 </article>
 </main>
 <aside>

@@ -14,80 +14,33 @@ time.</p>
 <p>&ldquo;Some 40 thousand (and counting) elementary schools have eliminated recess in favor of more time for academics,&rdquo; says <a href="http://www.amazon.com/gp/product/0738210536/">David Elkind</a>. This is shocking. From what I recall, recess was the most rejuvenating part of my elementary day. &ldquo;Our schools are now contributing to the suppression of curiosity, imagination and fantasy.&rdquo;</p>
 <p>As we get older we unknowingly loose touch with our creative side and our imagination. I remember looking at clouds and immediately spotting frogs, space ships or elephants. Now I have to concentrate to come up with anything. Making time for relaxing and dreaming is so important, if for no other reason than to look up and see a giraffe float by.</p>
 ]]></content></entry><entry><title>Del.icio.us API Interface</title><link rel="related" type="text/html" href="https://nathan.run/2006/del.icio.us-api-interface/"/><published>2006-07-17T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2006/del.icio.us-api-interface/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
-        <p>I finally figured out how to parse the Del.icio.us API (<a href="http://del.icio.us/help/api/">http://del.icio.us/help/api/</a>)
-using Python and Django. The solution is quite flexible aside from the fact that
-the Del.icio.us API is still under development.</p>
-<p>I started by studying FlickrClient (<a href="http://micampe.it/things/flickrclient">http://micampe.it/things/flickrclient</a>) which
-is a great interface for Python. The Flickr API is very verbose and this is a
-simple approach that scales to future Flickr upgrades. The power behind this
-script is the following method:</p>
+        <p>I finally figured out how to parse the <a href="http://del.icio.us/help/api/">Del.icio.us API</a> using Python and Django. The solution is quite flexible aside from the fact that the Del.icio.us API is still under development.</p>
+<p>I started by studying <a href="http://micampe.it/things/flickrclient">FlickrClient</a> which is a great interface for Python. The Flickr API is very verbose and this is a simple approach that scales to future Flickr upgrades. The power behind this script is the following method:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> __getattr__(self, method):
   <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">method</span>(_self<span style="color:#f92672">=</span>self, _method<span style="color:#f92672">=</span>method, <span style="color:#f92672">**</span>params):
     _method <span style="color:#f92672">=</span> _method<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#34;_&#34;</span>, <span style="color:#e6db74">&#34;.&#34;</span>)
     url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://flickr.com/services/rest/&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;?method=</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&amp;amp;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&amp;amp;api_key=</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> (_method, urlencode(params), YOUR_API_KEY)
     <span style="color:#f92672">...</span>
-</code></pre></div><p>This basically generates the proper URL string to be passed to Flickr. With this
-bit of simplicity you can literally call any API method. All thats left is
-parsing the return XML value which is done by XMLTramp (<a href="http://www.aaronsw.com/2002/xmltramp/)">http://www.aaronsw.com/2002/xmltramp/)</a>.
-This will parse any XML data into a useful object that you can iterate through
-in a Django template.</p>
+</code></pre></div><p>This basically generates the proper URL string to be passed to Flickr. With this bit of simplicity you can literally call any API method. All thats left is parsing the return XML value which is done by <a href="http://www.aaronsw.com/2002/xmltramp/">XMLTramp</a>. This will parse any XML data into a useful object that you can iterate through in a Django template.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">rsp <span style="color:#f92672">=</span> xmltramp<span style="color:#f92672">.</span>load(url)
-</code></pre></div><p>I&rsquo;ve retooled this approach a bit to work with Del.ici.ous. The biggest
-difference is instead of using an API Key you have to validate with Https. I
-created a method to handle this using urllib2:</p>
+</code></pre></div><p>I&rsquo;ve retooled this approach a bit to work with Del.ici.ous. The biggest difference is instead of using an API Key you have to validate with Https. I created a method to handle this using urllib2:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_secureConnect</span>(self, url):
   auth_handler <span style="color:#f92672">=</span> urllib2<span style="color:#f92672">.</span>HTTPBasicAuthHandler()
   auth_handler<span style="color:#f92672">.</span>add_password(<span style="color:#e6db74">&#39;del.icio.us API&#39;</span>, <span style="color:#e6db74">&#39;https://api.del.icio.us&#39;</span>, USERNAME, PASSWORD)
   opener <span style="color:#f92672">=</span> urllib2<span style="color:#f92672">.</span>build_opener(auth_handler)
   urllib2<span style="color:#f92672">.</span>install_opener(opener)
   <span style="color:#66d9ef">return</span> urllib2<span style="color:#f92672">.</span>urlopen(url)<span style="color:#f92672">.</span>read()
-</code></pre></div><p>The other big difference is all the data in the return XML resides in attributes
-of a single node. (In my opinion this is crap but such is life.) We must create
-a new object because Django templates don&rsquo;t seem to like how XMLTramp accesses
-node attributes.</p>
+</code></pre></div><p>The other big difference is all the data in the return XML resides in attributes of a single node. (In my opinion this is crap but such is life.) We must create a new object because Django templates don&rsquo;t seem to like how XMLTramp accesses node attributes.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> child <span style="color:#f92672">in</span> rsp:
   posts<span style="color:#f92672">.</span>append({<span style="color:#e6db74">&#39;description&#39;</span>:child(<span style="color:#e6db74">&#39;description&#39;</span>), <span style="color:#e6db74">&#39;href&#39;</span>:child(<span style="color:#e6db74">&#39;href&#39;</span>), <span style="color:#e6db74">&#39;extended&#39;</span>:child(<span style="color:#e6db74">&#39;extended&#39;</span>), <span style="color:#e6db74">&#39;hash&#39;</span>:child(<span style="color:#e6db74">&#39;hash&#39;</span>), <span style="color:#e6db74">&#39;time&#39;</span>:child(<span style="color:#e6db74">&#39;time&#39;</span>), <span style="color:#e6db74">&#39;tag&#39;</span>:child(<span style="color:#e6db74">&#39;tag&#39;</span>)})
   <span style="color:#66d9ef">return</span> posts
-</code></pre></div><p>I&rsquo;m sure if I become better versed with urllib2 and Python I could make this
-simpler. For now it works which was the intended goal. Here is the code
-(<a href="http://media.youknowwhereyouare.com/code/DeliciousClient.zip)">http://media.youknowwhereyouare.com/code/DeliciousClient.zip)</a>. <em>Word of
-caution!</em> It&rsquo;s good practice to save these results to a local database thereby
-minimizing the API requests. Del.icio.us in particular will throttle back your
-requests when it notices an increase in API traffic. My next post will address
-this.</p>
+</code></pre></div><p>I&rsquo;m sure if I become better versed with urllib2 and Python I could make this simpler. For now it works which was the intended goal. Here is the <a href="http://media.youknowwhereyouare.com/code/DeliciousClient.zip">code</a>. <em>Word of caution!</em> It&rsquo;s good practice to save these results to a local database thereby minimizing the API requests. Del.icio.us in particular will throttle back your requests when it notices an increase in API traffic. My next post will address this.</p>
 ]]></content></entry><entry><title>A Bittersweet Farewell</title><link rel="related" type="text/html" href="https://nathan.run/2006/a-bittersweet-farewell/"/><published>2006-07-13T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2006/a-bittersweet-farewell/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
-        <p>You probably haven&rsquo;t noticed but the past month has been particularly
-challenging for me. If you&rsquo;re a close friend then it was probably apparent in
-the way I cheaply disguise my emotions. It&rsquo;s not easy to look back at two years
-of progress in advertising and realize all along you may have stumbled into the
-wrong cocktail party. Once this realization occurs it creeps into all your
-thoughts and emotions to the point where you can no longer function until a
-change is made.</p>
-<p>I can finally say a change has been made. A weight has been lifted only to be
-replaced by reluctant excitement. August will mark my departure from advertising.
-I&rsquo;ve never felt comfortable in advertising and while I understand its purpose I
-struggle with its effects. So in the midst of my search for a new direction I
-discovered an opportunity to fill a void with an exciting group of individuals.</p>
-<p>If your not familiar with the Kansas/Missouri area you may know them for their
-origination of an exciting Python (<a href="http://www.python.org/">http://www.python.org/</a>) framework called
-Django (<a href="http://www.djangoproject.com/)">http://www.djangoproject.com/)</a>. If your in the business of journalism
-you may recognize them as pioneers of an online publishing tool, Ellington
-(<a href="http://www.ellingtoncms.com/)">http://www.ellingtoncms.com/)</a>. Or if you&rsquo;re familiar with the area you can
-identify them by their care of Lawrence.com (<a href="http://www.lawrence.com/)">http://www.lawrence.com/)</a>,
-LJWorld.com (<a href="http://www.ljworld.com/)">http://www.ljworld.com/)</a>, and KUSports.com (<a href="http://www.kusports.com/)">http://www.kusports.com/)</a>.
-They call themselves World Online and what better place to be with a name like
-that than in the center of the country, Lawrence, Kansas.</p>
-<p>I&rsquo;ll be doing the impossible task of filling the shoes of Wilson Miner
-(<a href="http://www.wilsonminer.com/">http://www.wilsonminer.com/</a>) who has moved on to some small company
-(<a href="http://www.apple.com/">http://www.apple.com/</a>) in California that makes a very ambitions music device :)
-This was a very difficult decision because I&rsquo;ll be leaving a group of individuals
-(<a href="http://www.brmethod.com/">http://www.brmethod.com/</a>) that I have an enormous amount of respect and
-admiration for.</p>
-<p>This insainly fast pace industry that we casually call The Web is actually a
-very small community of extraordinary human beings. We&rsquo;re infected with
-curiosity and rely heavily on one another for direction and friendship. I will
-miss the Method team but I&rsquo;ll always be available to them as a friend and
-colleague.</p>
+        <p>You probably haven&rsquo;t noticed but the past month has been particularly challenging for me. If you&rsquo;re a close friend then it was probably apparent in the way I cheaply disguise my emotions. It&rsquo;s not easy to look back at two years of progress in advertising and realize all along you may have stumbled into the wrong cocktail party. Once this realization occurs it creeps into all your thoughts and emotions to the point where you can no longer function until a change is made.</p>
+<p>I can finally say a change has been made. A weight has been lifted only to be replaced by reluctant excitement. August will mark my departure from advertising. I&rsquo;ve never felt comfortable in advertising and while I understand its purpose I struggle with its effects. So in the midst of my search for a new direction I discovered an opportunity to fill a void with an exciting group of individuals.</p>
+<p>If your not familiar with the Kansas/Missouri area you may know them for their origination of an exciting <a href="http://www.python.org/">Python</a> framework called <a href="http://www.djangoproject.com/">Django</a>. If your in the business of journalism you may recognize them as pioneers of an online publishing tool, <a href="http://www.ellingtoncms.com/">Ellington</a>. Or if you&rsquo;re familiar with the area you can identify them by their care of <a href="http://www.lawrence.com/">Lawrence.com</a>, <a href="http://www.ljworld.com/">LJWorld.com</a>, and <a href="http://www.kusports.com/">KUSports.com</a>. They call themselves World Online and what better place to be with a name like that than in the center of the country, Lawrence, Kansas.</p>
+<p>I&rsquo;ll be doing the impossible task of filling the shoes of <a href="http://www.wilsonminer.com/">Wilson Miner</a> who has moved on to some <a href="http://www.apple.com/">small company</a> in California that makes a very ambitions music device :) This was a very difficult decision because I&rsquo;ll be leaving a group of <a href="http://www.brmethod.com/">individuals</a> that I have an enormous amount of respect and admiration for.</p>
+<p>This insanely fast pace industry that we casually call The Web is actually a very small community of extraordinary human beings. We&rsquo;re infected with curiosity and rely heavily on one another for direction and friendship. I will miss the Method team but I&rsquo;ll always be available to them as a friend and colleague.</p>
 <p>A page has been turned. It&rsquo;s blank and ready to be filled with a new chapter.</p>
 ]]></content></entry><entry><title>It's Time To Behave</title><link rel="related" type="text/html" href="https://nathan.run/2006/its-time-to-behave/"/><published>2006-07-10T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2006/its-time-to-behave/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>We are all hypocrites, every damn one of us. Well, actually, just those that are
@@ -134,30 +87,12 @@ group of dedicated patriots. Our achievements should show us nothing less than
 anything is possible if we clear our hearts, our minds and choose to step
 forward. 5, 4, 3, 2, 1, is all it takes.</p>
 ]]></content></entry><entry><title>Django Gotchas</title><link rel="related" type="text/html" href="https://nathan.run/2006/django-gotchas/"/><published>2006-06-30T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2006/django-gotchas/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
-        <p>One of the biggest hurdles in learning any new framework or programming language
-is learning its quirks. By quirks I don&rsquo;t mean bugs, I&rsquo;m referring to the
-personality and flow. Here are a few that might help your troubleshooting process:</p>
-<p>I get an error when I run syncdb. This could be a number of things. If its an
-error in the model you should be able to tell. Most of the time for me was
-forgetting to add the project to the <code>settings.py</code> INSTALLED_APPS
-(<a href="http://www.djangoproject.com/documentation/settings/#installed-apps">http://www.djangoproject.com/documentation/settings/#installed-apps</a>) list.</p>
-<p>I created a templatetag but Django is saying the file doesn&rsquo;t exist. First make
-sure you have loaded the template tag
-(<a href="http://www.djangoproject.com/documentation/templates_python/#extending-the-template-system)">http://www.djangoproject.com/documentation/templates_python/#extending-the-template-system)</a>,
-(i.e. <code>{% load latestposts %}</code>). Second, and this one gets me every time, make
-sure you added the <code>__init__.py</code> file to the newly created directory. This file
-must be present in directories that contain python scripts.</p>
-<p>How do I access the children of a many-to-one or many-to-many relationship within
-the template? This puzzled me for a while. I&rsquo;m accustomed to saying
-<code>post.categories</code> but in Django you must say <code>post.categories_set.all</code>. Referenced
-here (<a href="http://www.djangoproject.com/documentation/db_api/#related-objects)">http://www.djangoproject.com/documentation/db_api/#related-objects)</a>.</p>
-<p>I just added my database from my model but I keep getting a 404 error when I try
-to view the template. This drove me crazy and people will probably laugh. If you
-forget to enter data into the newly formed table Django will throw a Page Not
-Found error until you enter your first record of data. It&rsquo;s always the small
-things.</p>
-<p>I hope these are somewhat helpful. If you have any to add to the list feel free
-to post a comment.</p>
+        <p>One of the biggest hurdles in learning any new framework or programming language is learning its quirks. By quirks I don&rsquo;t mean bugs, I&rsquo;m referring to the personality and flow. Here are a few that might help your troubleshooting process:</p>
+<p>I get an error when I run syncdb. This could be a number of things. If its an error in the model you should be able to tell. Most of the time for me was forgetting to add the project to the <code>settings.py</code> <a href="http://www.djangoproject.com/documentation/settings/#installed-apps">INSTALLED_APPS</a> list.</p>
+<p>I created a templatetag but Django is saying the file doesn&rsquo;t exist. First make sure you have loaded the <a href="http://www.djangoproject.com/documentation/templates_python/#extending-the-template-system">template tag</a>, (i.e. <code>{% load latestposts %}</code>). Second, and this one gets me every time, make sure you added the <code>__init__.py</code> file to the newly created directory. This file must be present in directories that contain python scripts.</p>
+<p>How do I access the children of a many-to-one or many-to-many relationship within the template? This puzzled me for a while. I&rsquo;m accustomed to saying <code>post.categories</code> but in Django you must say <code>post.categories_set.all</code>. Referenced <a href="http://www.djangoproject.com/documentation/db_api/#related-objects">here</a>.</p>
+<p>I just added my database from my model but I keep getting a 404 error when I try to view the template. This drove me crazy and people will probably laugh. If you forget to enter data into the newly formed table Django will throw a Page Not Found error until you enter your first record of data. It&rsquo;s always the small things.</p>
+<p>I hope these are somewhat helpful. If you have any to add to the list feel free to post a comment.</p>
 ]]></content></entry><entry><title>80x80</title><link rel="related" type="text/html" href="https://nathan.run/2006/80x80/"/><published>2006-06-26T00:00:00-0800</published><author><name>Nathan Borror</name><uri>https://nathan.run</uri></author><id>https://nathan.run/2006/80x80/</id><content type="html" xml:base="https://nathan.run/" xml:lang="en"><![CDATA[
         <p>I said Friday but I meant Monday. Sometimes things take longer but in my case I just wanted to compete for attention the same day <a href="http://www.digg.com">Digg 3</a> launched. All amusement aside I&rsquo;d like to take the plastic wrap off my new site that I&rsquo;ve dubbed 80x80.</p>
 <p>It&rsquo;s been a long time coming and I&rsquo;ve finally got something I&rsquo;m proud of. She&rsquo;s still stretching herself out so if you notice any kinks let me know and I&rsquo;ll call the masseuse. You&rsquo;ll see the <a href="/tools">Lab</a> grow soon into a dumping ground for prototypes and ideas. To keep things lively the artwork above will change as frequently as possible. You may notice the death of my tags, sorry, I opted for a clear set of categories. <a href="/work">Portfolio</a> is simple and should provide a glimpse of my contributions. <a href="/work">Resume</a> is, well, a resume.</p>

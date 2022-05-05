@@ -271,11 +271,33 @@ img {
 }
 
 blockquote {
-    padding: 20px 0;
-    border-top: 1px solid var(--system-light-red);
-    border-bottom: 1px solid var(--system-light-red);
-    color: var(--system-dark-red);
+    position: relative;
+    padding: 20px;
+    background-color: var(--system-light-yellow);
+    color: var(--system-dark-yellow);
     font-style: italic;
+    overflow: hidden;
+}
+
+blockquote::after {
+    position: absolute;
+    content: "";
+    right: -20px;
+    bottom: -20px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--system-white);
+    transform: rotate(45deg);
+}
+
+blockquote::before {
+    position: absolute;
+    content: "";
+    right: -12px;
+    bottom: -12px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--system-yellow);
 }
 
 blockquote *:first-child {
