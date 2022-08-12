@@ -8,7 +8,6 @@
 
     body {
         grid-template-columns: minmax(0, 1fr) 150px;
-        margin: 50px;
     }
 
     aside {
@@ -61,7 +60,7 @@
             "main main"
             "footer footer"
             "aside aside";
-        margin: 0 40px;
+        padding: 20px;
     }
 
     aside {
@@ -108,7 +107,7 @@
 
 @media screen and (prefers-color-scheme: dark) {
     :root {
-        --system-black: #F7F5F2;
+        --system-black: #FFF;
         --system-white: rgba(0, 0, 0, 0.9);
         --system-light-red: var(--system-dark-red);
         --system-light-yellow: var(--system-dark-yellow);

@@ -36,7 +36,7 @@
     --mono-size: var(--caption-size);
     --mono-line-height: var(--caption-line-height);
 
-    --system-white: #F7F5F2;
+    --system-white: #FFF;
     --system-black: rgba(0, 0, 0, 0.85);
     --system-gray: #888888;
     --system-red: #F26F42;
@@ -73,7 +73,7 @@ body {
         "main aside"
         "footer footer";
     margin: 50px auto;
-    padding-top: 50px;
+    padding: 50px;
     max-width: var(--max-width);
     font-family: var(--font-family);
     font-size: var(--body-size);
