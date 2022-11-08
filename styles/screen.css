@@ -2,32 +2,32 @@
 @import url("/styles/reset.css") only screen;
 
 :root {
-    --margin: 34px;
+    --margin: 17px;
     --max-width: 1024px;
     --aside-width: 300px;
 
     --font-family: 'Inter', -apple-system, sans-serif;
     --font-feature-settings: "ss01", "zero", "frac", "cv05", "cv11";
 
-    --body-size: 20px;
-    --body-line-height: 28px;
-    --body-letter-spacing: -0.017em;
+    --body-size: 17px;
+    --body-line-height: 24px;
+    --body-letter-spacing: -0.013em;
     --body-weight: 400;
 
-    --title-size: 40px;
-    --title-line-height: 56px;
+    --title-size: 24px;
+    --title-line-height: 34px;
     --title-weight: 700;
-    --title-letter-spacing: -0.022em;
+    --title-letter-spacing: -0.019em;
 
-    --header-size: 30px;
-    --header-line-height: 42px;
+    --header-size: 24px;
+    --header-line-height: 34px;
     --header-weight: 400;
-    --header-letter-spacing: -0.021em;
+    --header-letter-spacing: -0.019em;
 
-    --caption-size: 18px;
-    --caption-line-height: 25px;
+    --caption-size: 15px;
+    --caption-line-height: 21px;
     --caption-weight: var(--body-weight);
-    --caption-letter-spacing: -0.014em;
+    --caption-letter-spacing: -0.009em;
     --caption-opacity: 0.35;
 
     --strong-weight: 700;
@@ -115,18 +115,6 @@ aside {
 
 aside ul li::before {
     display: none;
-}
-
-aside a {
-    font-weight: 700;
-    text-decoration: none;
-    color: var(--system-black);
-    opacity: var(--caption-opacity);
-}
-
-aside a:hover {
-    text-decoration: none;
-    opacity: 1;
 }
 
 article {
@@ -240,8 +228,8 @@ h3 a {
 
 a {
     text-decoration: underline;
-    text-decoration-thickness: 3px;
-    text-decoration-color: var(--system-light-gray);
+    text-decoration-thickness: 1.5px;
+    text-decoration-color: var(--system-black);
 }
 
 a:hover {
@@ -587,90 +575,4 @@ figcaption a {
 
 .pagination .page-item a[aria-label=Last]:after {
     content: "⇒";
-}
-
-/* Custom */
-/* ------------------------------------------------------------------ */
-
-body.work {
-    background: var(--system-light-red);
-}
-
-body.work header h1 {
-    color: var(--system-red);
-}
-
-body.work a {
-    text-decoration-color: var(--system-red);
-}
-
-body.work aside a {
-    color: var(--system-red);
-    opacity: 1;
-}
-
-body.posts {
-    background: var(--system-light-yellow);
-}
-
-body.posts header h1 {
-    color: var(--system-yellow);
-}
-
-body.posts a {
-    text-decoration-color: var(--system-yellow);
-}
-
-body.posts aside a {
-    color: var(--system-yellow);
-    opacity: 1;
-}
-
-body.tools {
-    background: var(--system-light-green);
-}
-
-body.tools header h1 {
-    color: var(--system-green);
-}
-
-body.tools a {
-    text-decoration-color: var(--system-green);
-}
-
-body.tools aside a {
-    color: var(--system-green);
-    opacity: 1;
-}
-
-body.interests {
-    background: var(--system-light-blue);
-}
-
-body.interests header h1 {
-    color: var(--system-blue);
-}
-
-body.interests a {
-    text-decoration-color: var(--system-blue);
-}
-
-body.interests aside a {
-    color: var(--system-blue);
-    opacity: 1;
-}
-
-body.work aside a:hover,
-body.posts aside a:hover,
-body.tools aside a:hover,
-body.interests aside a:hover {
-    color: var(--system-black);
-}
-
-body.work li::before,
-body.tools li::before,
-body.posts li::before,
-body.interests li::before {
-    color: var(--system-white);
-    opacity: 0.5;
 }
