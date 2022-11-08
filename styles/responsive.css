@@ -108,7 +108,7 @@
 @media screen and (prefers-color-scheme: dark) {
     :root {
         --system-black: #FFF;
-        --system-white: rgba(0, 0, 0, 0.9);
+        --system-white: #000;
         --system-light-red: var(--system-dark-red);
         --system-light-yellow: var(--system-dark-yellow);
         --system-light-green: var(--system-dark-green);

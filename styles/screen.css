@@ -37,7 +37,7 @@
     --mono-line-height: var(--caption-line-height);
 
     --system-white: #FFF;
-    --system-black: rgba(0, 0, 0, 0.85);
+    --system-black: #000;
     --system-gray: #888888;
     --system-red: #F26F42;
     --system-yellow: #F2C53D;
