@@ -23,24 +23,17 @@ The first thing we need to understand is how Multipart Form requests should be s
 <header>
 <h1>Sending Multipart Forms with Objective-C</h1>
 <h2>Wednesday, September 12, 2012</h2>
+Tags:
+<a href=https://nathan.run/tags/apple/>apple</a>, <a href=https://nathan.run/tags/programming/>programming</a>, <a href=https://nathan.run/tags/objc/>objc</a>
 </header>
 <main>
 <article>
-<p>It took me a few evenings to figure this out so I&rsquo;m writing a quick explanation
-based on what I&rsquo;ve found to work. My use-case is pretty simple, I want to POST
-some data to a form on a server from an iOS app I&rsquo;m building. I&rsquo;ll be using
-NSURLRequest to build the request object and NSURLConnection to make the actual
-connection to the server.</p>
-<p>The first thing we need to understand is how Multipart Form requests should be
-structured. The <a href=http://www.w3.org/Protocols/rfc1341/7_2_Multipart.html>spec document</a>
-explains these in detail so I&rsquo;m just going to show at a high level how this is
-structured. To get started lets create an NSMutableURLRequest:</p>
+<p>It took me a few evenings to figure this out so I&rsquo;m writing a quick explanation based on what I&rsquo;ve found to work. My use-case is pretty simple, I want to POST some data to a form on a server from an iOS app I&rsquo;m building. I&rsquo;ll be using NSURLRequest to build the request object and NSURLConnection to make the actual connection to the server.</p>
+<p>The first thing we need to understand is how Multipart Form requests should be structured. The <a href=http://www.w3.org/Protocols/rfc1341/7_2_Multipart.html>spec document</a> explains these in detail so I&rsquo;m just going to show at a high level how this is structured. To get started lets create an NSMutableURLRequest:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-objc data-lang=objc>NSURL <span style=color:#f92672>*</span>url <span style=color:#f92672>=</span> [NSURL URLWithString:<span style=color:#e6db74>@&#34;http://example.com/form/&#34;</span>];
 NSMutableURLRequest <span style=color:#f92672>*</span>request <span style=color:#f92672>=</span> [NSMutableURLRequest requestWithURL:url];
 [request setHTTPMethod:<span style=color:#e6db74>@&#34;POST&#34;</span>];
-</code></pre></div><p>Now we need to define the content-type and a boundary string. I&rsquo;m not really
-sure what a boundary string is, it just needs to be consistently represented
-throughout the request.</p>
+</code></pre></div><p>Now we need to define the content-type and a boundary string. I&rsquo;m not really sure what a boundary string is, it just needs to be consistently represented throughout the request.</p>
 <pre tabindex=0><code>Content-Type: multipart/form-data; boundary=YOUR_BOUNDARY_STRING
 </code></pre><p>To do this in objective-c we need to write the following:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-objc data-lang=objc>NSURL <span style=color:#f92672>*</span>url <span style=color:#f92672>=</span> [NSURL URLWithString:<span style=color:#e6db74>@&#34;http://example.com/form/&#34;</span>];
@@ -50,8 +43,7 @@ NSMutableURLRequest <span style=color:#f92672>*</span>request <span style=color:
 NSString <span style=color:#f92672>*</span>boundary <span style=color:#f92672>=</span> <span style=color:#e6db74>@&#34;YOUR_BOUNDARY_STRING&#34;</span>;
 NSString <span style=color:#f92672>*</span>contentType <span style=color:#f92672>=</span> [NSString stringWithFormat:<span style=color:#e6db74>@&#34;multipart/form-data; boundary=%@&#34;</span>, boundary];
 [request addValue:contentType forHTTPHeaderField:<span style=color:#e6db74>@&#34;Content-Type&#34;</span>];
-</code></pre></div><p>Now let&rsquo;s get look at the request body. Here&rsquo;s a simple example of how it needs
-to look to the server:</p>
+</code></pre></div><p>Now let&rsquo;s get look at the request body. Here&rsquo;s a simple example of how it needs to look to the server:</p>
 <pre tabindex=0><code>--YOUR_BOUNDARY_STRING
 Content-Disposition: form-data; name=&quot;photo&quot;; filename=&quot;calm.jpg&quot;
 Content-Type: image/jpeg
@@ -66,10 +58,7 @@ Content-Disposition: form-data; name=&quot;user&quot;
 
 1
 --YOUR_BOUNDARY_STRING
-</code></pre><p>I&rsquo;m sending over three variables: an image named photo, a string named message,
-and an integer named user. It&rsquo;s important to note the linebreaks and the dashes
-before the boundary string. These must be included in order to build a good
-request. Now lets write some objective-c:</p>
+</code></pre><p>I&rsquo;m sending over three variables: an image named photo, a string named message, and an integer named user. It&rsquo;s important to note the linebreaks and the dashes before the boundary string. These must be included in order to build a good request. Now lets write some objective-c:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-objc data-lang=objc>NSString <span style=color:#f92672>*</span>boundary <span style=color:#f92672>=</span> <span style=color:#e6db74>@&#34;YOUR_BOUNDARY_STRING&#34;</span>;
 NSString <span style=color:#f92672>*</span>contentType <span style=color:#f92672>=</span> [NSString stringWithFormat:<span style=color:#e6db74>@&#34;multipart/form-data; boundary=%@&#34;</span>, boundary];
 [request addValue:contentType forHTTPHeaderField:<span style=color:#e6db74>@&#34;Content-Type&#34;</span>];
@@ -97,12 +86,12 @@ NSURLResponse <span style=color:#f92672>*</span>response;
 NSError <span style=color:#f92672>*</span>error;
 
 [NSURLConnection sendSynchronousRequest:request returningResponse:<span style=color:#f92672>&amp;</span>response error:<span style=color:#f92672>&amp;</span>error];
-</code></pre></div><p>That&rsquo;s it. A more detailed explanation of the request formatting can be found
-<a href=http://www.w3.org/Protocols/rfc1341/7_2_Multipart.html>here</a>.</p>
-<p>If you&rsquo;re curious, I&rsquo;m posting to a Django app I was running locally so I could
-use <a href=http://pypi.python.org/pypi/ipdb>ipdb</a> and <a href=http://ipython.org>iPython</a> to inspect the process and see what my app was
-posting. Then I compared that to a post request generated by a testcase I knew
-worked.</p>
+</code></pre></div><p>That&rsquo;s it. A more detailed explanation of the request formatting can be found <a href=http://www.w3.org/Protocols/rfc1341/7_2_Multipart.html>here</a>.</p>
+<p>If you&rsquo;re curious, I&rsquo;m posting to a Django app I was running locally so I could use <a href=http://pypi.python.org/pypi/ipdb>ipdb</a> and <a href=http://ipython.org>iPython</a> to inspect the process and see what my app was posting. Then I compared that to a post request generated by a testcase I knew worked.</p>
+<ul class=pivots>
+<li><a class=previous href=https://nathan.run/2012/getting-started-with-mqtt/>← Getting Started with MQTT</a></li>
+<li><a class=next href=https://nathan.run/2012/setting-up-apple-push-notifications/>Setting up Apple Push Notifications →</a></li>
+</ul>
 </article>
 </main>
 <aside>
@@ -110,13 +99,14 @@ worked.</p>
 <ul>
 <li><a href=https://nathan.run/work>Work</a></li>
 <li><a href=https://nathan.run/posts>Posts</a></li>
+<li><a href=https://nathan.run/log>Log</a></li>
 </ul>
 <h4><a href=https://nathan.run/tools>Tools</a></h4>
 <ul>
-<li><a href>Steady</a></li>
-<li><a href>Readernaut</a></li>
-<li><a href>Podster</a></li>
-<li><a href>Logger</a></li>
+<li><a href=https://nathan.run/tools/steady>Steady</a></li>
+<li><a href=https://nathan.run/tools/readernaut>Readernaut</a></li>
+<li><a href=https://nathan.run/tools/podster>Podster</a></li>
+<li><a href=https://nathan.run/tools/logger>Logger</a></li>
 </ul>
 <h4><a href=https://nathan.run/interests>Interests</a></h4>
 <ul>

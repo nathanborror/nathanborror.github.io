@@ -22,18 +22,13 @@
 <header>
 <h1>Setting up Apple Push Notifications</h1>
 <h2>Saturday, September 15, 2012</h2>
+Tags:
+<a href=https://nathan.run/tags/apple/>apple</a>, <a href=https://nathan.run/tags/programming/>programming</a>, <a href=https://nathan.run/tags/python/>python</a>, <a href=https://nathan.run/tags/objc/>objc</a>
 </header>
 <main>
 <article>
-<p>While trying to figure this out I came across <a href=http://www.raywenderlich.com/3443/apple-push-notification-services-tutorial-part-12>a great article by Matthijs
-Hollemans</a>. I suggest following it if you&rsquo;re interested in an in-depth tutorial. What
-follows is a more concise version of that article and instead of using PHP I&rsquo;m
-using a variant of <a href=http://www.cktsoi.com/2012/02/sending-apple-push-notification-in-python/>Jacky Tsoi&rsquo;s Python script</a>.
-This is pretty tedious and there are a lot of steps you have to get right in
-order for this to work properly so hang in there.</p>
-<p>You&rsquo;re going to need an iOS device, testing pushes cannot be done in the
-simulator. You&rsquo;ll also need an iOS Developer Program membership and eventually a
-server but for our purposes we&rsquo;ll just be using your local machine.</p>
+<p>While trying to figure this out I came across <a href=http://www.raywenderlich.com/3443/apple-push-notification-services-tutorial-part-12>a great article by Matthijs Hollemans</a>. I suggest following it if you&rsquo;re interested in an in-depth tutorial. What follows is a more concise version of that article and instead of using PHP I&rsquo;m using a variant of <a href=http://www.cktsoi.com/2012/02/sending-apple-push-notification-in-python/>Jacky Tsoi&rsquo;s Python script</a>. This is pretty tedious and there are a lot of steps you have to get right in order for this to work properly so hang in there.</p>
+<p>You&rsquo;re going to need an iOS device, testing pushes cannot be done in the simulator. You&rsquo;ll also need an iOS Developer Program membership and eventually a server but for our purposes we&rsquo;ll just be using your local machine.</p>
 <p>Payload: Pushes are just JSON sent from a server, a simple example looks like this:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
   <span style=color:#f92672>&#34;aps&#34;</span>: {
@@ -42,45 +37,30 @@ server but for our purposes we&rsquo;ll just be using your local machine.</p>
     <span style=color:#f92672>&#34;badge&#34;</span>: <span style=color:#ae81ff>1</span>
   }
 }
-</code></pre></div><p>The max size of a push is 256 bytes so don&rsquo;t get carried away—it&rsquo;s good to
-remove all whitespace if you can.</p>
+</code></pre></div><p>The max size of a push is 256 bytes so don&rsquo;t get carried away—it&rsquo;s good to remove all whitespace if you can.</p>
 <h3 id=generate-a-certificate-signing-request>Generate a Certificate Signing Request</h3>
 <ol>
-<li>Open Keychain and navigate to Keychain Access > Certificate Assistant >
-Request a Certificate From a Certificate Authority</li>
-<li>Enter your Email, a Common Name &ldquo;PushNotifs&rdquo; (this can be anything you want),
-and check Saved to disk</li>
+<li>Open Keychain and navigate to Keychain Access > Certificate Assistant > Request a Certificate From a Certificate Authority</li>
+<li>Enter your Email, a Common Name &ldquo;PushNotifs&rdquo; (this can be anything you want), and check Saved to disk</li>
 <li>Click Continue and name the file &ldquo;PushNotifs.certSigningRequest&rdquo;</li>
-<li>Find &ldquo;PushNotifs&rdquo; in the Keys section of Keychain, right click on the private
-key and choose Export</li>
+<li>Find &ldquo;PushNotifs&rdquo; in the Keys section of Keychain, right click on the private key and choose Export</li>
 <li>Save the private key as PushNotifsKey.p12 and choose a good passphrase</li>
 </ol>
 <h3 id=app-id-and-ssl-certificate>App ID and SSL Certificate</h3>
-<p>We need an App ID and SSL certificate from <a href=https://developer.apple.com/ios/manage/overview/index.action>Apple&rsquo;s iOS Provisioning Portal</a>.
-Each push app needs its own App ID, you cannot use a wildcard ID.</p>
+<p>We need an App ID and SSL certificate from <a href=https://developer.apple.com/ios/manage/overview/index.action>Apple&rsquo;s iOS Provisioning Portal</a>. Each push app needs its own App ID, you cannot use a wildcard ID.</p>
 <ol>
-<li>Click App IDs in the iOS Provisioning Portal sidebar and click the New App
-ID button</li>
-<li>Enter &ldquo;PushNotifs&rdquo; as the description and &ldquo;com.nathanborror.PushNotifs&rdquo; as
-the Bundle Identifier (replace &lsquo;nathanborro&rsquo; with something more appropriate
-for yourself)</li>
-<li>After clicking Submit click configure next to the App ID we just made on the
-resulting screen</li>
-<li>Check &ldquo;Enable for Apple Push Notification service&rdquo; and click configure for
-&ldquo;Development Push SSL Certificate&rdquo;</li>
-<li>This first screen walks you through how to generate a Certificate Signing
-Request which we already did so you can click Continue</li>
-<li>On the next screen add the certificate we made earlier,
-&ldquo;PushLook.certSigningRequest&rdquo; and click Generate</li>
+<li>Click App IDs in the iOS Provisioning Portal sidebar and click the New App ID button</li>
+<li>Enter &ldquo;PushNotifs&rdquo; as the description and &ldquo;com.nathanborror.PushNotifs&rdquo; as the Bundle Identifier (replace &lsquo;nathanborro&rsquo; with something more appropriate for yourself)</li>
+<li>After clicking Submit click configure next to the App ID we just made on the resulting screen</li>
+<li>Check &ldquo;Enable for Apple Push Notification service&rdquo; and click configure for &ldquo;Development Push SSL Certificate&rdquo;</li>
+<li>This first screen walks you through how to generate a Certificate Signing Request which we already did so you can click Continue</li>
+<li>On the next screen add the certificate we made earlier, &ldquo;PushLook.certSigningRequest&rdquo; and click Generate</li>
 <li>Wait for Apple to generate the SSL certificate then click Continue.</li>
 <li>Download the certificate and click Done</li>
 </ol>
-<p>Keep these three files in a safe place. Development certificates are ephemeral
-so you&rsquo;ll need to renew them every three months. Production certs last a year.</p>
+<p>Keep these three files in a safe place. Development certificates are ephemeral so you&rsquo;ll need to renew them every three months. Production certs last a year.</p>
 <h3 id=ssl-pem-creation>SSL .pem Creation</h3>
-<p>We need to create a .pem file to be used on our server. Using Terminal navigate
-to the folder with these three files in it and convert the .cer file to a .pem
-file:</p>
+<p>We need to create a .pem file to be used on our server. Using Terminal navigate to the folder with these three files in it and convert the .cer file to a .pem file:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ openssl x509 -in aps_developer_identity.cer -inform DER -out PushNotifsCert.pem -outform PEM
 
 <span style=color:#75715e># Now convert your private key to a .pem file:</span>
@@ -91,20 +71,11 @@ $ cat PushNotifsCert.pem PushNotifsKey.pem &gt; ck.pem
 
 <span style=color:#75715e># To test the connection</span>
 $ openssl s_client -connect gateway.sandbox.push.apple.com:2195 -cert PushNotifsCert.pem -key PushNotifsKey.pem
-</code></pre></div><p>You should see some output and be able to type a few characters, press enter and
-the server should disconnect. Openssl will let you know if there was a problem
-connecting.</p>
+</code></pre></div><p>You should see some output and be able to type a few characters, press enter and the server should disconnect. Openssl will let you know if there was a problem connecting.</p>
 <h3 id=provisioning-profile>Provisioning Profile</h3>
-<p>Head back to Apple&rsquo;s Provisioning Portal, click Provisioning in the sidebar then
-click New Profile. I chose &ldquo;PushNotifs Development&rdquo; as my Profile Name, check
-your certificate, choose the App ID we just created, then choose the devices you
-plan to develop with. Refresh the page until you see a Download button next to
-the profile we just made and click it. Open the downloaded file so it gets added
-to Xcode.</p>
+<p>Head back to Apple&rsquo;s Provisioning Portal, click Provisioning in the sidebar then click New Profile. I chose &ldquo;PushNotifs Development&rdquo; as my Profile Name, check your certificate, choose the App ID we just created, then choose the devices you plan to develop with. Refresh the page until you see a Download button next to the profile we just made and click it. Open the downloaded file so it gets added to Xcode.</p>
 <h3 id=basic-push-app>Basic Push App</h3>
-<p>Start a new project in Xcode, pick the Empty Application template and name it
-PushNotifs (or whatever you named your App ID earlier, they should match up). in
-AppDelegate.m add the following:</p>
+<p>Start a new project in Xcode, pick the Empty Application template and name it PushNotifs (or whatever you named your App ID earlier, they should match up). in AppDelegate.m add the following:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-objc data-lang=objc>- (<span style=color:#66d9ef>BOOL</span>)<span style=color:#a6e22e>application:</span>(UIApplication <span style=color:#f92672>*</span>)application <span style=color:#a6e22e>didFinishLaunchingWithOptions:</span>(NSDictionary <span style=color:#f92672>*</span>)launchOptions {
     self.window <span style=color:#f92672>=</span> [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     <span style=color:#75715e>// Override point for customization after application launch.
@@ -116,10 +87,7 @@ AppDelegate.m add the following:</p>
 
     UIRemoteNotificationTypeAlert YES;
 }
-</code></pre></div><p>Now try building and running. It won&rsquo;t work in the simulator because it doesn&rsquo;t
-support push so you&rsquo;ll need to run this on a device. You should get an alert
-asking you to allow push notifications. Before we move on add the following to
-AppDelegate.m:</p>
+</code></pre></div><p>Now try building and running. It won&rsquo;t work in the simulator because it doesn&rsquo;t support push so you&rsquo;ll need to run this on a device. You should get an alert asking you to allow push notifications. Before we move on add the following to AppDelegate.m:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-objc data-lang=objc>- (<span style=color:#66d9ef>void</span>)<span style=color:#a6e22e>application:</span>(UIApplication <span style=color:#f92672>*</span>)application <span style=color:#a6e22e>didRegisterForRemoteNotificationsWithDeviceToken:</span>(NSData <span style=color:#f92672>*</span>)deviceToken {
     NSLog(<span style=color:#e6db74>@&#34;Token: %@&#34;</span>, deviceToken);
 }
@@ -127,13 +95,9 @@ AppDelegate.m:</p>
 - (<span style=color:#66d9ef>void</span>)<span style=color:#a6e22e>application:</span>(UIApplication <span style=color:#f92672>*</span>)application <span style=color:#a6e22e>didFailToRegisterForRemoteNotificationsWithError:</span>(NSError <span style=color:#f92672>*</span>)error {
     NSLog(<span style=color:#e6db74>@&#34;Failed to aquire push token. Error: %@&#34;</span>, [error localizedDescription]);
 }
-</code></pre></div><p>Now when you run this you should see a device token in the debug output. Keep
-this handy for the next portion.</p>
+</code></pre></div><p>Now when you run this you should see a device token in the debug output. Keep this handy for the next portion.</p>
 <h3 id=server-side>Server Side</h3>
-<p>Now we need a simple script we can use on our server that connects to APN and
-sends push notifications for us. I&rsquo;m going to use Python for this but you can
-use whatever you want. Create a new file called push.py in the same directory
-you put the ck.pem file we created earlier and write the following:</p>
+<p>Now we need a simple script we can use on our server that connects to APN and sends push notifications for us. I&rsquo;m going to use Python for this but you can use whatever you want. Create a new file called push.py in the same directory you put the ck.pem file we created earlier and write the following:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>#!/usr/bin/env python</span>
 
 <span style=color:#f92672>import</span> ssl
@@ -172,8 +136,11 @@ PAYLOAD <span style=color:#f92672>=</span> {
 <span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
   send_push(TOKEN, json<span style=color:#f92672>.</span>dumps(PAYLOAD))
 </code></pre></div><p>Now you should be able to run: <code>$ python push.py</code></p>
-<p>Enter your pass phrase and you should receive a push notification on your device.
-If you would like to remove the pass-phrase you can do so by running: <code>openssl rsa -in PushNotifsKey.pem -out PushNotifsKey.pem</code></p>
+<p>Enter your pass phrase and you should receive a push notification on your device. If you would like to remove the pass-phrase you can do so by running: <code>openssl rsa -in PushNotifsKey.pem -out PushNotifsKey.pem</code></p>
+<ul class=pivots>
+<li><a class=previous href=https://nathan.run/2012/sending-multipart-forms-with-objective-c/>← Sending Multipart Forms with Objective-C</a></li>
+<li><a class=next href=https://nathan.run/2012/ghetto-facebook-registration-with-django/>Ghetto Facebook Registration with Django →</a></li>
+</ul>
 </article>
 </main>
 <aside>
@@ -181,13 +148,14 @@ If you would like to remove the pass-phrase you can do so by running: <code>open
 <ul>
 <li><a href=https://nathan.run/work>Work</a></li>
 <li><a href=https://nathan.run/posts>Posts</a></li>
+<li><a href=https://nathan.run/log>Log</a></li>
 </ul>
 <h4><a href=https://nathan.run/tools>Tools</a></h4>
 <ul>
-<li><a href>Steady</a></li>
-<li><a href>Readernaut</a></li>
-<li><a href>Podster</a></li>
-<li><a href>Logger</a></li>
+<li><a href=https://nathan.run/tools/steady>Steady</a></li>
+<li><a href=https://nathan.run/tools/readernaut>Readernaut</a></li>
+<li><a href=https://nathan.run/tools/podster>Podster</a></li>
+<li><a href=https://nathan.run/tools/logger>Logger</a></li>
 </ul>
 <h4><a href=https://nathan.run/interests>Interests</a></h4>
 <ul>

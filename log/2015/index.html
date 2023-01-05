@@ -1,0 +1,315 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<title>2015</title>
+<meta name=description content="Nathan Borror is a generalist with over twenty years experience designing and building software at Facebook, Dropbox and for the open source community in Northern California.">
+<meta name=google-site-verification content="i4sGwkgg8BSJpZ7YlCqBXlRRO8xyHBO7whPUtJ51Xoc">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta property="og:title" content="2015">
+<meta property="og:description" content="13 December — Cool demo, not convinced AR is the right direction here. Framing objects with your phone&rsquo;s camera while trying to interact with the screen is pretty awkward but I really like the idea of tying together disparate I/O.
+23 November — Listening to Stephen Hawking and Leonard Mlodinow&rsquo;s The Grand Design:
+ Economics is also an effective theory, based on the notion of free will plus the assumption that people evaluate their possible alternative courses of action and choose the best.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nathan.run/log/2015/"><meta property="article:section" content="log">
+<link rel=apple-touch-icon href=https://nathan.run/images/apple-touch-icon.png>
+<link rel="shortcut icon" href=https://nathan.run/images/favicon.ico>
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/screen.css>
+<link rel=stylesheet type=text/css href=https://nathan.run/styles/responsive.css>
+<link rel=alternate type=application/atom+xml href=https://nathan.run/posts/index.xml>
+<link rel=alternate type=application/json href=https://nathan.run/posts/index.json>
+</head>
+<body>
+<header>
+<h1>2015</h1>
+</header>
+<main>
+<article>
+<p><strong>13 December</strong> — <a href=http://www.realityeditor.org>Cool demo,</a> not convinced AR is the right direction here. Framing objects with your phone&rsquo;s camera while trying to interact with the screen is pretty awkward but I really like the idea of tying together disparate I/O.</p>
+<p><strong>23 November</strong> — Listening to Stephen Hawking and Leonard Mlodinow&rsquo;s <a href=http://www.amazon.com/dp/055338466X>The Grand Design</a>:</p>
+<blockquote>
+<p>Economics is also an effective theory, based on the notion of free will plus the assumption that people evaluate their possible alternative courses of action and choose the best. That effective theory is only moderately succcessful in predicting behavior because, as we all know, decisions are often not rational, or are based on a defective analysis of the consequences of the choice. That is why the world is in such a mess.</p>
+</blockquote>
+<p><strong>10 November</strong> — Finally got my copy of <a href=http://www.gopl.io>The Go Programming Language</a> today:</p>
+<blockquote>
+<p>Simplicity requires more work at the beginning of a project to reduce an idea to its essence and more discipline over the lifetime of a project to distinguish good changes from bad or pernicious ones. With sufficient effort, a good change can be accommodated without compromising what Fred Brooks called the ‘‘conceptual integrity’’ of the design but a bad change cannot, and a pernicious change trades simplicity for its shallow cousin, convenience. Only through simplicity of design can a system remain stable, secure, and coherent as it grows.</p>
+</blockquote>
+<p><strong>10 November</strong> — Two-Way bindings between form fields and component state in React provokes too much code. Thankfully React has an addon called <a href=https://facebook.github.io/react/docs/two-way-binding-helpers.html>ReactLink</a> but it&rsquo;s a mixin which doesn&rsquo;t work with ES6 class syntax so I wrote a quick alternative. First lets look at how you&rsquo;d typically handle this:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>React</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;react&#39;</span>
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyForm</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>React</span>.<span style=color:#a6e22e>Component</span> {
+    <span style=color:#a6e22e>state</span> <span style=color:#f92672>=</span> {<span style=color:#a6e22e>title</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;&#34;</span>, <span style=color:#a6e22e>description</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;&#34;</span>}
+
+    <span style=color:#a6e22e>onTitleChange</span>(<span style=color:#a6e22e>e</span>) {
+        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>setState</span>({<span style=color:#a6e22e>title</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>target</span>.<span style=color:#a6e22e>value</span>})
+    }
+
+    <span style=color:#a6e22e>onDescriptionChange</span>(<span style=color:#a6e22e>e</span>) {
+        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>setState</span>({<span style=color:#a6e22e>description</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>target</span>.<span style=color:#a6e22e>value</span>})
+    }
+
+    <span style=color:#a6e22e>render</span>() {
+        <span style=color:#66d9ef>return</span> (
+            <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>form</span><span style=color:#f92672>&gt;</span>
+                <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>input</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text&#34;</span> <span style=color:#a6e22e>ref</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;title&#34;</span> <span style=color:#a6e22e>onChange</span><span style=color:#f92672>=</span>{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>onTitleChange</span>.<span style=color:#a6e22e>bind</span>(<span style=color:#66d9ef>this</span>)} <span style=color:#a6e22e>value</span><span style=color:#f92672>=</span>{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>state</span>.<span style=color:#a6e22e>title</span>} <span style=color:#f92672>/&gt;</span>
+                <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>input</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text&#34;</span> <span style=color:#a6e22e>ref</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;description&#34;</span> <span style=color:#a6e22e>onChange</span><span style=color:#f92672>=</span>{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>onDescriptionChange</span>.<span style=color:#a6e22e>bind</span>(<span style=color:#66d9ef>this</span>)} <span style=color:#a6e22e>value</span><span style=color:#f92672>=</span>{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>state</span>.<span style=color:#a6e22e>description</span>} <span style=color:#f92672>/&gt;</span>
+            <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/form&gt;</span>
+        )
+    }
+}
+</code></pre></div><p>Pretty straightfoward, each time an input changes it triggers an <code>onChange</code> event to update state. This can get out of hand pretty quickly as the number of input fields increases. Alternativly we could have a base class that bundles up all the change logic:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>React</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;react&#39;</span>
+
+<span style=color:#66d9ef>export</span> <span style=color:#66d9ef>default</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ReactForm</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>React</span>.<span style=color:#a6e22e>Component</span> {
+  <span style=color:#a6e22e>valueState</span>(<span style=color:#a6e22e>value</span>) {
+    <span style=color:#66d9ef>return</span> {
+      <span style=color:#a6e22e>value</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>state</span>[<span style=color:#a6e22e>value</span>],
+      <span style=color:#a6e22e>requestChange</span><span style=color:#f92672>:</span> (<span style=color:#a6e22e>newValue</span>) =&gt; {
+        <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>change</span> <span style=color:#f92672>=</span> {}
+        <span style=color:#a6e22e>change</span>[<span style=color:#a6e22e>value</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>newValue</span>
+        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>setState</span>(<span style=color:#a6e22e>change</span>)
+      }
+    }
+  }
+}
+</code></pre></div><p>I&rsquo;m using similar naming conventions ReactLink uses, but here I&rsquo;ve defined a function <code>valueState</code> that we&rsquo;ll use in the updated example below to pass into the <code>valueLink</code> React property on each input. This lets us get rid of all those onChange methods:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>ReactForm</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;form&#39;</span>
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyForm</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>ReactForm</span> {
+    <span style=color:#a6e22e>state</span> <span style=color:#f92672>=</span> {<span style=color:#a6e22e>title</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;&#34;</span>, <span style=color:#a6e22e>description</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;&#34;</span>}
+
+    <span style=color:#a6e22e>render</span>() {
+        <span style=color:#66d9ef>return</span> (
+            <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>form</span><span style=color:#f92672>&gt;</span>
+                <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>input</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text&#34;</span> <span style=color:#a6e22e>ref</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;title&#34;</span> <span style=color:#a6e22e>value</span><span style=color:#f92672>=</span>{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>valueState</span>(<span style=color:#e6db74>&#39;title&#39;</span>)} <span style=color:#f92672>/&gt;</span>
+                <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>input</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text&#34;</span> <span style=color:#a6e22e>ref</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;description&#34;</span> <span style=color:#a6e22e>valueLink</span><span style=color:#f92672>=</span>{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>valueState</span>(<span style=color:#e6db74>&#39;description&#39;</span>)} <span style=color:#f92672>/&gt;</span>
+            <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/form&gt;</span>
+        )
+    }
+}
+</code></pre></div><p><strong>2 November</strong> — For a while now I&rsquo;ve foolishly been writing the following code to update state in React components:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>state</span>.<span style=color:#a6e22e>foo</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;bar&#34;</span>
+<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>setState</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>state</span>)
+</code></pre></div><p>For simple stuff this works fine, as soon as you want to use <code>componentDidUpdate(prevProps, prevState)</code> you&rsquo;re completely hosed because you&rsquo;ve basically manipulated the <code>prevState</code> instead of passing in a new state. If I had <a href=https://facebook.github.io/react/docs/component-api.html#setstate>read the docs</a> for <code>setState</code> I would have realized it does a shallow merge when you:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>setState</span>({<span style=color:#a6e22e>foo</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;bar&#34;</span>})
+</code></pre></div><p><a href=https://youtu.be/v3rhQc666Sg>The more you know.</a></p>
+<p><strong>20 October</strong> — Reading more <a href=http://www.amazon.com/gp/product/0199678111/>Bostrom:</a></p>
+<blockquote>
+<p>In general terms, a system&rsquo;s collective intelligence is limited by the abilities of its member minds, the overheads in communicating relevant information between them, and the various distortions and inefficiencies that pervade human organizations. If communication overheads are reduced, then larger and more densely connected organizations become feasible. The same could happen if fixes are found for some of the bureaucratic deformations that warp organizational life—wasteful status games, mission creep, concealment or falsification of information, and other agency problems.</p>
+</blockquote>
+<p>New tools such as Slack and Quip are probably proving big gains for small to medium-sized team&rsquo;s collective intelligence. You could look back and argue Open Source at large wouldn&rsquo;t be where it is without mailing lists and IRC. Today it seems we&rsquo;re trying to take all we&rsquo;ve learned growing up with a more efficient medium and thrusting it torwards the world at large. &ldquo;Here! This worked great for us over the years, look what we&rsquo;ve accomplished!&rdquo;</p>
+<p><strong>19 October</strong> — Around Spring of last year I started using Go for all server-side projects. While at Dropbox as a designer I was building prototypes using Go to demonstrate new products and to support native prototypes so people could actually use the idea rather than hear folks talk about it. Not much has changed in a year, haven&rsquo;t touched Python once and I&rsquo;ve still neglected to read <a href=https://golang.org/doc/effective_go.html>Effective Go.</a> I will, however, pick up this <a href=http://www.gopl.io>new book</a> :) The community and its values have been really enjoyable.</p>
+<blockquote>
+<p>The Go project includes the language itself, its tools and standard libraries, and last but not least, a cultural agend a of radical simplicity.</p>
+</blockquote>
+<p><strong>15 October</strong> — Smart people <a href=https://youtu.be/SqEo107j-uw>talking simulation and other things</a> of interest. Related:</p>
+<blockquote>
+<p>The simulacrum is never that which conceals the truth—it is the truth which conceals that which there is none. The simulacrum is true. — <a href=http://ask.metafilter.com/106459/Is-that-EcclesiastesBaudrillard-quote-accurate>Ecclesiastes</a></p>
+</blockquote>
+<p><strong>7 October</strong> — I&rsquo;ve been playing around with <a href=https://developers.google.com/protocol-buffers/>protocol buffers</a> lately as an alternative to passing JSON between clients and servers. Below is an example for getting things up and running between a simple client written in Swift and a server written in Go. You can <a href="https://www.google.com/#q=benefits+of+protocol+buffers">google</a> the benefits.</p>
+<p>First you&rsquo;ll need Homebrew to make installing everything easier. Then you&rsquo;ll need Go and the latest version of protobuf (version 3).</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ brew install go
+$ brew install --devel protobuf
+</code></pre></div><p>Swift isn&rsquo;t supported by the main protobuf project so we need to install a plugin (I&rsquo;m also switching to the Swift 2.0 branch, this probably won&rsquo;t be necessary in the future):</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git clone git@github.com:alexeyxo/protobuf-swift.git
+$ cd protobuf-swift
+$ git checkout -b ProtoBuf3.0-Swift2.0 origin/ProtoBuf3.0-Swift2.0
+$ ./build.sh
+</code></pre></div><p>Before we start writing our server lets define the messages we&rsquo;ll be passing between our client/server. Save the following to a file called <code>hello.proto</code>:</p>
+<pre tabindex=0><code>syntax = &quot;proto3&quot;;
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string response = 1;
+}
+</code></pre><p>Using this file we can compile our protocol buffers. This will generate code for Go and Swift:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ protoc hello.proto --go_out<span style=color:#f92672>=</span>.
+$ protoc hello.proto --swift_out<span style=color:#f92672>=</span>.
+</code></pre></div><p>Now we have two files to use in their respective projects, <code>hello.pb.go</code> for the server and <code>Hello.proto.swift</code> for the client.
+Lets put them to work by creating a simple websocket relationship. I&rsquo;m going to use <a href=https://github.com/daltoniam/starscream>Starscream</a> for the Swift client and this <a href=https://godoc.org/golang.org/x/net/websocket>Go websocket</a> library.
+For the server create a <code>main.go</code> file add the following:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+
+<span style=color:#f92672>import</span> (
+    <span style=color:#e6db74>&#34;hello&#34;</span>
+    <span style=color:#e6db74>&#34;log&#34;</span>
+    <span style=color:#e6db74>&#34;net/http&#34;</span>
+    <span style=color:#e6db74>&#34;github.com/golang/protobuf/proto&#34;</span>
+    <span style=color:#e6db74>&#34;golang.org/x/net/websocket&#34;</span>
+)
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>handler</span>(<span style=color:#a6e22e>ws</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>websocket</span>.<span style=color:#a6e22e>Conn</span>) {
+    <span style=color:#66d9ef>for</span> {
+        <span style=color:#75715e>// Read the incoming bytes
+</span><span style=color:#75715e></span>        <span style=color:#a6e22e>received</span> <span style=color:#f92672>:=</span> make([]<span style=color:#66d9ef>byte</span>, <span style=color:#ae81ff>1024</span>)
+        <span style=color:#a6e22e>n</span>, <span style=color:#a6e22e>_</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>ws</span>.<span style=color:#a6e22e>Read</span>(<span style=color:#a6e22e>received</span>)
+
+        <span style=color:#75715e>// Deserialize the incoming request into a HelloRequest
+</span><span style=color:#75715e></span>        <span style=color:#75715e>// object which we originally defined in our hello.proto.
+</span><span style=color:#75715e></span>        <span style=color:#a6e22e>req</span> <span style=color:#f92672>:=</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>amp</span>;<span style=color:#a6e22e>hello</span>.<span style=color:#a6e22e>HelloRequest</span>{}
+        <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>proto</span>.<span style=color:#a6e22e>Unmarshal</span>(<span style=color:#a6e22e>received</span>[:<span style=color:#a6e22e>n</span>], <span style=color:#a6e22e>req</span>); <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+            <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#e6db74>&#34;Unmarshaling error: &#34;</span>, <span style=color:#a6e22e>err</span>)
+        }
+
+        <span style=color:#75715e>// Create a HelloReply and serialize it so we can send
+</span><span style=color:#75715e></span>        <span style=color:#75715e>// it back to the client.
+</span><span style=color:#75715e></span>        <span style=color:#a6e22e>reply</span> <span style=color:#f92672>:=</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>amp</span>;<span style=color:#a6e22e>hello</span>.<span style=color:#a6e22e>HelloReply</span>{<span style=color:#a6e22e>Response</span>: <span style=color:#e6db74>&#34;Hello, &#34;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>req</span>.<span style=color:#a6e22e>Name</span>}
+        <span style=color:#a6e22e>data</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>proto</span>.<span style=color:#a6e22e>Marshal</span>(<span style=color:#a6e22e>reply</span>)
+        <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+            <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#e6db74>&#34;Marshaling error: &#34;</span>, <span style=color:#a6e22e>err</span>)
+        }
+
+        <span style=color:#75715e>// Send the reply to the client.
+</span><span style=color:#75715e></span>        <span style=color:#a6e22e>ws</span>.<span style=color:#a6e22e>Write</span>(<span style=color:#a6e22e>data</span>)
+    }
+}
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+    <span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>Handle</span>(<span style=color:#e6db74>&#34;/&#34;</span>, <span style=color:#a6e22e>websocket</span>.<span style=color:#a6e22e>Handler</span>(<span style=color:#a6e22e>handler</span>))
+    <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>ListenAndServe</span>(<span style=color:#e6db74>&#34;:8080&#34;</span>, <span style=color:#66d9ef>nil</span>))
+}
+</code></pre></div><p>Run the following commands to get the server running:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#960050;background-color:#1e0010>$</span> <span style=color:#66d9ef>go</span> <span style=color:#a6e22e>get</span>
+<span style=color:#960050;background-color:#1e0010>$</span> <span style=color:#66d9ef>go</span> <span style=color:#a6e22e>build</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>amp</span>;<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>amp</span>; .<span style=color:#f92672>/</span><span style=color:#a6e22e>main</span>
+</code></pre></div><p>For our Swift client we&rsquo;re just going to have a single <code>UIViewController</code> with a button in the top right, when it&rsquo;s pressed it sends a single message to our server.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>UIKit</span>
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ViewController</span>: UIViewController {
+
+  <span style=color:#66d9ef>var</span> socket: WebSocket?
+
+  <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>viewDidLoad</span>() {
+    <span style=color:#66d9ef>super</span>.viewDidLoad()
+
+    <span style=color:#66d9ef>let</span> add = UIBarButtonItem(barButtonSystemItem: .Add, target: <span style=color:#66d9ef>self</span>, action: <span style=color:#e6db74>&#34;send&#34;</span>)
+    <span style=color:#66d9ef>self</span>.navigationItem.setRightBarButtonItem(add, animated: <span style=color:#66d9ef>false</span>)
+
+    <span style=color:#66d9ef>self</span>.socket = WebSocket(url: NSURL(string: <span style=color:#e6db74>&#34;ws://localhost:8080&#34;</span>)<span style=color:#f92672>!</span>)
+    <span style=color:#66d9ef>self</span>.socket?.onConnect = {
+      print(<span style=color:#e6db74>&#34;Websocket: Connected.&#34;</span>)
+    }
+    <span style=color:#66d9ef>self</span>.socket?.onDisconnect = { error <span style=color:#66d9ef>in</span>
+      print(<span style=color:#e6db74>&#34;Websocket: Disconnected (</span><span style=color:#e6db74>\(</span>error<span style=color:#e6db74>)</span><span style=color:#e6db74>) Reconnecting...&#34;</span>)
+    }
+    <span style=color:#66d9ef>self</span>.socket?.onText = { text <span style=color:#66d9ef>in</span>
+      <span style=color:#66d9ef>do</span> {
+        <span style=color:#66d9ef>let</span> reply = <span style=color:#66d9ef>try</span> HelloReply.parseFromData(text.dataUsingEncoding(NSUTF8StringEncoding)<span style=color:#f92672>!</span>)
+        print(<span style=color:#e6db74>&#34;Server: </span><span style=color:#e6db74>\(</span>reply.response<span style=color:#e6db74>)</span><span style=color:#e6db74>&#34;</span>)
+      } <span style=color:#66d9ef>catch</span> {
+        print(error)
+      }
+    }
+    <span style=color:#66d9ef>self</span>.socket?.connect()
+  }
+
+  <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>send</span>() {
+    <span style=color:#66d9ef>let</span> builder = HelloRequest.Builder()
+    builder.name = <span style=color:#e6db74>&#34;Bob&#34;</span>
+
+    <span style=color:#66d9ef>do</span> {
+      <span style=color:#66d9ef>let</span> req = <span style=color:#66d9ef>try</span> builder.build()
+      <span style=color:#66d9ef>self</span>.socket?.writeData(req.data())
+    } <span style=color:#66d9ef>catch</span> {
+      print(error)
+    }
+  }
+}
+</code></pre></div><p>Make sure your client project has <a href=https://github.com/daltoniam/starscream>Starscream,</a> the <a href=https://github.com/alexeyxo/protobuf-swift>Swift Protocol Buffers</a> framework installed and the <code>Hello.proto.swift</code> file we generated earlier. Build/Run and you should be able to tap the plus button in the top right to send a message to the server and receive a reply.
+If you make changes to <code>hello.proto</code> just rebuild the Swift and Go equivalents.</p>
+<p><strong>4 October</strong> — If you&rsquo;re running Go 1.5 you can try out the new <a href=https://github.com/golang/go/wiki/Mobile>gomobile</a> package. Seems like a promising way to share code across Android and iOS.</p>
+<p><strong>27 September</strong> — For the past week I&rsquo;ve found myself deep in a rabbit hole of Erlang, Elixir and distributed systems. My mind is beginning to hurt and I need to build something fast to climb out of this. If you&rsquo;re interested here&rsquo;s what I read/watched along the tumble:</p>
+<ul>
+<li><a href=http://elixir-lang.org/getting-started/introduction.html>Elixir getting started guide</a></li>
+<li><a href=https://youtu.be/Lqo9-pQuRKE>José Valim, What Elixir is About talk</a></li>
+<li><a href=https://youtu.be/e5DEVa9eSN0>Then needed a refresher on TCP/IP model</a></li>
+<li><a href=http://elixir-lang.org/getting-started/mix-otp/introduction-to-mix.html>Started working through the introduction to mix and OTP guide</a></li>
+<li><a href=https://en.wikipedia.org/wiki/Open_Telecom_Platform>OTP: Open Telecom Platform</a></li>
+<li><a href=https://youtu.be/YaUPdgtUYko>Joe Armstrong&rsquo;s Stanford seminar where he explains the impetus of Erlang</a></li>
+<li><a href=https://youtu.be/lKXe3HUG2l4>Joe Armstrong&rsquo;s Strange Loop talk, The Mess We&rsquo;re In</a> (watched it twice)</li>
+<li><a href=http://5by5.tv/changelog/147>The Changelog episode: Elixir and Phoenix with Chris McCord</a></li>
+<li><a href=http://joearms.github.io/2013/05/31/a-week-with-elixir.html>Joe Armstrong&rsquo;s 2013 reaction to Elixir</a></li>
+<li><a href=https://howistart.org/posts/elixir/1>José Valim&rsquo;s How I Start guide</a></li>
+</ul>
+<p><strong>25 September</strong> — Elixir 1.1.0 is out and the <a href="https://news.ycombinator.com/item?id=10278416">peanut gallery</a> seems pleased. Elixir is probably gonna be a big deal. It doesnt have the backing of a large company but that&rsquo;s probably fine for now.</p>
+<p><strong>25 September</strong> — RSS is seeing an unexpected resurgence. Apple is using it for its new <a href=https://developer.apple.com/news-publisher/>News app</a> and Facebook is using it for <a href=https://developers.facebook.com/docs/instant-articles/automated-publishing>Instant Articles.</a> I&rsquo;ve also noticed the once popular <a href=http://netnewswireapp.com/mac/>Net News Wire</a> on the front page of the Mac App Store. Making me a little nostalgic&mldr;</p>
+<p><strong>23 September</strong> — Digging up old Dave Winer podcasts for kicks. In <a href=http://mp3.morningcoffeenotes.com/cn18Aug07.mp3>this one</a> he talks about the introduction of OpenID and how new platforms almost never come out of consortiums. Fast-forward a few months and <a href=http://mp3.morningcoffeenotes.com/cn07dec31.mp3>listen</a> to him talk about Twitter, fun platform while it lasted but a disaster when the business got real. Now <a href=http://scripting.com/2015/09/23/everythingIsComingUpSlack.html>Slack.</a></p>
+<p><strong>21 September</strong> — If you haven&rsquo;t heard of <a href=http://www.bbc.co.uk/programmes/b006qykl>In Our Time</a> from the BBC then I suggest checking it out. I spent a good chunk of this past weekend listening to episodes on Karl Popper, Nihilism, Karl Marx and Schopenhaur.</p>
+<p><strong>17 September</strong> — HyperCard was before my time as an Apple user but probably pretty fun. The closest I got to something like it was Frontpage and Macromedia Director. A couple start-ups seem interested in reviving the idea: <a href=http://byte.co>Byte</a> and <a href=http://un1verse.co>Universe.</a> It&rsquo;s not clear what kind of value they deliver outside of being a purely expressive and fun space—consuming &lsquo;bytes&rsquo; is pretty wild and not much fun after about 2 minutes. Can&rsquo;t stop thinking about this space tho&mldr;</p>
+<p><strong>16 September</strong> — Every wanna rename a bunch of files?</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ <span style=color:#66d9ef>for</span> file in *.html; <span style=color:#66d9ef>do</span> mv <span style=color:#e6db74>&#34;</span>$file<span style=color:#e6db74>&#34;</span> <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>file%.html<span style=color:#e6db74>}</span><span style=color:#e6db74>.md&#34;</span>; <span style=color:#66d9ef>done</span>
+</code></pre></div><p><strong>15 September</strong> — If I were entering a Design program again given today&rsquo;s available tools I&rsquo;d chase Industrial Design—no contest. Maybe Computer Animation as a minor to have a backup but ID for sure. If you wanna make objects, now is probably the most exciting time. My biggest issue with learning 3d animation in the early 2000s was not being able to tighten the try/fail loop. Software was really slow and you had to use a desktop (although I tended to use a Powerbook G3 with patience). The <a href=https://www.apple.com/apple-pencil/>iPad Pro</a> is going to change this for both <a href=https://www.umake.xyz>CAD</a> and modeling. And I suspect 3d printers are already being used in ID schools but I&rsquo;m not sure—the resolution has improved a lot.</p>
+<p><strong>5 September</strong> — Put together a little server that responds with the same <code>index.html</code> file for all paths without file extensions. Works great for situations where you just want a single file to launch a <a href=https://github.com/rackt/react-router>React Router</a> component.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+
+<span style=color:#f92672>import</span> (
+    <span style=color:#e6db74>&#34;net/http&#34;</span>
+    <span style=color:#e6db74>&#34;os&#34;</span>
+    <span style=color:#e6db74>&#34;path/filepath&#34;</span>
+)
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>DirHandler</span>(<span style=color:#a6e22e>dir</span> <span style=color:#66d9ef>string</span>) <span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>Handler</span> {
+    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>HandlerFunc</span>(<span style=color:#66d9ef>func</span>(<span style=color:#a6e22e>w</span> <span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>ResponseWriter</span>, <span style=color:#a6e22e>r</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>Request</span>) {
+        <span style=color:#a6e22e>basename</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Base</span>(<span style=color:#a6e22e>r</span>.<span style=color:#a6e22e>URL</span>.<span style=color:#a6e22e>Path</span>)
+        <span style=color:#a6e22e>extension</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Ext</span>(<span style=color:#a6e22e>basename</span>)
+        <span style=color:#a6e22e>fullPath</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>dir</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>r</span>.<span style=color:#a6e22e>URL</span>.<span style=color:#a6e22e>Path</span>
+
+        <span style=color:#75715e>// Serve anything with an extension
+</span><span style=color:#75715e></span>        <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>extension</span> <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#34;&#34;</span> {
+            <span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>ServeFile</span>(<span style=color:#a6e22e>w</span>, <span style=color:#a6e22e>r</span>, <span style=color:#a6e22e>fullPath</span>)
+            <span style=color:#66d9ef>return</span>
+        }
+
+        <span style=color:#75715e>// Route anything without an extension to index.html
+</span><span style=color:#75715e></span>        <span style=color:#a6e22e>index</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>dir</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;/index.html&#34;</span>
+        <span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>ServeFile</span>(<span style=color:#a6e22e>w</span>, <span style=color:#a6e22e>r</span>, <span style=color:#a6e22e>index</span>)
+    })
+}
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+    <span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>Handle</span>(<span style=color:#e6db74>&#34;/&#34;</span>, <span style=color:#a6e22e>server</span>.<span style=color:#a6e22e>DirHandler</span>(<span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Getenv</span>(<span style=color:#e6db74>&#34;GOPATH&#34;</span>)<span style=color:#f92672>+</span><span style=color:#e6db74>&#34;/www&#34;</span>))
+    <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>ListenAndServe</span>(<span style=color:#e6db74>&#34;:8080&#34;</span>, <span style=color:#66d9ef>nil</span>))
+}
+</code></pre></div><p><strong>31 August</strong> — If you have Safari 9 try the new &ldquo;Responsive Design Mode&rdquo; by hitting <code>Command+Option+R</code>. Clicking the device icons more than once gives you different orientations and multitasking sizes 😎</p>
+<p><strong>31 August</strong> — Reading about <a href=http://www.yale.edu/acmelab/articles/bargh_chen_burrows_1996.pdf>The Florida Effect</a> has prompted me to reconsider how I start my mornings.</p>
+<p><strong>30 August</strong> — Picked up a copy of Ray Bradbury’s <a href=http://www.amazon.com/dp/0553296345>Zen in the Art of Writing</a> and found this in the preface:</p>
+<blockquote>
+<p>Every morning I jump out of bed and step on a landmine. The landmine is me. After the explosion, I spend the rest of the day putting the pieces together.</p>
+</blockquote>
+<p><strong>28 August</strong> — Playing around with Functional View Controllers thanks to this <a href=https://realm.io/news/altconf-chris-eidhof-functional-programming-in-swift/>great talk</a> by Chris Eidhof. Takes a while to start thinking like a functional programmer but lots of fun to go down a new path for a change. This <a href=https://www.objc.io/books/fpinswift/>book</a> really helps.</p>
+<ul class=pivots>
+<li><a class=previous href=https://nathan.run/log/2016/>← 2016</a></li>
+</ul>
+</article>
+</main>
+<aside>
+<h4><a href=https://nathan.run/>Home</a></h4>
+<ul>
+<li><a href=https://nathan.run/work>Work</a></li>
+<li><a href=https://nathan.run/posts>Posts</a></li>
+<li><a href=https://nathan.run/log>Log</a></li>
+</ul>
+<h4><a href=https://nathan.run/tools>Tools</a></h4>
+<ul>
+<li><a href=https://nathan.run/tools/steady>Steady</a></li>
+<li><a href=https://nathan.run/tools/readernaut>Readernaut</a></li>
+<li><a href=https://nathan.run/tools/podster>Podster</a></li>
+<li><a href=https://nathan.run/tools/logger>Logger</a></li>
+</ul>
+<h4><a href=https://nathan.run/interests>Interests</a></h4>
+<ul>
+<li><a href=https://nathan.run/interests#trail-running>Trail Running</a></li>
+<li><a href=https://nathan.run/interests#mindfulness>Mindfulness</a></li>
+<li><a href=https://nathan.run/interests#long-term-thinking>Long-Term Thinking</a></li>
+<li><a href=https://nathan.run/interests#craftsmanship>Craftsmanship</a></li>
+<li><a href=https://nathan.run/california>California</a></li>
+<li><a href=https://nathan.run/recipes>Recipes</a></li>
+</ul>
+</aside>
+<footer>
+</footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8M8T2ECMHC"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-8M8T2ECMHC',{anonymize_ip:!1})}</script>
+</body>
+</html>

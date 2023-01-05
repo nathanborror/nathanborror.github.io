@@ -187,24 +187,6 @@ h6+ul {
     margin-top: calc(var(--margin) * -1);
 }
 
-h3+.summary,
-p+.continue {
-    margin-top: calc(var(--margin) * -0.5);
-}
-
-.continue {
-    display: inline-block;
-    padding: 2px 15px;
-    background-color: var(--system-black);
-    font-size: var(--caption-size);
-    border-radius: 20px;
-}
-
-.continue a {
-    text-decoration: none;
-    color: var(--system-white);
-}
-
 h1,
 h2,
 h3,
@@ -295,10 +277,6 @@ blockquote *:first-child {
 
 blockquote *:last-child {
     margin-bottom: 0;
-}
-
-blockquote+blockquote {
-    margin-top: calc(var(--margin) * -0.9);
 }
 
 hr {
@@ -594,6 +572,64 @@ figcaption a {
 
 .pagination .page-item a[aria-label=Last]:after {
     content: "⇒";
+}
+
+/* Pivots */
+/* ------------------------------------------------------------------ */
+
+.pivots {
+    font-family: var(--sans-text);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.pivots li::before {
+    content: "";
+}
+
+.pivots li {
+    display: inline-block;
+}
+
+.pivots li a {
+    display: inline-block;
+    padding: 5px 12px;
+    border: 1px solid var(--system-black);
+    text-decoration: none;
+    color: var(--system-black)
+}
+
+.pivots li a:hover {
+    background-color: var(--system-black);
+    color: var(--system-white);
+}
+
+/* Posts */
+/* ------------------------------------------------------------------ */
+
+h3+.summary,
+p+.continue {
+    margin-top: calc(var(--margin) * -0.5);
+}
+
+.continue {
+    display: inline-block;
+    font-family: var(--sans-text);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.continue a {
+    display: inline-block;
+    padding: 5px 12px;
+    border: 1px solid var(--system-black);
+    text-decoration: none;
+    color: var(--system-black)
+}
+
+.continue a:hover {
+    background-color: var(--system-black);
+    color: var(--system-white);
 }
 
 /* Terminal Theme */

@@ -24,16 +24,14 @@ deb http://ppa.launchpad.net/mosquitto-dev/mosquitto-ppa/ubuntu YOUR_UBUNTU_VERS
 <header>
 <h1>Getting Started with MQTT</h1>
 <h2>Sunday, July 22, 2012</h2>
+Tags:
+<a href=https://nathan.run/tags/programming/>programming</a>, <a href=https://nathan.run/tags/mqtt/>mqtt</a>
 </header>
 <main>
 <article>
-<p>I wanted to play around with MQTT this evening so I put together a little
-tutorial on how to get started using Ubuntu and <a href=http://mosquitto.org>Mosquitto</a>.</p>
+<p>I wanted to play around with MQTT this evening so I put together a little tutorial on how to get started using Ubuntu and <a href=http://mosquitto.org>Mosquitto</a>.</p>
 <h3 id=installing-mosquitto>Installing Mosquitto</h3>
-<p>Enter the following into your terminal. Remember to replace
-<code>YOUR_UBUNTU_VERSION_HERE</code> with the version of ubuntu you&rsquo;re using, I was using
-Maverick Meerkat at the time so I replaced it with just maverick. First add the
-following two lines to <code>/etc/apt/sources.list</code></p>
+<p>Enter the following into your terminal. Remember to replace <code>YOUR_UBUNTU_VERSION_HERE</code> with the version of ubuntu you&rsquo;re using, I was using Maverick Meerkat at the time so I replaced it with just maverick. First add the following two lines to <code>/etc/apt/sources.list</code></p>
 <pre tabindex=0><code>deb http://ppa.launchpad.net/mosquitto-dev/mosquitto-ppa/ubuntu YOUR_UBUNTU_VERSION_HERE main
 deb-src http://ppa.launchpad.net/mosquitto-dev/mosquitto-ppa/ubuntu YOUR_UBUNTU_VERSION_HERE main
 </code></pre><p>Then we need to verify the newly added <a href=https://help.launchpad.net/Packaging/PPA/InstallingSoftware#On_older_.28pre_9.10.29_Ubuntu_systems>packages</a>:</p>
@@ -45,20 +43,20 @@ deb-src http://ppa.launchpad.net/mosquitto-dev/mosquitto-ppa/ubuntu YOUR_UBUNTU_
 $ sudo aptitude install mosquitto-clients
 </code></pre><h3 id=subscribing-to-a-topic>Subscribing to a Topic</h3>
 <pre tabindex=0><code>$ mosquitto_sub -d -t hello/world
-</code></pre><p>Mosquitto uses slashes as a way to organize topics. It also provides ways to
-subscribe to groups of topics if you dig around their documentation.</p>
+</code></pre><p>Mosquitto uses slashes as a way to organize topics. It also provides ways to subscribe to groups of topics if you dig around their documentation.</p>
 <h3 id=publishing-to-a-topic>Publishing to a Topic</h3>
 <p>In another terminal window execute:</p>
 <pre tabindex=0><code>$ mosquitto_pub -d -t hello/world -m &quot;Hello World&quot;
 </code></pre><p>You should see the text &ldquo;Hello World&rdquo; in the other window.</p>
-<p>To get the full effect you can install Mosquitto on your Mac using Homebrew
-(<a href=https://github.com/mxcl/homebrew>https://github.com/mxcl/homebrew</a>) and then connect to your Ubuntu machine&mldr;</p>
+<p>To get the full effect you can install Mosquitto on your Mac using <a href=https://github.com/mxcl/homebrew>Homebrew</a> and then connect to your Ubuntu machine&mldr;</p>
 <pre tabindex=0><code>$ mosquitto_sub -h YOUR_HOST_IP_ADDRESS -d -t hello/world
-</code></pre><p>You should now see messages from your host sent to your local machine. You&rsquo;ll
-probably need to open up port 1883 on your Ubuntu machine to make this actually
-work. I just used iptables to do so:</p>
+</code></pre><p>You should now see messages from your host sent to your local machine. You&rsquo;ll probably need to open up port 1883 on your Ubuntu machine to make this actually work. I just used iptables to do so:</p>
 <pre tabindex=0><code>sudo iptables -A INPUT -p tcp -m tcp --dport 1883 -j ACCEPT
 </code></pre>
+<ul class=pivots>
+<li><a class=previous href=https://nathan.run/2012/simple-panic/>← Simple Panic</a></li>
+<li><a class=next href=https://nathan.run/2012/sending-multipart-forms-with-objective-c/>Sending Multipart Forms with Objective-C →</a></li>
+</ul>
 </article>
 </main>
 <aside>
@@ -66,13 +64,14 @@ work. I just used iptables to do so:</p>
 <ul>
 <li><a href=https://nathan.run/work>Work</a></li>
 <li><a href=https://nathan.run/posts>Posts</a></li>
+<li><a href=https://nathan.run/log>Log</a></li>
 </ul>
 <h4><a href=https://nathan.run/tools>Tools</a></h4>
 <ul>
-<li><a href>Steady</a></li>
-<li><a href>Readernaut</a></li>
-<li><a href>Podster</a></li>
-<li><a href>Logger</a></li>
+<li><a href=https://nathan.run/tools/steady>Steady</a></li>
+<li><a href=https://nathan.run/tools/readernaut>Readernaut</a></li>
+<li><a href=https://nathan.run/tools/podster>Podster</a></li>
+<li><a href=https://nathan.run/tools/logger>Logger</a></li>
 </ul>
 <h4><a href=https://nathan.run/interests>Interests</a></h4>
 <ul>
