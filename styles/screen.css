@@ -7,7 +7,7 @@
     --aside-width: 300px;
 
     --font-family: 'Inter', -apple-system, sans-serif;
-    --font-feature-settings: "ss01", "zero", "frac", "cv05", "cv11";
+    --font-feature-settings: "ss01", "zero", "cv05", "cv11";
 
     --body-size: 17px;
     --body-line-height: 24px;
@@ -33,8 +33,9 @@
     --strong-weight: 700;
 
     --mono: monospace;
-    --mono-size: var(--caption-size);
-    --mono-line-height: var(--caption-line-height);
+    --mono-size: 13px;
+    --mono-line-height: 18px;
+    --mono-letter-spacing: 0;
 
     --system-white: #FFF;
     --system-black: #000;
@@ -310,10 +311,10 @@ hr {
 }
 
 li::before {
-    content: "→";
+    content: "-";
     display: inline-block;
-    width: 32px;
-    margin-left: -32px;
+    width: 16px;
+    margin-left: -16px;
     opacity: var(--caption-opacity);
 }
 
@@ -398,6 +399,24 @@ button.destructive,
 input[type=submit].destructive {
     border-color: var(--system-red);
     color: var(--system-red);
+}
+
+dl {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+dt {
+    flex-basis: 20%;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--system-light-gray);
+    font-weight: 500;
+}
+
+dd {
+    flex-basis: 80%;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--system-light-gray);
 }
 
 /* Tables */
@@ -575,4 +594,56 @@ figcaption a {
 
 .pagination .page-item a[aria-label=Last]:after {
     content: "⇒";
+}
+
+/* Terminal Theme */
+/* ------------------------------------------------------------------ */
+
+body.terminal {
+    font-family: var(--mono);
+    font-size: var(--mono-size);
+    line-height: var(--mono-line-height);
+    font-weight: var(--mono-weight);
+    letter-spacing: var(--mono-letter-spacing);
+}
+
+body.terminal a {
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--system-light-gray);
+}
+
+body.terminal header h1::after {
+    content: "";
+    display: inline-block;
+    margin-bottom: -4px;
+    width: 10px;
+    height: 26px;
+    background: var(--system-black);
+    animation: 1s blink step-end infinite;
+}
+
+@keyframes blink {
+
+    from,
+    to {
+        background: transparent;
+    }
+
+    50% {
+        background: var(--system-black);
+    }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    body.terminal h3 {
+        color: #1DC121;
+    }
+
+    body.terminal h4 {
+        color: #C839C5;
+    }
+
+    body.terminal dt {
+        color: #C7C329;
+    }
 }
