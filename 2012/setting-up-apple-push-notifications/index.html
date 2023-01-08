@@ -61,7 +61,7 @@ Tags:
 <p>Keep these three files in a safe place. Development certificates are ephemeral so you&rsquo;ll need to renew them every three months. Production certs last a year.</p>
 <h3 id=ssl-pem-creation>SSL .pem Creation</h3>
 <p>We need to create a .pem file to be used on our server. Using Terminal navigate to the folder with these three files in it and convert the .cer file to a .pem file:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ openssl x509 -in aps_developer_identity.cer -inform DER -out PushNotifsCert.pem -outform PEM
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ openssl x509 -in aps_developer_identity.cer -inform DER -out PushNotifsCert.pem -outform PEM
 
 <span style=color:#75715e># Now convert your private key to a .pem file:</span>
 $ openssl pkcs12 -nocerts -out PushNotifsKey.pem -in PushNotifsKey.p12

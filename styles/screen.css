@@ -68,12 +68,13 @@
 
 body {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) var(--aside-width);
+    grid-template-columns: minmax(0, 1fr) max-content;
     grid-template-areas:
         "header header"
         "main aside"
         "footer footer";
-    margin: 50px auto;
+    gap: 0 calc(var(--margin) * 4);
+    margin: 0 auto;
     padding: 50px;
     max-width: var(--max-width);
     font-family: var(--font-family);
@@ -111,7 +112,6 @@ main {
 
 aside {
     grid-area: aside;
-    padding-left: 100px;
 }
 
 aside ul li::before {
@@ -211,7 +211,7 @@ h3 a {
 
 a {
     text-decoration: underline;
-    text-decoration-thickness: 1.5px;
+    text-decoration-thickness: 1px;
     text-decoration-color: var(--system-black);
 }
 

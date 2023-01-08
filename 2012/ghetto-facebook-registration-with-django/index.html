@@ -33,9 +33,9 @@ Tags:
 Site URL to <code>http://localhost:8000</code> for development purposes. You&rsquo;ll probably
 need to do the same if you&rsquo;re using Django&rsquo;s built in development server. Copy
 over your App ID and App Secret into your <code>settings.py</code> file:</p>
-<pre tabindex=0><code>FACEBOOK_APP_ID = 'YOUR_FACEBOOK_APP_ID'
-FACEBOOK_SECRET_KEY = 'YOUR_FACEBOOK_APP_SECRET'
-</code></pre><p>Now lets add a login button to your site, you can put this anywhere:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>FACEBOOK_APP_ID <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;YOUR_FACEBOOK_APP_ID&#39;</span>
+FACEBOOK_SECRET_KEY <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;YOUR_FACEBOOK_APP_SECRET&#39;</span>
+</code></pre></div><p>Now lets add a login button to your site, you can put this anywhere:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>a</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;ui-button&#34;</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://www.facebook.com/dialog/oauth?
 </span><span style=color:#e6db74>  client_id=YOUR_FACEBOOK_APP_ID
 </span><span style=color:#e6db74>  &amp;amp;redirect_uri=http://localhost:8000/facebook/&#34;</span>&gt;Log In with Facebook&lt;/<span style=color:#f92672>a</span>&gt;
@@ -113,8 +113,8 @@ expires:</p>
   facebook_access_token_expires <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>PositiveIntegerField(blank<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, null<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
 </code></pre></div><p>And then add the following to your settings.py so you can use the &ldquo;get_profile()&rdquo;
 convenience method on user objects:</p>
-<pre tabindex=0><code>AUTH_PROFILE_MODULE = 'profiles.profile'
-</code></pre><p>There you have it. A really hacky Facebook registration flow for Django.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>AUTH_PROFILE_MODULE <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;profiles.profile&#39;</span>
+</code></pre></div><p>There you have it. A really hacky Facebook registration flow for Django.</p>
 <p><em>Some will probably notice I didn&rsquo;t use the word OAuth anywhere in this post.
 Every time I see that term my eyes gloss over and my buzzword bullshit detector
 flips on. OAuth is a very simple concept that&rsquo;s often over explained—hopefully
