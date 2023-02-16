@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 710 540" version="1.1" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style>
+        a {
+        text-decoration: none;
+        }
+        .place {
+        font-family: "ui-rounded";
+        font-size: 22px;
+        font-weight: normal;
+        fill: #FFF;
+        }
+        .year {
+        font-family: "ui-rounded";
+        font-size: 22px;
+        font-weight: normal;
+        fill: #555;
+        }
+        .snake {
+        fill: #222;
+        }
+    </style>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path
+            d="M305,320 L303.263633,319.985933 C246.0746,319.0587 200,272.41 200,215 C200,157.59 246.0746,110.9413 303.263633,110.014067 L305,110 L605,110 L605.21689,109.99538 C607.877693,109.881818 610,107.688755 610,105 C610,102.238576 607.761424,100 605,100 L605,100 L305,100 C249.771525,100 205,55.228475 205,0 L605,0 L606.736367,0.0140670001 C663.9254,0.941300005 710,47.5900003 710,105 C710,162.41 663.9254,209.0587 606.736367,209.985933 L606.736367,209.985933 L605,210 L305,210 C302.238576,210 300,212.238576 300,215 C300,217.688755 302.122307,219.881818 304.78311,219.99538 L305,220 L405,220 L406.736367,220.014067 C463.9254,220.9413 510,267.59 510,325 C510,382.41 463.9254,429.0587 406.736367,429.985933 L406.736367,429.985933 L405,430 L105,430 C102.238576,430 100,432.238576 100,435 C100,437.688755 102.122307,439.881818 104.78311,439.99538 L105,440 L505,440 C559.67619,440 604.103524,483.880572 604.986603,538.346317 L605,540 L105,540 L103.263633,539.985933 C46.0746003,539.0587 0,492.41 0,435 C0,377.59 46.0746003,330.9413 103.263633,330.014067 L105,330 L405,330 L405.21689,329.99538 C407.877693,329.881818 410,327.688755 410,325 C410,322.238576 407.761424,320 405,320 L405,320 L305,320 Z"
+            class="snake"></path>
+        <a href="/work/journal-world">
+            <text class="place">
+                <tspan x="336.623379" y="57">Journal-World</tspan>
+            </text>
+        </a>
+        <a href="/work/facebook">
+            <text class="place">
+                <tspan x="409.068349" y="167">Facebook</tspan>
+            </text>
+        </a>
+        <a href="/work/dropbox">
+            <text class="place">
+                <tspan x="311.524627" y="277">Dropbox</tspan>
+            </text>
+        </a>
+        <a href="/work/public-studio">
+            <text class="place">
+                <tspan x="194.396528" y="387">Public Studio</tspan>
+            </text>
+        </a>
+        <a href="/work/facebook">
+            <text class="place">
+                <tspan x="309.568349" y="497">Facebook</tspan>
+            </text>
+        </a>
+        <text class="year">
+            <tspan x="648.718529" y="112">‘11</tspan>
+        </text>
+        <text class="year">
+            <tspan x="236.965504" y="222">‘14</tspan>
+        </text>
+        <text class="year">
+            <tspan x="447.113247" y="332">'15</tspan>
+        </text>
+        <text class="year">
+            <tspan x="36.9220161" y="442">'18</tspan>
+        </text>
+    </g>
+</svg>

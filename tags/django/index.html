@@ -28,8 +28,8 @@
 <div class=summary>
 <p>I&rsquo;m going to quickly walk you through how to build a server-side Facebook registration flow with Django. This is really basic and doesn&rsquo;t rely on special libraries aside from httplib2 and urlib which are pretty standard.
 First you need to create an app. I set my App Domain to localhost and Site URL to http://localhost:8000 for development purposes. You&rsquo;ll probably need to do the same if you&rsquo;re using Django&rsquo;s built in development server.</p>
-<p class=continue><a href=https://nathan.run/2012/ghetto-facebook-registration-with-django/>Continue reading →</a></p>
 </div>
+<p class=continue><a href=https://nathan.run/2012/ghetto-facebook-registration-with-django/>Continue reading →</a></p>
 </article>
 <article>
 <h3><a href=https://nathan.run/2009/save-ram-with-mobile-middleware/>Save RAM with mobile middleware</a></h3>
@@ -37,8 +37,8 @@ First you need to create an app. I set my App Domain to localhost and Site URL t
 <div class=summary>
 <p>A while back I wrote an article on how to set up a mobile site with Django ../going-mobile. Currently I have a Slicehost account which includes 256MB of RAM. My resources are tight and I really dislike having another set of unnecessary Apache processes for a mobile site that, aside from different templates, is using the same code base. The solution is quite simple, write a middleware.
 The following code checks the incoming request for &rsquo;m' or &lsquo;mobile&rsquo; in the domain name.</p>
-<p class=continue><a href=https://nathan.run/2009/save-ram-with-mobile-middleware/>Continue reading →</a></p>
 </div>
+<p class=continue><a href=https://nathan.run/2009/save-ram-with-mobile-middleware/>Continue reading →</a></p>
 </article>
 <article>
 <h3><a href=https://nathan.run/2009/working-with-python-and-rabbitmq/>Working with Python and RabbitMQ</a></h3>
@@ -47,8 +47,8 @@ The following code checks the incoming request for &rsquo;m' or &lsquo;mobile&rs
 <p>I recently installed RabbitMQ to handle some message queuing needs at Readernaut and thought I&rsquo;d share how everything came together. If you&rsquo;d like to learn more about RabbitMQ please read this.
 To use RabbitMQ with python you need py-amqplib because Rabbit uses the AMQP standard. To make amqplib a little easier to use I needed a simple script that did three things:
 Easy way to connect to RabbitMQ. Easy way to pull stuff out of the queue.</p>
-<p class=continue><a href=https://nathan.run/2009/working-with-python-and-rabbitmq/>Continue reading →</a></p>
 </div>
+<p class=continue><a href=https://nathan.run/2009/working-with-python-and-rabbitmq/>Continue reading →</a></p>
 </article>
 <article>
 <h3><a href=https://nathan.run/2009/capturing-content-in-django-templates/>Capturing content in Django templates</a></h3>
@@ -56,8 +56,8 @@ Easy way to connect to RabbitMQ. Easy way to pull stuff out of the queue.</p>
 <div class=summary>
 <p>As a template designer there are times when you have structural code surrounding a block which is waiting on content from a child template. It may look something like:
 &lt;div class="content_title"> {% block content_title %}{% endblock %} &lt;/div> Sometimes this block is never filled so ideally I want the DIV element in this case gone. This isn&rsquo;t easy because there&rsquo;s no way to know whether content is headed towards the block so one solution that I&rsquo;ve used is:</p>
-<p class=continue><a href=https://nathan.run/2009/capturing-content-in-django-templates/>Continue reading →</a></p>
 </div>
+<p class=continue><a href=https://nathan.run/2009/capturing-content-in-django-templates/>Continue reading →</a></p>
 </article>
 <article>
 <h3><a href=https://nathan.run/2008/creating-a-basic-api-with-django/>Creating a basic API with Django</a></h3>
@@ -66,35 +66,20 @@ Easy way to connect to RabbitMQ. Easy way to pull stuff out of the queue.</p>
 <p>Creating a simple public API for your site is a lot easier than you may think with Django. You&rsquo;re basically just creating another view and serving it as XML or JSON instead of HTML.
 What&rsquo;s public? Decide what you want to be public. The best answer is the stuff you&rsquo;re already displaying in your HTML templates. Then you need to create an entry in your url conf.
 url(r'^api/v1/(?P&lt;username>[-\w]+)/notes/?$', 'readernaut.api.views.user_notes'), Create the view In the case for Readernaut I wanted to provide an XML feed for users notes.</p>
-<p class=continue><a href=https://nathan.run/2008/creating-a-basic-api-with-django/>Continue reading →</a></p>
 </div>
+<p class=continue><a href=https://nathan.run/2008/creating-a-basic-api-with-django/>Continue reading →</a></p>
 </article>
 </main>
-<aside>
-<h4><a href=https://nathan.run/>Home</a></h4>
+<footer>
 <ul>
+<li><a href=https://nathan.run/>Home</a></li>
 <li><a href=https://nathan.run/work>Work</a></li>
-<li><a href=https://nathan.run/posts>Posts</a></li>
-<li><a href=https://nathan.run/log>Log</a></li>
-</ul>
-<h4><a href=https://nathan.run/tools>Tools</a></h4>
-<ul>
-<li><a href=https://nathan.run/tools/steady>Steady</a></li>
-<li><a href=https://nathan.run/tools/readernaut>Readernaut</a></li>
-<li><a href=https://nathan.run/tools/podster>Podster</a></li>
-<li><a href=https://nathan.run/tools/logger>Logger</a></li>
-</ul>
-<h4><a href=https://nathan.run/interests>Interests</a></h4>
-<ul>
-<li><a href=https://nathan.run/interests#trail-running>Trail Running</a></li>
-<li><a href=https://nathan.run/interests#mindfulness>Mindfulness</a></li>
-<li><a href=https://nathan.run/interests#long-term-thinking>Long-Term Thinking</a></li>
-<li><a href=https://nathan.run/interests#craftsmanship>Craftsmanship</a></li>
+<li><a href=https://nathan.run/posts>Writing</a></li>
+<li><a href=https://nathan.run/tools>Tools</a></li>
+<li><a href=https://nathan.run/interests>Interests</a></li>
 <li><a href=https://nathan.run/california>California</a></li>
 <li><a href=https://nathan.run/recipes>Recipes</a></li>
 </ul>
-</aside>
-<footer>
 </footer>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8M8T2ECMHC"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-8M8T2ECMHC',{anonymize_ip:!1})}</script>

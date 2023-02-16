@@ -2,45 +2,49 @@
 @import url("/styles/reset.css") only screen;
 
 :root {
-    --margin: 17px;
-    --max-width: 1024px;
+    --margin: 25px;
+    --max-width: 550px;
     --aside-width: 300px;
 
-    --font-family: 'Inter', -apple-system, sans-serif;
-    --font-feature-settings: "ss01", "zero", "cv05", "cv11";
+    --font-family: ui-sans-serif, sans-serif;
+    --font-feature-settings: "";
 
-    --body-size: 17px;
-    --body-line-height: 24px;
-    --body-letter-spacing: -0.013em;
+    --body-size: 14px;
+    --body-line-height: 22px;
+    --body-letter-spacing: -0.009em;
     --body-weight: 400;
+    --body-color: var(--system-dark-gray);
 
-    --title-size: 24px;
-    --title-line-height: 34px;
-    --title-weight: 700;
-    --title-letter-spacing: -0.019em;
+    --title-size: var(--body-size);
+    --title-line-height: var(--body-line-height);
+    --title-weight: var(--strong-weight);
+    --title-letter-spacing: var(--body-letter-spacing);
+    --title-color: var(--system-black);
 
-    --header-size: 24px;
-    --header-line-height: 34px;
-    --header-weight: 400;
-    --header-letter-spacing: -0.019em;
+    --header-size: var(--body-size);
+    --header-line-height: var(--body-line-height);
+    --header-weight: var(--strong-weight);
+    --header-letter-spacing: var(--body-letter-spacing);
+    --header-color: var(--system-black);
 
-    --caption-size: 15px;
-    --caption-line-height: 21px;
+    --caption-size: var(--body-size);
+    --caption-line-height: var(--body-line-height);
     --caption-weight: var(--body-weight);
-    --caption-letter-spacing: -0.009em;
+    --caption-letter-spacing: var(--body-letter-spacing);
     --caption-opacity: 0.35;
 
-    --strong-weight: 700;
+    --strong-weight: 500;
+    --strong-color: var(--system-black);
 
     --mono: monospace;
-    --mono-size: 13px;
-    --mono-line-height: 18px;
+    --mono-size: 12px;
+    --mono-line-height: var(--body-line-height);
     --mono-letter-spacing: 0;
 
     --system-white: #FFF;
     --system-black: #000;
     --system-gray: #888888;
-    --system-red: #F26F42;
+    --system-red: #FF5555;
     --system-yellow: #F2C53D;
     --system-green: #79BF56;
     --system-blue: #50B4E6;
@@ -49,15 +53,16 @@
     --system-light-yellow: #F9E7B1;
     --system-light-green: #C9E5BB;
     --system-light-blue: #B8E0F5;
-    --system-light-gray: rgba(0, 0, 0, 0.15);
+    --system-light-gray: rgba(0, 0, 0, 0.10);
 
-    --system-dark-red: #A64929;
+    --system-dark-gray: #555;
+    --system-dark-red: #330000;
     --system-dark-yellow: #B3912D;
     --system-dark-green: #598C3F;
     --system-dark-blue: #3A82A6;
 
     --hang: -80px;
-    --border-radius: 6px;
+    --border-radius: 0px;
 }
 
 @supports (font-variation-settings: normal) {
@@ -67,15 +72,8 @@
 }
 
 body {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) max-content;
-    grid-template-areas:
-        "header header"
-        "main aside"
-        "footer footer";
-    gap: 0 calc(var(--margin) * 4);
-    margin: 0 auto;
-    padding: 50px;
+    margin: 100px auto 0 auto;
+    padding-bottom: 100px;
     max-width: var(--max-width);
     font-family: var(--font-family);
     font-size: var(--body-size);
@@ -83,14 +81,10 @@ body {
     font-weight: var(--body-weight);
     letter-spacing: var(--body-letter-spacing);
     background-color: var(--system-white);
-    color: var(--system-black);
+    color: var(--body-color);
     font-feature-settings: var(--font-feature-settings);
     overflow-wrap: anywhere;
     hyphens: auto;
-}
-
-header {
-    grid-area: header;
 }
 
 header h1 {
@@ -105,31 +99,42 @@ header h2 {
     letter-spacing: var(--body-letter-spacing);
 }
 
-main {
-    grid-area: main;
-    margin-bottom: calc(var(--margin) * 2);
-}
-
-aside {
-    grid-area: aside;
-}
-
-aside ul li::before {
-    display: none;
-}
-
 article {
     margin-bottom: calc(var(--margin) * 2);
 }
 
 footer {
-    grid-area: footer;
-    margin: 100px 0;
-    padding: 20px 0;
-    font-size: var(--caption-size);
-    font-weight: var(--caption-weight);
-    letter-spacing: var(--caption-letter-spacing);
-    opacity: var(--caption-opacity);
+    padding-top: var(--margin);
+    border-top: 1px solid var(--system-light-gray);
+}
+
+footer ul {
+    margin: 0;
+}
+
+footer li {
+    display: inline-block;
+}
+
+footer li::before {
+    content: "·";
+    display: inline-block;
+    width: 10px;
+    margin-left: 0;
+}
+
+footer li:first-child::before {
+    content: "";
+    width: 0;
+}
+
+footer li a {
+    text-decoration: none;
+    color: var(--system-gray);
+}
+
+footer li a:hover {
+    text-decoration-color: var(--system-gray);
 }
 
 section {
@@ -146,21 +151,19 @@ h1 {
     line-height: var(--title-line-height);
     font-weight: var(--title-weight);
     letter-spacing: var(--title-letter-spacing);
-    color: var(--system-black);
+    color: var(--title-color);
 }
 
-h2 {
-    font-size: var(--header-size);
-    line-height: var(--header-line-height);
-    font-weight: var(--header-weight);
-    letter-spacing: var(--header-letter-spacing);
-}
-
+h2,
 h3,
 h4,
 h5,
 h6 {
-    font-weight: var(--strong-weight);
+    font-size: var(--header-size);
+    line-height: var(--header-line-height);
+    font-weight: var(--header-weight);
+    letter-spacing: var(--header-letter-spacing);
+    color: var(--header-color);
 }
 
 h1+h2,
@@ -171,17 +174,12 @@ h3+h4 {
 }
 
 h3+p,
-h3+table,
 h3+ul {
     margin-top: calc(var(--margin) * -0.5);
 }
 
 h5+p,
 h6+p,
-h3+table,
-h4+table,
-h5+table,
-h6+table,
 h5+ul,
 h6+ul {
     margin-top: calc(var(--margin) * -1);
@@ -221,6 +219,7 @@ a:hover {
 
 strong {
     font-weight: var(--strong-weight);
+    color: var(--strong-color);
 }
 
 em {
@@ -279,11 +278,30 @@ blockquote *:last-child {
     margin-bottom: 0;
 }
 
+details summary::-webkit-details-marker,
+details summary::marker {
+    display: none;
+}
+
+details summary:before {
+    content: "→ ";
+    margin-left: -22px;
+}
+
+details[open]>summary:before {
+    content: "↓ ";
+    color: var(--system-light-gray);
+}
+
+details summary {
+    cursor: pointer;
+}
+
 hr {
     display: block;
     margin: calc(var(--margin) * 2) 0;
     border: none;
-    height: 3px;
+    height: 1px;
     background-color: var(--system-black);
     opacity: 0.15;
 }
@@ -402,23 +420,19 @@ dd {
 
 table {
     width: 100%;
-    border-top: 1px solid var(--system-light-gray);
-    border-collapse: collapse;
-    font-family: var(--mono);
-    font-size: var(--mono-size);
-    line-height: var(--mono-line-height);
 }
 
 th,
 td {
     padding: 4px 0;
-    border-bottom: 1px solid var(--system-light-gray);
+    border-top: 1px solid var(--system-light-gray);
     text-align: left;
 }
 
 th {
-    font-weight: 600;
+    font-weight: var(--body-weight);
     color: var(--system-gray);
+    border-top: none;
 }
 
 th[align="right"],
@@ -608,29 +622,22 @@ figcaption a {
 /* ------------------------------------------------------------------ */
 
 h3+.summary,
-p+.continue {
+h4+.summary,
+.summary+.continue {
     margin-top: calc(var(--margin) * -0.5);
 }
 
 .continue {
-    display: inline-block;
-    font-family: var(--sans-text);
-    font-size: 14px;
-    line-height: 20px;
+    margin-bottom: calc(var(--margin) * 2);
 }
 
 .continue a {
     display: inline-block;
-    padding: 5px 12px;
-    border: 1px solid var(--system-black);
     text-decoration: none;
-    color: var(--system-black)
+    color: var(--system-red)
 }
 
-.continue a:hover {
-    background-color: var(--system-black);
-    color: var(--system-white);
-}
+.continue a:hover {}
 
 /* Terminal Theme */
 /* ------------------------------------------------------------------ */
@@ -682,4 +689,38 @@ body.terminal header h1::after {
     body.terminal dt {
         color: #C7C329;
     }
+}
+
+/* Gant Chart */
+/* ------------------------------------------------------------------ */
+
+.gant {
+    font-size: 10px;
+}
+
+.gant a {
+    text-decoration: none;
+}
+
+.gant a:hover {
+    text-decoration: underline;
+}
+
+.gant .time td {
+    text-align: center;
+}
+
+.gant td {
+    border-left: 1px solid var(--system-light-gray);
+}
+
+.gant th {
+    border-left: 1px solid var(--system-light-gray);
+    text-align: center;
+}
+
+.gant .present {
+    background: var(--system-red);
+    color: var(--system-dark-red);
+    text-align: center;
 }
