@@ -53,7 +53,7 @@
     --system-light-yellow: #F9E7B1;
     --system-light-green: #C9E5BB;
     --system-light-blue: #B8E0F5;
-    --system-light-gray: rgba(0, 0, 0, 0.10);
+    --system-light-gray: #ddd;
 
     --system-dark-gray: #555;
     --system-dark-red: #330000;
@@ -209,12 +209,13 @@ h3 a {
 
 a {
     text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-decoration-color: var(--system-black);
+    text-decoration-thickness: 1.5px;
+    text-decoration-color: var(--system-light-gray);
 }
 
 a:hover {
     text-decoration: underline;
+    text-decoration-color: var(--system-dark-gray);
 }
 
 strong {
