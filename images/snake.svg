@@ -20,6 +20,18 @@
         .snake {
         fill: #222;
         }
+
+        @media screen and (prefers-color-scheme: dark) {
+        .snake {
+        fill: #fff;
+        }
+        .place {
+        fill: #000;
+        }
+        .year {
+        fill: #aaa;
+        }
+        }
     </style>
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <path
